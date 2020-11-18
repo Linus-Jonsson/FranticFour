@@ -56,4 +56,5 @@ public class Player : MonoBehaviour
         canJump = true;
         print("Jumping reset");
     }
+
 }
