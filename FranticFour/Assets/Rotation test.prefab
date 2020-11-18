@@ -99,8 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 801c79b966ab6ad429f21cfb47231006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 20
-  jumpingDrag: 0.3
+  movementSpeed: 10
 --- !u!50 &5575129103255632263
 Rigidbody2D:
   serializedVersion: 4
@@ -152,8 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pushForce: 10
   pushCD: 2
-  jumpDuration: 2
-  jumpCD: 2
+  canPush: 1
 --- !u!1 &5575129103467070823
 GameObject:
   m_ObjectHideFlags: 0
