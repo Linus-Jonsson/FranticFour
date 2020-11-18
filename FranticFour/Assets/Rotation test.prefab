@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5575129103255632260}
   - component: {fileID: 5575129103255632263}
   - component: {fileID: 341948758}
+  - component: {fileID: -1645165569722071076}
   m_Layer: 0
   m_Name: Rotation test
   m_TagString: Player
@@ -99,8 +100,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 10
-  pushForce: 10
-  test: 0
 --- !u!50 &5575129103255632263
 Rigidbody2D:
   serializedVersion: 4
@@ -138,6 +137,21 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.08
+--- !u!114 &-1645165569722071076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5575129103255632267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75659d9530a15ed47aa69b09cb3a239c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pushForce: 10
+  pushCD: 2
+  canPush: 1
 --- !u!1 &5575129103467070823
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,7 +248,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 745c21cd1bf4e9347a5f4fb33f36b300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targets: []
 --- !u!61 &742136906
 BoxCollider2D:
   m_ObjectHideFlags: 0
