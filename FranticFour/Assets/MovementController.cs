@@ -5,16 +5,15 @@ using UnityEngine;
 public class MovementController : MonoBehaviour
 {
     [SerializeField] float movementSpeed = 10f;
-    //[SerializeField] float jumpForce = 10f;
     [SerializeField] float pushForce = 10f;
-    
-    [SerializeField] bool testBody = false;  // remove this once pushing players work as intended with support for multiplayer
-
+    [SerializeField] float pushCD = 2f;
 
     Vector2 dir = new Vector2(0, 0);
 
     Rigidbody2D rb2d;
     PushController pushController;
+
+    bool canPush = true;
 
     void Start()
     {
@@ -24,21 +23,23 @@ public class MovementController : MonoBehaviour
 
     private void Update()
     {
-        if (testBody) // remove this once pushing players work as intended with support for multiplayer
-            return;
-        if (Input.GetButtonDown("Push") || Input.GetAxis("Push") > 0)
+        if (canPush && (Input.GetButtonDown("Push") || Input.GetAxis("Push") > 0))
         {
-            var target = pushController.GetTargetToPush();
-            if (target != null)
-                target.GetPushed(dir.normalized * pushForce);
+            PushOtherPlayer();
         }
+    }
+
+    private void PushOtherPlayer()
+    {
+        canPush = false;
+        var target = pushController.GetTargetToPush();
+        if (target != null)
+            target.GetPushed(dir.normalized * pushForce);
+        StartCoroutine(ResetPush());
     }
 
     void FixedUpdate()
     {
-        if (testBody) // remove this once pushing players work as intended with support for multiplayer
-            return;
-
         MovePlayer();
         RotatePlayer();
     }
@@ -61,7 +62,7 @@ public class MovementController : MonoBehaviour
         if (Input.GetAxis("Mouse Y") != 0)
             dir.y = Input.GetAxis("Mouse Y");
 
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(-dir.x, -dir.y) * Mathf.Rad2Deg));
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(-dir.x, dir.y) * Mathf.Rad2Deg));
     }
     private void SetMouseRotation()
     {
@@ -75,5 +76,11 @@ public class MovementController : MonoBehaviour
     {
         rb2d.velocity = Vector2.zero;
         rb2d.AddForce(pushForce, ForceMode2D.Impulse);
+    }
+
+    IEnumerator ResetPush()
+    {
+        yield return new WaitForSeconds(pushCD);
+        canPush = true;
     }
 }

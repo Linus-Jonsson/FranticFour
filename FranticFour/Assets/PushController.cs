@@ -35,13 +35,17 @@ public class PushController : MonoBehaviour
 
         Transform player = gameObject.transform;
 
-        foreach(var target in targets)
+        float closestTargetDistance = Vector2.Distance(closestTarget.position, player.position);
+
+        foreach (var target in targets)
         {
             float targetDistance = Vector2.Distance(target.position, player.position);
-            float closestTargetDistance = Vector2.Distance(closestTarget.position, player.position);
 
             if (targetDistance < closestTargetDistance)
+            {
                 closestTarget = target;
+                closestTargetDistance = Vector2.Distance(closestTarget.position, player.position);
+            }
         }
 
         return closestTarget.GetComponent<MovementController>();
