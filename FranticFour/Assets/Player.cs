@@ -7,13 +7,16 @@ public class Player : MonoBehaviour
     [SerializeField] float pushForce = 10f;
     [SerializeField] float pushCD = 2f;
 
-
+    [SerializeField] float jumpDuration = 2f;
+    [SerializeField] float jumpCD = 2f;
 
     PushController pushController;
     MovementController movController;
 
     bool canPush = true;
+    bool canJump = true;
 
+    bool jumping = false;
 
     void Start()
     {
@@ -27,6 +30,10 @@ public class Player : MonoBehaviour
         {
             StartCoroutine(PushOtherPlayer());
         }
+        if (canJump && Input.GetButton("Jump"))
+        {
+            StartCoroutine(HandleJump());
+        }
     }
 
     IEnumerator PushOtherPlayer()
@@ -37,5 +44,16 @@ public class Player : MonoBehaviour
         canPush = true;
     }
 
-
+    IEnumerator HandleJump()
+    {
+        print("Jumping");
+        canJump = false;
+        jumping = true;
+        yield return new WaitForSeconds(jumpDuration);
+        print("Jumping done");
+        jumping = false;
+        yield return new WaitForSeconds(jumpCD);
+        canJump = true;
+        print("Jumping reset");
+    }
 }
