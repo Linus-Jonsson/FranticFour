@@ -4,17 +4,49 @@ using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
+    [Header("Layer configuration")]
+    [Tooltip("Set this to have the layerNumber of the layer that player is")]
+    [SerializeField] int playerLayer = 8;
+    [Tooltip("Set this to have the layerNumber of the layer that Jump is")]
+    [SerializeField] int jumpLayer = 9;
+
+
+    [Header("Movement configuration")]
     [SerializeField] float movementSpeed = 10f;
 
 
+    [Header("Jump configuration")]
+    [Tooltip("The duration of the jump in seconds")]
+    [SerializeField] float jumpDuration = 2f;
+    [Tooltip("The cooldown on jumping in seconds (starts to count after jump is finished)")]
+    [SerializeField] float jumpCD = 2f;
+    [Tooltip("The drag on the rigidBody while jumping (This should be low due to no force applied during the jump")]
+    [SerializeField] float jumpingDrag = 0.3f;
+
+
+
     Vector2 dir = new Vector2(0, 0);
-    public Vector2 Dir { get { return dir; }}
+
+    public Vector2 Dir { get { return dir; } }
+
     Rigidbody2D rb2d;
+    bool jumping = false;
 
+    bool canJump = true;
 
+    float originalDrag;
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        originalDrag = rb2d.drag;
+    }
+
+    private void Update()
+    {
+        if (canJump && Input.GetButton("Jump"))
+        {
+            StartCoroutine(HandleJump());
+        }
     }
 
     void FixedUpdate()
@@ -25,9 +57,35 @@ public class MovementController : MonoBehaviour
 
     private void MovePlayer()
     {
-        Vector2 movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
+        if (jumping)
+            return;
+
+        Vector2 movement = new Vector2(Input.GetAxis("Horizontal1"), Input.GetAxis("Vertical")).normalized;
         rb2d.AddForce(movement * movementSpeed);
     }
+
+    IEnumerator HandleJump()
+    {
+        StartJumping();
+        yield return new WaitForSeconds(jumpDuration);
+        EndJumping();
+        yield return new WaitForSeconds(jumpCD);
+        canJump = true;
+    }
+    private void StartJumping()
+    {
+        canJump = false;
+        gameObject.layer = jumpLayer;
+        rb2d.drag = jumpingDrag;
+        jumping = true;
+    }
+    private void EndJumping()
+    {
+        gameObject.layer = playerLayer;
+        rb2d.drag = originalDrag;
+        jumping = false;
+    }
+
 
     private void HandleRotation()
     {
