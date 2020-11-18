@@ -5,43 +5,22 @@ using UnityEngine;
 public class MovementController : MonoBehaviour
 {
     [SerializeField] float movementSpeed = 10f;
-    [SerializeField] float pushForce = 10f;
-    [SerializeField] float pushCD = 2f;
+
 
     Vector2 dir = new Vector2(0, 0);
-
+    public Vector2 Dir { get { return dir; }}
     Rigidbody2D rb2d;
-    PushController pushController;
 
-    bool canPush = true;
 
     void Start()
     {
-        pushController = GetComponentInChildren<PushController>();
         rb2d = GetComponent<Rigidbody2D>();
-    }
-
-    private void Update()
-    {
-        if (canPush && (Input.GetButtonDown("Push") || Input.GetAxis("Push") > 0))
-        {
-            PushOtherPlayer();
-        }
-    }
-
-    private void PushOtherPlayer()
-    {
-        canPush = false;
-        var target = pushController.GetTargetToPush();
-        if (target != null)
-            target.GetPushed(dir.normalized * pushForce);
-        StartCoroutine(ResetPush());
     }
 
     void FixedUpdate()
     {
         MovePlayer();
-        RotatePlayer();
+        HandleRotation();
     }
 
     private void MovePlayer()
@@ -50,12 +29,14 @@ public class MovementController : MonoBehaviour
         rb2d.AddForce(movement * movementSpeed);
     }
 
-    private void RotatePlayer()
+    private void HandleRotation()
     {
-        SetControllerRotation();
-        //SetMouseRotation();
+        // add a small check if controller is assigned or not and use an if statement to controll what rotation to use.
+        HandleControllerRotation();
+        HandleMouseRotation();
     }
-    private void SetControllerRotation()
+
+    private void HandleControllerRotation()
     {
         if (Input.GetAxis("Mouse X") != 0)
             dir.x = Input.GetAxis("Mouse X");
@@ -64,7 +45,7 @@ public class MovementController : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(-dir.x, dir.y) * Mathf.Rad2Deg));
     }
-    private void SetMouseRotation()
+    private void HandleMouseRotation()
     {
         var position = Camera.main.WorldToScreenPoint(transform.position);
         dir = Input.mousePosition - position;
@@ -76,11 +57,5 @@ public class MovementController : MonoBehaviour
     {
         rb2d.velocity = Vector2.zero;
         rb2d.AddForce(pushForce, ForceMode2D.Impulse);
-    }
-
-    IEnumerator ResetPush()
-    {
-        yield return new WaitForSeconds(pushCD);
-        canPush = true;
     }
 }
