@@ -8,8 +8,10 @@ public class PreyTrap : MonoBehaviour
     private GameObject player;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        player = other.gameObject;
-        StartCoroutine(StunPlayer(player));
+        if (other.CompareTag("Player")) {
+            player = other.gameObject;
+            StartCoroutine(StunPlayer(player));
+        }
     }
 
     private IEnumerator StunPlayer(GameObject player)
