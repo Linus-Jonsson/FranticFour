@@ -28,6 +28,6 @@ public class Controller
         Debug.LogWarning(m_id);
         vertical = StringManager.Inputs.vertical + m_id;
         horizontal = StringManager.Inputs.horizontal + m_id;
-        push = StringManager.Inputs.push + m_id;
+        push = StringManager.Inputs.action1 + m_id;
     }
 }

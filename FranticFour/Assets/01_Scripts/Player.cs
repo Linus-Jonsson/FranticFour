@@ -1,12 +1,12 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] float pushForce = 10f;
     [SerializeField] float pushCooldown = 2f;
-
+    [SerializeField] public AssignedController controller;
+    
     PushController pushController;
     MovementController movementController;
     
@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        controller = GetComponent<AssignedController>();
         spawnPoint = transform.position;
         pushController = GetComponentInChildren<PushController>();
         movementController = GetComponent<MovementController>();
@@ -25,7 +26,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         if (canPush && !movementController.FreezeInput &&
-            (Input.GetButtonDown("Push") || Input.GetAxis("Push") > 0))
+            (Input.GetButtonDown(controller.Action1) || Input.GetAxis(controller.Action1) > 0))//Hämta input
         {
             StartCoroutine(PushOtherPlayer());
         }
