@@ -12,7 +12,7 @@ public class AssignedController : MonoBehaviour
         set { playerID = value; SetControllerKeys();}
     }
 
-    [Header("Assigned controlls")]
+    [Header("Assigned controls")]
     [SerializeField] private string vertical;
     [SerializeField] private string horizontal;
     [SerializeField] private string push;

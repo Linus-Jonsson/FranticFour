@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 
     PushController pushController;
     MovementController movementController;
+    
 
     Vector2 spawnPoint; // remove this once death is properly implemented.
 
