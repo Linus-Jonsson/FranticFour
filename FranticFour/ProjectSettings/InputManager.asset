@@ -20,7 +20,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 0
-    joyNum: 4
+    joyNum: 1
   - serializedVersion: 3
     m_Name: Vertical0
     descriptiveName: 
@@ -36,7 +36,7 @@ InputManager:
     invert: 1
     type: 2
     axis: 1
-    joyNum: 4
+    joyNum: 1
   - serializedVersion: 3
     m_Name: Push0
     descriptiveName: 
@@ -52,7 +52,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 2
-    joyNum: 4
+    joyNum: 1
   - serializedVersion: 3
     m_Name: Horizontal1
     descriptiveName: 
@@ -68,7 +68,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 0
-    joyNum: 3
+    joyNum: 2
   - serializedVersion: 3
     m_Name: Vertical1
     descriptiveName: 
@@ -84,7 +84,7 @@ InputManager:
     invert: 1
     type: 2
     axis: 1
-    joyNum: 3
+    joyNum: 2
   - serializedVersion: 3
     m_Name: Push1
     descriptiveName: 
@@ -100,7 +100,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 2
-    joyNum: 3
+    joyNum: 2
   - serializedVersion: 3
     m_Name: Horizontal2
     descriptiveName: 
@@ -116,7 +116,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 0
-    joyNum: 2
+    joyNum: 3
   - serializedVersion: 3
     m_Name: Vertical2
     descriptiveName: 
@@ -132,7 +132,7 @@ InputManager:
     invert: 1
     type: 2
     axis: 1
-    joyNum: 2
+    joyNum: 3
   - serializedVersion: 3
     m_Name: Push2
     descriptiveName: 
@@ -148,7 +148,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 2
-    joyNum: 2
+    joyNum: 3
   - serializedVersion: 3
     m_Name: Horizontal3
     descriptiveName: 
@@ -164,7 +164,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 0
-    joyNum: 1
+    joyNum: 4
   - serializedVersion: 3
     m_Name: Vertical3
     descriptiveName: 
@@ -180,7 +180,7 @@ InputManager:
     invert: 1
     type: 2
     axis: 1
-    joyNum: 1
+    joyNum: 4
   - serializedVersion: 3
     m_Name: Push3
     descriptiveName: 
@@ -196,7 +196,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 2
-    joyNum: 1
+    joyNum: 4
   - serializedVersion: 3
     m_Name: Fire1
     descriptiveName: 

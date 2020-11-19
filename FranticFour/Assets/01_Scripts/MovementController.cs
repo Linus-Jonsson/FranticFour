@@ -22,7 +22,8 @@ public class MovementController : MonoBehaviour
     [SerializeField] float jumpCooldown = 2f;
     [Tooltip("The drag on the rigidBody while jumping (This should be low due to no force applied during the jump")]
     [SerializeField] float jumpingDrag = 0.3f;
-
+    
+    [SerializeField] public AssignedController controller;
 
 
     Vector2 dir = new Vector2(0, 0);
@@ -40,6 +41,7 @@ public class MovementController : MonoBehaviour
     float originalDrag;
     void Start()
     {
+        controller = GetComponent<AssignedController>();
         rb2d = GetComponent<Rigidbody2D>();
         originalDrag = rb2d.drag;
     }
@@ -63,7 +65,7 @@ public class MovementController : MonoBehaviour
 
     private void MovePlayer()
     {
-        Vector2 movement = new Vector2(Input.GetAxis("Horizontal1"), Input.GetAxis("Vertical")).normalized;
+        Vector2 movement = new Vector2(Input.GetAxis(controller.Horizontal), Input.GetAxis(controller.Vertical)).normalized;
         rb2d.AddForce(movement * movementSpeed);
     }
 
