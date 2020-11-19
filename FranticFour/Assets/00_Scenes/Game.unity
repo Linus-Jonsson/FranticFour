@@ -267,6 +267,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rotation test
       objectReference: {fileID: 0}
+    - target: {fileID: 5575129103255632267, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
 --- !u!1 &1649004842
