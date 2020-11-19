@@ -8,6 +8,6 @@ public static class StringManager
    {
       public static readonly string horizontal = "Horizontal";
       public static readonly string vertical = "Vertical";
-      public static readonly string action1 = "Push";
+      public static readonly string action1 = "Action1";
    }
 }

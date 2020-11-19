@@ -10,15 +10,18 @@ public class TrapAbility : MonoBehaviour
     [SerializeField] private GameObject preyTrap = null;
     private MovementController movementController;
     private bool canThrowTraps = true;
-
+    
+    [SerializeField] public AssignedController controller;
+    
     private void Start()
     {
+        controller = GetComponent<AssignedController>();
         movementController = GetComponent<MovementController>();
     }
 
     private void Update()
     {
-        if ((Input.GetButtonDown("Push") || Input.GetAxis("Push") > 0) && canThrowTraps)
+        if ((Input.GetButtonDown(controller.Action1) || Input.GetAxis(controller.Action1) > 0) && canThrowTraps)
         {
             StartCoroutine(ThrowTrap());
         }

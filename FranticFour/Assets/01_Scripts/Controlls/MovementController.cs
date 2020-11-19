@@ -10,10 +10,8 @@ public class MovementController : MonoBehaviour
     [Tooltip("Set this to have the layerNumber of the layer that Jump is")]
     [SerializeField] int jumpLayer = 9;
 
-
     [Header("Movement configuration")]
     [SerializeField] float movementSpeed = 10f;
-
 
     [Header("Jump configuration")]
     [Tooltip("The duration of the jump in seconds")]
@@ -24,7 +22,6 @@ public class MovementController : MonoBehaviour
     [SerializeField] float jumpingDrag = 0.3f;
     
     [SerializeField] public AssignedController controller;
-
 
     Vector2 dir = new Vector2(0, 0);
 
