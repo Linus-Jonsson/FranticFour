@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
 
     bool canPush = true;
 
+    [SerializeField] bool prey = false;
+
     void Start()
     {
         controller = GetComponent<AssignedController>();
@@ -25,6 +27,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if(prey) { return; }
         if (canPush && !movementController.FreezeInput &&
             (Input.GetButtonDown(controller.Action1) || Input.GetAxis(controller.Action1) > 0))//Hämta input
         {
