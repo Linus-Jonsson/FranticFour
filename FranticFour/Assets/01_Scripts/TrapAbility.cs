@@ -6,8 +6,10 @@ using UnityEngine;
 public class TrapAbility : MonoBehaviour
 {
     [SerializeField] private float throwDistance = 0.5f;
-    public GameObject preyTrap;
+    [SerializeField] private float trapsCoolDown = 4f;
+    [SerializeField] private GameObject preyTrap = null;
     private MovementController movementController;
+    private bool canThrowTraps = true;
 
     private void Start()
     {
@@ -16,11 +18,18 @@ public class TrapAbility : MonoBehaviour
 
     private void Update()
     {
-
-        if (Input.GetButtonDown("Push") || Input.GetAxis("Push") > 0)
+        if ((Input.GetButtonDown("Push") || Input.GetAxis("Push") > 0) && canThrowTraps)
         {
-            Vector3 offset = movementController.Dir.normalized * throwDistance;
-            Instantiate(preyTrap, transform.position - offset, Quaternion.identity);
+            StartCoroutine(ThrowTrap());
         }
+    }
+
+    IEnumerator ThrowTrap()
+    {
+        canThrowTraps = false;
+        Vector3 offset = movementController.Dir.normalized * throwDistance;
+        Instantiate(preyTrap, transform.position - offset, Quaternion.identity);
+        yield return new WaitForSeconds(trapsCoolDown);
+        canThrowTraps = true;
     }
 }
