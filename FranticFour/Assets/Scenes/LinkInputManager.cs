@@ -26,7 +26,11 @@ public class LinkInputManager : MonoBehaviour
 
     public static void LinkController(int controllerID, int linkID) //Optimisera
     {
-        //Read from file
+        //Null check
+        if (string.IsNullOrEmpty(filePath))
+            return;
+            
+            //Read from file
         text = File.ReadAllLines(filePath);
         for (int i = 0; i < text.Length; i++)
         {
@@ -37,7 +41,7 @@ public class LinkInputManager : MonoBehaviour
             }
         }
         //Write to file
-        File.WriteAllLines(filePath, text); //Kan skapa problem när spelet byggs, undersök
+        File.WriteAllLines(filePath, text); //Kan skapa problem när spelet byggs, undersök!!!
     }
     
     private static void ContainsKeys(string keyText, string joyText, int linkID, int joyTextLine, int controllerID) //Optimisera

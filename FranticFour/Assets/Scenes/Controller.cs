@@ -21,12 +21,6 @@ public class Controller
 
         AssignInputs();
         LinkInputManager.LinkController(controllerNum, m_id);
-
-        //Controller assigned (debug)
-        //Debug.Log(controllerNum);
-        //Debug.Log(string.Format(
-        //    "Controller: {0} Vertical: {1} \nHorizontal: {2} \nPush: {3}",
-        //    m_name, horizontal, vertical, push));
     }
 
     private void AssignInputs()

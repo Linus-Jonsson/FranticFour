@@ -5,7 +5,7 @@ public class ControllerInit : MonoBehaviour
     [SerializeField] private GameObject[] players = new GameObject[4];
     [SerializeField] private Controller[] controllers = new Controller[4];
     
-    private void Awake()
+    private void Start()
     {
         //Debug
         controllers[0] = new Controller("Debug1", 0, 0);
@@ -23,7 +23,7 @@ public class ControllerInit : MonoBehaviour
             for (int indexID = 0; indexID < controllers.Length; indexID++)
             {
                 Debug.Log("|" + string.IsNullOrEmpty(controllers[indexID].Name) + "|");//Den är tom?
-                if (!string.IsNullOrEmpty(controllers[indexID].Name))//FEEEL
+                if (!string.IsNullOrEmpty(controllers[indexID].Name))//DET FUNKAR
                 {
                     Debug.Log("Plats tagen av: " + indexID);
                     continue;
