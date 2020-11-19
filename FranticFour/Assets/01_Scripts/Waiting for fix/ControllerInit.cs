@@ -7,10 +7,10 @@ public class ControllerInit : MonoBehaviour
     
     private void Start()
     {
-        //Debug
+        //Debug Array index and controller id has to be the same for debugging
         controllers[0] = new Controller("Debug1", 0, 3);
-        controllers[1] = new Controller("Debug2", 1, 1);
-        controllers[2] = new Controller("Debug3", 2, 2);
+        controllers[1] = new Controller("Debug2", 1, 2);
+        controllers[2] = new Controller("Debug3", 2, 1);
         //controllers[3] = new Controller("Debug4", 3, 3);
         
         string[] joystickNames = Input.GetJoystickNames();
