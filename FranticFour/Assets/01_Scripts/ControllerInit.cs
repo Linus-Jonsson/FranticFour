@@ -8,7 +8,7 @@ public class ControllerInit : MonoBehaviour
     private void Start()
     {
         //Debug
-        controllers[0] = new Controller("Debug1", 0, 0);
+        controllers[0] = new Controller("Debug1", 0, 3);
         controllers[1] = new Controller("Debug2", 1, 1);
         controllers[2] = new Controller("Debug3", 2, 2);
         //controllers[3] = new Controller("Debug4", 3, 3);
