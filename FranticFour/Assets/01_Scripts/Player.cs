@@ -10,10 +10,13 @@ public class Player : MonoBehaviour
     PushController pushController;
     MovementController movController;
 
+    Vector2 spawnPoint; // remove this once death is properly implemented.
+
     bool canPush = true;
 
     void Start()
     {
+        spawnPoint = transform.position;
         pushController = GetComponentInChildren<PushController>();
         movController = GetComponent<MovementController>();
     }
@@ -32,5 +35,21 @@ public class Player : MonoBehaviour
         pushController.PushTarget(movController.Dir.normalized * pushForce);
         yield return new WaitForSeconds(pushCD);
         canPush = true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("triggered");
+        if(other.gameObject.CompareTag("Danger"))
+        {
+            print("dead");
+            HandleDeath();
+        }
+    }
+
+    private void HandleDeath()
+    {
+        // this will be where the player death will be handled instead of just chaning its position.
+        transform.position = spawnPoint; 
     }
 }
