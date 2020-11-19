@@ -46,9 +46,7 @@ public class MovementController : MonoBehaviour
     private void Update()
     {
         if (canJump && Input.GetButton("Jump") && !freezeInput)
-        {
             StartCoroutine(HandleJump());
-        }
     }
 
     void FixedUpdate()
@@ -93,15 +91,18 @@ public class MovementController : MonoBehaviour
     {
         // add a small check if controller is assigned or not and use an if statement to controll what rotation to use.
         HandleControllerRotation();
-        HandleMouseRotation();
+        //HandleMouseRotation(); Musen skriver över kontroller inputs
     }
 
     private void HandleControllerRotation()
     {
-        if (Input.GetAxis("Mouse X") != 0)
-            dir.x = Input.GetAxis("Mouse X");
-        if (Input.GetAxis("Mouse Y") != 0)
-            dir.y = Input.GetAxis("Mouse Y");
+        float inputX = Input.GetAxis(controller.RightHorizontal);
+        float inputY = Input.GetAxis(controller.RightVertical);
+
+        if (inputX != 0)
+            dir.x = inputX;
+        if (inputY != 0)
+            dir.y = inputY;
 
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(-dir.x, dir.y) * Mathf.Rad2Deg));
     }
