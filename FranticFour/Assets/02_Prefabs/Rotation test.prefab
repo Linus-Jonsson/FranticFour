@@ -107,6 +107,7 @@ MonoBehaviour:
   jumpDuration: 2
   jumpCooldown: 2
   jumpingDrag: 0.3
+  controller: {fileID: 0}
 --- !u!50 &5575129103255632263
 Rigidbody2D:
   serializedVersion: 4
@@ -158,6 +159,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pushForce: 10
   pushCooldown: 2
+  controller: {fileID: 0}
+  deathParticles: {fileID: 8171510603094556011, guid: 4daac6d3fbfde42468e742d41eb8884c, type: 3}
+  prey: 0
 --- !u!114 &776179426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,6 +177,7 @@ MonoBehaviour:
   throwDistance: 0.5
   trapsCoolDown: 4
   preyTrap: {fileID: 7986219203063273604, guid: a0ff91c6e4bdf6b45ab4387956b9838f, type: 3}
+  controller: {fileID: 0}
 --- !u!114 &3581755244856528199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,6 +193,7 @@ MonoBehaviour:
   throwDistance: 0.5
   trapsCoolDown: 4
   preyTrap: {fileID: 7986219203063273604, guid: a0ff91c6e4bdf6b45ab4387956b9838f, type: 3}
+  controller: {fileID: 0}
 --- !u!1 &5575129103467070823
 GameObject:
   m_ObjectHideFlags: 0
