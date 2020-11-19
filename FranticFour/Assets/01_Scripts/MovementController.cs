@@ -19,7 +19,7 @@ public class MovementController : MonoBehaviour
     [Tooltip("The duration of the jump in seconds")]
     [SerializeField] float jumpDuration = 2f;
     [Tooltip("The cooldown on jumping in seconds (starts to count after jump is finished)")]
-    [SerializeField] float jumpCD = 2f;
+    [SerializeField] float jumpCooldown = 2f;
     [Tooltip("The drag on the rigidBody while jumping (This should be low due to no force applied during the jump")]
     [SerializeField] float jumpingDrag = 0.3f;
 
@@ -30,7 +30,10 @@ public class MovementController : MonoBehaviour
     public Vector2 Dir { get { return dir; } }
 
     Rigidbody2D rb2d;
-    bool jumping = false;
+
+    bool freezeInput = false;
+    public bool FreezeInput { get { return freezeInput; } }
+
 
     bool canJump = true;
 
@@ -43,7 +46,7 @@ public class MovementController : MonoBehaviour
 
     private void Update()
     {
-        if (canJump && Input.GetButton("Jump"))
+        if (canJump && Input.GetButton("Jump") && !freezeInput)
         {
             StartCoroutine(HandleJump());
         }
@@ -51,15 +54,15 @@ public class MovementController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (freezeInput)
+            return;
+
         MovePlayer();
         HandleRotation();
     }
 
     private void MovePlayer()
     {
-        if (jumping)
-            return;
-
         Vector2 movement = new Vector2(Input.GetAxis("Horizontal1"), Input.GetAxis("Vertical")).normalized;
         rb2d.AddForce(movement * movementSpeed);
     }
@@ -69,7 +72,7 @@ public class MovementController : MonoBehaviour
         StartJumping();
         yield return new WaitForSeconds(jumpDuration);
         EndJumping();
-        yield return new WaitForSeconds(jumpCD);
+        yield return new WaitForSeconds(jumpCooldown);
         canJump = true;
     }
     private void StartJumping()
@@ -77,13 +80,13 @@ public class MovementController : MonoBehaviour
         canJump = false;
         gameObject.layer = jumpLayer;
         rb2d.drag = jumpingDrag;
-        jumping = true;
+        freezeInput = true;
     }
     private void EndJumping()
     {
         gameObject.layer = playerLayer;
         rb2d.drag = originalDrag;
-        jumping = false;
+        freezeInput = false;
     }
 
 
@@ -115,5 +118,17 @@ public class MovementController : MonoBehaviour
     {
         rb2d.velocity = Vector2.zero;
         rb2d.AddForce(pushForce, ForceMode2D.Impulse);
+    }
+
+    public void GetStunned(float duration)
+    {
+        StartCoroutine(HandleStun(duration));
+    }
+
+    IEnumerator HandleStun(float duration)
+    {
+        freezeInput = true;
+        yield return new WaitForSeconds(duration);
+        freezeInput = false;
     }
 }
