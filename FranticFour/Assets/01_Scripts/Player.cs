@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     [SerializeField] float pushForce = 10f;
     [SerializeField] float pushCooldown = 2f;
     [SerializeField] public AssignedController controller;
+    [SerializeField] private GameObject deathParticles;
     
     PushController pushController;
     MovementController movementController;
@@ -23,6 +24,7 @@ public class Player : MonoBehaviour
         spawnPoint = transform.position;
         pushController = GetComponentInChildren<PushController>();
         movementController = GetComponent<MovementController>();
+        transform.position = new Vector3(Random.Range(-7f,1f),Random.Range(-0.38f, 4.3f), transform.position.z);
     }
 
     private void Update()
@@ -56,6 +58,8 @@ public class Player : MonoBehaviour
     private void HandleDeath()
     {
         // this will be where the player death will be handled instead of just chaning its position.
-        transform.position = spawnPoint; 
+        if (deathParticles) //Null check
+            Instantiate(deathParticles, new Vector3(transform.position.x, transform.position.y, 7), Quaternion.identity);
+        transform.position = new Vector3(Random.Range(-7f,1f),Random.Range(-0.38f, 4.3f), transform.position.z);
     }
 }
