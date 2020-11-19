@@ -4,25 +4,17 @@ using UnityEngine;
 
 public class PreyTrap : MonoBehaviour
 {
-    [SerializeField] private float stunDelay = 2;
-    private GameObject player;
+    [SerializeField] float stunDelay = 2;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player")) {
-            player = other.gameObject;
-            StartCoroutine(StunPlayer(player));
+            GetComponent<BoxCollider2D>().enabled = false;
+            other.GetComponent<MovementController>().GetStunned(stunDelay);
         }
     }
 
-    private IEnumerator StunPlayer(GameObject player)
+    public void DestroyTrap()
     {
-        player.GetComponent<Rigidbody2D>().Sleep();
-        player.GetComponent<MovementController>().enabled = false;
-        //create electric effect + player shake
-        yield return new WaitForSeconds(stunDelay);
-        player.GetComponent<Rigidbody2D>().WakeUp();
-        player.GetComponent<MovementController>().enabled = true;
-        //Destroy Effect
         Destroy(gameObject);
     }
 }

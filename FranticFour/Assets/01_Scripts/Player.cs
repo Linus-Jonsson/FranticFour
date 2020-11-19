@@ -5,10 +5,10 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] float pushForce = 10f;
-    [SerializeField] float pushCD = 2f;
+    [SerializeField] float pushCooldown = 2f;
 
     PushController pushController;
-    MovementController movController;
+    MovementController movementController;
 
     Vector2 spawnPoint; // remove this once death is properly implemented.
 
@@ -18,12 +18,13 @@ public class Player : MonoBehaviour
     {
         spawnPoint = transform.position;
         pushController = GetComponentInChildren<PushController>();
-        movController = GetComponent<MovementController>();
+        movementController = GetComponent<MovementController>();
     }
 
     private void Update()
     {
-        if (canPush && (Input.GetButtonDown("Push") || Input.GetAxis("Push") > 0))
+        if (canPush && !movementController.FreezeInput &&
+            (Input.GetButtonDown("Push") || Input.GetAxis("Push") > 0))
         {
             StartCoroutine(PushOtherPlayer());
         }
@@ -32,8 +33,8 @@ public class Player : MonoBehaviour
     IEnumerator PushOtherPlayer()
     {
         canPush = false;
-        pushController.PushTarget(movController.Dir.normalized * pushForce);
-        yield return new WaitForSeconds(pushCD);
+        pushController.PushTarget(movementController.Dir.normalized * pushForce);
+        yield return new WaitForSeconds(pushCooldown);
         canPush = true;
     }
 
