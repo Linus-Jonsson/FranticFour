@@ -2,6 +2,7 @@
 using System.Reflection;
 using System.Text;
 using UnityEngine;
+
 //Optimiserat? nej. Funkar det? JA!!!
 public class LinkInputManager : MonoBehaviour
 {
@@ -29,22 +30,25 @@ public class LinkInputManager : MonoBehaviour
         //Null check
         if (string.IsNullOrEmpty(filePath))
             return;
-            
-            //Read from file
+
+        //Read from file
         text = File.ReadAllLines(filePath);
         for (int i = 0; i < text.Length; i++)
         {
             if (text[i].Contains(inputManagerStartString))
             {
-                ContainsKeys(text[i + KEY_NAME_OFFSET],text[i + JOY_NUM_OFFSET] ,linkID, i + JOY_NUM_OFFSET, controllerID);
+                ContainsKeys(text[i + KEY_NAME_OFFSET], text[i + JOY_NUM_OFFSET], linkID, i + JOY_NUM_OFFSET,
+                    controllerID);
                 i = i + JOY_NUM_OFFSET;
             }
         }
+
         //Write to file
         File.WriteAllLines(filePath, text); //Kan skapa problem när spelet byggs, undersök!!!
     }
-    
-    private static void ContainsKeys(string keyText, string joyText, int linkID, int joyTextLine, int controllerID) //Optimisera
+
+    private static void
+        ContainsKeys(string keyText, string joyText, int linkID, int joyTextLine, int controllerID) //Optimisera
     {
         StringBuilder stringBuilder;
         foreach (string key in inputs)
@@ -53,11 +57,13 @@ public class LinkInputManager : MonoBehaviour
             {
                 //Read
                 stringBuilder = new StringBuilder(joyText);
-                stringBuilder[stringBuilder.Length - 1] = (controllerID + 1).ToString().ToCharArray()[0]; //Kan ej gå från int->char direkt?
+                stringBuilder[stringBuilder.Length - 1] =
+                    (controllerID + 1).ToString().ToCharArray()[0];
                 //Write
                 text[joyTextLine] = stringBuilder.ToString();
-                
-                Debug.LogWarning(string.Format("{0} changed {1} to {2}", key + linkID, joyText, stringBuilder.ToString()));
+
+                Debug.LogWarning(string.Format("{0} changed {1} to {2}", key + linkID, joyText,
+                    stringBuilder.ToString())); //Debug
                 break;
             }
         }
@@ -67,9 +73,9 @@ public class LinkInputManager : MonoBehaviour
     {
         const BindingFlags BINDING_FLAGS = BindingFlags.Public | BindingFlags.Static;
         inputsLegnth = typeof(StringManager.Inputs).GetFields(BINDING_FLAGS).Length;
-        
+
         inputs = new string[inputsLegnth];
-        
+
         for (var index = 0; index < inputsLegnth; index++)
         {
             FieldInfo field = typeof(StringManager.Inputs).GetFields(BINDING_FLAGS)[index];

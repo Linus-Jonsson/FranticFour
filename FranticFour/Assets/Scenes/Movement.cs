@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(controller.horizontal);
+        Debug.Log(controller.horizontal);//Debug
     }
 
     private void Update()

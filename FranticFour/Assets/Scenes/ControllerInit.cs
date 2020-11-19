@@ -22,14 +22,13 @@ public class ControllerInit : MonoBehaviour
             
             for (int indexID = 0; indexID < controllers.Length; indexID++)
             {
-                Debug.Log("|" + string.IsNullOrEmpty(controllers[indexID].Name) + "|");//Den är tom?
-                if (!string.IsNullOrEmpty(controllers[indexID].Name))//DET FUNKAR
+                Debug.Log("|" + string.IsNullOrEmpty(controllers[indexID].Name) + "|");//Debug
+                if (!string.IsNullOrEmpty(controllers[indexID].Name))
                 {
-                    Debug.Log("Plats tagen av: " + indexID);
+                    //Controller already assigned
                     continue;
                 }
-                    
-                Debug.Log("PLATS LEDIG!");
+                //Assign controller
                 controllers[indexID] = new Controller(joystickNames[controllerNum], indexID, controllerNum);
                 indexID = controllers.Length;
             }

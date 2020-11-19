@@ -3,10 +3,10 @@
 [System.Serializable]
 public class Controller
 {
-    private string m_name;
-    private int m_id;
-    private int m_controllerNum;
-    
+    [SerializeField] private string m_name;
+    [SerializeField] private int m_id;
+    [SerializeField] private int m_controllerNum;
+
     public string Name => m_name;
 
     public string vertical;
