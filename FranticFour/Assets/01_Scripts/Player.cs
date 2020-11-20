@@ -59,6 +59,7 @@ public class Player : MonoBehaviour
     {
         if (deathParticles) //Null check
             Instantiate(deathParticles, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         transform.position = new Vector3(Random.Range(-7f,1f),Random.Range(-0.38f, 4.3f), transform.position.z);
     }
 }

@@ -80,6 +80,7 @@ public class MovementController : MonoBehaviour
 
     private void StartJumping()
     {
+        rb2d.freezeRotation = true;
         canJump = false;
         gameObject.layer = jumpLayer;
         rb2d.drag = jumpingDrag;
@@ -89,6 +90,7 @@ public class MovementController : MonoBehaviour
     
     private void EndJumping()
     {
+        rb2d.freezeRotation = false;
         gameObject.layer = playerLayer;
         rb2d.drag = originalDrag;
         freezeInput = false;
