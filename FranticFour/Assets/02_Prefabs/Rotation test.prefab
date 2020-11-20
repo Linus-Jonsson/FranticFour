@@ -10,11 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5575129103255632261}
   - component: {fileID: 5575129103255632266}
-  - component: {fileID: 5575129103255632260}
-  - component: {fileID: -1645165569722071076}
-  - component: {fileID: 776179426}
   - component: {fileID: 5575129103255632263}
   - component: {fileID: 341948758}
+  - component: {fileID: 5575129103255632260}
+  - component: {fileID: -1645165569722071076}
+  - component: {fileID: 362613496}
+  - component: {fileID: 362613495}
   m_Layer: 8
   m_Name: Rotation test
   m_TagString: Player
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 5575129103255632267}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 5575129103467070822}
   m_Father: {fileID: 0}
@@ -76,9 +77,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.9056053, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -88,58 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5575129103255632260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5575129103255632267}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 801c79b966ab6ad429f21cfb47231006, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerLayer: 8
-  jumpLayer: 9
-  movementSpeed: 10
-  jumpDuration: 2
-  jumpCooldown: 2
-  jumpingDrag: 0.3
-  controller: {fileID: 0}
---- !u!114 &-1645165569722071076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5575129103255632267}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75659d9530a15ed47aa69b09cb3a239c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pushForce: 10
-  pushCooldown: 2
-  controller: {fileID: 0}
-  deathParticles: {fileID: 8171510603094556011, guid: 4daac6d3fbfde42468e742d41eb8884c, type: 3}
-  prey: 0
---- !u!114 &776179426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5575129103255632267}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ca69cf38e9c3e943a73b4c812879ebe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  throwDistance: 1
-  trapsCoolDown: 4
-  preyTrap: {fileID: 7986219203063273604, guid: a0ff91c6e4bdf6b45ab4387956b9838f, type: 3}
-  controller: {fileID: 0}
 --- !u!50 &5575129103255632263
 Rigidbody2D:
   serializedVersion: 4
@@ -159,7 +108,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &341948758
 CircleCollider2D:
@@ -177,6 +126,82 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.08
+--- !u!114 &5575129103255632260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5575129103255632267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 801c79b966ab6ad429f21cfb47231006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerLayer: 8
+  jumpLayer: 9
+  movementSpeed: 40
+  pushDuration: 0.3
+  jumpDuration: 0.5
+  jumpingDrag: 2
+  controller: {fileID: 0}
+  originalColor: {r: 1, g: 0, b: 0.65456676, a: 0}
+--- !u!114 &-1645165569722071076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5575129103255632267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75659d9530a15ed47aa69b09cb3a239c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pushForce: 30
+  pushCooldown: 2
+  OnPush:
+    m_PersistentCalls:
+      m_Calls: []
+  controller: {fileID: 0}
+  deathParticles: {fileID: 8171510603094556011, guid: 4daac6d3fbfde42468e742d41eb8884c, type: 3}
+  canPush: 1
+  prey: 1
+--- !u!114 &362613496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5575129103255632267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ca69cf38e9c3e943a73b4c812879ebe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  throwDistance: 1
+  trapsCoolDown: 4
+  preyTrap: {fileID: 7986219203063273604, guid: a0ff91c6e4bdf6b45ab4387956b9838f, type: 3}
+  controller: {fileID: 0}
+--- !u!114 &362613495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5575129103255632267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c42e1a7a37290b14ba3e357c6fbcabb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerID: 0
+  vertical: 
+  horizontal: 
+  rightVertical: 
+  rightHorizontal: 
+  action1: 
+  jump: 
 --- !u!1 &5575129103467070823
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,7 +214,7 @@ GameObject:
   - component: {fileID: 5575129103467070817}
   - component: {fileID: 742136907}
   - component: {fileID: 742136906}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: nose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
