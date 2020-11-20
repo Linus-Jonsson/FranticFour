@@ -11,16 +11,13 @@ public class Player : MonoBehaviour
     PushController pushController;
     MovementController movementController;
 
-    Vector2 spawnPoint; // remove this once death is properly implemented.
-
-    bool canPush = true;
+    [SerializeField] bool canPush = true;
 
     [SerializeField] bool prey = false;
 
     void Start()
     {
         controller = GetComponent<AssignedController>();
-        spawnPoint = transform.position;
         pushController = GetComponentInChildren<PushController>();
         movementController = GetComponent<MovementController>();
         transform.position = new Vector3(Random.Range(-7f,1f),Random.Range(-0.38f, 4.3f), transform.position.z);
@@ -29,7 +26,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         if(prey) { return; }
-        if (canPush && !movementController.FreezeInput &&
+        if (canPush && !movementController.FreezeInput && pushController.InPushRange() &&
             (Input.GetButtonDown(controller.Action1) || Input.GetAxis(controller.Action1) > 0))//Hämta input
         {
             StartCoroutine(PushOtherPlayer());
@@ -56,7 +53,6 @@ public class Player : MonoBehaviour
 
     private void HandleDeath()
     {
-        // this will be where the player death will be handled instead of just chaning its position.
         if (deathParticles) //Null check
             Instantiate(deathParticles, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
         transform.position = new Vector3(Random.Range(-7f,1f),Random.Range(-0.38f, 4.3f), transform.position.z);

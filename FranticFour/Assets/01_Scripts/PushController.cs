@@ -45,4 +45,9 @@ public class PushController : MonoBehaviour
 
         return closestTarget.GetComponent<MovementController>();
     }
+
+    public bool InPushRange()
+    {
+        return targets.Count > 0;
+    }
 }

@@ -83,6 +83,7 @@ public class MovementController : MonoBehaviour
         gameObject.layer = jumpLayer;
         rb2d.drag = jumpingDrag;
         freezeInput = true;
+        transform.localScale = new Vector3(transform.localScale.x + 2, transform.localScale.y + 2, 5); // remove this once we have animation
     }
     
     private void EndJumping()
@@ -90,6 +91,7 @@ public class MovementController : MonoBehaviour
         gameObject.layer = playerLayer;
         rb2d.drag = originalDrag;
         freezeInput = false;
+        transform.localScale = new Vector3(transform.localScale.x - 2, transform.localScale.y - 2, 5); // remove this once we have animation
     }
 
     private void HandleRotation()
