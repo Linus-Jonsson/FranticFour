@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -51,7 +50,7 @@ public class MovementController : MonoBehaviour
 
     private void Update()
     {
-        if (canJump && Input.GetButton("Jump") && !freezeInput)
+        if (canJump && Input.GetButton(controller.Jump) && !freezeInput)
             StartCoroutine(HandleJump());
     }
 
@@ -78,7 +77,7 @@ public class MovementController : MonoBehaviour
         //yield return new WaitForSeconds(jumpCooldown);
         canJump = true;
     }
-    
+
     private void StartJumping()
     {
         canJump = false;
