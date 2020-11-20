@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] float pushForce = 10f;
     [SerializeField] float pushCooldown = 2f;
+    public float PushCooldown => pushCooldown;
+    public UnityEvent OnPush = new UnityEvent();
     [SerializeField] public AssignedController controller;
     [SerializeField] private GameObject deathParticles = null;
     
@@ -35,6 +38,7 @@ public class Player : MonoBehaviour
 
     IEnumerator PushOtherPlayer()
     {
+        OnPush.Invoke();
         canPush = false;
         pushController.PushTarget(movementController.Dir.normalized * pushForce);
         yield return new WaitForSeconds(pushCooldown);
