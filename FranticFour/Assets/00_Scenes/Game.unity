@@ -1423,6 +1423,7 @@ GameObject:
   - component: {fileID: 1246666794}
   - component: {fileID: 1246666793}
   - component: {fileID: 1246666792}
+  - component: {fileID: 1246666795}
   m_Layer: 0
   m_Name: Animation
   m_TagString: Untagged
@@ -1490,7 +1491,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 5
   m_Sprite: {fileID: -8599415825070604373, guid: a666ab633e30774419e2e04b13e07e18, type: 3}
-  m_Color: {r: 0.6431373, g: 0.89154947, b: 0.99215686, a: 0.9019608}
+  m_Color: {r: 0.99215686, g: 0.6431373, b: 0.6431373, a: 0.9019608}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1514,6 +1515,20 @@ Transform:
   m_Father: {fileID: 76617593}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1246666795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246666791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6310e49c26a4a064498de60a2b0fbb18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 0.1
+  renderer: {fileID: 0}
 --- !u!1001 &1293707869
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1968,7 +1983,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1649004842}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.909397, y: -0.6902454, z: -81.48239}
+  m_LocalPosition: {x: -1.9093971, y: -0.6902454, z: -81.48239}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2043167880}
@@ -2681,7 +2696,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4948348387591239155, guid: f22de0c1ec0ce944d910859e07acec67, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.909397
+      value: -1.9093971
       objectReference: {fileID: 0}
     - target: {fileID: 4948348387591239155, guid: f22de0c1ec0ce944d910859e07acec67, type: 3}
       propertyPath: m_LocalPosition.y

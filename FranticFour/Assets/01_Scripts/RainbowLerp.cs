@@ -1,18 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RainbowLerp : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] public float Speed = 0.1f;
+    [SerializeField] private SpriteRenderer renderer;
+ 
     void Start()
     {
-        
+        renderer = GetComponent<SpriteRenderer>();
     }
-
-    // Update is called once per frame
+ 
     void Update()
     {
-        
+        float H, S, V;
+        Color.RGBToHSV(renderer.color, out H, out S, out V);
+        H += Time.deltaTime * Speed;
+        renderer.color = Color.HSVToRGB(H, S, V);
     }
 }
