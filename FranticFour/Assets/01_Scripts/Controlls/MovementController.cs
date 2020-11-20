@@ -14,6 +14,8 @@ public class MovementController : MonoBehaviour
     [Header("Movement configuration")]
     [SerializeField] float movementSpeed = 10f;
 
+    [SerializeField] float pushDuration = 0.3f;
+
     [Header("Jump configuration")]
     [Tooltip("The duration of the jump in seconds")]
     [SerializeField] float jumpDuration = 2f;
@@ -123,8 +125,16 @@ public class MovementController : MonoBehaviour
     
     public void GetPushed(Vector2 pushForce)
     {
+        StartCoroutine(HandlePush(pushForce));
+    }
+
+    IEnumerator HandlePush(Vector2 pushForce)
+    {
+        freezeInput = true;
         rb2d.velocity = Vector2.zero;
         rb2d.AddForce(pushForce, ForceMode2D.Impulse);
+        yield return new WaitForSeconds(pushDuration);
+        freezeInput = false;
     }
 
     public void GetStunned(float duration)
