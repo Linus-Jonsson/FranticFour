@@ -148,6 +148,7 @@ public class MovementController : MonoBehaviour
         StunBlink();
         yield return new WaitForSeconds(duration);
         freezeInput = false;
+        spriteRenderer.color = originalColor;
     }
 
     private async void StunBlink()
