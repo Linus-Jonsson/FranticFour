@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7986219203063273627}
   - component: {fileID: 2378431006662313727}
   - component: {fileID: 3995311620739301643}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PreyTrap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
