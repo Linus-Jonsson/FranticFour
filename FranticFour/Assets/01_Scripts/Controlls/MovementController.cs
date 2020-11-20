@@ -17,8 +17,8 @@ public class MovementController : MonoBehaviour
     [Header("Jump configuration")]
     [Tooltip("The duration of the jump in seconds")]
     [SerializeField] float jumpDuration = 2f;
-    [Tooltip("The cooldown on jumping in seconds (starts to count after jump is finished)")]
-    [SerializeField] float jumpCooldown = 2f;
+/*    [Tooltip("The cooldown on jumping in seconds (starts to count after jump is finished)")]
+    [SerializeField] float jumpCooldown = 2f;*/
     [Tooltip("The drag on the rigidBody while jumping (This should be low due to no force applied during the jump")]
     [SerializeField] float jumpingDrag = 0.3f;
     
@@ -73,7 +73,7 @@ public class MovementController : MonoBehaviour
         StartJumping();
         yield return new WaitForSeconds(jumpDuration);
         EndJumping();
-        yield return new WaitForSeconds(jumpCooldown);
+        //yield return new WaitForSeconds(jumpCooldown);
         canJump = true;
     }
     
@@ -83,6 +83,7 @@ public class MovementController : MonoBehaviour
         gameObject.layer = jumpLayer;
         rb2d.drag = jumpingDrag;
         freezeInput = true;
+        transform.localScale = new Vector3(transform.localScale.x + 2, transform.localScale.y + 2, 5); // remove this once we have animation
     }
     
     private void EndJumping()
@@ -90,6 +91,7 @@ public class MovementController : MonoBehaviour
         gameObject.layer = playerLayer;
         rb2d.drag = originalDrag;
         freezeInput = false;
+        transform.localScale = new Vector3(transform.localScale.x - 2, transform.localScale.y - 2, 5); // remove this once we have animation
     }
 
     private void HandleRotation()
