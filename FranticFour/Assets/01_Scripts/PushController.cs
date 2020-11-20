@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class PushController : MonoBehaviour
@@ -24,7 +23,6 @@ public class PushController : MonoBehaviour
             return;
         MovementController closestTarget = GetClosestTarget();
         closestTarget.GetPushed(pushForce);
-
     }
 
     private MovementController GetClosestTarget()

@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public UnityEvent OnPush = new UnityEvent();
     [SerializeField] public AssignedController controller;
     [SerializeField] private GameObject deathParticles = null;
-    
+
     PushController pushController;
     MovementController movementController;
 
@@ -23,14 +23,18 @@ public class Player : MonoBehaviour
         controller = GetComponent<AssignedController>();
         pushController = GetComponentInChildren<PushController>();
         movementController = GetComponent<MovementController>();
-        transform.position = new Vector3(Random.Range(-7f,1f),Random.Range(-0.38f, 4.3f), transform.position.z);
+        transform.position = new Vector3(Random.Range(-7f, 1f), Random.Range(-0.38f, 4.3f), transform.position.z);
     }
 
     private void Update()
     {
-        if(prey) { return; }
+        if (prey)
+        {
+            return;
+        }
+
         if (canPush && !movementController.FreezeInput && pushController.InPushRange() &&
-            (Input.GetButtonDown(controller.Action1) || Input.GetAxis(controller.Action1) > 0))//Hämta input
+            (Input.GetButtonDown(controller.Action1) || Input.GetAxis(controller.Action1) > 0)) //Hämta input
         {
             StartCoroutine(PushOtherPlayer());
         }
@@ -47,7 +51,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.CompareTag("Danger"))
+        if (other.gameObject.CompareTag("Danger"))
         {
             print("dead");
             HandleDeath();
@@ -57,8 +61,9 @@ public class Player : MonoBehaviour
     private void HandleDeath()
     {
         if (deathParticles) //Null check
-            Instantiate(deathParticles, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
+            Instantiate(deathParticles, new Vector3(transform.position.x, transform.position.y, 0),
+                Quaternion.identity);
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        transform.position = new Vector3(Random.Range(-7f,1f),Random.Range(-0.38f, 4.3f), transform.position.z);
+        transform.position = new Vector3(Random.Range(-7f, 1f), Random.Range(-0.38f, 4.3f), transform.position.z);
     }
 }
