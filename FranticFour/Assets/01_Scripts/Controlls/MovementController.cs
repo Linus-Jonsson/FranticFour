@@ -49,7 +49,7 @@ public class MovementController : MonoBehaviour
 
     private void Update()
     {
-        if (canJump && Input.GetButton("Jump") && !freezeInput)
+        if (canJump && Input.GetButton(controller.Jump) && !freezeInput)
             StartCoroutine(HandleJump());
     }
 
