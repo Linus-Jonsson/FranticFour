@@ -17,8 +17,8 @@ public class MovementController : MonoBehaviour
     [Header("Jump configuration")]
     [Tooltip("The duration of the jump in seconds")]
     [SerializeField] float jumpDuration = 2f;
-    [Tooltip("The cooldown on jumping in seconds (starts to count after jump is finished)")]
-    [SerializeField] float jumpCooldown = 2f;
+/*    [Tooltip("The cooldown on jumping in seconds (starts to count after jump is finished)")]
+    [SerializeField] float jumpCooldown = 2f;*/
     [Tooltip("The drag on the rigidBody while jumping (This should be low due to no force applied during the jump")]
     [SerializeField] float jumpingDrag = 0.3f;
     
@@ -73,7 +73,7 @@ public class MovementController : MonoBehaviour
         StartJumping();
         yield return new WaitForSeconds(jumpDuration);
         EndJumping();
-        yield return new WaitForSeconds(jumpCooldown);
+        //yield return new WaitForSeconds(jumpCooldown);
         canJump = true;
     }
     
