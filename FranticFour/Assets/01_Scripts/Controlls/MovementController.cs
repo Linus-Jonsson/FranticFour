@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -76,7 +75,7 @@ public class MovementController : MonoBehaviour
         //yield return new WaitForSeconds(jumpCooldown);
         canJump = true;
     }
-    
+
     private void StartJumping()
     {
         canJump = false;
