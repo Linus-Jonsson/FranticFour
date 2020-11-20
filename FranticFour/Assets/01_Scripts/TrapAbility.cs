@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TrapAbility : MonoBehaviour
 {
-    [SerializeField] private float throwDistance = 0.5f;
+    [SerializeField] private float throwDistance = 1f;
     [SerializeField] private float trapsCoolDown = 4f;
     [SerializeField] private GameObject preyTrap = null;
     private MovementController movementController;
@@ -31,7 +31,7 @@ public class TrapAbility : MonoBehaviour
     {
         canThrowTraps = false;
         Vector3 offset = movementController.Dir.normalized * throwDistance;
-        Instantiate(preyTrap, transform.position - offset, Quaternion.identity);
+        Instantiate(preyTrap, transform.position + offset, Quaternion.identity);
         yield return new WaitForSeconds(trapsCoolDown);
         canThrowTraps = true;
     }
