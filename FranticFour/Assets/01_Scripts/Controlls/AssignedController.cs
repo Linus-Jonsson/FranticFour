@@ -73,7 +73,7 @@ public class AssignedController : MonoBehaviour
             SetControllerKeysPS4();
         else if (controllerName.Contains("Switch??"))
         {
-            //Impliment nitendo switch controller support
+            //Implement nitendo switch controller support
         }
         else
             SetControllerKeysXbox();
