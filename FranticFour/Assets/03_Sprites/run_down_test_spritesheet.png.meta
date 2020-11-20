@@ -1,0 +1,472 @@
+fileFormatVersion: 2
+guid: a666ab633e30774419e2e04b13e07e18
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 733761835794532983
+    second: run_down_test_spritesheet_0
+  - first:
+      213: -5969430743822043058
+    second: run_down_test_spritesheet_1
+  - first:
+      213: -8599415825070604373
+    second: run_down_test_spritesheet_2
+  - first:
+      213: -3800272658541736706
+    second: run_down_test_spritesheet_3
+  - first:
+      213: -6510461023114857034
+    second: run_down_test_spritesheet_4
+  - first:
+      213: 4249289614880672209
+    second: run_down_test_spritesheet_5
+  - first:
+      213: -7068709145404186079
+    second: run_down_test_spritesheet_6
+  - first:
+      213: 822916070917823678
+    second: run_down_test_spritesheet_7
+  - first:
+      213: 409724983130375711
+    second: run_down_test_spritesheet_8
+  - first:
+      213: 7552111760922916174
+    second: run_down_test_spritesheet_9
+  - first:
+      213: -8890124383157367618
+    second: run_down_test_spritesheet_10
+  - first:
+      213: -2008336824885025815
+    second: run_down_test_spritesheet_11
+  - first:
+      213: -5450704299258610818
+    second: run_down_test_spritesheet_12
+  - first:
+      213: 6529469598857485989
+    second: run_down_test_spritesheet_13
+  - first:
+      213: -7743567899159696459
+    second: run_down_test_spritesheet_14
+  - first:
+      213: 3101255176132615543
+    second: run_down_test_spritesheet_15
+  - first:
+      213: 7546186237759092216
+    second: run_down_test_spritesheet_16
+  - first:
+      213: 1457619450299629414
+    second: run_down_test_spritesheet_17
+  - first:
+      213: -5709411008804007042
+    second: run_down_test_spritesheet_18
+  - first:
+      213: -3981839265038686321
+    second: run_down_test_spritesheet_19
+  - first:
+      213: -2188389533409393232
+    second: run_down_test_spritesheet_20
+  - first:
+      213: 3514646290129827825
+    second: run_down_test_spritesheet_21
+  - first:
+      213: -612499559011220067
+    second: run_down_test_spritesheet_22
+  - first:
+      213: 7990511902833358968
+    second: run_down_test_spritesheet_23
+  - first:
+      213: 1912946598805793898
+    second: run_down_test_spritesheet_24
+  - first:
+      213: 5685027983946008332
+    second: run_down_test_spritesheet_25
+  - first:
+      213: -8734420717400575537
+    second: run_down_test_spritesheet_26
+  - first:
+      213: 6539398513188487887
+    second: run_down_test_spritesheet_27
+  - first:
+      213: 1245572219891158764
+    second: run_down_test_spritesheet_28
+  - first:
+      213: -29869976293489579
+    second: run_down_test_spritesheet_29
+  - first:
+      213: 4081115276084546944
+    second: run_down_test_spritesheet_30
+  - first:
+      213: 3989000005183107654
+    second: run_down_test_spritesheet_31
+  - first:
+      213: -5475286646688784160
+    second: run_down_test_spritesheet_32
+  - first:
+      213: 7159345617911508913
+    second: run_down_test_spritesheet_33
+  - first:
+      213: 1125231782468613081
+    second: run_down_test_spritesheet_34
+  - first:
+      213: 3948700729722977200
+    second: run_down_test_spritesheet_35
+  - first:
+      213: -8223144449387527923
+    second: run_down_test_spritesheet_36
+  - first:
+      213: 3060223452961933706
+    second: run_down_test_spritesheet_37
+  - first:
+      213: -8455284808911724183
+    second: run_down_test_spritesheet_38
+  - first:
+      213: 3274472642297345304
+    second: run_down_test_spritesheet_39
+  - first:
+      213: 1836687264194039499
+    second: run_down_test_spritesheet_40
+  - first:
+      213: 2615200962908138235
+    second: run_down_test_spritesheet_41
+  - first:
+      213: 5898498048628992226
+    second: run_down_test_spritesheet_42
+  - first:
+      213: -540962982618094290
+    second: run_down_test_spritesheet_43
+  - first:
+      213: 4829440634542910146
+    second: run_down_test_spritesheet_44
+  - first:
+      213: -1125671945096417261
+    second: run_down_test_spritesheet_45
+  - first:
+      213: 6261102833409957423
+    second: run_down_test_spritesheet_46
+  - first:
+      213: 3139753059028494176
+    second: run_down_test_spritesheet_47
+  - first:
+      213: -6186748984546768132
+    second: run_down_test_spritesheet_48
+  - first:
+      213: -4962679067049585789
+    second: run_down_test_spritesheet_49
+  - first:
+      213: 8680283762375555634
+    second: run_down_test_spritesheet_0
+  - first:
+      213: -7782439846544544485
+    second: run_down_test_spritesheet_1
+  - first:
+      213: -743772109836474569
+    second: run_down_test_spritesheet_2
+  - first:
+      213: 480805002705568530
+    second: run_down_test_spritesheet_3
+  - first:
+      213: -4715012082450311366
+    second: run_down_test_spritesheet_4
+  - first:
+      213: -6846442245235055206
+    second: run_down_test_spritesheet_5
+  - first:
+      213: -3040394646546415411
+    second: run_down_test_spritesheet_6
+  - first:
+      213: 219359951800195214
+    second: run_down_test_spritesheet_7
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: run_down_test_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1766
+        width: 1340
+        height: 1766
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23a7cfd7710967870800000000000000
+      internalID: 8680283762375555634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: run_down_test_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 1340
+        y: 1766
+        width: 1340
+        height: 1766
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1dedd451383ff390800000000000000
+      internalID: -7782439846544544485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: run_down_test_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 2680
+        y: 1766
+        width: 1340
+        height: 1766
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 737aa5fe4379da5f0800000000000000
+      internalID: -743772109836474569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: run_down_test_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 4020
+        y: 1766
+        width: 1340
+        height: 1766
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2130f704a992ca600800000000000000
+      internalID: 480805002705568530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: run_down_test_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1340
+        height: 1766
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a37dfd10e79e09eb0800000000000000
+      internalID: -4715012082450311366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: run_down_test_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 1340
+        y: 0
+        width: 1340
+        height: 1766
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a95698d4d0d8cf0a0800000000000000
+      internalID: -6846442245235055206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: run_down_test_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 2680
+        y: 0
+        width: 1340
+        height: 1766
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc00a9b7d295ec5d0800000000000000
+      internalID: -3040394646546415411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: run_down_test_spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 4020
+        y: 0
+        width: 1340
+        height: 1766
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e885ff4c6b25b0300800000000000000
+      internalID: 219359951800195214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
