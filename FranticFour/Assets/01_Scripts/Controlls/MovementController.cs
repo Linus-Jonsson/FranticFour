@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class MovementController : MonoBehaviour
@@ -21,25 +22,28 @@ public class MovementController : MonoBehaviour
     [Tooltip("The drag on the rigidBody while jumping (This should be low due to no force applied during the jump")]
     [SerializeField] float jumpingDrag = 0.3f;
     
-    [SerializeField] public AssignedController controller;
+    [SerializeField] public AssignedController controller; //SerializeField + Public?
 
     Vector2 dir = new Vector2(0, 0);
-
     public Vector2 Dir { get { return dir; } }
 
     Rigidbody2D rb2d;
+    SpriteRenderer spriteRenderer;
+    Color originalColor;
 
     bool freezeInput = false;
     public bool FreezeInput { get { return freezeInput; } }
-
-
+    
     bool canJump = true;
 
     float originalDrag;
+    
     void Start()
     {
         controller = GetComponent<AssignedController>();
         rb2d = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        originalColor = spriteRenderer.color;
         originalDrag = rb2d.drag;
     }
 
@@ -72,6 +76,7 @@ public class MovementController : MonoBehaviour
         yield return new WaitForSeconds(jumpCooldown);
         canJump = true;
     }
+    
     private void StartJumping()
     {
         canJump = false;
@@ -79,13 +84,13 @@ public class MovementController : MonoBehaviour
         rb2d.drag = jumpingDrag;
         freezeInput = true;
     }
+    
     private void EndJumping()
     {
         gameObject.layer = playerLayer;
         rb2d.drag = originalDrag;
         freezeInput = false;
     }
-
 
     private void HandleRotation()
     {
@@ -106,14 +111,14 @@ public class MovementController : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(-dir.x, dir.y) * Mathf.Rad2Deg));
     }
+    
     private void HandleMouseRotation()
     {
         var position = Camera.main.WorldToScreenPoint(transform.position);
         dir = Input.mousePosition - position;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(-dir.x, dir.y) * Mathf.Rad2Deg));
     }
-
-
+    
     public void GetPushed(Vector2 pushForce)
     {
         rb2d.velocity = Vector2.zero;
@@ -128,7 +133,17 @@ public class MovementController : MonoBehaviour
     IEnumerator HandleStun(float duration)
     {
         freezeInput = true;
+        StunBlink();
         yield return new WaitForSeconds(duration);
         freezeInput = false;
+    }
+
+    private async void StunBlink()
+    {
+        while (freezeInput)
+        {
+            await Task.Delay(100);
+            spriteRenderer.color = spriteRenderer.color == originalColor ? Color.white : originalColor;
+        }
     }
 }
