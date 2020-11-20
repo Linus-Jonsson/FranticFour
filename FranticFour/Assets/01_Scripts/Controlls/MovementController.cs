@@ -30,7 +30,7 @@ public class MovementController : MonoBehaviour
 
     Rigidbody2D rb2d;
     SpriteRenderer spriteRenderer;
-    Color originalColor;
+    [SerializeField] Color originalColor;
 
     bool freezeInput = false;
     public bool FreezeInput { get { return freezeInput; } }
@@ -147,7 +147,6 @@ public class MovementController : MonoBehaviour
         StunBlink();
         yield return new WaitForSeconds(duration);
         freezeInput = false;
-        spriteRenderer.color = originalColor;
     }
 
     private async void StunBlink()
@@ -157,5 +156,6 @@ public class MovementController : MonoBehaviour
             await Task.Delay(100);
             spriteRenderer.color = spriteRenderer.color == originalColor ? Color.white : originalColor;
         }
+        spriteRenderer.color = originalColor;
     }
 }
