@@ -1,17 +1,15 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public class RainbowLerp : MonoBehaviour
 {
     [SerializeField] public float Speed = 0.1f;
     [SerializeField] private SpriteRenderer renderer;
- 
+
     void Start()
     {
         renderer = GetComponent<SpriteRenderer>();
     }
- 
+
     void Update()
     {
         float H, S, V;

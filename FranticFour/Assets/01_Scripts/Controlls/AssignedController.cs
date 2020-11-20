@@ -11,7 +11,7 @@ public class AssignedController : MonoBehaviour
         set
         {
             playerID = value;
-            SetControllerKeys();
+            SetControllerKeysXbox();
         }
     }
 
@@ -33,16 +33,49 @@ public class AssignedController : MonoBehaviour
 
     private void Start()
     {
-        SetControllerKeys();
+        GetControllerType();
     }
 
-    private void SetControllerKeys()
+    private void SetControllerKeysXbox()
     {
         vertical = StringManager.Inputs.vertical + playerID;
         horizontal = StringManager.Inputs.horizontal + playerID;
-        rightVertical = StringManager.Inputs.rightVertical + playerID;
-        rightHorizontal = StringManager.Inputs.rightHorizontal + playerID;
+
+        rightVertical = StringManager.Inputs.rightVertical + playerID; //5th
+        rightHorizontal = StringManager.Inputs.rightHorizontal + playerID; //4th
+
         action1 = StringManager.Inputs.action1 + playerID;
         jump = StringManager.Inputs.jump + playerID;
+    }
+
+    private void SetControllerKeysPS4()
+    {
+        vertical = StringManager.Inputs.vertical + playerID;
+        horizontal = StringManager.Inputs.horizontal + playerID;
+
+        rightVertical = StringManager.Inputs.rightVerticalPS4 + playerID; //4th
+        rightHorizontal = StringManager.Inputs.rightHorizontalPS4 + playerID; //3th
+
+        action1 = StringManager.Inputs.action1PS4 + playerID;
+        jump = StringManager.Inputs.jump + playerID;
+    }
+
+    private void GetControllerType()
+    {
+        string controllerName = "";
+        string[] controllersConnected = Input.GetJoystickNames();
+
+        if (playerID < controllersConnected.Length) controllerName = controllersConnected[playerID];
+
+        if (controllerName.Contains("XBOX"))
+            SetControllerKeysXbox();
+        else if (controllerName.Contains("Wireless Controller"))
+            SetControllerKeysPS4();
+        else if (controllerName.Contains("Switch??"))
+        {
+            //Implement nitendo switch controller support
+        }
+        else
+            SetControllerKeysXbox();
     }
 }

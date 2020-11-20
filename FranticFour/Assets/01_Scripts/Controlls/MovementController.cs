@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -6,39 +7,50 @@ public class MovementController : MonoBehaviour
 {
     [Header("Layer configuration")]
     [Tooltip("Set this to have the layerNumber of the layer that player is")]
-    [SerializeField] int playerLayer = 8;
-    [Tooltip("Set this to have the layerNumber of the layer that Jump is")]
-    [SerializeField] int jumpLayer = 9;
+    [SerializeField]
+    int playerLayer = 8;
 
-    [Header("Movement configuration")]
-    [SerializeField] float movementSpeed = 10f;
+    [Tooltip("Set this to have the layerNumber of the layer that Jump is")] [SerializeField]
+    int jumpLayer = 9;
+
+    [Header("Movement configuration")] [SerializeField]
+    float movementSpeed = 10f;
 
     [SerializeField] float pushDuration = 0.3f;
 
-    [Header("Jump configuration")]
-    [Tooltip("The duration of the jump in seconds")]
-    [SerializeField] float jumpDuration = 2f;
+    [Header("Jump configuration")] [Tooltip("The duration of the jump in seconds")] [SerializeField]
+    float jumpDuration = 2f;
+
 /*    [Tooltip("The cooldown on jumping in seconds (starts to count after jump is finished)")]
     [SerializeField] float jumpCooldown = 2f;*/
     [Tooltip("The drag on the rigidBody while jumping (This should be low due to no force applied during the jump")]
-    [SerializeField] float jumpingDrag = 0.3f;
-    
+    [SerializeField]
+    float jumpingDrag = 0.3f;
+
     [SerializeField] public AssignedController controller; //SerializeField + Public?
 
     Vector2 dir = new Vector2(0, 0);
-    public Vector2 Dir { get { return dir; } }
+
+    public Vector2 Dir
+    {
+        get { return dir; }
+    }
 
     Rigidbody2D rb2d;
     SpriteRenderer spriteRenderer;
     [SerializeField] Color originalColor;
 
     bool freezeInput = false;
-    public bool FreezeInput { get { return freezeInput; } }
-    
+
+    public bool FreezeInput
+    {
+        get { return freezeInput; }
+    }
+
     bool canJump = true;
 
     float originalDrag;
-    
+
     void Start()
     {
         controller = GetComponent<AssignedController>();
@@ -65,7 +77,8 @@ public class MovementController : MonoBehaviour
 
     private void MovePlayer()
     {
-        Vector2 movement = new Vector2(Input.GetAxis(controller.Horizontal), Input.GetAxis(controller.Vertical)).normalized;
+        Vector2 movement = new Vector2(Input.GetAxis(controller.Horizontal), Input.GetAxis(controller.Vertical))
+            .normalized;
         rb2d.AddForce(movement * movementSpeed);
     }
 
@@ -85,16 +98,20 @@ public class MovementController : MonoBehaviour
         gameObject.layer = jumpLayer;
         rb2d.drag = jumpingDrag;
         freezeInput = true;
-        transform.localScale = new Vector3(transform.localScale.x + 2, transform.localScale.y + 2, 5); // remove this once we have animation
+        transform.localScale =
+            new Vector3(transform.localScale.x + 2, transform.localScale.y + 2,
+                5); // remove this once we have animation
     }
-    
+
     private void EndJumping()
     {
         rb2d.freezeRotation = false;
         gameObject.layer = playerLayer;
         rb2d.drag = originalDrag;
         freezeInput = false;
-        transform.localScale = new Vector3(transform.localScale.x - 2, transform.localScale.y - 2, 5); // remove this once we have animation
+        transform.localScale =
+            new Vector3(transform.localScale.x - 2, transform.localScale.y - 2,
+                5); // remove this once we have animation
     }
 
     private void HandleRotation()
@@ -116,14 +133,14 @@ public class MovementController : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(-dir.x, dir.y) * Mathf.Rad2Deg));
     }
-    
+
     private void HandleMouseRotation()
     {
         var position = Camera.main.WorldToScreenPoint(transform.position);
         dir = Input.mousePosition - position;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(-dir.x, dir.y) * Mathf.Rad2Deg));
     }
-    
+
     public void GetPushed(Vector2 pushForce)
     {
         StartCoroutine(HandlePush(pushForce));
@@ -158,6 +175,7 @@ public class MovementController : MonoBehaviour
             await Task.Delay(100);
             spriteRenderer.color = spriteRenderer.color == originalColor ? Color.white : originalColor;
         }
+
         spriteRenderer.color = originalColor;
     }
 }
