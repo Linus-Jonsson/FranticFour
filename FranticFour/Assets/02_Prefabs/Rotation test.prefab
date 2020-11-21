@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 341948758}
   - component: {fileID: 5575129103255632260}
   - component: {fileID: -1645165569722071076}
+  - component: {fileID: 362613496}
   - component: {fileID: 362613495}
-  - component: {fileID: 6598763632442513007}
   m_Layer: 8
   m_Name: Rotation test
   m_TagString: Player
@@ -158,12 +158,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75659d9530a15ed47aa69b09cb3a239c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pushForce: 30
+  pushCooldown: 2
+  OnPush:
+    m_PersistentCalls:
+      m_Calls: []
+  controller: {fileID: 0}
   deathParticles: {fileID: 8171510603094556011, guid: 4daac6d3fbfde42468e742d41eb8884c, type: 3}
-  pushedByTime: 2
-  scoreValue: 3
-  score: 0
-  playerNumber: 0
+  canPush: 1
   prey: 1
+--- !u!114 &362613496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5575129103255632267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ca69cf38e9c3e943a73b4c812879ebe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  throwDistance: 1
+  trapsCoolDown: 4
+  preyTrap: {fileID: 7986219203063273604, guid: a0ff91c6e4bdf6b45ab4387956b9838f, type: 3}
+  controller: {fileID: 0}
 --- !u!114 &362613495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,27 +202,6 @@ MonoBehaviour:
   rightHorizontal: 
   action1: 
   jump: 
---- !u!114 &6598763632442513007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5575129103255632267}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1f4cb0f3da63fd46ab91c1b627c354b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 0}
-  preyTrap: {fileID: 7986219203063273604, guid: a0ff91c6e4bdf6b45ab4387956b9838f, type: 3}
-  throwDistance: 1
-  trapsCoolDown: 4
-  pushForce: 10
-  pushCooldown: 2
-  OnPush:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &5575129103467070823
 GameObject:
   m_ObjectHideFlags: 0
