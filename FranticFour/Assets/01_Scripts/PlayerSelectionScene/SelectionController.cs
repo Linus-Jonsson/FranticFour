@@ -29,7 +29,7 @@ public class SelectionController : MonoBehaviour
         else
         {
             action1 = StringManager.Inputs.action1 + CONTROLLER_ID;
-            Debug.LogError("Controller is missing or cant be recognized: " + controllerName);
+            Debug.LogWarning("Controller is missing or cant be recognized: " + controllerName);
         }
     }
 
