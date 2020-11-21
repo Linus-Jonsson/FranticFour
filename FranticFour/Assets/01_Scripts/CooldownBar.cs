@@ -28,9 +28,9 @@ public class CooldownBar : MonoBehaviour
         render = GetComponent<SpriteRenderer>();
 
         //Player
-        PlayerActionsController playerActionController = player.GetComponent<PlayerActionsController>();
-        coolDownTime = playerActionController.PushCooldown;
-        playerActionController.OnPush.AddListener(StartBar);
+        Player playerCS = player.GetComponent<Player>();
+        coolDownTime = playerCS.PushCooldown;
+        playerCS.OnPush.AddListener(StartBar);
 
         emptyBarPos = new Vector3(-GetComponent<Renderer>().bounds.size.x, 0, 0);
     }
