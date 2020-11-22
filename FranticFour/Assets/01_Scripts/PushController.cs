@@ -23,6 +23,7 @@ public class PushController : MonoBehaviour
             return;
         MovementController closestTarget = GetClosestTarget();
         closestTarget.GetPushed(pushForce);
+        closestTarget.GetComponent<Player>().GetPushedBy(GetComponentInParent<Player>());
     }
 
     private MovementController GetClosestTarget()

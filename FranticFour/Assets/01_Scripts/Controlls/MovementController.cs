@@ -77,8 +77,9 @@ public class MovementController : MonoBehaviour
 
     private void MovePlayer()
     {
-        Vector2 movement = new Vector2(Input.GetAxis(controller.Horizontal), Input.GetAxis(controller.Vertical))
-            .normalized;
+        float xMovement = Input.GetAxis(controller.Horizontal);
+        float yMovement = Input.GetAxis(controller.Vertical);
+        Vector2 movement = new Vector2(xMovement, yMovement).normalized;
         rb2d.AddForce(movement * movementSpeed);
     }
 
@@ -90,7 +91,6 @@ public class MovementController : MonoBehaviour
         //yield return new WaitForSeconds(jumpCooldown);
         canJump = true;
     }
-
     private void StartJumping()
     {
         rb2d.freezeRotation = true;
@@ -102,7 +102,6 @@ public class MovementController : MonoBehaviour
             new Vector3(transform.localScale.x + 2, transform.localScale.y + 2,
                 5); // remove this once we have animation
     }
-
     private void EndJumping()
     {
         rb2d.freezeRotation = false;
@@ -145,7 +144,6 @@ public class MovementController : MonoBehaviour
     {
         StartCoroutine(HandlePush(pushForce));
     }
-
     IEnumerator HandlePush(Vector2 pushForce)
     {
         freezeInput = true;
@@ -159,7 +157,6 @@ public class MovementController : MonoBehaviour
     {
         StartCoroutine(HandleStun(duration));
     }
-
     IEnumerator HandleStun(float duration)
     {
         freezeInput = true;
