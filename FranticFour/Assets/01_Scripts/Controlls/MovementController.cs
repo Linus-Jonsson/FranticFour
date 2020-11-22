@@ -31,21 +31,14 @@ public class MovementController : MonoBehaviour
 
     Vector2 dir = new Vector2(0, 0);
 
-    public Vector2 Dir
-    {
-        get { return dir; }
-    }
-
+    public Vector2 Dir { get { return dir; } }
     Rigidbody2D rb2d;
     SpriteRenderer spriteRenderer;
     [SerializeField] Color originalColor;
 
     bool freezeInput = false;
 
-    public bool FreezeInput
-    {
-        get { return freezeInput; }
-    }
+    public bool FreezeInput { get { return freezeInput; } set { freezeInput = value; } }
 
     bool canJump = true;
 
