@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
 
     [SerializeField] bool prey = false; // remove the SerializeField from this once gamemanager sets who is prey
 
+    [SerializeField] string playerName = "";
+
     Player pushedBy = null;
 
     public bool Prey { get { return prey; } set { prey = value; } }
@@ -25,7 +27,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         playerNumber = GetComponent<AssignedController>().PlayerID +1;
-        transform.position = new Vector3(Random.Range(-7f, 1f), Random.Range(-0.38f, 4.3f), transform.position.z);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -74,5 +75,10 @@ public class Player : MonoBehaviour
     public void ChangeScore(int scoreChange)
     {
         score += scoreChange;
+    }
+
+    public void ResetPlayer()
+    {
+        score = 0;
     }
 }

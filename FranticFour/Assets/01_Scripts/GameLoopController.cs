@@ -15,33 +15,49 @@ public class GameLoopController : MonoBehaviour
     [SerializeField] int numberOfRounds = 5;
 
     Player leader = null;
+    Player currentPrey = null;
+
+    public Player CurrentPrey { get { return currentPrey; } }
 
     int currentRound = 0;
+
+    GameLoopUIController gameLoopUIController;
+
     void Start()
     {
+        gameLoopUIController = FindObjectOfType<GameLoopUIController>();
         StartCoroutine(HandleGameLoop());
     }
 
     IEnumerator HandleGameLoop()
-    {
-        while(currentRound < numberOfRounds)
+    {        
+        SetPlayerPositions();
+        DeactivatePlayers();
+        while (currentRound < numberOfRounds)
         {
             print("Current round: " + (currentRound + 1));
+            gameLoopUIController.DisplayPreRoundCountdown(startCountDownDuration, players, currentRound+1);
             yield return new WaitForSeconds(startCountDownDuration);
-            SetPrey(); // add the code to handle the reveal of the player in this function.
+
+            SetPrey();
+            gameLoopUIController.DisplayCurrentRoundPrey(currentPrey, preyRevealDuration);
             yield return new WaitForSeconds(preyRevealDuration);
-            // add all code relevant to handling countdown of time here to display for players
+            gameLoopUIController.StartRound(roundDuration);
+            ActivatePlayers();
+            SetPlayerPositions();
             print("Starting round");
             yield return new WaitForSeconds(roundDuration);
+
+            DeactivatePlayers();
             print("Round over sharing scores");
-            // make players unable to move (disable all players?)
             DisplayScores();
+            gameLoopUIController.DisplayScore(players,roundOverDuration,currentRound +1);
             yield return new WaitForSeconds(roundOverDuration);
-            SetPlayerPositions();
+
             print("Starting new round");
             currentRound++;
         }
-        // proper display of winner and the option to start a new game or go to main menu here
+        gameLoopUIController.DisplayFinalResults(leader, players);
         print("Game is over and the winner is: " + leader.gameObject.name);
     }
 
@@ -55,6 +71,7 @@ public class GameLoopController : MonoBehaviour
             if(i == random)
             {
                 players[i].Prey = true;
+                currentPrey = players[i];
                 print("Prey is: " + players[i].gameObject.name);
             }
             else
@@ -81,10 +98,12 @@ public class GameLoopController : MonoBehaviour
 
     private void DisplayScores()
     {
-
+        // make this method set each players score in the UI controller instead
         foreach (var player in players)
         {
-            if (leader == null && player.Score > 0)
+            if (player.Score == 0)
+                continue;
+            else if (leader == null && player.Score > 0)
                 leader = player;
             else if (player.Score > leader.Score)
                 leader = player;
@@ -95,5 +114,31 @@ public class GameLoopController : MonoBehaviour
         print("Current score leader is: " + leader.gameObject.name);
     }
 
+    private void DeactivatePlayers()
+    {
+        foreach (var player in players)
+        {
+            player.gameObject.SetActive(false);
+        }
+    }
 
+    private void ActivatePlayers()
+    {
+        foreach (var player in players)
+        {
+            player.gameObject.SetActive(true);
+        }
+    }
+
+    public void PlayAgain()
+    {
+        foreach (var player in players)
+        {
+            player.ResetPlayer();
+        }
+        currentRound = 0;
+        leader = null;
+        currentPrey = null;
+        StartCoroutine(HandleGameLoop());
+    }
 }
