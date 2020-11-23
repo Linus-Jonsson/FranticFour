@@ -3155,6 +3155,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5768939795489499235, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.94436
+      objectReference: {fileID: 0}
+    - target: {fileID: 5768939795489499235, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.188872
+      objectReference: {fileID: 0}
+    - target: {fileID: 5768939795489499235, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.94436
+      objectReference: {fileID: 0}
     - target: {fileID: 5768939795489499244, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
       propertyPath: m_Name
       value: Push Cooldown Purple
@@ -3866,6 +3878,18 @@ PrefabInstance:
     - target: {fileID: 5768939795489499235, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5768939795489499235, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.94436
+      objectReference: {fileID: 0}
+    - target: {fileID: 5768939795489499235, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.188872
+      objectReference: {fileID: 0}
+    - target: {fileID: 5768939795489499235, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.94436
       objectReference: {fileID: 0}
     - target: {fileID: 5768939795489499244, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
       propertyPath: m_Name
@@ -6030,6 +6054,18 @@ PrefabInstance:
     - target: {fileID: 5768939795489499235, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5768939795489499235, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.94436
+      objectReference: {fileID: 0}
+    - target: {fileID: 5768939795489499235, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.188872
+      objectReference: {fileID: 0}
+    - target: {fileID: 5768939795489499235, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.94436
       objectReference: {fileID: 0}
     - target: {fileID: 5768939795489499244, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
       propertyPath: m_Name
@@ -8863,6 +8899,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5575129103255632266, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5575129103255632266, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5575129103255632266, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: m_Color.b
+      value: 0.9098039
+      objectReference: {fileID: 0}
     - target: {fileID: 5575129103255632267, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: m_Name
       value: Cyan
@@ -9361,6 +9409,18 @@ PrefabInstance:
     - target: {fileID: 5768939795489499235, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5768939795489499235, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.94436
+      objectReference: {fileID: 0}
+    - target: {fileID: 5768939795489499235, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.188872
+      objectReference: {fileID: 0}
+    - target: {fileID: 5768939795489499235, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.94436
       objectReference: {fileID: 0}
     - target: {fileID: 5768939795489499244, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
       propertyPath: m_Name

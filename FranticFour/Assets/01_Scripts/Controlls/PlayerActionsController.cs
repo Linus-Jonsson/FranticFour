@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -40,14 +41,28 @@ public class PlayerActionsController : MonoBehaviour
 
     private void Update()
     {
-        if ((Input.GetButtonDown(controller.Action1) || Input.GetAxis(controller.Action1) > 0) && 
-            !movementController.FreezeInput)
+        int m_number;
+        bool mouseUsed = Int32.TryParse(controller.Action1, out m_number);
+
+        if (!Input.GetButtonDown(controller.Action1) &&
+            !(Input.GetAxis(controller.Action1) > 0) ||
+            movementController.FreezeInput)
+            return;
+        
+        if (mouseUsed)
         {
+            if (!Input.GetMouseButton(m_number))
+                return;
             if (player.Prey && canThrowTraps && thrownTraps < maximumTraps)
                 StartCoroutine(ThrowTrap());
             else if (!player.Prey && canPush && pushController.InPushRange())
                 StartCoroutine(PushOtherPlayer());
         }
+            
+        if (player.Prey && canThrowTraps)
+            StartCoroutine(ThrowTrap());
+        else if (!player.Prey && canPush && pushController.InPushRange())
+            StartCoroutine(PushOtherPlayer());
     }
 
     IEnumerator ThrowTrap()
