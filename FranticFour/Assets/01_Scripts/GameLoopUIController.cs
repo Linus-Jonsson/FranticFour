@@ -63,12 +63,13 @@ public class GameLoopUIController : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI WinnerText = null;
 
-    public void DisplayPreRoundCountdown(float duration, Player[] players, int roundNumber)
+
+    public IEnumerator PreRoundCountdown(float duration, Player[] players, int roundNumber)
     {
         roundText.text = "Round: " + roundNumber;
         foreach (var player in players)
         {
-            switch(player.gameObject.name)
+            switch (player.gameObject.name)
             {
                 case "Orange":
                     orangePlayerText.text = "Player: " + player.PlayerNumber.ToString();
@@ -84,10 +85,6 @@ public class GameLoopUIController : MonoBehaviour
                     break;
             }
         }
-        StartCoroutine(PreRoundCountdown(duration));
-    }
-    IEnumerator PreRoundCountdown(float duration)
-    {
         preeRoundDisplay.SetActive(true);
         while (duration > 0)
         {
@@ -99,7 +96,8 @@ public class GameLoopUIController : MonoBehaviour
         preeRoundDisplay.SetActive(false);
     }
 
-    public void DisplayCurrentRoundPrey(Player prey, float duration)
+
+    public IEnumerator preyCountdown(Player prey, float duration)
     {
         orangePrey.SetActive(false);
         greenPrey.SetActive(false);
@@ -125,10 +123,7 @@ public class GameLoopUIController : MonoBehaviour
         }
 
         preyNumberText.text = preyPlayer + " Is the prey this round";
-        StartCoroutine(preyCountdown(duration));
-    }
-    IEnumerator preyCountdown(float duration)
-    {
+
         preyDisplay.SetActive(true);
         while (duration > 0)
         {
@@ -140,11 +135,8 @@ public class GameLoopUIController : MonoBehaviour
         preyDisplay.SetActive(false);
     }
 
-    public void StartRound(float duration)
-    {
-        StartCoroutine(CountRoundTime(duration));
-    }
-    IEnumerator CountRoundTime(float duration)
+
+    public IEnumerator CountRoundTime(float duration)
     {
         roundTimeText.gameObject.SetActive(true);
         while(duration > 0)
@@ -160,7 +152,7 @@ public class GameLoopUIController : MonoBehaviour
 
 
     // add a way to discintively show who is leading in points.
-    public void DisplayScore(Player[] players, float duration, int roundNumber)
+    public IEnumerator NextRoundCountdown(Player[] players, float duration, int roundNumber)
     {
         roundScoreText.text = "Score round: " + roundNumber;
         foreach (var player in players)
@@ -185,10 +177,8 @@ public class GameLoopUIController : MonoBehaviour
                     break;
             }
         }
-        StartCoroutine(NextRoundCountdown(duration));
-    }
-    IEnumerator NextRoundCountdown(float duration)
-    {
+
+
         scoreDisplay.SetActive(true);
         while (duration > 0)
         {
