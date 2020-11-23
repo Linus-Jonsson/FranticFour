@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GameLoopController : MonoBehaviour
 {
@@ -19,13 +21,14 @@ public class GameLoopController : MonoBehaviour
     [SerializeField] int numberOfRounds = 5;
     int currentRound = 0;
 
-
     Player leader = null;
     Player currentPrey = null;
     GameLoopUIController gameLoopUIController;
-
+    [SerializeField] private List<int> preyProbability; //Serialized temporarily to make sure it works properly
+    
     void Start()
     {
+        preyProbability = new List<int> {0, 1, 2, 3};
         gameLoopUIController = FindObjectOfType<GameLoopUIController>();
         StartCoroutine(HandleGameLoop());
     }
@@ -55,12 +58,13 @@ public class GameLoopController : MonoBehaviour
 
     private void SetPrey()
     {
-        // add a proper calculation in here making the one who has been prey the least be the most likely to become prey
-        int random = Random.Range(0, players.Length);
+        int random = Random.Range(0, preyProbability.Count - 1);
+        int numberOfPrey = preyProbability[random];
+        //Debug.Log($"Random: {random}, Player: {numberOfPrey}");
 
         for (int i = 0; i < players.Length; i++)
         {
-            if(i == random)
+            if(i == numberOfPrey)
             {
                 players[i].Prey = true;
                 currentPrey = players[i];
@@ -68,9 +72,14 @@ public class GameLoopController : MonoBehaviour
             else
             {
                 players[i].Prey = false;
+                preyProbability.Add(i);
             }
         }
 
+        for (int i = 0; i < preyProbability.Count; i++)
+            if(preyProbability[i].Equals(numberOfPrey))
+                preyProbability.RemoveAt(i);
+        
     }
 
     public void SetPlayerPositions()
