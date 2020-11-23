@@ -7,34 +7,31 @@ public class MovementController : MonoBehaviour
 {
     [Header("Layer configuration")]
     [Tooltip("Set this to have the layerNumber of the layer that player is")]
-    [SerializeField]
-    int playerLayer = 8;
+    [SerializeField] int playerLayer = 8;
+    [Tooltip("Set this to have the layerNumber of the layer that Jump is")] 
+    [SerializeField] int jumpLayer = 9;
 
-    [Tooltip("Set this to have the layerNumber of the layer that Jump is")] [SerializeField]
-    int jumpLayer = 9;
-
-    [Header("Movement configuration")] [SerializeField]
-    float movementSpeed = 10f;
-
+    [Header("Movement configuration")] 
+    [SerializeField] float movementSpeed = 10f;
+    [Header("Push configuration")]
+    [Tooltip("The time in seconds that the player getting pushed wont be able to move")]
     [SerializeField] float pushDuration = 0.3f;
-
-    [Header("Jump configuration")] [Tooltip("The duration of the jump in seconds")] [SerializeField]
-    float jumpDuration = 2f;
-
-/*    [Tooltip("The cooldown on jumping in seconds (starts to count after jump is finished)")]
-    [SerializeField] float jumpCooldown = 2f;*/
+    [Header("Jump configuration")] 
+    [Tooltip("The duration of the jump in seconds")]
+    [SerializeField] float jumpDuration = 2f;
     [Tooltip("The drag on the rigidBody while jumping (This should be low due to no force applied during the jump")]
-    [SerializeField]
-    float jumpingDrag = 0.3f;
+    [SerializeField] float jumpingDrag = 0.3f;
 
+    [Header("Other")]
     [SerializeField] public AssignedController controller; //SerializeField + Public?
+    [SerializeField] Color originalColor;
 
     Vector2 dir = new Vector2(0, 0);
-
     public Vector2 Dir { get { return dir; } }
+
     Rigidbody2D rb2d;
     SpriteRenderer spriteRenderer;
-    [SerializeField] Color originalColor;
+
 
     bool freezeInput = false;
 
@@ -152,6 +149,7 @@ public class MovementController : MonoBehaviour
         StopCoroutine(HandlePush(new Vector2(0,0)));
         StartCoroutine(HandleStun(duration));
     }
+
     IEnumerator HandleStun(float duration)
     {
         freezeInput = true;
@@ -167,7 +165,6 @@ public class MovementController : MonoBehaviour
             await Task.Delay(100);
             spriteRenderer.color = spriteRenderer.color == originalColor ? Color.white : originalColor;
         }
-
         spriteRenderer.color = originalColor;
     }
 }

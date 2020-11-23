@@ -2,8 +2,8 @@
 
 public class SelectionController : MonoBehaviour
 {
-    [Header("Player")] [Range(0, 3)] [SerializeField]
-    private int CONTROLLER_ID;
+    [Header("Player")] 
+    [Range(0, 3)] [SerializeField] private int CONTROLLER_ID = 0;
 
     [SerializeField] private bool controllerAssignedToPlayer = false;
 

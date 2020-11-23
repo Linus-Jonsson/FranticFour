@@ -66,6 +66,19 @@ public class GameLoopUIController : MonoBehaviour
 
     public IEnumerator PreRoundCountdown(float duration, Player[] players, int roundNumber)
     {
+        SetRoundAndPlayerDisplay(players, roundNumber);
+        preeRoundDisplay.SetActive(true);
+        while (duration > 0)
+        {
+            float numberToDisplay = (float)System.Math.Round(duration, 2);
+            preRoundTimeText.text = "Time until prey reveal: " + numberToDisplay.ToString();
+            yield return new WaitForSeconds(timeDecreaseIncrement);
+            duration -= timeDecreaseIncrement;
+        }
+        preeRoundDisplay.SetActive(false);
+    }
+    private void SetRoundAndPlayerDisplay(Player[] players, int roundNumber)
+    {
         roundText.text = "Round: " + roundNumber;
         foreach (var player in players)
         {
@@ -85,19 +98,23 @@ public class GameLoopUIController : MonoBehaviour
                     break;
             }
         }
-        preeRoundDisplay.SetActive(true);
+    }
+
+    public IEnumerator preyCountdown(Player prey, float duration)
+    {
+        DisplayThePrey(prey);
+
+        preyDisplay.SetActive(true);
         while (duration > 0)
         {
             float numberToDisplay = (float)System.Math.Round(duration, 2);
-            preRoundTimeText.text = "Time until prey reveal: " + numberToDisplay.ToString();
+            preyCountdownText.text = "Time until round starts: " + numberToDisplay.ToString();
             yield return new WaitForSeconds(timeDecreaseIncrement);
             duration -= timeDecreaseIncrement;
         }
-        preeRoundDisplay.SetActive(false);
+        preyDisplay.SetActive(false);
     }
-
-
-    public IEnumerator preyCountdown(Player prey, float duration)
+    private void DisplayThePrey(Player prey)
     {
         orangePrey.SetActive(false);
         greenPrey.SetActive(false);
@@ -123,18 +140,7 @@ public class GameLoopUIController : MonoBehaviour
         }
 
         preyNumberText.text = preyPlayer + " Is the prey this round";
-
-        preyDisplay.SetActive(true);
-        while (duration > 0)
-        {
-            float numberToDisplay = (float)System.Math.Round(duration, 2);
-            preyCountdownText.text = "Time until round starts: " + numberToDisplay.ToString();
-            yield return new WaitForSeconds(timeDecreaseIncrement);
-            duration -= timeDecreaseIncrement;
-        }
-        preyDisplay.SetActive(false);
     }
-
 
     public IEnumerator CountRoundTime(float duration)
     {
@@ -150,9 +156,22 @@ public class GameLoopUIController : MonoBehaviour
 
     }
 
-
     // add a way to discintively show who is leading in points.
     public IEnumerator NextRoundCountdown(Player[] players, float duration, int roundNumber)
+    {
+        SetPlayerRoundScores(players, roundNumber);
+
+        scoreDisplay.SetActive(true);
+        while (duration > 0)
+        {
+            float numberToDisplay = (float)System.Math.Round(duration, 2);
+            nextRoundInText.text = "Next round begins in: " + numberToDisplay.ToString();
+            yield return new WaitForSeconds(timeDecreaseIncrement);
+            duration -= timeDecreaseIncrement;
+        }
+        scoreDisplay.SetActive(false);
+    }
+    private void SetPlayerRoundScores(Player[] players, int roundNumber)
     {
         roundScoreText.text = "Score round: " + roundNumber;
         foreach (var player in players)
@@ -177,17 +196,6 @@ public class GameLoopUIController : MonoBehaviour
                     break;
             }
         }
-
-
-        scoreDisplay.SetActive(true);
-        while (duration > 0)
-        {
-            float numberToDisplay = (float)System.Math.Round(duration, 2);
-            nextRoundInText.text = "Next round begins in: " + numberToDisplay.ToString();
-            yield return new WaitForSeconds(timeDecreaseIncrement);
-            duration -= timeDecreaseIncrement;
-        }
-        scoreDisplay.SetActive(false);
     }
 
     public void DisplayFinalResults(Player winner, Player[] players)
@@ -218,7 +226,6 @@ public class GameLoopUIController : MonoBehaviour
         }
         finalResultDisplay.SetActive(true);
     }
-
     public void PlayAgain()
     {
         finalResultDisplay.SetActive(false);

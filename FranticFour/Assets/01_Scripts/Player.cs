@@ -7,21 +7,18 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject deathParticles = null;
     [Tooltip("The amount of time in seconds that the one who recently pushed the player is saved before going back to null")]
     [SerializeField] float pushedByTime = 2f;
-
+    [Tooltip("The value in score that the prey is worth when killing")]
     [SerializeField] int scoreValue = 3;
-    [SerializeField] int score = 0; // remove SerializeField once score tracking works properly
+
+    int score = 0;
     public int Score { get { return score; } }
-
-    [SerializeField] int playerNumber = 0; // Remove serializeField once done testing.
-
+    int playerNumber = 0;
     public int PlayerNumber { get { return playerNumber; } }
 
-    [SerializeField] bool prey = false; // remove the SerializeField from this once gamemanager sets who is prey
-
-    [SerializeField] string playerName = "";
-
+    //[SerializeField] string playerName = ""; // not currently in use
     Player pushedBy = null;
 
+    bool prey = false;
     public bool Prey { get { return prey; } set { prey = value; } }
 
     void Start()

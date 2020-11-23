@@ -3,18 +3,18 @@
 public class RainbowLerp : MonoBehaviour
 {
     [SerializeField] public float Speed = 0.1f;
-    [SerializeField] private SpriteRenderer renderer;
+    private SpriteRenderer myRenderer;
 
     void Start()
     {
-        renderer = GetComponent<SpriteRenderer>();
+        myRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
         float H, S, V;
-        Color.RGBToHSV(renderer.color, out H, out S, out V);
+        Color.RGBToHSV(myRenderer.color, out H, out S, out V);
         H += Time.deltaTime * Speed;
-        renderer.color = Color.HSVToRGB(H, S, V);
+        myRenderer.color = Color.HSVToRGB(H, S, V);
     }
 }
