@@ -9,9 +9,12 @@ public class PlayerActionsController : MonoBehaviour
     [SerializeField] AssignedController controller; // does this need to have SerializeField since we get it in start?
 
     [Header("Prey Configuration")]
-    [SerializeField] GameObject preyTrap = null;
-    [SerializeField] float throwDistance = 1f;
+    [SerializeField] PreyTrap preyTrap = null;
+    [SerializeField] float rawOffset = 1f;
+    [SerializeField] float trapPushForce = 2f;
     [SerializeField] float trapsCoolDown = 4f;
+    [SerializeField] int maximumTraps = 5;
+    [SerializeField] int thrownTraps = 0; // remove serializeField
 
     [Header("Hunter Configuration")]
     [SerializeField] float pushForce = 10f;
@@ -50,6 +53,10 @@ public class PlayerActionsController : MonoBehaviour
         {
             if (!Input.GetMouseButton(m_number))
                 return;
+            if (player.Prey && canThrowTraps && thrownTraps < maximumTraps)
+                StartCoroutine(ThrowTrap());
+            else if (!player.Prey && canPush && pushController.InPushRange())
+                StartCoroutine(PushOtherPlayer());
         }
             
         if (player.Prey && canThrowTraps)
@@ -60,9 +67,13 @@ public class PlayerActionsController : MonoBehaviour
 
     IEnumerator ThrowTrap()
     {
+        thrownTraps++;
         canThrowTraps = false;
-        Vector3 offset = movementController.Dir.normalized * throwDistance;
-        Instantiate(preyTrap, transform.position + offset, Quaternion.identity);
+        Vector2 direction = movementController.Dir.normalized;
+        Vector3 offset = direction * rawOffset;
+        PreyTrap newTrap = Instantiate(preyTrap, transform.position + offset, Quaternion.identity);
+        newTrap.PushTrap(direction * trapPushForce);
+        newTrap.SetPlayerActionController(this);
         yield return new WaitForSeconds(trapsCoolDown);
         canThrowTraps = true;
     }
@@ -74,5 +85,12 @@ public class PlayerActionsController : MonoBehaviour
         pushController.PushTarget(movementController.Dir.normalized * pushForce);
         yield return new WaitForSeconds(pushCooldown);
         canPush = true;
+    }
+
+    public void DecreaseThrownTraps()
+    {
+        thrownTraps--;
+        if (thrownTraps < 0)
+            thrownTraps = 0;
     }
 }

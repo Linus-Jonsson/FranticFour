@@ -35,30 +35,21 @@ public class GameLoopController : MonoBehaviour
         DeactivatePlayers();
         while (currentRound < numberOfRounds)
         {
-            print("Current round: " + (currentRound + 1));
-            gameLoopUIController.DisplayPreRoundCountdown(startCountDownDuration, players, currentRound+1);
-            yield return new WaitForSeconds(startCountDownDuration);
-
+            yield return StartCoroutine(gameLoopUIController.PreRoundCountdown(startCountDownDuration, players, currentRound + 1));
             SetPrey();
-            gameLoopUIController.DisplayCurrentRoundPrey(currentPrey, preyRevealDuration);
-            yield return new WaitForSeconds(preyRevealDuration);
-            gameLoopUIController.StartRound(roundDuration);
+
+            yield return StartCoroutine(gameLoopUIController.preyCountdown(CurrentPrey,preyRevealDuration));
             ActivatePlayers();
             SetPlayerPositions();
-            print("Starting round");
-            yield return new WaitForSeconds(roundDuration);
 
+            yield return StartCoroutine(gameLoopUIController.CountRoundTime(roundDuration));
             DeactivatePlayers();
-            print("Round over sharing scores");
             DisplayScores();
-            gameLoopUIController.DisplayScore(players,roundOverDuration,currentRound +1);
-            yield return new WaitForSeconds(roundOverDuration);
 
-            print("Starting new round");
+            yield return StartCoroutine(gameLoopUIController.NextRoundCountdown(players,roundOverDuration,currentRound));
             currentRound++;
         }
         gameLoopUIController.DisplayFinalResults(leader, players);
-        print("Game is over and the winner is: " + leader.gameObject.name);
     }
 
     private void SetPrey()

@@ -18,7 +18,7 @@ TagManager:
   - Jump
   - Danger
   - Trap
-  - 
+  - NonPlayerCollision
   - 
   - 
   - 

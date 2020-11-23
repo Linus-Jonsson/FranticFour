@@ -1826,6 +1826,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Orange
       objectReference: {fileID: 0}
+    - target: {fileID: 6598763632442513007, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: preyTrap
+      value: 
+      objectReference: {fileID: 3140399524871574758, guid: a0ff91c6e4bdf6b45ab4387956b9838f, type: 3}
+    - target: {fileID: 6598763632442513007, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: trapPushForce
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
 --- !u!4 &362613502 stripped
@@ -6736,7 +6744,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 9
+  orthographic size: 5
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -6760,7 +6768,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1649004842}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.9093971, y: -1.2452452, z: -81.48239}
+  m_LocalPosition: {x: -2.081897, y: -1.0452454, z: -80.48239}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2043167880}
@@ -7807,9 +7815,9 @@ MonoBehaviour:
   - {fileID: 1248635937}
   - {fileID: 1434075777}
   roundDuration: 60
-  startCountDownDuration: 1
-  preyRevealDuration: 1
-  roundOverDuration: 1
+  startCountDownDuration: 5
+  preyRevealDuration: 5
+  roundOverDuration: 5
   numberOfRounds: 2
 --- !u!4 &1891843499
 Transform:
@@ -9234,15 +9242,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4948348387591239155, guid: f22de0c1ec0ce944d910859e07acec67, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.9093971
+      value: -2.081897
       objectReference: {fileID: 0}
     - target: {fileID: 4948348387591239155, guid: f22de0c1ec0ce944d910859e07acec67, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.2452452
+      value: -1.0452454
       objectReference: {fileID: 0}
     - target: {fileID: 4948348387591239155, guid: f22de0c1ec0ce944d910859e07acec67, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -81.48239
+      value: -80.48239
       objectReference: {fileID: 0}
     - target: {fileID: 4948348387591239155, guid: f22de0c1ec0ce944d910859e07acec67, type: 3}
       propertyPath: m_LocalRotation.x
