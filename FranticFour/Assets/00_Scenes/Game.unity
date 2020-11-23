@@ -553,8 +553,6 @@ MonoBehaviour:
   greenPrey: {fileID: 1029614685}
   purplePrey: {fileID: 1686849600}
   cyanPrey: {fileID: 1342754656}
-  preyPlayer: 
-  currentLeader: {fileID: 0}
   scoreDisplay: {fileID: 273048830}
   orangeScorePlayerText: {fileID: 1313233830}
   orangePlayerScoreText: {fileID: 1840937081}
@@ -1824,6 +1822,14 @@ PrefabInstance:
     - target: {fileID: 5575129103255632267, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: m_Name
       value: Orange
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598763632442513007, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: preyTrap
+      value: 
+      objectReference: {fileID: 3140399524871574758, guid: a0ff91c6e4bdf6b45ab4387956b9838f, type: 3}
+    - target: {fileID: 6598763632442513007, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: trapPushForce
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
@@ -6699,7 +6705,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 9
+  orthographic size: 5
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -6723,7 +6729,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1649004842}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.909397, y: -0.6902454, z: -81.48239}
+  m_LocalPosition: {x: -1.7910637, y: -0.7002454, z: -80.48239}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2043167880}
@@ -7769,7 +7775,7 @@ MonoBehaviour:
   - {fileID: 1222378967}
   - {fileID: 1248635937}
   - {fileID: 1434075777}
-  roundDuration: 10
+  roundDuration: 60
   startCountDownDuration: 5
   preyRevealDuration: 5
   roundOverDuration: 5
@@ -9185,15 +9191,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4948348387591239155, guid: f22de0c1ec0ce944d910859e07acec67, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.909397
+      value: -1.7910637
       objectReference: {fileID: 0}
     - target: {fileID: 4948348387591239155, guid: f22de0c1ec0ce944d910859e07acec67, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.6902454
+      value: -0.7002454
       objectReference: {fileID: 0}
     - target: {fileID: 4948348387591239155, guid: f22de0c1ec0ce944d910859e07acec67, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -81.48239
+      value: -80.48239
       objectReference: {fileID: 0}
     - target: {fileID: 4948348387591239155, guid: f22de0c1ec0ce944d910859e07acec67, type: 3}
       propertyPath: m_LocalRotation.x

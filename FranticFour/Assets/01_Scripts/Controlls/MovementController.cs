@@ -148,6 +148,7 @@ public class MovementController : MonoBehaviour
 
     public void GetStunned(float duration)
     {
+        StopCoroutine(HandlePush(new Vector2(0,0)));
         StartCoroutine(HandleStun(duration));
     }
     IEnumerator HandleStun(float duration)
