@@ -553,8 +553,6 @@ MonoBehaviour:
   greenPrey: {fileID: 1029614685}
   purplePrey: {fileID: 1686849600}
   cyanPrey: {fileID: 1342754656}
-  preyPlayer: 
-  currentLeader: {fileID: 0}
   scoreDisplay: {fileID: 273048830}
   orangeScorePlayerText: {fileID: 1313233830}
   orangePlayerScoreText: {fileID: 1840937081}
@@ -1115,6 +1113,9 @@ MonoBehaviour:
   - target: {fileID: 276690948}
     weight: 1
     radius: 1
+  - target: {fileID: 294589757}
+    weight: 1
+    radius: 1
 --- !u!4 &189921209
 Transform:
   m_ObjectHideFlags: 0
@@ -1123,7 +1124,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 189921207}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.7910632, y: -0.7002454, z: -70.48239}
+  m_LocalPosition: {x: -2.0818965, y: -1.0452454, z: -70.48239}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2043167880}
@@ -3146,13 +3147,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5768939795489499235, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.94436
+      objectReference: {fileID: 0}
+    - target: {fileID: 5768939795489499235, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.188872
+      objectReference: {fileID: 0}
+    - target: {fileID: 5768939795489499235, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.94436
+      objectReference: {fileID: 0}
     - target: {fileID: 5768939795489499244, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
       propertyPath: m_Name
       value: Push Cooldown Purple
       objectReference: {fileID: 0}
     - target: {fileID: 5768939795489499244, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
@@ -3858,13 +3871,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5768939795489499235, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.94436
+      objectReference: {fileID: 0}
+    - target: {fileID: 5768939795489499235, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.188872
+      objectReference: {fileID: 0}
+    - target: {fileID: 5768939795489499235, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.94436
+      objectReference: {fileID: 0}
     - target: {fileID: 5768939795489499244, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
       propertyPath: m_Name
       value: Push Cooldown Green
       objectReference: {fileID: 0}
     - target: {fileID: 5768939795489499244, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
@@ -6022,13 +6047,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5768939795489499235, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.94436
+      objectReference: {fileID: 0}
+    - target: {fileID: 5768939795489499235, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.188872
+      objectReference: {fileID: 0}
+    - target: {fileID: 5768939795489499235, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.94436
+      objectReference: {fileID: 0}
     - target: {fileID: 5768939795489499244, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
       propertyPath: m_Name
       value: Push Cooldown Cyan
       objectReference: {fileID: 0}
     - target: {fileID: 5768939795489499244, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
@@ -6723,7 +6760,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1649004842}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.909397, y: -0.6902454, z: -81.48239}
+  m_LocalPosition: {x: -1.9093971, y: -1.2452452, z: -81.48239}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2043167880}
@@ -7769,10 +7806,10 @@ MonoBehaviour:
   - {fileID: 1222378967}
   - {fileID: 1248635937}
   - {fileID: 1434075777}
-  roundDuration: 10
-  startCountDownDuration: 5
-  preyRevealDuration: 5
-  roundOverDuration: 5
+  roundDuration: 60
+  startCountDownDuration: 1
+  preyRevealDuration: 1
+  roundOverDuration: 1
   numberOfRounds: 2
 --- !u!4 &1891843499
 Transform:
@@ -8854,6 +8891,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5575129103255632266, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5575129103255632266, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5575129103255632266, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: m_Color.b
+      value: 0.9098039
+      objectReference: {fileID: 0}
     - target: {fileID: 5575129103255632267, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: m_Name
       value: Cyan
@@ -9185,11 +9234,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4948348387591239155, guid: f22de0c1ec0ce944d910859e07acec67, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.909397
+      value: -1.9093971
       objectReference: {fileID: 0}
     - target: {fileID: 4948348387591239155, guid: f22de0c1ec0ce944d910859e07acec67, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.6902454
+      value: -1.2452452
       objectReference: {fileID: 0}
     - target: {fileID: 4948348387591239155, guid: f22de0c1ec0ce944d910859e07acec67, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9353,13 +9402,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5768939795489499235, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.94436
+      objectReference: {fileID: 0}
+    - target: {fileID: 5768939795489499235, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.188872
+      objectReference: {fileID: 0}
+    - target: {fileID: 5768939795489499235, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.94436
+      objectReference: {fileID: 0}
     - target: {fileID: 5768939795489499244, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
       propertyPath: m_Name
       value: Push Cooldown Orange
       objectReference: {fileID: 0}
     - target: {fileID: 5768939795489499244, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}

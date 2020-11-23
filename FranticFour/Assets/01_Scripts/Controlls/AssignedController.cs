@@ -2,8 +2,9 @@
 
 public class AssignedController : MonoBehaviour
 {
-    [Header("Player")] [Range(0, 3)] [SerializeField]
-    private int playerID;
+    [Header("Player")] [Range(0, 3)]
+    [SerializeField] private int playerID;
+    [SerializeField] private bool usesMouse;
 
     public int PlayerID
     {
@@ -14,10 +15,16 @@ public class AssignedController : MonoBehaviour
             SetControllerKeysXbox();
         }
     }
+    
+    public bool UsesMouse
+    {
+        get => usesMouse;
+        private set => usesMouse = value;
+    }
+    
 
-    [Header("Assigned controls")] [SerializeField]
-    private string vertical;
-
+    [Header("Assigned controls")]
+    [SerializeField] private string vertical;
     [SerializeField] private string horizontal;
     [SerializeField] private string rightVertical;
     [SerializeField] private string rightHorizontal;
@@ -60,6 +67,20 @@ public class AssignedController : MonoBehaviour
         jump = StringManager.Inputs.jump + playerID;
     }
 
+    private void SetControllerKeyboardAndMouse()
+    {
+        usesMouse = true;
+        
+        vertical = StringManager.Inputs.verticalKeyboard;
+        horizontal = StringManager.Inputs.horizontalKeyboard;
+
+        rightVertical = vertical;
+        rightHorizontal = horizontal;
+
+        action1 = StringManager.Inputs.action1Keyboard;
+        jump = StringManager.Inputs.jumpKeboard;
+    }
+
     private void GetControllerType()
     {
         string controllerName = "";
@@ -75,7 +96,14 @@ public class AssignedController : MonoBehaviour
         {
             //Implement nitendo switch controller support
         }
+        else if (AssignPlayers.keyboardAssigned == false)
+        {
+            AssignPlayers.keyboardAssigned = true;
+            SetControllerKeyboardAndMouse();
+        }
         else
-            SetControllerKeysXbox();
+        {
+            SetControllerKeysXbox();   
+        }
     }
 }

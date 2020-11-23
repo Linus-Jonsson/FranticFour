@@ -3,6 +3,7 @@
 public class AssignPlayers : MonoBehaviour
 {
     [SerializeField] private AssignedController[] players = new AssignedController[4];
+    public static bool keyboardAssigned = false;
 
     private void Awake()
     {

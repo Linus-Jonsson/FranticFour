@@ -43,7 +43,7 @@ public class MovementController : MonoBehaviour
     bool canJump = true;
 
     float originalDrag;
-
+    
     void Start()
     {
         controller = GetComponent<AssignedController>();
@@ -108,9 +108,10 @@ public class MovementController : MonoBehaviour
 
     private void HandleRotation()
     {
-        // add a small check if controller is assigned or not and use an if statement to controll what rotation to use.
-        HandleControllerRotation();
-        //HandleMouseRotation(); Musen skriver över kontroller inputs
+        if (controller.UsesMouse)
+            HandleMouseRotation(); //Musen skriver över kontroller inputs
+        else
+            HandleControllerRotation();
     }
 
     private void HandleControllerRotation()
