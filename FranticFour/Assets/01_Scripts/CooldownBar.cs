@@ -4,11 +4,11 @@ using UnityEngine.Serialization;
 
 public class CooldownBar : MonoBehaviour
 {
-    [Header("Set in editor")] [SerializeField]
-    private Transform player;
+    [Header("Set in editor")] 
+    [SerializeField] private Transform player = null;
 
-    [SerializeField] private Color fullBarColor;
-    [SerializeField] private Color emptyBarColor;
+    [SerializeField] private Color fullBarColor = new Color(0,0,0);
+    [SerializeField] private Color emptyBarColor = new Color(0, 0, 0);
     private GameObject parentGObj;
 
     //Cooldown bar

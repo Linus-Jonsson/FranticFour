@@ -4,23 +4,24 @@ using UnityEngine;
 
 public class GameLoopController : MonoBehaviour
 {
-    [SerializeField] Player[] players = new Player[4];
-
+    [Header("Timer durations")]
+    [Tooltip("The time in seconds for the round")]
     [SerializeField] float roundDuration = 60f;
-
+    [Tooltip("The time in seconds before prey is revealed")]
     [SerializeField] float startCountDownDuration = 5f;
+    [Tooltip("The time in seconds that the prey is revealed before starting round")]
     [SerializeField] float preyRevealDuration = 5f;
+    [Tooltip("The time in seconds that round over summary is displayed")]
     [SerializeField] float roundOverDuration = 5f;
 
+    [Header("Other configurations")]
+    [SerializeField] Player[] players = new Player[4];
     [SerializeField] int numberOfRounds = 5;
+    int currentRound = 0;
+
 
     Player leader = null;
     Player currentPrey = null;
-
-    public Player CurrentPrey { get { return currentPrey; } }
-
-    int currentRound = 0;
-
     GameLoopUIController gameLoopUIController;
 
     void Start()
@@ -38,7 +39,7 @@ public class GameLoopController : MonoBehaviour
             yield return StartCoroutine(gameLoopUIController.PreRoundCountdown(startCountDownDuration, players, currentRound + 1));
             SetPrey();
 
-            yield return StartCoroutine(gameLoopUIController.preyCountdown(CurrentPrey,preyRevealDuration));
+            yield return StartCoroutine(gameLoopUIController.preyCountdown(currentPrey,preyRevealDuration));
             ActivatePlayers();
             SetPlayerPositions();
 
@@ -63,7 +64,6 @@ public class GameLoopController : MonoBehaviour
             {
                 players[i].Prey = true;
                 currentPrey = players[i];
-                print("Prey is: " + players[i].gameObject.name);
             }
             else
             {
@@ -92,17 +92,13 @@ public class GameLoopController : MonoBehaviour
         // make this method set each players score in the UI controller instead
         foreach (var player in players)
         {
-            if (player.Score == 0)
+            if (player.Score <= 0)
                 continue;
-            else if (leader == null && player.Score > 0)
+            if (leader == null)
                 leader = player;
             else if (player.Score > leader.Score)
                 leader = player;
-
-            print("Player: " + player.PlayerNumber + "\n" + "Score: " + player.Score);
         }
-        if(leader != null)  
-        print("Current score leader is: " + leader.gameObject.name);
     }
 
     private void DeactivatePlayers()
