@@ -37,17 +37,16 @@ public class GameLoopController : MonoBehaviour
     }
 
     IEnumerator HandleGameLoop()
-    {        
-        //SetPlayerPositions();
+    {
         DeactivatePlayers();
         while (currentRound < numberOfRounds)
         {
             yield return StartCoroutine(gameLoopUIController.PreRoundCountdown(startCountDownDuration, players, currentRound + 1));
             SetPrey();
+            SpawnPlayers();
 
             yield return StartCoroutine(gameLoopUIController.preyCountdown(currentPrey,preyRevealDuration));
             ActivatePlayers();
-            SpawnPlayers();
 
             yield return StartCoroutine(gameLoopUIController.CountRoundTime(roundDuration));
             DeactivatePlayers();

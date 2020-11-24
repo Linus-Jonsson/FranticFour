@@ -25,13 +25,14 @@ public class MovementController : MonoBehaviour
     [Header("Other")]
     [SerializeField] public AssignedController controller; //SerializeField + Public?
     [SerializeField] Color originalColor;
+    [SerializeField] GameObject body = null;
 
     Vector2 dir = new Vector2(0, 0);
     public Vector2 Dir { get { return dir; } }
 
     Rigidbody2D rb2d;
+    Animator animator;
     SpriteRenderer spriteRenderer;
-
 
     bool freezeInput = false;
 
@@ -45,7 +46,8 @@ public class MovementController : MonoBehaviour
     {
         controller = GetComponent<AssignedController>();
         rb2d = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = body.GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
         originalColor = spriteRenderer.color;
         originalDrag = rb2d.drag;
     }
@@ -65,11 +67,23 @@ public class MovementController : MonoBehaviour
         HandleRotation();
     }
 
+    private void LateUpdate()
+    {
+        body.transform.rotation = Quaternion.Euler (0.0f, 0.0f, transform.rotation.z * -1.0f);
+    }
+
     private void MovePlayer()
     {
         float xMovement = Input.GetAxis(controller.Horizontal);
         float yMovement = Input.GetAxis(controller.Vertical);
         Vector2 movement = new Vector2(xMovement, yMovement).normalized;
+        animator.SetFloat("movementX", movement.x);
+        animator.SetFloat("movementY", movement.y);
+        animator.SetFloat("speed", new Vector2(xMovement, yMovement).magnitude);
+        if (movement.x > 0) 
+            spriteRenderer.flipX = true;
+        else if (movement.x < 0)
+            spriteRenderer.flipX = false;
         rb2d.AddForce(movement * movementSpeed);
     }
 
