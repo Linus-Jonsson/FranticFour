@@ -6,7 +6,7 @@ public class TrapController : MonoBehaviour
 {
     [Header("Movement Configuration")]
     [Tooltip("The points that the trap will move inbetween")]
-    [SerializeField] Transform[] patrolPoints;
+    [SerializeField] Transform[] patrolPoints = new Transform[0];
     [Tooltip("The speed that the trap moves (needs to be low numbers")]
     [SerializeField] float movementSpeed = 10f;
     [Tooltip("The speed that the trap rotates at")]
