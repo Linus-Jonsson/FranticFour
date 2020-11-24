@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
         if (prey)
-            FindObjectOfType<GameLoopController>().SetPlayerPositions();
+            FindObjectOfType<GameLoopController>().SpawnPlayers();
         // add a penalty to score if suicide? 
         else
             SetNewPosition();
