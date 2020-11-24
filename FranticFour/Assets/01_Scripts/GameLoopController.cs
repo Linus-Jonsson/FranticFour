@@ -26,11 +26,13 @@ public class GameLoopController : MonoBehaviour
     Player currentPrey = null;
     GameLoopUIController gameLoopUIController;
     [SerializeField] private List<int> preyProbability; //Serialized temporarily to make sure it works properly
+    TargetGroupController targetGroupController;
     
     void Start()
     {
         preyProbability = new List<int> {0, 1, 2, 3};
         gameLoopUIController = FindObjectOfType<GameLoopUIController>();
+        targetGroupController = FindObjectOfType<TargetGroupController>();
         StartCoroutine(HandleGameLoop());
     }
 
@@ -82,7 +84,8 @@ public class GameLoopController : MonoBehaviour
         for (int i = 0; i < preyProbability.Count; i++)
             if(preyProbability[i].Equals(numberOfPrey))
                 preyProbability.RemoveAt(i);
-        
+
+        targetGroupController.UpdateTargetGroup(players);
     }
 
     public void SpawnPlayers()
