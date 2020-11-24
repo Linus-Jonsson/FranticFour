@@ -133,6 +133,7 @@ public class MovementController : MonoBehaviour
 
     public void GetPushed(Vector2 pushForce)
     {
+        if(!freezeInput)
         StartCoroutine(HandlePush(pushForce));
     }
     IEnumerator HandlePush(Vector2 pushForce)
