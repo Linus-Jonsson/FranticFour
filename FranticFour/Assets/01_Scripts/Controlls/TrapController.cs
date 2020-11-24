@@ -55,8 +55,17 @@ public class TrapController : MonoBehaviour
         transform.position = patrolPoints[patrolPointIndex].transform.position;
         if (timed)
         {
-            childCollider.SetActive(false);
-            StartCoroutine(ActivateTrap());
+            int random = Random.Range(0, 2);
+            if(random == 0)
+            {
+                childCollider.SetActive(false);
+                StartCoroutine(ActivateTrap());
+            }
+            else
+            {
+                childCollider.SetActive(true);
+                StartCoroutine(DeactivateTrap());
+            }
         }
     }
 
