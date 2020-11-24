@@ -19,6 +19,7 @@ public class GameLoopController : MonoBehaviour
     [Header("Other configurations")]
     [SerializeField] Player[] players = new Player[4];
     [SerializeField] int numberOfRounds = 5;
+    [SerializeField] GameObject[] spawnPoints = new GameObject[4];
     int currentRound = 0;
 
     Player leader = null;
@@ -35,7 +36,7 @@ public class GameLoopController : MonoBehaviour
 
     IEnumerator HandleGameLoop()
     {        
-        SetPlayerPositions();
+        //SetPlayerPositions();
         DeactivatePlayers();
         while (currentRound < numberOfRounds)
         {
@@ -44,7 +45,7 @@ public class GameLoopController : MonoBehaviour
 
             yield return StartCoroutine(gameLoopUIController.preyCountdown(currentPrey,preyRevealDuration));
             ActivatePlayers();
-            SetPlayerPositions();
+            SpawnPlayers();
 
             yield return StartCoroutine(gameLoopUIController.CountRoundTime(roundDuration));
             DeactivatePlayers();
@@ -60,18 +61,20 @@ public class GameLoopController : MonoBehaviour
     {
         int random = Random.Range(0, preyProbability.Count - 1);
         int numberOfPrey = preyProbability[random];
-        //Debug.Log($"Random: {random}, Player: {numberOfPrey}");
+        //Debug.Log($"Random: {random}, Player: {numberOfPrey}"); - To check if it works properly
 
         for (int i = 0; i < players.Length; i++)
         {
             if(i == numberOfPrey)
             {
                 players[i].Prey = true;
+                //Prey MovementSpeed adjustment
                 currentPrey = players[i];
             }
             else
             {
                 players[i].Prey = false;
+                //Readjust MovementSpeed of previous Prey
                 preyProbability.Add(i);
             }
         }
@@ -82,11 +85,22 @@ public class GameLoopController : MonoBehaviour
         
     }
 
-    public void SetPlayerPositions()
+    public void SpawnPlayers()
     {
+        int random = Random.Range(0, spawnPoints.Length - 1);
+        SpawnPoint spawnPoint = spawnPoints[random].GetComponent<SpawnPoint>();
+        int hunterSpawnCount = 1;
         foreach (var player in players)
         {
-            player.SetNewPosition();
+            if (player.Prey == true)
+            {
+                player.transform.position = spawnPoint.spawnPosition[0].transform.position;
+            }
+            else
+            {
+                player.transform.position = spawnPoint.spawnPosition[hunterSpawnCount].transform.position;
+                hunterSpawnCount += 1;
+            }
         }
     }
 

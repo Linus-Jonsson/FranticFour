@@ -7838,6 +7838,11 @@ MonoBehaviour:
   - {fileID: 1248635937}
   - {fileID: 1434075777}
   numberOfRounds: 4
+  spawnPoints:
+  - {fileID: 6611614306743309169, guid: 163262a44bd49d040999c1979f670f68, type: 3}
+  - {fileID: 1647817926229260146, guid: 9c68aa0ea9844a64f9e55d4ec25c0a81, type: 3}
+  - {fileID: 7985688645945616376, guid: 9b988440f5028a342bb0ab88647fb92d, type: 3}
+  - {fileID: 5857546134421466556, guid: 75b5fee2a466c764585f334fb4120199, type: 3}
   preyProbability: 
 --- !u!4 &1891843499
 Transform:
