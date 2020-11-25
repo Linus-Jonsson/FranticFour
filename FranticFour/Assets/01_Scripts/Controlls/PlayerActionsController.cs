@@ -63,7 +63,7 @@ public class PlayerActionsController : MonoBehaviour
                 StartCoroutine(PushOtherPlayer());
         }
             
-        if (player.Prey && canThrowTraps)
+        if (player.Prey && canThrowTraps && thrownTraps < maximumTraps)
             StartCoroutine(ThrowTrap());
         else if (!player.Prey && canPush)
         {

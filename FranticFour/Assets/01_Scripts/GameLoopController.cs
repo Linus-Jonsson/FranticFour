@@ -101,8 +101,8 @@ public class GameLoopController : MonoBehaviour
             }
             else
             {
-                hunterSpawnCount += 1;
                 player.ResetPlayer(spawnPoint.spawnPosition[hunterSpawnCount].transform.position);
+                hunterSpawnCount += 1;
             }
         }
     }

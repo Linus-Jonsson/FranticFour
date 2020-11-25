@@ -23,9 +23,9 @@ public class Player : MonoBehaviour
     bool prey = false;
     public bool Prey { get { return prey; } set { prey = value; } }
 
-    void Start()
+    private void Awake()
     {
-        playerNumber = GetComponent<AssignedController>().PlayerID +1;
+        playerNumber = GetComponent<AssignedController>().PlayerID + 1;
         playerActionController = GetComponent<PlayerActionsController>();
         movementController = GetComponent<MovementController>();
     }
