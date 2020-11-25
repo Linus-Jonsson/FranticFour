@@ -189,4 +189,18 @@ public class MovementController : MonoBehaviour
         }
         spriteRenderer.color = originalColor;
     }
+
+    // use in animation where you want to kill the velocity of the object.
+    public void KillVelocity()
+    {
+        rb2d.velocity = Vector2.zero;
+    }
+
+    public void ResetMovement()
+    {
+        StopAllCoroutines();
+        spriteRenderer.color = originalColor;
+        canJump = true;
+        freezeInput = false;
+    }
 }

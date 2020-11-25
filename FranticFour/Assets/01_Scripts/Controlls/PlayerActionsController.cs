@@ -32,6 +32,8 @@ public class PlayerActionsController : MonoBehaviour
     Player player;
     private Animator animator;
 
+    List<PreyTrap> laidTraps = new List<PreyTrap>();
+
     private void Start()
     {
         controller = GetComponent<AssignedController>();
@@ -63,9 +65,10 @@ public class PlayerActionsController : MonoBehaviour
             
         if (player.Prey && canThrowTraps)
             StartCoroutine(ThrowTrap());
-        else if (!player.Prey && canPush && pushController.InPushRange())
+        else if (!player.Prey && canPush)
         {
             animator.SetTrigger("Push");
+            if(pushController.InPushRange())
             StartCoroutine(PushOtherPlayer());
         }
     }
@@ -79,6 +82,7 @@ public class PlayerActionsController : MonoBehaviour
         PreyTrap newTrap = Instantiate(preyTrap, transform.position + offset, Quaternion.identity);
         newTrap.PushTrap(direction * trapPushForce);
         newTrap.SetPlayerActionController(this);
+        laidTraps.Add(newTrap);
         yield return new WaitForSeconds(trapsCoolDown);
         canThrowTraps = true;
     }
@@ -97,5 +101,22 @@ public class PlayerActionsController : MonoBehaviour
         thrownTraps--;
         if (thrownTraps < 0)
             thrownTraps = 0;
+    }
+
+    private void ResetTraps()
+    {
+        laidTraps.RemoveAll(trap => trap == null);
+        foreach (var trap in laidTraps)
+        {
+            trap.DestroyTrap();
+        }
+    }
+
+    public void ResetPlayerActions()
+    {
+        ResetTraps();
+        StopAllCoroutines();
+        canPush = true;
+        canThrowTraps = true;
     }
 }
