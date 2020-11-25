@@ -94,13 +94,14 @@ public class GameLoopController : MonoBehaviour
         int hunterSpawnCount = 1;
         foreach (var player in players)
         {
+            player.GetComponent<PlayerActionsController>().ResetPlayerActions();
             if (player.Prey == true)
             {
-                player.transform.position = spawnPoint.spawnPosition[0].transform.position;
+                player.ResetPlayer(spawnPoint.spawnPosition[0].transform.position);
             }
             else
             {
-                player.transform.position = spawnPoint.spawnPosition[hunterSpawnCount].transform.position;
+                player.ResetPlayer(spawnPoint.spawnPosition[hunterSpawnCount].transform.position);
                 hunterSpawnCount += 1;
             }
         }
@@ -147,6 +148,7 @@ public class GameLoopController : MonoBehaviour
         foreach (var player in players)
         {
             player.ResetPlayer();
+            player.Score = 0;
         }
         currentRound = 0;
         leader = null;

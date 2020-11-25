@@ -11,19 +11,23 @@ public class Player : MonoBehaviour
     [SerializeField] int scoreValue = 3;
 
     int score = 0;
-    public int Score { get { return score; } }
+    public int Score { get { return score; } set { score = value; } }
     int playerNumber = 0;
     public int PlayerNumber { get { return playerNumber; } }
 
     //[SerializeField] string playerName = ""; // not currently in use
     Player pushedBy = null;
+    PlayerActionsController playerActionController;
+    MovementController movementController;
 
     bool prey = false;
     public bool Prey { get { return prey; } set { prey = value; } }
 
-    void Start()
+    private void Awake()
     {
-        playerNumber = GetComponent<AssignedController>().PlayerID +1;
+        playerNumber = GetComponent<AssignedController>().PlayerID + 1;
+        playerActionController = GetComponent<PlayerActionsController>();
+        movementController = GetComponent<MovementController>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -47,12 +51,16 @@ public class Player : MonoBehaviour
             FindObjectOfType<GameLoopController>().SpawnPlayers();
         // add a penalty to score if suicide? 
         else
-            SetNewPosition();
+            ResetPlayer();
     }
 
-    public void SetNewPosition()
+    private void SetNewPosition()
     {
         transform.position = new Vector3(Random.Range(-7f, 1f), Random.Range(-0.38f, 4.3f), transform.position.z);
+    }
+    private void SetNewPosition(Vector3 position)
+    {
+        transform.position = position;
     }
 
     public void GetPushedBy(Player pusher)
@@ -74,8 +82,22 @@ public class Player : MonoBehaviour
         score += scoreChange;
     }
 
+    public void ResetPlayer(Vector3 position)
+    {
+        StopAllCoroutines();
+        playerActionController.ResetPlayerActions();
+        movementController.ResetMovement();
+        SetNewPosition(position);
+        pushedBy = null;
+    }
+
+    // remove this once we have set respawn points for hunters.
     public void ResetPlayer()
     {
-        score = 0;
+        StopAllCoroutines();
+        playerActionController.ResetPlayerActions();
+        movementController.ResetMovement();
+        SetNewPosition();
+        pushedBy = null;
     }
 }
