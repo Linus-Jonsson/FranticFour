@@ -21,4 +21,9 @@ public class AudioController : MonoBehaviour
     {
         mixer.SetFloat("effects", Mathf.Log10(value) * 20);
     }
+    
+    public void SetEnvironmentVolume(float value)
+    {
+        mixer.SetFloat("environment", Mathf.Log10(value) * 20);    
+    }
 }
