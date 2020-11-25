@@ -25,13 +25,14 @@ public class MovementController : MonoBehaviour
     [Header("Other")]
     [SerializeField] public AssignedController controller; //SerializeField + Public?
     [SerializeField] Color originalColor;
+    [SerializeField] GameObject body = null;
 
     Vector2 dir = new Vector2(0, 0);
     public Vector2 Dir { get { return dir; } }
 
     Rigidbody2D rb2d;
+    Animator animator;
     SpriteRenderer spriteRenderer;
-
 
     bool freezeInput = false;
 
@@ -45,7 +46,8 @@ public class MovementController : MonoBehaviour
     {
         controller = GetComponent<AssignedController>();
         rb2d = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = body.GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
         originalColor = spriteRenderer.color;
         originalDrag = rb2d.drag;
     }
@@ -65,11 +67,23 @@ public class MovementController : MonoBehaviour
         HandleRotation();
     }
 
+    private void LateUpdate()
+    {
+        body.transform.rotation = Quaternion.Euler (0.0f, 0.0f, transform.rotation.z * -1.0f);
+    }
+
     private void MovePlayer()
     {
         float xMovement = Input.GetAxis(controller.Horizontal);
         float yMovement = Input.GetAxis(controller.Vertical);
         Vector2 movement = new Vector2(xMovement, yMovement).normalized;
+        animator.SetFloat("movementX", movement.x);
+        animator.SetFloat("movementY", movement.y);
+        animator.SetFloat("speed", new Vector2(xMovement, yMovement).magnitude);
+        if (movement.x > 0) 
+            spriteRenderer.flipX = true;
+        else if (movement.x < 0)
+            spriteRenderer.flipX = false;
         rb2d.AddForce(movement * movementSpeed);
     }
 
@@ -115,6 +129,8 @@ public class MovementController : MonoBehaviour
     {
         float inputX = Input.GetAxis(controller.RightHorizontal);
         float inputY = Input.GetAxis(controller.RightVertical);
+        animator.SetFloat("directionX", inputX);
+        animator.SetFloat("directionY", inputY);
 
         if (inputX != 0)
             dir.x = inputX;
@@ -128,13 +144,15 @@ public class MovementController : MonoBehaviour
     {
         var position = Camera.main.WorldToScreenPoint(transform.position);
         dir = Input.mousePosition - position;
+        animator.SetFloat("directionX", dir.x);
+        animator.SetFloat("directionY", dir.y);
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(-dir.x, dir.y) * Mathf.Rad2Deg));
     }
 
     public void GetPushed(Vector2 pushForce)
     {
         if(!freezeInput)
-        StartCoroutine(HandlePush(pushForce));
+            StartCoroutine(HandlePush(pushForce));
     }
     IEnumerator HandlePush(Vector2 pushForce)
     {

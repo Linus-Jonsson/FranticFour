@@ -30,6 +30,7 @@ public class PlayerActionsController : MonoBehaviour
     PushController pushController;
     MovementController movementController;
     Player player;
+    private Animator animator;
 
     private void Start()
     {
@@ -37,6 +38,7 @@ public class PlayerActionsController : MonoBehaviour
         pushController = GetComponentInChildren<PushController>();
         movementController = GetComponent<MovementController>();
         player = GetComponent<Player>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -62,6 +64,7 @@ public class PlayerActionsController : MonoBehaviour
         if (player.Prey && canThrowTraps)
             StartCoroutine(ThrowTrap());
         else if (!player.Prey && canPush && pushController.InPushRange())
+            animator.SetTrigger("Push");
             StartCoroutine(PushOtherPlayer());
     }
 
