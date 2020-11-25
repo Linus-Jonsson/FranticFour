@@ -19,12 +19,17 @@ public class SelectionController : MonoBehaviour
         string controllerName = "";
         string[] controllersConnected = Input.GetJoystickNames();
 
+        for (int i = 0; i < controllersConnected.Length; i++)
+        {
+            controllersConnected[i] = controllersConnected[i].ToLower();
+        }
+
         if (CONTROLLER_ID < controllersConnected.Length)
             controllerName = controllersConnected[CONTROLLER_ID];
 
-        if (controllerName.Contains("XBOX"))
+        if (controllerName.Contains("xbox"))
             action1 = StringManager.Inputs.action1 + CONTROLLER_ID;
-        else if (controllerName.Contains("Wireless Controller"))
+        else if (controllerName.Contains("wireless controller"))
             action1 = StringManager.Inputs.action1PS4 + CONTROLLER_ID;
         else
         {
