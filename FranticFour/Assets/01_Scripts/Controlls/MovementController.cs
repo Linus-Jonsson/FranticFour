@@ -37,6 +37,7 @@ public class MovementController : MonoBehaviour
     bool freezeInput = false;
 
     public bool FreezeInput { get { return freezeInput; } set { freezeInput = value; } }
+    public float MovementSpeed { set { movementSpeed = value; } }
 
     bool canJump = true;
 
