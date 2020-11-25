@@ -129,14 +129,11 @@ public class MovementController : MonoBehaviour
     {
         float inputX = Input.GetAxis(controller.RightHorizontal);
         float inputY = Input.GetAxis(controller.RightVertical);
-        animator.SetFloat("directionX", inputX);
-        animator.SetFloat("directionY", inputY);
-
         if (inputX != 0)
             dir.x = inputX;
         if (inputY != 0)
             dir.y = inputY;
-
+        AnimationDirectionSet();
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(-dir.x, dir.y) * Mathf.Rad2Deg));
     }
 
@@ -144,9 +141,15 @@ public class MovementController : MonoBehaviour
     {
         var position = Camera.main.WorldToScreenPoint(transform.position);
         dir = Input.mousePosition - position;
-        animator.SetFloat("directionX", dir.x);
-        animator.SetFloat("directionY", dir.y);
+        AnimationDirectionSet();
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(-dir.x, dir.y) * Mathf.Rad2Deg));
+    }
+
+    private void AnimationDirectionSet()
+    {
+        Vector2 direction = dir.normalized;
+        animator.SetFloat("directionX", direction.x);
+        animator.SetFloat("directionY", direction.y);
     }
 
     public void GetPushed(Vector2 pushForce)
