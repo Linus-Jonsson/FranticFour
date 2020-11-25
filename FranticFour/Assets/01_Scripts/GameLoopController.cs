@@ -20,8 +20,8 @@ public class GameLoopController : MonoBehaviour
     [SerializeField] Player[] players = new Player[4];
     [SerializeField] int numberOfRounds = 5;
     [SerializeField] GameObject[] spawnPoints = new GameObject[4];
-    int currentRound = 0;
 
+    int currentRound = 0;
     Player leader = null;
     Player currentPrey = null;
     GameLoopUIController gameLoopUIController;
@@ -60,30 +60,27 @@ public class GameLoopController : MonoBehaviour
 
     private void SetPrey()
     {
-        int random = Random.Range(0, preyProbability.Count - 1);
+        int random = Random.Range(0, preyProbability.Count);
         int numberOfPrey = preyProbability[random];
-        //Debug.Log($"Random: {random}, Player: {numberOfPrey}"); - To check if it works properly
-
+        //Debug.Log($"Random: {random}, Player: {numberOfPrey}"); - To check if it works properly (REMOVE later)
         for (int i = 0; i < players.Length; i++)
         {
             if(i == numberOfPrey)
             {
                 players[i].Prey = true;
-                //Prey MovementSpeed adjustment
+                players[i].GetComponent<MovementController>().MovementSpeed = 35f;
                 currentPrey = players[i];
             }
             else
             {
                 players[i].Prey = false;
-                //Readjust MovementSpeed of previous Prey
-                preyProbability.Add(i);
+                players[i].GetComponent<MovementController>().MovementSpeed = 40f;
+                // preyProbability.Add(i); - Commented for playtest!
             }
         }
-
-        for (int i = 0; i < preyProbability.Count; i++)
-            if(preyProbability[i].Equals(numberOfPrey))
-                preyProbability.RemoveAt(i);
-
+        // for (int i = 0; i < preyProbability.Count; i++) - Commented for playtest!
+        //     if(preyProbability[i].Equals(numberOfPrey))
+        //         preyProbability.RemoveAt(i);
         targetGroupController.UpdateTargetGroup(players);
     }
 
