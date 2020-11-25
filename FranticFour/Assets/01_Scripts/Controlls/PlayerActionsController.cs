@@ -64,8 +64,10 @@ public class PlayerActionsController : MonoBehaviour
         if (player.Prey && canThrowTraps)
             StartCoroutine(ThrowTrap());
         else if (!player.Prey && canPush && pushController.InPushRange())
+        {
             animator.SetTrigger("Push");
             StartCoroutine(PushOtherPlayer());
+        }
     }
 
     IEnumerator ThrowTrap()
