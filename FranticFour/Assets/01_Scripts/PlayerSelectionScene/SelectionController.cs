@@ -38,6 +38,7 @@ public class SelectionController : MonoBehaviour
             if (!PassControllersToGame.isKeyboardUsed)
             {
                 PassControllersToGame.isKeyboardUsed = true;
+                PassControllersToGame.keyBoardOwnedBy = CONTROLLER_ID;
                 action1 = StringManager.Inputs.action1Keyboard;
                 Debug.LogWarning("Controller is missing or cant be recognized: " + controllerName + " You are set to keyboard");
             }
