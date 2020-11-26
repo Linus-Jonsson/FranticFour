@@ -70,6 +70,14 @@ public class GameLoopUIController : MonoBehaviour
     [SerializeField] int[] placementTextSizes = new int[4];
     [SerializeField] Color[] placementColors = new Color[4];
 
+    [Header("Prey kill screen configuration")]
+    [SerializeField] GameObject killScreenDisplay = null;
+    [SerializeField] TextMeshProUGUI killedByText = null;
+    [SerializeField] GameObject[] preyImages = null;
+    [SerializeField] GameObject[] killerImages = null;
+    [SerializeField] Transform hunter1Transform = null;
+    [SerializeField] Transform hunter2Transform = null;
+    [SerializeField] Transform hunter3Transform = null;
 
     public IEnumerator PreRoundCountdown(float duration, Player[] players, int roundNumber)
     {
@@ -297,5 +305,103 @@ public class GameLoopUIController : MonoBehaviour
     public void PlayAgain()
     {
         finalResultDisplay.SetActive(false);
+    }
+
+    public void SetKillScreen(Player prey, Player killer, bool value)
+    {
+        if (value)
+        {
+            foreach (var image in preyImages)
+                image.SetActive(false);
+            foreach (var image in killerImages)
+            {
+                image.transform.position = hunter1Transform.position;
+                image.SetActive(false);
+            }
+
+
+            if (killer != null)
+            {
+                killedByText.text = "Player " + prey.PlayerNumber + " killed the prey!";
+            }
+            else
+            {
+                killedByText.text = "Player " + prey.PlayerNumber + " commited suicide everyone gets points!";
+            }
+
+            switch (prey.gameObject.name)
+            {
+                case "Orange":
+                    preyImages[0].SetActive(true);
+                    break;
+                case "Green":
+                    preyImages[1].SetActive(true);
+                    break;
+                case "Purple":
+                    preyImages[2].SetActive(true);
+                    break;
+                case "Cyan":
+                    preyImages[3].SetActive(true);
+                    break;
+            }
+            if (killer == null)
+            {
+                int index = 0;
+                foreach (var image in killerImages)
+                {
+                    image.SetActive(true);
+                    switch (prey.gameObject.name)
+                    {
+                        case "Orange":
+                            killerImages[0].SetActive(false);
+                            break;
+                        case "Green":
+                            killerImages[1].SetActive(false);
+                            break;
+                        case "Purple":
+                            killerImages[2].SetActive(false);
+                            break;
+                        case "Cyan":
+                            killerImages[3].SetActive(false);
+                            break;
+                    }
+                    if (image.activeSelf)
+                    {
+                        switch(index)
+                        {
+                            case 0:
+                                image.transform.position = hunter1Transform.position;
+                                break;
+                            case 1:
+                                image.transform.position = hunter2Transform.position;
+                                break;
+                            case 2:
+                                image.transform.position = hunter3Transform.position;
+                                break;
+                        }
+                        index++;
+                    }
+                }
+            }
+            else
+            {
+                switch (killer.gameObject.name)
+                {
+                    case "Orange":
+                        killerImages[0].SetActive(true);
+                        break;
+                    case "Green":
+                        killerImages[1].SetActive(true);
+                        break;
+                    case "Purple":
+                        killerImages[2].SetActive(true);
+                        break;
+                    case "Cyan":
+                        killerImages[3].SetActive(true);
+                        break;
+                }
+            }
+        }
+        killScreenDisplay.SetActive(value);
     }
 }
