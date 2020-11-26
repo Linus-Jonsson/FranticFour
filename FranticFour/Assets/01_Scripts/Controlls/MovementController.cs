@@ -17,8 +17,6 @@ public class MovementController : MonoBehaviour
     [Tooltip("The time in seconds that the player getting pushed wont be able to move")]
     [SerializeField] float pushDuration = 0.3f;
     [Header("Jump configuration")] 
-    [Tooltip("The duration of the jump in seconds")]
-    [SerializeField] float jumpDuration = 2f;
     [Tooltip("The drag on the rigidBody while jumping (This should be low due to no force applied during the jump")]
     [SerializeField] float jumpingDrag = 0.3f;
 
