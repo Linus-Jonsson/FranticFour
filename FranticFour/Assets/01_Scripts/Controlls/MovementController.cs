@@ -56,7 +56,7 @@ public class MovementController : MonoBehaviour
     private void Update()
     {
         if (canJump && Input.GetButton(controller.Jump) && !freezeInput)
-            StartCoroutine(HandleJump());
+            animator.SetTrigger("Jump");
     }
 
     void FixedUpdate()
@@ -89,34 +89,22 @@ public class MovementController : MonoBehaviour
         animator.SetFloat("speed", new Vector2(movement.x, movement.y).magnitude);
     }
 
-    IEnumerator HandleJump()
+    public void StartJumping()
     {
-        StartJumping();
-        yield return new WaitForSeconds(jumpDuration);
-        EndJumping();
-        canJump = true;
-    }
-    private void StartJumping()
-    {
-        animator.SetTrigger("Jump");
+        canJump = false;
         rb2d.freezeRotation = true;
         canJump = false;
         gameObject.layer = jumpLayer;
         rb2d.drag = jumpingDrag;
         freezeInput = true;
-        // transform.localScale =
-        //     new Vector3(transform.localScale.x + 2, transform.localScale.y + 2,
-        //         5); // remove this once we have animation
     }
-    private void EndJumping()
+    public void EndJumping()
     {
+        canJump = true;
         rb2d.freezeRotation = false;
         gameObject.layer = playerLayer;
         rb2d.drag = originalDrag;
         freezeInput = false;
-        // transform.localScale =
-        //     new Vector3(transform.localScale.x - 2, transform.localScale.y - 2,
-        //         5); // remove this once we have animation
     }
 
     private void HandleRotation()

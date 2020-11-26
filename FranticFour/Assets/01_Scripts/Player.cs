@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
         playerNumber = GetComponent<AssignedController>().PlayerID + 1;
         playerActionController = GetComponent<PlayerActionsController>();
         movementController = GetComponent<MovementController>();
-        gameLoopController = GetComponent<GameLoopController>();
+        gameLoopController = FindObjectOfType<GameLoopController>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -61,9 +61,9 @@ public class Player : MonoBehaviour
             pushedBy.IncreaseScore(scoreValue);
             numberOfDeaths++;
         }
-        else
+        else if(prey)
         {
-            gameLoopController.IncreaseAllScores(Mathf.RoundToInt(score / 3));
+            gameLoopController.IncreaseAllScores(Mathf.RoundToInt(scoreValue / 3));
             numberOfDeaths++;
         }
 

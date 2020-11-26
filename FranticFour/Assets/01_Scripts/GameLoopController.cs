@@ -166,6 +166,7 @@ public class GameLoopController : MonoBehaviour
     {
         foreach (var player in players)
         {
+            if(player.Prey) { continue; }
             player.IncreaseScore(scoreToAdd);
         }
     }
