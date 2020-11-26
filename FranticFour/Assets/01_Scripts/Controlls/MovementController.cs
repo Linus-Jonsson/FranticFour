@@ -78,18 +78,22 @@ public class MovementController : MonoBehaviour
         float xMovement = Input.GetAxis(controller.Horizontal);
         float yMovement = Input.GetAxis(controller.Vertical);
         Vector2 movement = new Vector2(xMovement, yMovement).normalized;
-        animator.SetFloat("movementX", movement.x);
-        animator.SetFloat("movementY", movement.y);
-        animator.SetFloat("speed", new Vector2(xMovement, yMovement).magnitude);
+        SetRunAnimation(movement);
         rb2d.AddForce(movement * movementSpeed);
     }
-    
+
+    private void SetRunAnimation(Vector2 movement)
+    {
+        animator.SetFloat("movementX", movement.x);
+        animator.SetFloat("movementY", movement.y);
+        animator.SetFloat("speed", new Vector2(movement.x, movement.y).magnitude);
+    }
+
     IEnumerator HandleJump()
     {
         StartJumping();
         yield return new WaitForSeconds(jumpDuration);
         EndJumping();
-        //yield return new WaitForSeconds(jumpCooldown);
         canJump = true;
     }
     private void StartJumping()
