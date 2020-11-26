@@ -45,6 +45,7 @@ public class PlayerActionsController : MonoBehaviour
 
     private void Update()
     {
+        animator.ResetTrigger("Push");
         int m_number;
         bool mouseUsed = Int32.TryParse(controller.Action1, out m_number);
 
@@ -69,7 +70,7 @@ public class PlayerActionsController : MonoBehaviour
         {
             animator.SetTrigger("Push");
             if(pushController.InPushRange())
-            StartCoroutine(PushOtherPlayer());
+                StartCoroutine(PushOtherPlayer());
         }
     }
 

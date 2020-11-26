@@ -1,25 +1,37 @@
 fileFormatVersion: 2
-guid: d0500e10fc7932f4cba63a3797e38838
+guid: 395686bc03cf04042993e3c865294b43
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6729562197099809763
-    second: push_side_test_spritesheet2_0
+      213: 2690770366952024017
+    second: jump_down_test_spritesheet01_0
   - first:
-      213: 8427294975153816616
-    second: push_side_test_spritesheet2_1
+      213: -8600580971802203340
+    second: jump_down_test_spritesheet01_1
   - first:
-      213: -4118819639605425105
-    second: push_side_test_spritesheet2_2
+      213: -6912368093177599428
+    second: jump_down_test_spritesheet01_2
   - first:
-      213: -1134295768140460090
-    second: push_side_test_spritesheet2_3
+      213: 2875133450561021862
+    second: jump_down_test_spritesheet01_3
   - first:
-      213: 4606271445103077812
-    second: push_side_test_spritesheet2_4
+      213: -5363061425964210673
+    second: jump_down_test_spritesheet01_4
   - first:
-      213: 8494976145649918773
-    second: push_side_test_spritesheet2_5
+      213: 6894474355765819198
+    second: jump_down_test_spritesheet01_0
+  - first:
+      213: 5241820804783612691
+    second: jump_down_test_spritesheet01_1
+  - first:
+      213: -8407676418178327976
+    second: jump_down_test_spritesheet01_2
+  - first:
+      213: 6392537172444772353
+    second: jump_down_test_spritesheet01_3
+  - first:
+      213: -7259479233022712613
+    second: jump_down_test_spritesheet01_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -64,7 +76,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 4000
+  spritePixelsToUnits: 150
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -81,7 +93,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -93,7 +105,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -105,7 +117,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Windows Store Apps
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -117,7 +129,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -131,13 +143,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: push_side_test_spritesheet2_0
+      name: jump_down_test_spritesheet01_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1760
-        width: 1340
-        height: 1766
+        y: 344.5
+        width: 257
+        height: 344.5
       alignment: 9
       pivot: {x: 0.5, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +157,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d14f7f326dacb92a0800000000000000
-      internalID: -6729562197099809763
+      spriteID: e373678e5e71eaf50800000000000000
+      internalID: 6894474355765819198
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: push_side_test_spritesheet2_1
+      name: jump_down_test_spritesheet01_1
       rect:
         serializedVersion: 2
-        x: 1340
-        y: 1766
-        width: 1340
-        height: 1766
+        x: 257
+        y: 344.5
+        width: 257
+        height: 344.5
       alignment: 9
       pivot: {x: 0.5, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +178,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8244a735124c3f470800000000000000
-      internalID: 8427294975153816616
+      spriteID: 3132165ef30beb840800000000000000
+      internalID: 5241820804783612691
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: push_side_test_spritesheet2_2
+      name: jump_down_test_spritesheet01_2
       rect:
         serializedVersion: 2
-        x: 2680
-        y: 1766
-        width: 1340
-        height: 1766
+        x: 514
+        y: 345
+        width: 257
+        height: 344
       alignment: 9
       pivot: {x: 0.5, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +199,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2c8a673c5307d6c0800000000000000
-      internalID: -4118819639605425105
+      spriteID: 85a5d0ce7dee15b80800000000000000
+      internalID: -8407676418178327976
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: push_side_test_spritesheet2_3
+      name: jump_down_test_spritesheet01_3
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 1340
-        height: 1766
+        y: 0.5
+        width: 257
+        height: 344.5
       alignment: 9
       pivot: {x: 0.5, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,20 +220,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6cf42c5320c2240f0800000000000000
-      internalID: -1134295768140460090
+      spriteID: 108fc0170bad6b850800000000000000
+      internalID: 6392537172444772353
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: push_side_test_spritesheet2_4
+      name: jump_down_test_spritesheet01_4
       rect:
         serializedVersion: 2
-        x: 1327
-        y: 0
-        width: 1340
-        height: 1766
+        x: 257
+        y: 0.5
+        width: 257
+        height: 344.5
       alignment: 9
       pivot: {x: 0.5, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,29 +241,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b9e4686973ccef30800000000000000
-      internalID: 4606271445103077812
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: push_side_test_spritesheet2_5
-      rect:
-        serializedVersion: 2
-        x: 2680
-        y: 0
-        width: 1340
-        height: 1766
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 53361e0dbc734e570800000000000000
-      internalID: 8494976145649918773
+      spriteID: bd42b559916214b90800000000000000
+      internalID: -7259479233022712613
       vertices: []
       indices: 
       edges: []

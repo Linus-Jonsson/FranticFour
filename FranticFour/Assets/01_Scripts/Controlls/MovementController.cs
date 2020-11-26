@@ -81,13 +81,9 @@ public class MovementController : MonoBehaviour
         animator.SetFloat("movementX", movement.x);
         animator.SetFloat("movementY", movement.y);
         animator.SetFloat("speed", new Vector2(xMovement, yMovement).magnitude);
-        if (movement.x > 0) 
-            spriteRenderer.flipX = true;
-        else if (movement.x < 0)
-            spriteRenderer.flipX = false;
         rb2d.AddForce(movement * movementSpeed);
     }
-
+    
     IEnumerator HandleJump()
     {
         StartJumping();
@@ -98,14 +94,15 @@ public class MovementController : MonoBehaviour
     }
     private void StartJumping()
     {
+        animator.SetTrigger("Jump");
         rb2d.freezeRotation = true;
         canJump = false;
         gameObject.layer = jumpLayer;
         rb2d.drag = jumpingDrag;
         freezeInput = true;
-        transform.localScale =
-            new Vector3(transform.localScale.x + 2, transform.localScale.y + 2,
-                5); // remove this once we have animation
+        // transform.localScale =
+        //     new Vector3(transform.localScale.x + 2, transform.localScale.y + 2,
+        //         5); // remove this once we have animation
     }
     private void EndJumping()
     {
@@ -113,9 +110,9 @@ public class MovementController : MonoBehaviour
         gameObject.layer = playerLayer;
         rb2d.drag = originalDrag;
         freezeInput = false;
-        transform.localScale =
-            new Vector3(transform.localScale.x - 2, transform.localScale.y - 2,
-                5); // remove this once we have animation
+        // transform.localScale =
+        //     new Vector3(transform.localScale.x - 2, transform.localScale.y - 2,
+        //         5); // remove this once we have animation
     }
 
     private void HandleRotation()

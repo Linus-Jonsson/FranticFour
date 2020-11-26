@@ -78,9 +78,9 @@ public class GameLoopController : MonoBehaviour
                 // preyProbability.Add(i); - Commented for playtest!
             }
         }
-        // for (int i = 0; i < preyProbability.Count; i++) - Commented for playtest!
-        //     if(preyProbability[i].Equals(numberOfPrey))
-        //         preyProbability.RemoveAt(i);
+        for (int i = 0; i < preyProbability.Count; i++)
+            if(preyProbability[i].Equals(numberOfPrey))
+                preyProbability.RemoveAt(i);
         targetGroupController.UpdateTargetGroup(players);
     }
 
