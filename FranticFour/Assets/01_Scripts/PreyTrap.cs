@@ -32,7 +32,6 @@ public class PreyTrap : MonoBehaviour
 
     public void PushTrap(Vector2 pushForce)
     {
-        print("pushing trap");
         rb2d.AddForce(pushForce,ForceMode2D.Impulse);
     }
 

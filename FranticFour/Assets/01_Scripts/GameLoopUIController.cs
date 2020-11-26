@@ -75,7 +75,6 @@ public class GameLoopUIController : MonoBehaviour
     [SerializeField] TextMeshProUGUI killedByText = null;
     [SerializeField] GameObject[] preyImages = null;
     [SerializeField] GameObject[] killerImages = null;
-    [SerializeField] int imageXOffset = 150;
     [SerializeField] Transform hunter1Transform = null;
     [SerializeField] Transform hunter2Transform = null;
     [SerializeField] Transform hunter3Transform = null;
@@ -323,7 +322,7 @@ public class GameLoopUIController : MonoBehaviour
 
             if (killer != null)
             {
-                killedByText.text = "Player" + prey.PlayerNumber + " was killed by Player" + killer.PlayerNumber;
+                killedByText.text = "Player " + prey.PlayerNumber + " killed the prey!";
             }
             else
             {
