@@ -24,6 +24,10 @@ public class GameLoopController : MonoBehaviour
     [Header("Other score addition configurations")]
     [SerializeField] int preySurvivalBaseScore = 10;
 
+    [Header("Respawn Configurations")]
+    [SerializeField] float respawnDelay = 3f;
+    
+
     int currentRound = 1;
     Player leader = null;
     Player currentPrey = null;
@@ -46,12 +50,15 @@ public class GameLoopController : MonoBehaviour
         {
             yield return StartCoroutine(gameLoopUIController.PreRoundCountdown(startCountDownDuration, players, currentRound));
             SetPrey();
-            SpawnPlayers();
+            SpawnAllPlayers();
 
             yield return StartCoroutine(gameLoopUIController.preyCountdown(currentPrey, preyRevealDuration));
             ActivatePlayers();
 
             yield return StartCoroutine(gameLoopUIController.CountRoundTime(roundDuration));
+            StopCoroutine(HandleRespawnOfAllPlayers(null));
+            StopCoroutine(HandlePlayerRespawn(null));
+            gameLoopUIController.SetKillScreen(null, null, false);
             DeactivatePlayers();
             DisplayScores();
 
@@ -87,7 +94,7 @@ public class GameLoopController : MonoBehaviour
         targetGroupController.UpdateTargetGroup(players);
     }
 
-    public void SpawnPlayers()
+    private void SpawnAllPlayers()
     {
         int random = Random.Range(0, spawnPoints.Length - 1);
         SpawnPoint spawnPoint = spawnPoints[random].GetComponent<SpawnPoint>();
@@ -105,6 +112,53 @@ public class GameLoopController : MonoBehaviour
                 hunterSpawnCount += 1;
             }
         }
+    }
+
+    public void RespawnAllPlayers(Player killer)
+    {
+        StartCoroutine(HandleRespawnOfAllPlayers(killer));
+    }
+    private IEnumerator HandleRespawnOfAllPlayers(Player killer)
+    {
+        foreach (var player in players)
+        {
+            player.GetComponent<MovementController>().FreezeInput = true;
+            player.gameObject.SetActive(false);
+        }
+        gameLoopUIController.SetKillScreen(currentPrey, killer, true);
+        yield return new WaitForSeconds(respawnDelay);
+        int random = Random.Range(0, spawnPoints.Length - 1);
+        SpawnPoint spawnPoint = spawnPoints[random].GetComponent<SpawnPoint>();
+        int hunterSpawnCount = 1;
+        foreach (var player in players)
+        {
+            player.gameObject.SetActive(true);
+            player.GetComponent<PlayerActionsController>().ResetPlayerActions();
+            if (player.Prey == true)
+            {
+                player.ResetPlayer(spawnPoint.spawnPosition[0].transform.position);
+            }
+            else
+            {
+                player.ResetPlayer(spawnPoint.spawnPosition[hunterSpawnCount].transform.position);
+                hunterSpawnCount += 1;
+            }
+            player.GetComponent<MovementController>().FreezeInput = false;
+        }
+        gameLoopUIController.SetKillScreen(currentPrey, killer, false);
+    }
+    public void RespawnPlayer(Player playerToSpawn)
+    {
+        StartCoroutine(HandlePlayerRespawn(playerToSpawn));
+    }
+    private IEnumerator HandlePlayerRespawn(Player playerToSpawn)
+    {
+        playerToSpawn.GetComponent<MovementController>().FreezeInput = true;
+        playerToSpawn.gameObject.SetActive(false);
+        yield return new WaitForSeconds(respawnDelay);
+        playerToSpawn.gameObject.SetActive(true);
+        playerToSpawn.ResetPlayer();
+        playerToSpawn.GetComponent<MovementController>().FreezeInput = false;
     }
 
     private void CalculateScores()

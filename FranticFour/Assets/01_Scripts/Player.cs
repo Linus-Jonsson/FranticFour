@@ -60,19 +60,19 @@ public class Player : MonoBehaviour
         {
             pushedBy.IncreaseScore(scoreValue);
             numberOfDeaths++;
+            gameLoopController.RespawnAllPlayers(pushedBy);
         }
         else if(prey)
         {
             gameLoopController.IncreaseAllScores(Mathf.RoundToInt(scoreValue / 3));
             numberOfDeaths++;
+            gameLoopController.RespawnAllPlayers(null);
         }
 
         if (deathParticles) //Null check
             Instantiate(deathParticles, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
-        if (prey)
-            FindObjectOfType<GameLoopController>().SpawnPlayers();
-        else
-            ResetPlayer();
+        if(!prey)
+            gameLoopController.RespawnPlayer(this);
     }
 
     private void SetNewPosition()
