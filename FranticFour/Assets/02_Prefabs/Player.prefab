@@ -174,7 +174,8 @@ MonoBehaviour:
   jumpLayer: 9
   movementSpeed: 40
   pushDuration: 0.3
-  jumpDuration: 0.5
+  pushVelocityMultiplier: 5
+  pushVelocityDivider: 5
   jumpingDrag: 1.2
   controller: {fileID: 0}
   originalColor: {r: 1, g: 0.58431375, b: 0, a: 1}
@@ -233,7 +234,7 @@ MonoBehaviour:
   trapsCoolDown: 4
   maximumTraps: 5
   thrownTraps: 0
-  pushForce: 30
+  pushForce: 35
   pushCooldown: 2
   OnPush:
     m_PersistentCalls:
