@@ -1,22 +1,25 @@
 fileFormatVersion: 2
-guid: 5c85ff7c40e98f244aa90ae28f5cf044
+guid: 64dd36462f2a9de469591e3af64bd8e3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -352298572133402347
-    second: push_down_test_spritesheet2_0
+      213: -7552271403935581680
+    second: push_left_test_spritesheet06_0
   - first:
-      213: 4049976102163679179
-    second: push_down_test_spritesheet2_1
+      213: 8166836498619186607
+    second: push_left_test_spritesheet06_1
   - first:
-      213: 4436643668563298050
-    second: push_down_test_spritesheet2_2
+      213: 8039410638508898168
+    second: push_left_test_spritesheet06_2
   - first:
-      213: -2185973046603067530
-    second: push_down_test_spritesheet2_3
+      213: -141792277429574878
+    second: push_left_test_spritesheet06_3
   - first:
-      213: -1262661656764909647
-    second: push_down_test_spritesheet2_4
+      213: -1743624924362789807
+    second: push_left_test_spritesheet06_4
+  - first:
+      213: 1178441075619798734
+    second: push_left_test_spritesheet06_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -61,7 +64,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 4000
+  spritePixelsToUnits: 150
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -78,7 +81,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -90,7 +93,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -102,7 +105,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Windows Store Apps
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -114,7 +117,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -128,13 +131,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: push_down_test_spritesheet2_0
+      name: push_left_test_spritesheet06_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1766
-        width: 1340
-        height: 1766
+        y: 300
+        width: 227.66667
+        height: 300
       alignment: 9
       pivot: {x: 0.5, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5197c11b0526c1bf0800000000000000
-      internalID: -352298572133402347
+      spriteID: 01a3419fb21f03790800000000000000
+      internalID: -7552271403935581680
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: push_down_test_spritesheet2_1
+      name: push_left_test_spritesheet06_1
       rect:
         serializedVersion: 2
-        x: 1340
-        y: 1766
-        width: 1340
-        height: 1766
+        x: 227
+        y: 300
+        width: 227.66667
+        height: 300
       alignment: 9
       pivot: {x: 0.5, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc78946aec7643830800000000000000
-      internalID: 4049976102163679179
+      spriteID: fad34e6968e665170800000000000000
+      internalID: 8166836498619186607
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: push_down_test_spritesheet2_2
+      name: push_left_test_spritesheet06_2
       rect:
         serializedVersion: 2
-        x: 2680
-        y: 1766
-        width: 1340
-        height: 1766
+        x: 454
+        y: 300
+        width: 227.66667
+        height: 300
       alignment: 9
       pivot: {x: 0.5, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20783b309ef129d30800000000000000
-      internalID: 4436643668563298050
+      spriteID: 877b1df8169b19f60800000000000000
+      internalID: 8039410638508898168
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: push_down_test_spritesheet2_3
+      name: push_left_test_spritesheet06_3
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1340
-        height: 1766
+        width: 227.66667
+        height: 300
       alignment: 9
       pivot: {x: 0.5, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 67f45ac881dd9a1e0800000000000000
-      internalID: -2185973046603067530
+      spriteID: 223aae7cca0480ef0800000000000000
+      internalID: -141792277429574878
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: push_down_test_spritesheet2_4
+      name: push_left_test_spritesheet06_4
       rect:
         serializedVersion: 2
-        x: 1340
+        x: 227
         y: 0
-        width: 1340
-        height: 1766
+        width: 227.66667
+        height: 300
       alignment: 9
       pivot: {x: 0.5, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -226,8 +229,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b7750db9ef1a7ee0800000000000000
-      internalID: -1262661656764909647
+      spriteID: 15ca6d19e566dc7e0800000000000000
+      internalID: -1743624924362789807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: push_left_test_spritesheet06_5
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 0
+        width: 227.66667
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ece1c052ae9aa5010800000000000000
+      internalID: 1178441075619798734
       vertices: []
       indices: 
       edges: []

@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: 76fba7e5efa620842a4758e9e717821f
+guid: 3d05886c984b71f47b5b09b00f3e8dfe
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2622426530035983273
-    second: push_up_test_spritesheet2_0
+      213: 4950548777298667891
+    second: push_right_test_spritesheet07_0
   - first:
-      213: -1612177268654865378
-    second: push_up_test_spritesheet2_1
+      213: -7062244021581055390
+    second: push_right_test_spritesheet07_1
   - first:
-      213: 7124112631663481048
-    second: push_up_test_spritesheet2_2
+      213: -6942731862452688674
+    second: push_right_test_spritesheet07_0
   - first:
-      213: -2926855591347924174
-    second: push_up_test_spritesheet2_3
+      213: -5856720201648585431
+    second: push_right_test_spritesheet07_3
   - first:
-      213: 6291080117176449872
-    second: push_up_test_spritesheet2_4
+      213: 1560361513735348602
+    second: push_right_test_spritesheet07_4
   - first:
-      213: -2997035496673088213
-    second: push_up_test_spritesheet2_5
+      213: 8723577707355914858
+    second: push_right_test_spritesheet07_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -64,7 +64,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 4000
+  spritePixelsToUnits: 150
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -81,7 +81,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -93,7 +93,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -105,7 +105,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Windows Store Apps
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -117,7 +117,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -131,13 +131,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: push_up_test_spritesheet2_0
+      name: push_right_test_spritesheet07_2
       rect:
         serializedVersion: 2
         x: 0
-        y: 1766
-        width: 1340
-        height: 1766
+        y: 300
+        width: 227.66667
+        height: 300
       alignment: 9
       pivot: {x: 0.5, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75c15a317f44b9bd0800000000000000
-      internalID: -2622426530035983273
+      spriteID: 379a12242e1e3b440800000000000000
+      internalID: 4950548777298667891
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: push_up_test_spritesheet2_1
+      name: push_right_test_spritesheet07_1
       rect:
         serializedVersion: 2
-        x: 1340
-        y: 1766
-        width: 1340
-        height: 1766
+        x: 227
+        y: 300
+        width: 227.66667
+        height: 300
       alignment: 9
       pivot: {x: 0.5, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e140edad05560a9e0800000000000000
-      internalID: -1612177268654865378
+      spriteID: 26af880da7eddfd90800000000000000
+      internalID: -7062244021581055390
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: push_up_test_spritesheet2_2
+      name: push_right_test_spritesheet07_0
       rect:
         serializedVersion: 2
-        x: 2680
-        y: 1766
-        width: 1340
-        height: 1766
+        x: 454
+        y: 300
+        width: 227.66667
+        height: 300
       alignment: 9
       pivot: {x: 0.5, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d0dc2e71beedd260800000000000000
-      internalID: 7124112631663481048
+      spriteID: ed8a8bfb72676af90800000000000000
+      internalID: -6942731862452688674
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: push_up_test_spritesheet2_3
+      name: push_right_test_spritesheet07_5
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1340
-        height: 1766
+        width: 227.66667
+        height: 300
       alignment: 9
       pivot: {x: 0.5, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23357d8c858b167d0800000000000000
-      internalID: -2926855591347924174
+      spriteID: 925c1efb100c8bea0800000000000000
+      internalID: -5856720201648585431
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: push_up_test_spritesheet2_4
+      name: push_right_test_spritesheet07_4
       rect:
         serializedVersion: 2
-        x: 1340
+        x: 227
         y: 0
-        width: 1340
-        height: 1766
+        width: 227.66667
+        height: 300
       alignment: 9
       pivot: {x: 0.5, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,20 +229,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05b33d5f8086e4750800000000000000
-      internalID: 6291080117176449872
+      spriteID: a71e263978487a510800000000000000
+      internalID: 1560361513735348602
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: push_up_test_spritesheet2_5
+      name: push_right_test_spritesheet07_3
       rect:
         serializedVersion: 2
-        x: 2680
+        x: 454
         y: 0
-        width: 1340
-        height: 1766
+        width: 227.66667
+        height: 300
       alignment: 9
       pivot: {x: 0.5, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,8 +250,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2d609148146866d0800000000000000
-      internalID: -2997035496673088213
+      spriteID: a62477194bf501970800000000000000
+      internalID: 8723577707355914858
       vertices: []
       indices: 
       edges: []

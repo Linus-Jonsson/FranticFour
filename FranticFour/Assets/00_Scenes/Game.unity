@@ -8495,6 +8495,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestingBackground
       objectReference: {fileID: 0}
+    - target: {fileID: 3976410067983407668, guid: 48be837a51a204d4897097073791a4ee, type: 3}
+      propertyPath: m_SortingOrder
+      value: -5
+      objectReference: {fileID: 0}
     - target: {fileID: 3976410067983407669, guid: 48be837a51a204d4897097073791a4ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

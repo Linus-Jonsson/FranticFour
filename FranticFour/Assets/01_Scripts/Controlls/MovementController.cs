@@ -81,13 +81,9 @@ public class MovementController : MonoBehaviour
         animator.SetFloat("movementX", movement.x);
         animator.SetFloat("movementY", movement.y);
         animator.SetFloat("speed", new Vector2(xMovement, yMovement).magnitude);
-        if (movement.x > 0) 
-            spriteRenderer.flipX = true;
-        else if (movement.x < 0)
-            spriteRenderer.flipX = false;
         rb2d.AddForce(movement * movementSpeed);
     }
-
+    
     IEnumerator HandleJump()
     {
         StartJumping();
