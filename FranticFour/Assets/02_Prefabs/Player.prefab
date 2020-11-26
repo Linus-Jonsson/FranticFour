@@ -175,7 +175,7 @@ MonoBehaviour:
   movementSpeed: 40
   pushDuration: 0.3
   jumpDuration: 0.5
-  jumpingDrag: 2
+  jumpingDrag: 1
   controller: {fileID: 0}
   originalColor: {r: 1, g: 0.58431375, b: 0, a: 1}
   body: {fileID: 2128330475}

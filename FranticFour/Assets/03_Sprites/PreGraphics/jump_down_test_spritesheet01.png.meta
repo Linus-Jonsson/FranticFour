@@ -17,6 +17,21 @@ TextureImporter:
   - first:
       213: -5363061425964210673
     second: jump_down_test_spritesheet01_4
+  - first:
+      213: 6894474355765819198
+    second: jump_down_test_spritesheet01_0
+  - first:
+      213: 5241820804783612691
+    second: jump_down_test_spritesheet01_1
+  - first:
+      213: -8407676418178327976
+    second: jump_down_test_spritesheet01_2
+  - first:
+      213: 6392537172444772353
+    second: jump_down_test_spritesheet01_3
+  - first:
+      213: -7259479233022712613
+    second: jump_down_test_spritesheet01_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -47,7 +62,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -61,7 +76,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 150
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -132,48 +147,6 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 345
-        width: 257
-        height: 344
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1d7a2567469875520800000000000000
-      internalID: 2690770366952024017
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: jump_down_test_spritesheet01_1
-      rect:
-        serializedVersion: 2
-        x: 258
-        y: 344
-        width: 257
-        height: 344
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 43beeb98c2994a880800000000000000
-      internalID: -8600580971802203340
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: jump_down_test_spritesheet01_2
-      rect:
-        serializedVersion: 2
-        x: 514
         y: 344.5
         width: 257
         height: 344.5
@@ -184,8 +157,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3aa761b7d55210a0800000000000000
-      internalID: -6912368093177599428
+      spriteID: e373678e5e71eaf50800000000000000
+      internalID: 6894474355765819198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump_down_test_spritesheet01_1
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 344.5
+        width: 257
+        height: 344.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3132165ef30beb840800000000000000
+      internalID: 5241820804783612691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump_down_test_spritesheet01_2
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 345
+        width: 257
+        height: 344
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85a5d0ce7dee15b80800000000000000
+      internalID: -8407676418178327976
       vertices: []
       indices: 
       edges: []
@@ -205,8 +220,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a76882e3a686e720800000000000000
-      internalID: 2875133450561021862
+      spriteID: 108fc0170bad6b850800000000000000
+      internalID: 6392537172444772353
       vertices: []
       indices: 
       edges: []
@@ -216,9 +231,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 257
-        y: 0
+        y: 0.5
         width: 257
-        height: 344
+        height: 344.5
       alignment: 9
       pivot: {x: 0.5, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -226,8 +241,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f06adcc3c049295b0800000000000000
-      internalID: -5363061425964210673
+      spriteID: bd42b559916214b90800000000000000
+      internalID: -7259479233022712613
       vertices: []
       indices: 
       edges: []
