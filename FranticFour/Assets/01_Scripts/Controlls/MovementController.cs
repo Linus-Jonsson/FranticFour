@@ -13,11 +13,14 @@ public class MovementController : MonoBehaviour
 
     [Header("Movement configuration")] 
     [SerializeField] float movementSpeed = 10f;
+    
     [Header("Push configuration")]
     [Tooltip("The time in seconds that the player getting pushed wont be able to move")]
     [SerializeField] float pushDuration = 0.3f;
-    [Tooltip("The amount that the players current velocity gets divided by")]
-    [SerializeField] int pushVelocityDivider = 2;
+    [Tooltip("The amount that the players current velocity gets multiplied by at the start")]
+    [SerializeField] float pushForceMultiplier = 5.0f;
+    [Tooltip("The amount that the players current velocity gets divided by after push")]
+    [SerializeField] float pushVelocityDivider = 4.0f;
     [Header("Jump configuration")] 
     [Tooltip("The drag on the rigidBody while jumping (This should be low due to no force applied during the jump")]
     [SerializeField] float jumpingDrag = 0.3f;
@@ -86,7 +89,6 @@ public class MovementController : MonoBehaviour
     {
         animator.SetFloat("movementX", movement.x);
         animator.SetFloat("movementY", movement.y);
-        animator.SetFloat("speed", new Vector2(movement.x, movement.y).magnitude);
     }
 
     public void StartJumping()
@@ -180,7 +182,13 @@ public class MovementController : MonoBehaviour
         spriteRenderer.color = originalColor;
     }
 
-    // use in animation where you want to kill the velocity of the object.
+    public void addPushForce()
+    {
+        if (!freezeInput)
+            rb2d.AddRelativeForce(Vector2.up * pushForceMultiplier, ForceMode2D.Impulse);
+    }
+
+    // use in animation where you want to lower the velocity of the object.
     public void ReduceVelocity()
     {
         if (!freezeInput)
@@ -194,5 +202,10 @@ public class MovementController : MonoBehaviour
         spriteRenderer.color = originalColor;
         canJump = true;
         freezeInput = false;
+    }
+    
+    public void ResetAnimationTrigger(string triggerName)
+    {
+        animator.ResetTrigger(triggerName);
     }
 }
