@@ -186,6 +186,8 @@ public class GameLoopController : MonoBehaviour
         List<int> huntersKilledByPlayers = new List<int>();
         foreach (var player in players)
         {
+            if (player.Prey)
+                continue;
             huntersKilledByPlayers.Add(player.HuntersKilled);
         }
         huntersKilledByPlayers.Sort();
@@ -193,6 +195,8 @@ public class GameLoopController : MonoBehaviour
         List<Player> eligiblePlayers = new List<Player>();
         foreach (var player in players)
         {
+            if (player.Prey)
+                continue;
             if (player.HuntersKilled == lowestAmount)
             {
                 eligiblePlayers.Add(player);
