@@ -1120,6 +1120,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 122360167}
     m_Modifications:
+    - target: {fileID: 362613495, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: playerID
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2128330477, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: m_Color.r
       value: 0.009271905
@@ -1472,10 +1476,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1721517808}
     m_Modifications:
-    - target: {fileID: 362613495, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
-      propertyPath: playerID
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5575129103255632261, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2518,7 +2518,7 @@ PrefabInstance:
       objectReference: {fileID: 529353430}
     - target: {fileID: 5264495175527307952, guid: d610c520da297514f94b093d00f97efa, type: 3}
       propertyPath: roundDuration
-      value: 10
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 5264495175527307952, guid: d610c520da297514f94b093d00f97efa, type: 3}
       propertyPath: numberOfRounds
@@ -2540,6 +2540,18 @@ PrefabInstance:
       propertyPath: onOffObjects.Array.data[3]
       value: 
       objectReference: {fileID: 529353430}
+    - target: {fileID: 5264495175527307952, guid: d610c520da297514f94b093d00f97efa, type: 3}
+      propertyPath: startCountDownDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5264495175527307952, guid: d610c520da297514f94b093d00f97efa, type: 3}
+      propertyPath: preyRevealDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5264495175527307952, guid: d610c520da297514f94b093d00f97efa, type: 3}
+      propertyPath: roundOverDuration
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5264495175527307953, guid: d610c520da297514f94b093d00f97efa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.0971375

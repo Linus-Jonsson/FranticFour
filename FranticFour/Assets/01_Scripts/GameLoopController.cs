@@ -92,7 +92,7 @@ public class GameLoopController : MonoBehaviour
             {
                 players[i].Prey = false;
                 players[i].GetComponent<MovementController>().MovementSpeed = hunterSpeed;
-                // preyProbability.Add(i); - Commented for playtest!
+                // preyProbability.Add(i); - Temporarily inactive while playtesting!
             }
         }
         for (int i = 0; i < preyProbability.Count; i++)

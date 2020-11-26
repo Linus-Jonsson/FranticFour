@@ -38,11 +38,11 @@ public class MovementController : MonoBehaviour
     SpriteRenderer spriteRenderer;
 
     bool freezeInput = false;
-
     public bool FreezeInput { get { return freezeInput; } set { freezeInput = value; } }
-    public float MovementSpeed { set { movementSpeed = value; } }
-
+    
     bool canJump = true;
+    
+    public float MovementSpeed { set { movementSpeed = value; } }
 
     float originalDrag;
     
@@ -81,32 +81,14 @@ public class MovementController : MonoBehaviour
         float xMovement = Input.GetAxis(controller.Horizontal);
         float yMovement = Input.GetAxis(controller.Vertical);
         Vector2 movement = new Vector2(xMovement, yMovement).normalized;
-        SetRunAnimation(movement);
+        AnimationMovementSet(movement);
         rb2d.AddForce(movement * movementSpeed);
     }
 
-    private void SetRunAnimation(Vector2 movement)
+    private void AnimationMovementSet(Vector2 movement)
     {
         animator.SetFloat("movementX", movement.x);
         animator.SetFloat("movementY", movement.y);
-    }
-
-    public void StartJumping()
-    {
-        canJump = false;
-        rb2d.freezeRotation = true;
-        canJump = false;
-        gameObject.layer = jumpLayer;
-        rb2d.drag = jumpingDrag;
-        freezeInput = true;
-    }
-    public void EndJumping()
-    {
-        canJump = true;
-        rb2d.freezeRotation = false;
-        gameObject.layer = playerLayer;
-        rb2d.drag = originalDrag;
-        freezeInput = false;
     }
 
     private void HandleRotation()
@@ -125,7 +107,6 @@ public class MovementController : MonoBehaviour
             dir.x = inputX;
         if (inputY != 0)
             dir.y = inputY;
-        AnimationDirectionSet();
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(-dir.x, dir.y) * Mathf.Rad2Deg));
     }
 
@@ -133,15 +114,7 @@ public class MovementController : MonoBehaviour
     {
         var position = Camera.main.WorldToScreenPoint(transform.position);
         dir = Input.mousePosition - position;
-        AnimationDirectionSet();
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(-dir.x, dir.y) * Mathf.Rad2Deg));
-    }
-
-    private void AnimationDirectionSet()
-    {
-        Vector2 direction = dir.normalized;
-        animator.SetFloat("directionX", direction.x);
-        animator.SetFloat("directionY", direction.y);
     }
 
     public void GetPushed(Vector2 pushForce)
@@ -182,19 +155,6 @@ public class MovementController : MonoBehaviour
         spriteRenderer.color = originalColor;
     }
 
-    public void addPushForce()
-    {
-        if (!freezeInput)
-            rb2d.AddRelativeForce(Vector2.up * pushForceMultiplier, ForceMode2D.Impulse);
-    }
-
-    // use in animation where you want to lower the velocity of the object.
-    public void ReduceVelocity()
-    {
-        if (!freezeInput)
-            rb2d.velocity = rb2d.velocity / pushVelocityDivider;
-    }
-
     public void ResetMovement()
     {
         StopAllCoroutines();
@@ -204,8 +164,34 @@ public class MovementController : MonoBehaviour
         freezeInput = false;
     }
     
-    public void ResetAnimationTrigger(string triggerName)
+    //AnimationEvents:
+    public void StartJumping()
     {
-        animator.ResetTrigger(triggerName);
+        canJump = false;
+        rb2d.freezeRotation = true;
+        canJump = false;
+        gameObject.layer = jumpLayer;
+        rb2d.drag = jumpingDrag;
+        freezeInput = true;
+    }
+    public void EndJumping()
+    {
+        canJump = true;
+        rb2d.freezeRotation = false;
+        gameObject.layer = playerLayer;
+        rb2d.drag = originalDrag;
+        freezeInput = false;
+    }
+    
+    public void AddPushForce()
+    {
+        if (!freezeInput)
+            rb2d.AddRelativeForce(Vector2.up * pushForceMultiplier, ForceMode2D.Impulse);
+    }
+    
+    public void ReduceVelocity()
+    {
+        if (!freezeInput)
+            rb2d.velocity = rb2d.velocity / pushVelocityDivider;
     }
 }
