@@ -12,7 +12,7 @@ public class AssignedController : MonoBehaviour
         set
         {
             playerID = value;
-            SetControllerKeysXbox();
+            GetControllerType();
         }
     }
     
@@ -86,17 +86,24 @@ public class AssignedController : MonoBehaviour
         string controllerName = "";
         string[] controllersConnected = Input.GetJoystickNames();
 
-        if (playerID < controllersConnected.Length) controllerName = controllersConnected[playerID];
-
-        if (controllerName.Contains("XBOX"))
+        if (playerID < controllersConnected.Length)
+            controllerName = controllersConnected[playerID];
+        
+        controllerName = controllerName.ToLower();
+        
+        if (controllerName.Contains("xbox"))
             SetControllerKeysXbox();
-        else if (controllerName.Contains("Wireless Controller"))
+        else if (controllerName.Contains("wireless controller"))
             SetControllerKeysPS4();
         else if (controllerName.Contains("Switch??"))
         {
             //Implement nitendo switch controller support
         }
-        else if (AssignPlayers.keyboardAssigned == false)
+        else if(PassControllersToGame.isKeyboardUsed && PlayerID == PassControllersToGame.keyBoardOwnedBy)
+        {
+            SetControllerKeyboardAndMouse();
+        }
+        else if (AssignPlayers.keyboardAssigned == false && 1 == 0) //Debug
         {
             AssignPlayers.keyboardAssigned = true;
             SetControllerKeyboardAndMouse();

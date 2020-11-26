@@ -7,10 +7,12 @@ public class SelectionController : MonoBehaviour
 
     [SerializeField] private bool controllerAssignedToPlayer = false;
 
-    [Header("Assigned controls")] [SerializeField]
-    private string action1;
+    [Header("Assigned controls")]
+    [SerializeField] private string action1;
 
     [SerializeField] private InputManager playerHandler;
+    
+    [SerializeField]
 
     private void Start()
     {
@@ -33,17 +35,33 @@ public class SelectionController : MonoBehaviour
             action1 = StringManager.Inputs.action1PS4 + CONTROLLER_ID;
         else
         {
-            action1 = StringManager.Inputs.action1 + CONTROLLER_ID;
-            Debug.LogWarning("Controller is missing or cant be recognized: " + controllerName);
+            if (!PassControllersToGame.isKeyboardUsed)
+            {
+                PassControllersToGame.isKeyboardUsed = true;
+                PassControllersToGame.keyBoardOwnedBy = CONTROLLER_ID;
+                action1 = StringManager.Inputs.action1Keyboard;
+                Debug.LogWarning("Controller is missing or cant be recognized: " + controllerName + " You are set to keyboard");
+            }
+            else
+            {
+                action1 = StringManager.Inputs.action1 + CONTROLLER_ID;
+                Debug.LogWarning("Controller is missing or cant be recognized: " + controllerName);
+            }
         }
     }
 
     private void Update()
     {
-        if (Input.GetAxis(action1) == 1 && !controllerAssignedToPlayer) //Kanske inte funkar med Xbox?
+        if (Input.GetAxis(action1) == 1 && !controllerAssignedToPlayer) //Funkar med PS4 och Xbox
         {
             controllerAssignedToPlayer = true;
             Debug.Log("Player assigned" + Input.GetAxis(action1));
+            playerHandler.TakeNextPlayer(CONTROLLER_ID);
+        }
+        else if (Input.GetButton(action1) && !controllerAssignedToPlayer) //Funkar med tangentbord
+        {
+            controllerAssignedToPlayer = true;
+            Debug.Log("Player assigned" + Input.GetButton(action1));
             playerHandler.TakeNextPlayer(CONTROLLER_ID);
         }
     }
