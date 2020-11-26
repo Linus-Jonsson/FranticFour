@@ -16,6 +16,8 @@ public class MovementController : MonoBehaviour
     [Header("Push configuration")]
     [Tooltip("The time in seconds that the player getting pushed wont be able to move")]
     [SerializeField] float pushDuration = 0.3f;
+    [Tooltip("The amount that the players current velocity gets divided by")]
+    [SerializeField] int pushVelocityDivider = 2;
     [Header("Jump configuration")] 
     [Tooltip("The drag on the rigidBody while jumping (This should be low due to no force applied during the jump")]
     [SerializeField] float jumpingDrag = 0.3f;
@@ -179,14 +181,16 @@ public class MovementController : MonoBehaviour
     }
 
     // use in animation where you want to kill the velocity of the object.
-    public void KillVelocity()
+    public void ReduceVelocity()
     {
-        rb2d.velocity = Vector2.zero;
+        if (!freezeInput)
+            rb2d.velocity = rb2d.velocity / pushVelocityDivider;
     }
 
     public void ResetMovement()
     {
         StopAllCoroutines();
+        rb2d.drag = originalDrag;
         spriteRenderer.color = originalColor;
         canJump = true;
         freezeInput = false;
