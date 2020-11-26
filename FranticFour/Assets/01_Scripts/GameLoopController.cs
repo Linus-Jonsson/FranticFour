@@ -66,15 +66,12 @@ public class GameLoopController : MonoBehaviour
             DeactivatePlayers();
             CalculateScores();
             DisplayScores();
-            if(currentRound == numberOfRounds)
-            {
-                gameLoopUIController.DisplayFinalResults(players);
+            if (currentRound == numberOfRounds)
                 break;
-            }
             yield return StartCoroutine(gameLoopUIController.NextRoundCountdown(players, roundOverDuration, currentRound));
             currentRound++;
         }
-
+        gameLoopUIController.DisplayFinalResults(players);
     }
 
     private void SetPrey()
