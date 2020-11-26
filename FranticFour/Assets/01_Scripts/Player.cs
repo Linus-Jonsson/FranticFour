@@ -36,6 +36,9 @@ public class Player : MonoBehaviour
     int numberOfDeaths = 0;
     public int NumberOfDeaths { get { return numberOfDeaths; } }
 
+    int huntersKilled = 0;
+    public int HuntersKilled { get { return huntersKilled; } set { huntersKilled = value; } }
+
     private void Awake()
     {
         playerNumber = GetComponent<AssignedController>().PlayerID + 1;

@@ -23,6 +23,7 @@ public class GameLoopController : MonoBehaviour
 
     [Header("Other score addition configurations")]
     [SerializeField] int preySurvivalBaseScore = 10;
+    [SerializeField] int pacifistAward = 10;
 
     [Header("Respawn Configurations")]
     [SerializeField] float respawnDelay = 3f;
@@ -60,6 +61,7 @@ public class GameLoopController : MonoBehaviour
             StopCoroutine(HandlePlayerRespawn(null));
             gameLoopUIController.SetKillScreen(null, null, false);
             DeactivatePlayers();
+            CalculateScores();
             DisplayScores();
 
             yield return StartCoroutine(gameLoopUIController.NextRoundCountdown(players, roundOverDuration, currentRound));
@@ -75,6 +77,7 @@ public class GameLoopController : MonoBehaviour
         //Debug.Log($"Random: {random}, Player: {numberOfPrey}"); - To check if it works properly (REMOVE later)
         for (int i = 0; i < players.Length; i++)
         {
+            players[i].HuntersKilled = 0;
             if(i == numberOfPrey)
             {
                 players[i].Prey = true;
@@ -166,11 +169,40 @@ public class GameLoopController : MonoBehaviour
         // this method will be used to calculate the score that the prey should get based on how few times they died.
         // in here all special point reward systems will be handled aswell
 
+        GivePreySurvivalScore();
+        GivePacifistReward();
+    }
+
+    private void GivePreySurvivalScore()
+    {
         int scoreToAdd = preySurvivalBaseScore - currentPrey.NumberOfDeaths;
         if (scoreToAdd < 0)
             scoreToAdd = 0;
-
         currentPrey.IncreaseScore(scoreToAdd);
+    }
+
+    private void GivePacifistReward()
+    {
+        List<int> huntersKilledByPlayers = new List<int>();
+        foreach (var player in players)
+        {
+            huntersKilledByPlayers.Add(player.HuntersKilled);
+        }
+        huntersKilledByPlayers.Sort();
+        int lowestAmount = huntersKilledByPlayers[0];
+        List<Player> eligiblePlayers = new List<Player>();
+        foreach (var player in players)
+        {
+            if (player.HuntersKilled == lowestAmount)
+            {
+                eligiblePlayers.Add(player);
+            }
+        }
+        int pacifistTrueReward = Mathf.RoundToInt(pacifistAward / eligiblePlayers.Count);
+        foreach (var player in eligiblePlayers)
+        {
+            player.IncreaseScore(pacifistTrueReward);
+        }
     }
 
     private void DisplayScores()
