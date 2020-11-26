@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     [Tooltip("The value in score that the prey is worth when killing")]
     [SerializeField] int scoreValue = 3;
 
-    int score = 0;
+    [SerializeField] int score = 0;
     public int Score { get { return score; } set { score = value; } }
     int playerNumber = 0;
     public int PlayerNumber { get { return playerNumber; } }

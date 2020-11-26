@@ -20,6 +20,9 @@ public class GameLoopController : MonoBehaviour
     [SerializeField] Player[] players = new Player[4];
     [SerializeField] int numberOfRounds = 5;
     [SerializeField] GameObject[] spawnPoints = new GameObject[4];
+    [SerializeField] float hunterSpeed = 50f;
+    [SerializeField] float preySpeed = 45f;
+    [SerializeField] GameObject[] onOffObjects = new GameObject[4]; // this can be removed once we implement a better way to disable cooldown bars
 
     [Header("Other score addition configurations")]
     [SerializeField] int preySurvivalBaseScore = 10;
@@ -38,7 +41,6 @@ public class GameLoopController : MonoBehaviour
     
     void Start()
     {
-        preyProbability = new List<int> {0, 1, 2, 3};
         gameLoopUIController = FindObjectOfType<GameLoopUIController>();
         targetGroupController = FindObjectOfType<TargetGroupController>();
         StartCoroutine(HandleGameLoop());
@@ -46,6 +48,7 @@ public class GameLoopController : MonoBehaviour
 
     IEnumerator HandleGameLoop()
     {
+        preyProbability = new List<int> { 0, 1, 2, 3 }; // resets the preyProbability list everytime you restart the game.
         DeactivatePlayers();
         while (currentRound <= numberOfRounds)
         {
@@ -63,7 +66,8 @@ public class GameLoopController : MonoBehaviour
             DeactivatePlayers();
             CalculateScores();
             DisplayScores();
-
+            if (currentRound == numberOfRounds)
+                break;
             yield return StartCoroutine(gameLoopUIController.NextRoundCountdown(players, roundOverDuration, currentRound));
             currentRound++;
         }
@@ -81,13 +85,13 @@ public class GameLoopController : MonoBehaviour
             if(i == numberOfPrey)
             {
                 players[i].Prey = true;
-                players[i].GetComponent<MovementController>().MovementSpeed = 35f;
+                players[i].GetComponent<MovementController>().MovementSpeed = preySpeed;
                 currentPrey = players[i];
             }
             else
             {
                 players[i].Prey = false;
-                players[i].GetComponent<MovementController>().MovementSpeed = 40f;
+                players[i].GetComponent<MovementController>().MovementSpeed = hunterSpeed;
                 // preyProbability.Add(i); - Commented for playtest!
             }
         }
@@ -225,17 +229,17 @@ public class GameLoopController : MonoBehaviour
 
     private void DeactivatePlayers()
     {
-        foreach (var player in players)
+        foreach (var onOffObject in onOffObjects) // the naming sucks, will be changed once a better system is implemented
         {
-            player.gameObject.SetActive(false);
+            onOffObject.SetActive(false);
         }
     }
 
     private void ActivatePlayers()
     {
-        foreach (var player in players)
+        foreach (var onOffObject in onOffObjects) // the naming sucks, will be changed once a better system is implemented
         {
-            player.gameObject.SetActive(true);
+            onOffObject.SetActive(true);
         }
     }
 
@@ -246,7 +250,7 @@ public class GameLoopController : MonoBehaviour
             player.ResetPlayer();
             player.Score = 0;
         }
-        currentRound = 0;
+        currentRound = 1;
         leader = null;
         currentPrey = null;
         StartCoroutine(HandleGameLoop());
