@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1253d12812340eb48b498a95553ce45b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stunDelay: 2
+  stunDuration: 1.5
 --- !u!212 &7986219203063273627
 SpriteRenderer:
   m_ObjectHideFlags: 0

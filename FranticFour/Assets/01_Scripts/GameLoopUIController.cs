@@ -217,12 +217,26 @@ public class GameLoopUIController : MonoBehaviour
     {
         finalResultDisplay.SetActive(true);
 
-        List<int> playerlist = SortPlayerStanding(players);
+        List<int> scoreList = SortPlayerStanding(players);
 
-        int firstPlace = playerlist[0];
-        int secondPlace = playerlist[1];
-        int thirdPlace = playerlist[2];
-        int fourthPlace = playerlist[3];
+        int firstPlace = 0;
+        int secondPlace = 0;
+        int thirdPlace = 0;
+        int fourthPlace = 0;
+
+        foreach (var score in scoreList)
+        {
+            if (score >= firstPlace)
+                firstPlace = score;
+            else if (score >= secondPlace)
+                secondPlace = score;
+            else if (score >= thirdPlace)
+                thirdPlace = score;
+            else
+                fourthPlace = score;
+        }
+
+
 
         foreach (var player in players)
         {
@@ -326,23 +340,7 @@ public class GameLoopUIController : MonoBehaviour
             }
             else
             {
-                killedByText.text = "Player " + prey.PlayerNumber + " commited suicide everyone gets points!";
-            }
-
-            switch (prey.gameObject.name)
-            {
-                case "Orange":
-                    preyImages[0].SetActive(true);
-                    break;
-                case "Green":
-                    preyImages[1].SetActive(true);
-                    break;
-                case "Purple":
-                    preyImages[2].SetActive(true);
-                    break;
-                case "Cyan":
-                    preyImages[3].SetActive(true);
-                    break;
+                killedByText.text = "Prey made a sudden lapse in judgement, everyone else gets a point";
             }
             if (killer == null)
             {
