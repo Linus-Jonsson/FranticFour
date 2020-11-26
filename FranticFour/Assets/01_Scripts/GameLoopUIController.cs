@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -61,7 +62,13 @@ public class GameLoopUIController : MonoBehaviour
     [SerializeField] TextMeshProUGUI finalResultCyanPlayerScoreText = null;
     [SerializeField] TextMeshProUGUI finalResultCyanPlayerText = null;
 
-    [SerializeField] TextMeshProUGUI WinnerText = null;
+    [SerializeField] TextMeshProUGUI player1Placement = null;
+    [SerializeField] TextMeshProUGUI player2Placement = null;
+    [SerializeField] TextMeshProUGUI player3Placement = null;
+    [SerializeField] TextMeshProUGUI player4Placement = null;
+
+    [SerializeField] int[] placementTextSizes = new int[4];
+    [SerializeField] Color[] placementColors = new Color[4];
 
 
     public IEnumerator PreRoundCountdown(float duration, Player[] players, int roundNumber)
@@ -198,10 +205,45 @@ public class GameLoopUIController : MonoBehaviour
         }
     }
 
-    public void DisplayFinalResults(Player winner, Player[] players)
+    public void DisplayFinalResults(Player[] players)
     {
         finalResultDisplay.SetActive(true);
-        WinnerText.text = "The Winner is " + winner.gameObject.name + "\n" + "Congratulations!";
+
+        List<int> playerlist = SortPlayerStanding(players);
+
+        int firstPlace = playerlist[0];
+        int secondPlace = playerlist[1];
+        int thirdPlace = playerlist[2];
+        int fourthPlace = playerlist[3];
+
+        foreach (var player in players)
+        {
+            if (player.Score == firstPlace)
+            {
+                player.Placement = "1st";
+                player.PlaceTextSize = placementTextSizes[0];
+                player.PlacementColor = placementColors[0];
+            }
+            else if (player.Score == secondPlace)
+            {
+                player.Placement = "2nd";
+                player.PlaceTextSize = placementTextSizes[1];
+                player.PlacementColor = placementColors[1];
+            }
+            else if (player.Score == thirdPlace)
+            {
+                player.Placement = "3rd";
+                player.PlaceTextSize = placementTextSizes[2];
+                player.PlacementColor = placementColors[2];
+            }
+            else if (player.Score == fourthPlace)
+            {
+                player.Placement = "4th";
+                player.PlaceTextSize = placementTextSizes[3];
+                player.PlacementColor = placementColors[3];
+            }
+        }
+
         foreach (var player in players)
         {
             switch (player.gameObject.name)
@@ -209,23 +251,49 @@ public class GameLoopUIController : MonoBehaviour
                 case "Orange":
                     finalResultOrangePlayerScoreText.text = "Score: " + player.Score;
                     finalResultOrangePlayerText.text = "Player: " + player.PlayerNumber;
+                    player1Placement.fontSize = player.PlaceTextSize;
+                    player1Placement.color = player.PlacementColor;
+                    player1Placement.text = player.Placement.ToString();
+
                     break;
                 case "Green":
                     finalResultGreenPlayerScoreText.text = "Score: " + player.Score;
                     finalResultGreenPlayerText.text = "Player: " + player.PlayerNumber;
+                    player2Placement.fontSize = player.PlaceTextSize;
+                    player2Placement.color = player.PlacementColor;
+                    player2Placement.text = player.Placement.ToString();
                     break;
                 case "Purple":
                     finalResultPurplePlayerScoreText.text = "Score: " + player.Score;
                     finalResultPurplePlayerText.text = "Player: " + player.PlayerNumber;
+                    player3Placement.fontSize = player.PlaceTextSize;
+                    player3Placement.color = player.PlacementColor;
+                    player3Placement.text = player.Placement.ToString();
                     break;
                 case "Cyan":
                     finalResultCyanPlayerScoreText.text = "Score: " + player.Score;
                     finalResultCyanPlayerText.text = "Player: " + player.PlayerNumber;
+                    player4Placement.fontSize = player.PlaceTextSize;
+                    player4Placement.color = player.PlacementColor;
+                    player4Placement.text = player.Placement.ToString();
                     break;
             }
         }
         finalResultDisplay.SetActive(true);
     }
+
+    private List<int> SortPlayerStanding(Player[] players)
+    {
+        List<int> playerlist = new List<int>();
+        foreach (var player in players)
+        {
+            playerlist.Add(player.Score);
+        }
+        playerlist.Sort();
+        playerlist.Reverse();
+        return playerlist;
+    }
+
     public void PlayAgain()
     {
         finalResultDisplay.SetActive(false);

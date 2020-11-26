@@ -21,7 +21,10 @@ public class GameLoopController : MonoBehaviour
     [SerializeField] int numberOfRounds = 5;
     [SerializeField] GameObject[] spawnPoints = new GameObject[4];
 
-    int currentRound = 0;
+    [Header("Other score addition configurations")]
+    [SerializeField] int preySurvivalBaseScore = 10;
+
+    int currentRound = 1;
     Player leader = null;
     Player currentPrey = null;
     GameLoopUIController gameLoopUIController;
@@ -39,23 +42,23 @@ public class GameLoopController : MonoBehaviour
     IEnumerator HandleGameLoop()
     {
         DeactivatePlayers();
-        while (currentRound < numberOfRounds)
+        while (currentRound <= numberOfRounds)
         {
-            yield return StartCoroutine(gameLoopUIController.PreRoundCountdown(startCountDownDuration, players, currentRound + 1));
+            yield return StartCoroutine(gameLoopUIController.PreRoundCountdown(startCountDownDuration, players, currentRound));
             SetPrey();
             SpawnPlayers();
 
-            yield return StartCoroutine(gameLoopUIController.preyCountdown(currentPrey,preyRevealDuration));
+            yield return StartCoroutine(gameLoopUIController.preyCountdown(currentPrey, preyRevealDuration));
             ActivatePlayers();
 
             yield return StartCoroutine(gameLoopUIController.CountRoundTime(roundDuration));
             DeactivatePlayers();
             DisplayScores();
 
-            yield return StartCoroutine(gameLoopUIController.NextRoundCountdown(players,roundOverDuration,currentRound));
+            yield return StartCoroutine(gameLoopUIController.NextRoundCountdown(players, roundOverDuration, currentRound));
             currentRound++;
         }
-        gameLoopUIController.DisplayFinalResults(leader, players);
+        gameLoopUIController.DisplayFinalResults(players);
     }
 
     private void SetPrey()
@@ -108,6 +111,12 @@ public class GameLoopController : MonoBehaviour
     {
         // this method will be used to calculate the score that the prey should get based on how few times they died.
         // in here all special point reward systems will be handled aswell
+
+        int scoreToAdd = preySurvivalBaseScore - currentPrey.NumberOfDeaths;
+        if (scoreToAdd < 0)
+            scoreToAdd = 0;
+
+        currentPrey.IncreaseScore(scoreToAdd);
     }
 
     private void DisplayScores()
@@ -151,5 +160,14 @@ public class GameLoopController : MonoBehaviour
         leader = null;
         currentPrey = null;
         StartCoroutine(HandleGameLoop());
+    }
+
+    public void IncreaseAllScores(int scoreToAdd)
+    {
+        foreach (var player in players)
+        {
+            if(player.Prey) { continue; }
+            player.IncreaseScore(scoreToAdd);
+        }
     }
 }

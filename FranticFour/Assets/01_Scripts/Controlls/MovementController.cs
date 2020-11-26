@@ -16,9 +16,9 @@ public class MovementController : MonoBehaviour
     [Header("Push configuration")]
     [Tooltip("The time in seconds that the player getting pushed wont be able to move")]
     [SerializeField] float pushDuration = 0.3f;
+    [Tooltip("The amount that the players current velocity gets divided by")]
+    [SerializeField] int pushVelocityDivider = 2;
     [Header("Jump configuration")] 
-    [Tooltip("The duration of the jump in seconds")]
-    [SerializeField] float jumpDuration = 2f;
     [Tooltip("The drag on the rigidBody while jumping (This should be low due to no force applied during the jump")]
     [SerializeField] float jumpingDrag = 0.3f;
 
@@ -56,7 +56,7 @@ public class MovementController : MonoBehaviour
     private void Update()
     {
         if (canJump && Input.GetButton(controller.Jump) && !freezeInput)
-            StartCoroutine(HandleJump());
+            animator.SetTrigger("Jump");
     }
 
     void FixedUpdate()
@@ -78,41 +78,33 @@ public class MovementController : MonoBehaviour
         float xMovement = Input.GetAxis(controller.Horizontal);
         float yMovement = Input.GetAxis(controller.Vertical);
         Vector2 movement = new Vector2(xMovement, yMovement).normalized;
-        animator.SetFloat("movementX", movement.x);
-        animator.SetFloat("movementY", movement.y);
-        animator.SetFloat("speed", new Vector2(xMovement, yMovement).magnitude);
+        SetRunAnimation(movement);
         rb2d.AddForce(movement * movementSpeed);
     }
-    
-    IEnumerator HandleJump()
+
+    private void SetRunAnimation(Vector2 movement)
     {
-        StartJumping();
-        yield return new WaitForSeconds(jumpDuration);
-        EndJumping();
-        //yield return new WaitForSeconds(jumpCooldown);
-        canJump = true;
+        animator.SetFloat("movementX", movement.x);
+        animator.SetFloat("movementY", movement.y);
+        animator.SetFloat("speed", new Vector2(movement.x, movement.y).magnitude);
     }
-    private void StartJumping()
+
+    public void StartJumping()
     {
-        animator.SetTrigger("Jump");
+        canJump = false;
         rb2d.freezeRotation = true;
         canJump = false;
         gameObject.layer = jumpLayer;
         rb2d.drag = jumpingDrag;
         freezeInput = true;
-        // transform.localScale =
-        //     new Vector3(transform.localScale.x + 2, transform.localScale.y + 2,
-        //         5); // remove this once we have animation
     }
-    private void EndJumping()
+    public void EndJumping()
     {
+        canJump = true;
         rb2d.freezeRotation = false;
         gameObject.layer = playerLayer;
         rb2d.drag = originalDrag;
         freezeInput = false;
-        // transform.localScale =
-        //     new Vector3(transform.localScale.x - 2, transform.localScale.y - 2,
-        //         5); // remove this once we have animation
     }
 
     private void HandleRotation()
@@ -189,14 +181,16 @@ public class MovementController : MonoBehaviour
     }
 
     // use in animation where you want to kill the velocity of the object.
-    public void KillVelocity()
+    public void ReduceVelocity()
     {
-        rb2d.velocity = Vector2.zero;
+        if (!freezeInput)
+            rb2d.velocity = rb2d.velocity / pushVelocityDivider;
     }
 
     public void ResetMovement()
     {
         StopAllCoroutines();
+        rb2d.drag = originalDrag;
         spriteRenderer.color = originalColor;
         canJump = true;
         freezeInput = false;

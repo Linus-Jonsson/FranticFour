@@ -19,15 +19,29 @@ public class Player : MonoBehaviour
     Player pushedBy = null;
     PlayerActionsController playerActionController;
     MovementController movementController;
+    GameLoopController gameLoopController;
+
+    string placement = "";
+    public string Placement { get{ return placement; } set{ placement = value; } }
+
+    int placeTextSize = 0;
+    public int PlaceTextSize { get { return placeTextSize; } set { placeTextSize = value; } }
+
+    Color placementColor = new Color(0, 0, 0, 255);
+    public Color PlacementColor { get { return placementColor; } set { placementColor = value; } }
 
     bool prey = false;
     public bool Prey { get { return prey; } set { prey = value; } }
+
+    int numberOfDeaths = 0;
+    public int NumberOfDeaths { get { return numberOfDeaths; } }
 
     private void Awake()
     {
         playerNumber = GetComponent<AssignedController>().PlayerID + 1;
         playerActionController = GetComponent<PlayerActionsController>();
         movementController = GetComponent<MovementController>();
+        gameLoopController = FindObjectOfType<GameLoopController>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -40,16 +54,23 @@ public class Player : MonoBehaviour
 
     private void HandleDeath()
     {
-        if (pushedBy != null && prey) // increase the player that pushed score if its not null and you are the prey.
-            pushedBy.ChangeScore(scoreValue);
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
+        if (pushedBy != null && prey)
+        {
+            pushedBy.IncreaseScore(scoreValue);
+            numberOfDeaths++;
+        }
+        else if(prey)
+        {
+            gameLoopController.IncreaseAllScores(Mathf.RoundToInt(scoreValue / 3));
+            numberOfDeaths++;
+        }
 
         if (deathParticles) //Null check
             Instantiate(deathParticles, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
-        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-
         if (prey)
             FindObjectOfType<GameLoopController>().SpawnPlayers();
-        // add a penalty to score if suicide? 
         else
             ResetPlayer();
     }
@@ -77,7 +98,7 @@ public class Player : MonoBehaviour
         pushedBy = null;
     }
 
-    public void ChangeScore(int scoreChange)
+    public void IncreaseScore(int scoreChange)
     {
         score += scoreChange;
     }
