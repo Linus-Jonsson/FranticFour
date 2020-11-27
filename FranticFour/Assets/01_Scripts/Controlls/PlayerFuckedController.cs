@@ -35,13 +35,13 @@ public class PlayerFuckedController : MonoBehaviour
     public void GetStunned(float duration)
     {
         StopCoroutine(HandlePush(new Vector2(0, 0)));
-        player.StunBlink();
         StartCoroutine(HandleStun(duration));
     }
 
     IEnumerator HandleStun(float duration)
     {
         player.FreezeInput = true;
+        player.StunBlink();
         yield return new WaitForSeconds(duration);
         player.FreezeInput = false;
     }
