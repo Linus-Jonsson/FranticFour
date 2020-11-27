@@ -281,7 +281,7 @@ GameObject:
   m_Component:
   - component: {fileID: 122360167}
   m_Layer: 0
-  m_Name: Player 2
+  m_Name: Player 2 (Green)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -757,7 +757,7 @@ GameObject:
   m_Component:
   - component: {fileID: 529353431}
   m_Layer: 0
-  m_Name: Player 4
+  m_Name: Player 4 (Cyan)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1007,11 +1007,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5575129103255632261, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
   m_PrefabInstance: {fileID: 1293707869}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &852021242 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2128330475, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
-  m_PrefabInstance: {fileID: 1509459707}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &927504169
 PrefabInstance:
@@ -1535,22 +1530,6 @@ PrefabInstance:
       propertyPath: onOffObject
       value: 
       objectReference: {fileID: 1721517807}
-    - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
-      propertyPath: body
-      value: 
-      objectReference: {fileID: 852021242}
-    - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
-      propertyPath: originalColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
-      propertyPath: originalColor.g
-      value: 0.63569504
-      objectReference: {fileID: 0}
-    - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
-      propertyPath: originalColor.b
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5575129103255632261, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1764,7 +1743,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1721517808}
   m_Layer: 0
-  m_Name: Player 1
+  m_Name: Player 1 (Orange)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1886,7 +1865,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1827197166}
   m_Layer: 0
-  m_Name: Player 3
+  m_Name: Player 3 (Purple)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2616,6 +2595,22 @@ PrefabInstance:
       propertyPath: onOffObjects.Array.data[3]
       value: 
       objectReference: {fileID: 529353430}
+    - target: {fileID: 5264495175527307952, guid: d610c520da297514f94b093d00f97efa, type: 3}
+      propertyPath: startCountDownDuration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5264495175527307952, guid: d610c520da297514f94b093d00f97efa, type: 3}
+      propertyPath: preyRevealDuration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5264495175527307952, guid: d610c520da297514f94b093d00f97efa, type: 3}
+      propertyPath: numberOfRounds
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5264495175527307952, guid: d610c520da297514f94b093d00f97efa, type: 3}
+      propertyPath: respawnDelay
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5264495175527307953, guid: d610c520da297514f94b093d00f97efa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.0971375
@@ -2919,6 +2914,10 @@ PrefabInstance:
     - target: {fileID: 6705512249268001340, guid: 9326faea712b5b341a5f7c1f142de8f6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705512249268001341, guid: 9326faea712b5b341a5f7c1f142de8f6, type: 3}
+      propertyPath: preyWeight
+      value: 1.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9326faea712b5b341a5f7c1f142de8f6, type: 3}

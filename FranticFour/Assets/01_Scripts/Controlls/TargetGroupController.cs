@@ -7,8 +7,8 @@ using Cinemachine;
 
 public class TargetGroupController : MonoBehaviour
 {
-    [SerializeField] int preyWeight = 12;
-    [SerializeField] int hunterWeight = 6;
+    [SerializeField] float preyWeight = 1.3f;
+    [SerializeField] float hunterWeight = 1f;
     [SerializeField] float preyRadius = 1.5f;
     [SerializeField] float hunterRadius = 1f;
 
