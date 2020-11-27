@@ -50,9 +50,10 @@ public class GameLoopController : MonoBehaviour
     IEnumerator HandleGameLoop()
     {
         preyProbability = new List<int> { 0, 1, 2, 3 }; // resets the preyProbability list everytime you restart the game.
-        DeactivatePlayers();
+
         while (currentRound <= numberOfRounds)
-        {
+        {        
+            DeactivatePlayers();
             yield return StartCoroutine(gameLoopUIController.PreRoundCountdown(startCountDownDuration, players, currentRound));
             SetPrey();
             SpawnAllPlayers();
@@ -82,6 +83,7 @@ public class GameLoopController : MonoBehaviour
         //Debug.Log($"Random: {random}, Player: {numberOfPrey}"); - To check if it works properly (REMOVE later)
         for (int i = 0; i < players.Length; i++)
         {
+            players[i].NumberOfDeaths = 0;
             players[i].HuntersKilled = 0;
             if(i == numberOfPrey)
             {
@@ -112,12 +114,12 @@ public class GameLoopController : MonoBehaviour
             player.GetComponent<PlayerActionsController>().ResetPlayerActions();
             if (player.Prey == true)
             {
-                player.ResetPlayer(spawnPoint.spawnPosition[0].transform.position);
+                player.GetComponent<DeathAndRespawnController>().ResetPlayer(spawnPoint.spawnPosition[0].transform.position);
                 Instantiate(spawnParticles, new Vector3(player.transform.position.x, player.transform.position.y - 0.5f, 0), Quaternion.identity);
             }
             else
             {
-                player.ResetPlayer(spawnPoint.spawnPosition[hunterSpawnCount].transform.position);
+                player.GetComponent<DeathAndRespawnController>().ResetPlayer(spawnPoint.spawnPosition[hunterSpawnCount].transform.position);
                 Instantiate(spawnParticles, new Vector3(player.transform.position.x, player.transform.position.y - 0.5f, 0), Quaternion.identity);
                 hunterSpawnCount += 1;
             }
@@ -133,7 +135,7 @@ public class GameLoopController : MonoBehaviour
         foreach (var player in players)
         {
             player.FreezeInput = true;
-            player.gameObject.SetActive(false);
+            DeactivatePlayers();
         }
         gameLoopUIController.SetKillScreen(currentPrey, killer, true);
         yield return new WaitForSeconds(respawnDelay);
@@ -142,15 +144,15 @@ public class GameLoopController : MonoBehaviour
         int hunterSpawnCount = 1;
         foreach (var player in players)
         {
-            player.gameObject.SetActive(true);
+            ActivatePlayers();
             player.GetComponent<PlayerActionsController>().ResetPlayerActions();
             if (player.Prey == true)
             {
-                player.ResetPlayer(spawnPoint.spawnPosition[0].transform.position);
+                player.GetComponent<DeathAndRespawnController>().ResetPlayer(spawnPoint.spawnPosition[0].transform.position);
             }
             else
             {
-                player.ResetPlayer(spawnPoint.spawnPosition[hunterSpawnCount].transform.position);
+                player.GetComponent<DeathAndRespawnController>().ResetPlayer(spawnPoint.spawnPosition[hunterSpawnCount].transform.position);
                 hunterSpawnCount += 1;
             }
             player.FreezeInput = false;
@@ -164,10 +166,10 @@ public class GameLoopController : MonoBehaviour
     private IEnumerator HandlePlayerRespawn(Player playerToSpawn, GameObject onOffObject)
     {
         playerToSpawn.FreezeInput = true;
-        playerToSpawn.gameObject.SetActive(false);
+        onOffObject.SetActive(false);
         yield return new WaitForSeconds(respawnDelay);
-        playerToSpawn.gameObject.SetActive(true);
-        playerToSpawn.ResetPlayer();
+        onOffObject.SetActive(true);
+        playerToSpawn.GetComponent<DeathAndRespawnController>().ResetPlayer();
         playerToSpawn.FreezeInput = false;
     }
 
@@ -250,7 +252,7 @@ public class GameLoopController : MonoBehaviour
     {
         foreach (var player in players)
         {
-            player.ResetPlayer();
+            player.GetComponent<DeathAndRespawnController>().ResetPlayer();
             player.Score = 0;
         }
         currentRound = 1;

@@ -141,6 +141,8 @@ public class PlayerActionsController : MonoBehaviour
     {
         ResetTraps();
         StopAllCoroutines();
+        rb2d.drag = originalDrag;
+        canJump = true;
         canPush = true;
         canThrowTraps = true;
     }

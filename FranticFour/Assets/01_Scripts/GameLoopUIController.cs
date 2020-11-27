@@ -69,6 +69,7 @@ public class GameLoopUIController : MonoBehaviour
 
     [SerializeField] int[] placementTextSizes = new int[4];
     [SerializeField] Color[] placementColors = new Color[4];
+    [SerializeField] string[] placements = new string[4];
 
     [Header("Prey kill screen configuration")]
     [SerializeField] GameObject killScreenDisplay = null;
@@ -218,12 +219,10 @@ public class GameLoopUIController : MonoBehaviour
         finalResultDisplay.SetActive(true);
 
         List<int> scoreList = SortPlayerStanding(players);
-
         int firstPlace = 0;
         int secondPlace = 0;
         int thirdPlace = 0;
         int fourthPlace = 0;
-
         foreach (var score in scoreList)
         {
             if (score >= firstPlace)
@@ -236,33 +235,23 @@ public class GameLoopUIController : MonoBehaviour
                 fourthPlace = score;
         }
 
-
-
         foreach (var player in players)
         {
             if (player.Score == firstPlace)
             {
-                player.Placement = "1st";
-                player.PlaceTextSize = placementTextSizes[0];
-                player.PlacementColor = placementColors[0];
+                player.Placement = 0;
             }
             else if (player.Score == secondPlace)
             {
-                player.Placement = "2nd";
-                player.PlaceTextSize = placementTextSizes[1];
-                player.PlacementColor = placementColors[1];
+                player.Placement = 1;
             }
             else if (player.Score == thirdPlace)
             {
-                player.Placement = "3rd";
-                player.PlaceTextSize = placementTextSizes[2];
-                player.PlacementColor = placementColors[2];
+                player.Placement = 2;
             }
             else if (player.Score == fourthPlace)
             {
-                player.Placement = "4th";
-                player.PlaceTextSize = placementTextSizes[3];
-                player.PlacementColor = placementColors[3];
+                player.Placement = 3;
             }
         }
 
@@ -273,31 +262,31 @@ public class GameLoopUIController : MonoBehaviour
                 case "Orange":
                     finalResultOrangePlayerScoreText.text = "Score: " + player.Score;
                     finalResultOrangePlayerText.text = "Player: " + player.PlayerNumber;
-                    player1Placement.fontSize = player.PlaceTextSize;
-                    player1Placement.color = player.PlacementColor;
-                    player1Placement.text = player.Placement.ToString();
+                    player1Placement.fontSize = placementTextSizes[player.Placement];
+                    player1Placement.color = placementColors[player.Placement];
+                    player1Placement.text = placements[player.Placement];
 
                     break;
                 case "Green":
                     finalResultGreenPlayerScoreText.text = "Score: " + player.Score;
                     finalResultGreenPlayerText.text = "Player: " + player.PlayerNumber;
-                    player2Placement.fontSize = player.PlaceTextSize;
-                    player2Placement.color = player.PlacementColor;
-                    player2Placement.text = player.Placement.ToString();
+                    player2Placement.fontSize = placementTextSizes[player.Placement];
+                    player2Placement.color = placementColors[player.Placement];
+                    player2Placement.text = placements[player.Placement];
                     break;
                 case "Purple":
                     finalResultPurplePlayerScoreText.text = "Score: " + player.Score;
                     finalResultPurplePlayerText.text = "Player: " + player.PlayerNumber;
-                    player3Placement.fontSize = player.PlaceTextSize;
-                    player3Placement.color = player.PlacementColor;
-                    player3Placement.text = player.Placement.ToString();
+                    player3Placement.fontSize = placementTextSizes[player.Placement];
+                    player3Placement.color = placementColors[player.Placement];
+                    player3Placement.text = placements[player.Placement];
                     break;
                 case "Cyan":
                     finalResultCyanPlayerScoreText.text = "Score: " + player.Score;
                     finalResultCyanPlayerText.text = "Player: " + player.PlayerNumber;
-                    player4Placement.fontSize = player.PlaceTextSize;
-                    player4Placement.color = player.PlacementColor;
-                    player4Placement.text = player.Placement.ToString();
+                    player4Placement.fontSize = placementTextSizes[player.Placement];
+                    player4Placement.color = placementColors[player.Placement];
+                    player4Placement.text = placements[player.Placement];
                     break;
             }
         }
@@ -332,8 +321,6 @@ public class GameLoopUIController : MonoBehaviour
                 image.transform.position = hunter1Transform.position;
                 image.SetActive(false);
             }
-
-
             if (killer != null)
             {
                 killedByText.text = "Player " + prey.PlayerNumber + " killed the prey!";
