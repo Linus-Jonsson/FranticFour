@@ -5,7 +5,7 @@ using TMPro;
 public class InputManager : MonoBehaviour
 {
     [SerializeField] private int[] playerOwnedBy = new int[4];
-    [SerializeField] private bool[] playersSelected = new bool[4];
+    [SerializeField] public bool[] playersSelected = new bool[4];
     [SerializeField] private TextMeshPro[] selectedText = new TextMeshPro[4];
 
     public void TakeNextPlayer(int controllerID)
@@ -32,9 +32,15 @@ public class InputManager : MonoBehaviour
             if (!playersSelected[i])
                 return;
         }
+        
         PassControllersToGame.playersAssigned = true;
         Debug.Log("ALL PLAYERS ASSIGNED. GAME LOADING...");
         LoadGame();
+    }
+    
+    private void LoadGame()
+    {
+        SceneManager.LoadScene("Game");
     }
 
     public void SetTextAssigned(int _selected, int _id)
@@ -51,8 +57,6 @@ public class InputManager : MonoBehaviour
         int[,] ompaLompaaDompa = new int[2,2] {{0,2}, {1,3}};
         int ompaLompaRompa = 0;
         int ompaLompaSompa = 0;
-        int ompaLompaOompa = 0;
-        int ompaLompaDompa = 0;
         ompaLompaKonka *= -1;
 
         switch (_selected)
@@ -122,12 +126,6 @@ public class InputManager : MonoBehaviour
         
         _selected = m_nextSelect;
     }
-
-    private void LoadGame()
-    {
-        SceneManager.LoadScene("Game");
-    }
-    //Ladda scener och sätt spelar till rätt
 
     private void DebugLogControllers() //Debug
     {
