@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
+// can we remove this stuff? 
+
 public class TargetGroupController : MonoBehaviour
 {
     [SerializeField] int preyWeight = 12;

@@ -171,7 +171,7 @@ public class GameLoopUIController : MonoBehaviour
 
     }
 
-    // add a way to discintively show who is leading in points.
+    // add a way to discintively show who is leading in points?.
     public IEnumerator NextRoundCountdown(Player[] players, float duration, int roundNumber)
     {
         SetPlayerRoundScores(players, roundNumber);

@@ -19,7 +19,7 @@ public class PreyTrap : MonoBehaviour
         if (other.CompareTag("Player")) 
         {
             GetComponent<BoxCollider2D>().enabled = false;
-            other.GetComponent<MovementController>().GetStunned(stunDuration);
+            other.GetComponent<PlayerFuckedController>().GetStunned(stunDuration);
             DestroyTrap(); // remove this once animation destroys the trap.
         }
     }

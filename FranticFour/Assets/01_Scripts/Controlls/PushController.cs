@@ -19,16 +19,14 @@ public class PushController : MonoBehaviour
 
     public void PushTarget(Vector2 pushForce)
     {
-        if (targets.Count == 0)
-            return;
-        MovementController closestTarget = GetClosestTarget();
+        PlayerFuckedController closestTarget = GetClosestTarget();
         closestTarget.GetPushed(pushForce);
         closestTarget.GetComponent<Player>().GetPushedBy(GetComponentInParent<Player>());
     }
 
-    private MovementController GetClosestTarget()
+    private PlayerFuckedController GetClosestTarget()
     {
-        var closestTarget = targets[0];
+        Transform closestTarget = targets[0];
         Transform player = gameObject.transform;
         float closestTargetDistance = Vector2.Distance(closestTarget.position, player.position);
 
@@ -42,7 +40,7 @@ public class PushController : MonoBehaviour
             }
         }
 
-        return closestTarget.GetComponent<MovementController>();
+        return closestTarget.GetComponent<PlayerFuckedController>();
     }
 
     public bool InPushRange()
