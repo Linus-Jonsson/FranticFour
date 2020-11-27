@@ -80,11 +80,11 @@ public class SelectionController : MonoBehaviour
             
             if (Input.GetAxis(action1) == 1 && !controllerAssignedToPlayer) //Funkar med PS4 och Xbox
         {
-            if (PassControllersToGame.playerOwnedBy[selected] > 3) //Är den större än 3 är den inte vald
+            if (!playerHandler.playersSelected[selected]) //Är den större än 3 är den inte vald
             {
+                playerHandler.playersSelected[selected] = true;
                 controllerAssignedToPlayer = true;
                 PassControllersToGame.playerOwnedBy[selected] = CONTROLLER_ID;
-                controllerAssignedToPlayer = true;
                 playerHandler.SetTextAssigned(selected, CONTROLLER_ID);
                 playerHandler.CheckPlayers();
                 isAssigned = true;
@@ -94,8 +94,9 @@ public class SelectionController : MonoBehaviour
         }
         else if (Input.GetButton(action1) && !controllerAssignedToPlayer) //Funkar med tangentbord
         {
-            if (PassControllersToGame.playerOwnedBy[selected] > 3 && !PassControllersToGame.isKeyboardUsed) //Är den större än 3 är den inte vald
+            if (!playerHandler.playersSelected[selected] && !PassControllersToGame.isKeyboardUsed) //Är den större än 3 är den inte vald
             {
+                playerHandler.playersSelected[selected] = true;
                 controllerAssignedToPlayer = true;
                 PassControllersToGame.isKeyboardUsed = true;
                 PassControllersToGame.keyBoardOwnedBy = CONTROLLER_ID;
