@@ -26,7 +26,7 @@ public class MovementController : MonoBehaviour
     [SerializeField] float jumpingDrag = 0.3f;
 
     [Header("Other")]
-    [SerializeField] public AssignedController controller; //SerializeField + Public?
+    [SerializeField] public AssignedController controller; //SerializeField + Public? = ompaLomaRompa
     [SerializeField] Color originalColor;
     [SerializeField] GameObject body = null;
 

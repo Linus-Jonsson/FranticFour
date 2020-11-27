@@ -35,6 +35,71 @@ public class InputManager : MonoBehaviour
         LoadGame();
     }
 
+    public void SelectNext(int _controllerId, ref int _selected, int ompaLompaBompa, int ompaLompaKonka)
+    {
+        Debug.Log("InputManager");
+        selectedText[_selected].text = "Moved";
+        int m_players = playerOwnedBy.Length - 1;
+        int m_nextSelect = _selected;
+        int[,] ompaLompaDompa = new int[2,2] {{0,1}, {0,1}};
+        int[,] ompaLompaaDompa = new int[2,2] {{0,2}, {1,3}};
+        int ompaLompaRompa = 0;
+        int ompaLompaSompa = 0;
+        ompaLompaKonka *= -1;
+
+        switch (_selected)
+        {
+            //Robin du får fixa detta på måndag, trevlig helg och lycka till nästa vecka!
+            //Mvh Robin på en fredags morgon
+            case 0:
+                ompaLompaRompa = 0; //Fuck u rider
+                ompaLompaSompa = 0;
+                break;
+            case 1:
+                ompaLompaRompa = 0; //Fuck u rider
+                ompaLompaSompa = 1;
+                break;
+            case 2:
+                ompaLompaRompa = 1; //Fuck u rider
+                ompaLompaSompa = 0;
+                break;
+            case 3:
+                ompaLompaRompa = 1; //Fuck u rider
+                ompaLompaSompa = 1;
+                break;
+        }
+
+        switch (ompaLompaBompa)
+        {
+            case -1:
+                ompaLompaRompa = 0;
+                break;
+            case 0:
+                break;
+            case 1:
+                ompaLompaRompa = 1;
+                break;
+        }
+
+        switch (ompaLompaKonka)
+        {
+            case -1:
+                ompaLompaSompa = 0;
+                break;
+            case 0:
+                break;
+            case 1:
+                ompaLompaSompa = 1;
+                break;
+        }
+
+        m_nextSelect = ompaLompaaDompa[ompaLompaSompa, ompaLompaRompa]; //Fuck u rider
+        Debug.Log(m_nextSelect + "|Y" + ompaLompaSompa + "|X" + ompaLompaRompa + "|" + ompaLompaaDompa[ompaLompaRompa, ompaLompaSompa]);
+
+        selectedText[m_nextSelect].text = _controllerId.ToString();
+        _selected = m_nextSelect;
+    }
+
     private void LoadGame()
     {
         SceneManager.LoadScene("Game");
