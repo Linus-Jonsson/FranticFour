@@ -20,8 +20,7 @@ public class PushController : MonoBehaviour
     public void PushTarget(Vector2 pushForce)
     {
         PlayerFuckedController closestTarget = GetClosestTarget();
-        closestTarget.GetPushed(pushForce);
-        closestTarget.GetComponent<Player>().GetPushedBy(GetComponentInParent<Player>());
+        closestTarget.GetPushed(pushForce,GetComponentInParent<Player>());
     }
 
     private PlayerFuckedController GetClosestTarget()
