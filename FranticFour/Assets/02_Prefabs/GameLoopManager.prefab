@@ -44,15 +44,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roundDuration: 60
-  startCountDownDuration: 4
-  preyRevealDuration: 3
-  roundOverDuration: 5
+  startCountDownDuration: 1
+  preyRevealDuration: 1
+  roundOverDuration: 3
   players:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  numberOfRounds: 5
+  numberOfRounds: 2
   spawnPoints:
   - {fileID: 6611614306743309169, guid: 163262a44bd49d040999c1979f670f68, type: 3}
   - {fileID: 1647817926229260146, guid: 9c68aa0ea9844a64f9e55d4ec25c0a81, type: 3}
@@ -60,7 +60,13 @@ MonoBehaviour:
   - {fileID: 5857546134421466556, guid: 75b5fee2a466c764585f334fb4120199, type: 3}
   hunterSpeed: 50
   preySpeed: 40
+  onOffObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   preySurvivalBaseScore: 10
   pacifistAward: 10
   respawnDelay: 3
+  spawnParticles: {fileID: 8171510603094556011, guid: 8381ec2f60ab6f544b505ff318b2f4b5, type: 3}
   preyProbability: 

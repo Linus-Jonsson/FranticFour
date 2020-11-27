@@ -35,6 +35,12 @@ public class PlayerAnimationsController : MonoBehaviour
         animator.SetFloat("directionY", direction.y);
     }
     
+    public void SetMovement(Vector2 movement)
+    {
+        animator.SetFloat("movementX", movement.x);
+        animator.SetFloat("movementY", movement.y);
+    }
+    
     public void ResetAnimationTrigger(string triggerName)
     {
         animator.ResetTrigger(triggerName);

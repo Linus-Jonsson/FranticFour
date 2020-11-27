@@ -30,6 +30,8 @@ public class GameLoopController : MonoBehaviour
 
     [Header("Respawn Configurations")]
     [SerializeField] float respawnDelay = 3f;
+
+    [SerializeField] GameObject spawnParticles = null;
     
 
     int currentRound = 1;
@@ -112,10 +114,12 @@ public class GameLoopController : MonoBehaviour
             if (player.Prey == true)
             {
                 player.ResetPlayer(spawnPoint.spawnPosition[0].transform.position);
+                Instantiate(spawnParticles, new Vector3(player.transform.position.x, player.transform.position.y - 0.5f, 0), Quaternion.identity);
             }
             else
             {
                 player.ResetPlayer(spawnPoint.spawnPosition[hunterSpawnCount].transform.position);
+                Instantiate(spawnParticles, new Vector3(player.transform.position.x, player.transform.position.y - 0.5f, 0), Quaternion.identity);
                 hunterSpawnCount += 1;
             }
         }

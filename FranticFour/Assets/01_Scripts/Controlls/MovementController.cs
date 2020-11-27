@@ -34,8 +34,9 @@ public class MovementController : MonoBehaviour
     public Vector2 Dir { get { return dir; } }
 
     Rigidbody2D rb2d;
-    Animator animator;
     SpriteRenderer spriteRenderer;
+    Animator animator;
+    PlayerAnimationsController playerAnimationsController;
 
     bool freezeInput = false;
     public bool FreezeInput { get { return freezeInput; } set { freezeInput = value; } }
@@ -52,6 +53,7 @@ public class MovementController : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = body.GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        playerAnimationsController = GetComponent<PlayerAnimationsController>();
         originalColor = spriteRenderer.color;
         originalDrag = rb2d.drag;
     }
@@ -81,14 +83,8 @@ public class MovementController : MonoBehaviour
         float xMovement = Input.GetAxis(controller.Horizontal);
         float yMovement = Input.GetAxis(controller.Vertical);
         Vector2 movement = new Vector2(xMovement, yMovement).normalized;
-        AnimationMovementSet(movement);
+        playerAnimationsController.SetMovement(movement);
         rb2d.AddForce(movement * movementSpeed);
-    }
-
-    private void AnimationMovementSet(Vector2 movement)
-    {
-        animator.SetFloat("movementX", movement.x);
-        animator.SetFloat("movementY", movement.y);
     }
 
     private void HandleRotation()
