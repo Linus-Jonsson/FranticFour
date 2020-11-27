@@ -99,6 +99,8 @@ GameObject:
   - component: {fileID: 6598763632442513007}
   - component: {fileID: 1012635212}
   - component: {fileID: 4384462609397879459}
+  - component: {fileID: 5966693910533769791}
+  - component: {fileID: 7163962998717739410}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -142,7 +144,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &341948758
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -171,16 +173,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 801c79b966ab6ad429f21cfb47231006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerLayer: 8
-  jumpLayer: 9
   movementSpeed: 40
-  pushDuration: 0.3
   pushForceMultiplier: 5
   pushVelocityDivider: 5
-  jumpingDrag: 1.2
-  controller: {fileID: 0}
-  originalColor: {r: 0.9607843, g: 0.51889634, b: 0, a: 1}
-  body: {fileID: 2128330475}
 --- !u!114 &-1645165569722071076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,7 +191,9 @@ MonoBehaviour:
   deathParticles: {fileID: 8171510603094556011, guid: 4daac6d3fbfde42468e742d41eb8884c, type: 3}
   pushedByTime: 2
   scoreValue: 3
-  score: 0
+  onOffObject: {fileID: 0}
+  body: {fileID: 2128330475}
+  originalColor: {r: 1, g: 1, b: 1, a: 255}
 --- !u!114 &362613495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,13 +226,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1f4cb0f3da63fd46ab91c1b627c354b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
+  playerLayer: 8
+  jumpLayer: 9
+  jumpingDrag: 0.3
   preyTrap: {fileID: 3140399524871574758, guid: a0ff91c6e4bdf6b45ab4387956b9838f, type: 3}
   rawOffset: 1
   trapPushForce: 10
   trapsCoolDown: 4
   maximumTraps: 3
-  thrownTraps: 0
   pushForce: 30
   pushCooldown: 2
   OnPush:
@@ -272,6 +270,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d55e8aaab03ba4f45a2687cbd6688013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5966693910533769791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5575129103255632267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca08b104d0ce1b6419f0971d29d87b5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  body: {fileID: 2128330475}
+--- !u!114 &7163962998717739410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5575129103255632267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1704d5a7ba68afb4a89fc8b98c5d29ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pushDuration: 0.3
 --- !u!1 &5575129103467070823
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,7 +322,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5575129103467070823}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []

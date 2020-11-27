@@ -505,6 +505,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1827197166}
     m_Modifications:
+    - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: originalColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: originalColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: originalColor.b
+      value: 0.7466488
+      objectReference: {fileID: 0}
+    - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: onOffObject
+      value: 
+      objectReference: {fileID: 1827197165}
+    - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: body
+      value: 
+      objectReference: {fileID: 442676825}
     - target: {fileID: 362613495, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: playerID
       value: 2
@@ -636,6 +656,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4498350835162060514, guid: b68e308d557721d409f3ca118b5ab15e, type: 3}
   m_PrefabInstance: {fileID: 143640979}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &442676825 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2128330475, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+  m_PrefabInstance: {fileID: 276690939}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &502595870
 PrefabInstance:
@@ -983,6 +1008,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5575129103255632261, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
   m_PrefabInstance: {fileID: 1293707869}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &852021242 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2128330475, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+  m_PrefabInstance: {fileID: 1509459707}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &927504169
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1120,6 +1150,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 122360167}
     m_Modifications:
+    - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: body
+      value: 
+      objectReference: {fileID: 1472976161}
+    - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: onOffObject
+      value: 
+      objectReference: {fileID: 122360166}
+    - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: originalColor.r
+      value: 0.23619485
+      objectReference: {fileID: 0}
+    - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: originalColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: originalColor.b
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 362613495, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: playerID
       value: 1
@@ -1403,6 +1453,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50d3b2be1aa94d147993706903082ceb, type: 3}
+--- !u!1 &1472976161 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2128330475, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+  m_PrefabInstance: {fileID: 1293707869}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1487726333
 GameObject:
   m_ObjectHideFlags: 0
@@ -1476,6 +1531,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1721517808}
     m_Modifications:
+    - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: onOffObject
+      value: 
+      objectReference: {fileID: 1721517807}
+    - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: body
+      value: 
+      objectReference: {fileID: 852021242}
+    - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: originalColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: originalColor.g
+      value: 0.63569504
+      objectReference: {fileID: 0}
+    - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: originalColor.b
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5575129103255632261, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1530,6 +1605,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4498350835162060514, guid: b68e308d557721d409f3ca118b5ab15e, type: 3}
   m_PrefabInstance: {fileID: 502595870}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1544660124 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2128330475, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+  m_PrefabInstance: {fileID: 2107214963}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1564641817
 PrefabInstance:
@@ -2132,6 +2212,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 529353431}
     m_Modifications:
+    - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: originalColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: originalColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: originalColor.b
+      value: 0.86911154
+      objectReference: {fileID: 0}
+    - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: onOffObject
+      value: 
+      objectReference: {fileID: 529353430}
+    - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: body
+      value: 
+      objectReference: {fileID: 1544660124}
     - target: {fileID: 362613495, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: playerID
       value: 3

@@ -5,8 +5,16 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public class PlayerActionsController : MonoBehaviour
-{    
-    [SerializeField] AssignedController controller; // does this need to have SerializeField since we get it in start?
+{
+    [Header("Layer configuration")]
+    [Tooltip("Set this to have the layerNumber of the layer that player is")]
+    [SerializeField] int playerLayer = 8;
+    [Tooltip("Set this to have the layerNumber of the layer that Jump is")]
+    [SerializeField] int jumpLayer = 9;
+
+    [Header("Jump configuration")]
+    [Tooltip("The drag on the rigidBody while jumping (This should be low due to no force applied during the jump")]
+    [SerializeField] float jumpingDrag = 0.3f;
 
     [Header("Prey Configuration")]
     [SerializeField] PreyTrap preyTrap = null;
@@ -14,7 +22,6 @@ public class PlayerActionsController : MonoBehaviour
     [SerializeField] float trapPushForce = 2f;
     [SerializeField] float trapsCoolDown = 4f;
     [SerializeField] int maximumTraps = 5;
-    [SerializeField] int thrownTraps = 0; // remove serializeField
 
     [Header("Hunter Configuration")]
     [SerializeField] float pushForce = 10f;
@@ -23,24 +30,37 @@ public class PlayerActionsController : MonoBehaviour
     public float PushCooldown => pushCooldown;
     public UnityEvent OnPush = new UnityEvent();
 
+    int thrownTraps = 0;
+    float originalDrag;
+
     bool canThrowTraps = true;
     bool canPush = true;
+    [SerializeField] bool canJump = true;
     bool prey;
 
     PushController pushController;
-    MovementController movementController;
+    RotationController rotationController;
     Player player;
-    private Animator animator;
-
+    Animator animator;    
+    AssignedController controller;
+    Rigidbody2D rb2d;
     List<PreyTrap> laidTraps = new List<PreyTrap>();
 
     private void Start()
     {
+        canJump = true;
+        GetReferences();
+        originalDrag = rb2d.drag;
+    }
+
+    private void GetReferences()
+    {
         controller = GetComponent<AssignedController>();
         pushController = GetComponentInChildren<PushController>();
-        movementController = GetComponent<MovementController>();
+        rotationController = GetComponent<RotationController>();
         player = GetComponent<Player>();
         animator = GetComponent<Animator>();
+        rb2d = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -48,9 +68,12 @@ public class PlayerActionsController : MonoBehaviour
         int m_number;
         bool mouseUsed = Int32.TryParse(controller.Action1, out m_number);
 
+        if (canJump && Input.GetButton(controller.Jump) && !player.FreezeInput)
+            animator.SetTrigger("Jump");
+
         if (!Input.GetButtonDown(controller.Action1) &&
             !(Input.GetAxis(controller.Action1) > 0) ||
-            movementController.FreezeInput)
+            player.FreezeInput)
             return;
         
         if (mouseUsed)
@@ -60,24 +83,20 @@ public class PlayerActionsController : MonoBehaviour
             if (player.Prey && canThrowTraps && thrownTraps < maximumTraps)
                 StartCoroutine(ThrowTrap());
             else if (!player.Prey && canPush && pushController.InPushRange())
-                StartCoroutine(PushOtherPlayer());
+                HandlePush();
         }
-            
+
         if (player.Prey && canThrowTraps && thrownTraps < maximumTraps)
             StartCoroutine(ThrowTrap());
         else if (!player.Prey && canPush)
-        {
-            animator.SetTrigger("Push");
-            if(pushController.InPushRange())
-                StartCoroutine(PushOtherPlayer());
-        }
+            HandlePush();
     }
 
     IEnumerator ThrowTrap()
     {
         thrownTraps++;
         canThrowTraps = false;
-        Vector2 direction = movementController.Dir.normalized;
+        Vector2 direction = rotationController.Dir.normalized;
         Vector3 offset = direction * rawOffset;
         PreyTrap newTrap = Instantiate(preyTrap, transform.position + offset, Quaternion.identity);
         newTrap.PushTrap(direction * trapPushForce);
@@ -87,11 +106,17 @@ public class PlayerActionsController : MonoBehaviour
         canThrowTraps = true;
     }
 
+    private void HandlePush()
+    {
+        animator.SetTrigger("Push");
+        if (pushController.InPushRange())
+            StartCoroutine(PushOtherPlayer());
+    }
     IEnumerator PushOtherPlayer()
     {
         OnPush.Invoke();
         canPush = false;
-        pushController.PushTarget(movementController.Dir.normalized * pushForce);
+        pushController.PushTarget(rotationController.Dir.normalized * pushForce);
         yield return new WaitForSeconds(pushCooldown);
         canPush = true;
     }
@@ -118,5 +143,23 @@ public class PlayerActionsController : MonoBehaviour
         StopAllCoroutines();
         canPush = true;
         canThrowTraps = true;
+    }
+
+    //AnimationEvents:
+    public void StartJumping()
+    {
+        canJump = false;
+        rb2d.freezeRotation = true;
+        gameObject.layer = jumpLayer;
+        rb2d.drag = jumpingDrag;
+        player.FreezeInput = true;
+    }
+    public void EndJumping()
+    {
+        rb2d.freezeRotation = false;
+        gameObject.layer = playerLayer;
+        rb2d.drag = originalDrag;
+        player.FreezeInput = false;
+        canJump = true;
     }
 }

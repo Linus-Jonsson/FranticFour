@@ -5,13 +5,13 @@ using UnityEngine;
 public class PlayerAnimationsController : MonoBehaviour
 {
     Animator animator;
-    MovementController movementController;
+    RotationController rotationController;
     Rigidbody2D rb2d;
 
     void Start()
     {
         animator = GetComponent<Animator>();
-        movementController = GetComponent<MovementController>();
+        rotationController = GetComponent<RotationController>();
         rb2d = GetComponent<Rigidbody2D>();
     }
 
@@ -30,7 +30,7 @@ public class PlayerAnimationsController : MonoBehaviour
 
     private void SetDirection()
     {
-        Vector2 direction = movementController.Dir.normalized;
+        Vector2 direction = rotationController.Dir.normalized;
         animator.SetFloat("directionX", direction.x);
         animator.SetFloat("directionY", direction.y);
     }

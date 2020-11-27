@@ -1,6 +1,6 @@
 ﻿using System.Collections;
+using System.Threading.Tasks;
 using UnityEngine;
-//using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
@@ -9,17 +9,13 @@ public class Player : MonoBehaviour
     [SerializeField] float pushedByTime = 2f;
     [Tooltip("The value in score that the prey is worth when killing")]
     [SerializeField] int scoreValue = 3;
+    [SerializeField] GameObject onOffObject = null;
 
-    [SerializeField] int score = 0;
+    int score = 0;
     public int Score { get { return score; } set { score = value; } }
+
     int playerNumber = 0;
     public int PlayerNumber { get { return playerNumber; } }
-
-    //[SerializeField] string playerName = ""; // not currently in use
-    Player pushedBy = null;
-    PlayerActionsController playerActionController;
-    MovementController movementController;
-    GameLoopController gameLoopController;
 
     string placement = "";
     public string Placement { get{ return placement; } set{ placement = value; } }
@@ -39,43 +35,62 @@ public class Player : MonoBehaviour
     int huntersKilled = 0;
     public int HuntersKilled { get { return huntersKilled; } set { huntersKilled = value; } }
 
+    bool freezeInput = false;
+    public bool FreezeInput { get { return freezeInput; } set { freezeInput = value; } }
+
+    //[SerializeField] string playerName = ""; // not currently in use
+    Player pushedBy = null;
+    PlayerActionsController playerActionController;
+    MovementController movementController;
+    GameLoopController gameLoopController;
+
+    SpriteRenderer spriteRenderer;
+    [SerializeField] GameObject body = null;
+    [SerializeField] Color originalColor = new Color(0, 0, 0, 255);
     private void Awake()
+    {
+        GetReferences();
+    }
+
+    private void GetReferences()
     {
         playerNumber = GetComponent<AssignedController>().PlayerID + 1;
         playerActionController = GetComponent<PlayerActionsController>();
         movementController = GetComponent<MovementController>();
         gameLoopController = FindObjectOfType<GameLoopController>();
+        spriteRenderer = body.GetComponent<SpriteRenderer>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Danger"))
-        {
             HandleDeath();
-        }
     }
 
     private void HandleDeath()
     {
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-
         if (pushedBy != null && prey)
-        {
-            pushedBy.IncreaseScore(scoreValue);
-            numberOfDeaths++;
-            gameLoopController.RespawnAllPlayers(pushedBy);
-        }
-        else if(prey)
-        {
-            gameLoopController.IncreaseAllScores(Mathf.RoundToInt(scoreValue / 3));
-            numberOfDeaths++;
-            gameLoopController.RespawnAllPlayers(null);
-        }
+            HandlePreyKilledBySomeone();
+        else if (prey)
+            HandlePreyLapseInJudgement();
 
         if (deathParticles) //Null check
             Instantiate(deathParticles, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
         if(!prey)
-            gameLoopController.RespawnPlayer(this);
+            gameLoopController.RespawnPlayer(this,onOffObject);
+    }
+    private void HandlePreyKilledBySomeone()
+    {
+        pushedBy.IncreaseScore(scoreValue);
+        numberOfDeaths++;
+        gameLoopController.RespawnAllPlayers(pushedBy);
+    }
+    private void HandlePreyLapseInJudgement()
+    {
+        gameLoopController.IncreaseAllScores(Mathf.RoundToInt(scoreValue / 3));
+        numberOfDeaths++;
+        gameLoopController.RespawnAllPlayers(null);
     }
 
     private void SetNewPosition()
@@ -90,10 +105,8 @@ public class Player : MonoBehaviour
     public void GetPushedBy(Player pusher)
     {
         StopCoroutine(HandlePushedByTimer(pusher));
-        pushedBy = null;
         StartCoroutine(HandlePushedByTimer(pusher));
     }
-
     IEnumerator HandlePushedByTimer(Player pusher)
     {
         pushedBy = pusher;
@@ -118,10 +131,21 @@ public class Player : MonoBehaviour
     // remove this once we have set respawn points for hunters.
     public void ResetPlayer()
     {
+        spriteRenderer.color = originalColor;
         StopAllCoroutines();
         playerActionController.ResetPlayerActions();
         movementController.ResetMovement();
         SetNewPosition();
         pushedBy = null;
+    }
+
+    public async void StunBlink()
+    {
+        while (freezeInput)
+        {
+            await Task.Delay(100);
+            spriteRenderer.color = spriteRenderer.color == originalColor ? Color.white : originalColor;
+        }
+        spriteRenderer.color = originalColor;
     }
 }

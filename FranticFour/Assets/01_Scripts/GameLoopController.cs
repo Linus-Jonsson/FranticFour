@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -63,7 +62,7 @@ public class GameLoopController : MonoBehaviour
 
             yield return StartCoroutine(gameLoopUIController.CountRoundTime(roundDuration));
             StopCoroutine(HandleRespawnOfAllPlayers(null));
-            StopCoroutine(HandlePlayerRespawn(null));
+            StopCoroutine(HandlePlayerRespawn(null,null));
             gameLoopUIController.SetKillScreen(null, null, false);
             DeactivatePlayers();
             CalculateScores();
@@ -133,7 +132,7 @@ public class GameLoopController : MonoBehaviour
     {
         foreach (var player in players)
         {
-            player.GetComponent<MovementController>().FreezeInput = true;
+            player.FreezeInput = true;
             player.gameObject.SetActive(false);
         }
         gameLoopUIController.SetKillScreen(currentPrey, killer, true);
@@ -154,22 +153,22 @@ public class GameLoopController : MonoBehaviour
                 player.ResetPlayer(spawnPoint.spawnPosition[hunterSpawnCount].transform.position);
                 hunterSpawnCount += 1;
             }
-            player.GetComponent<MovementController>().FreezeInput = false;
+            player.FreezeInput = false;
         }
         gameLoopUIController.SetKillScreen(currentPrey, killer, false);
     }
-    public void RespawnPlayer(Player playerToSpawn)
+    public void RespawnPlayer(Player playerToSpawn, GameObject onOffObject)
     {
-        StartCoroutine(HandlePlayerRespawn(playerToSpawn));
+        StartCoroutine(HandlePlayerRespawn(playerToSpawn, onOffObject));
     }
-    private IEnumerator HandlePlayerRespawn(Player playerToSpawn)
+    private IEnumerator HandlePlayerRespawn(Player playerToSpawn, GameObject onOffObject)
     {
-        playerToSpawn.GetComponent<MovementController>().FreezeInput = true;
+        playerToSpawn.FreezeInput = true;
         playerToSpawn.gameObject.SetActive(false);
         yield return new WaitForSeconds(respawnDelay);
         playerToSpawn.gameObject.SetActive(true);
         playerToSpawn.ResetPlayer();
-        playerToSpawn.GetComponent<MovementController>().FreezeInput = false;
+        playerToSpawn.FreezeInput = false;
     }
 
     private void CalculateScores()
@@ -264,7 +263,8 @@ public class GameLoopController : MonoBehaviour
     {
         foreach (var player in players)
         {
-            if(player.Prey) { continue; }
+            if (player.Prey)
+                continue;
             player.IncreaseScore(scoreToAdd);
         }
     }
