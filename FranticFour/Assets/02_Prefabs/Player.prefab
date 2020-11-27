@@ -193,7 +193,7 @@ MonoBehaviour:
   scoreValue: 3
   onOffObject: {fileID: 0}
   body: {fileID: 2128330475}
-  originalColor: {r: 1, g: 1, b: 1, a: 255}
+  originalColor: {r: 1, g: 0.63569504, b: 0, a: 255}
 --- !u!114 &362613495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,7 +234,7 @@ MonoBehaviour:
   trapPushForce: 10
   trapsCoolDown: 4
   maximumTraps: 3
-  pushForce: 30
+  pushForce: 40
   pushCooldown: 2
   OnPush:
     m_PersistentCalls:
