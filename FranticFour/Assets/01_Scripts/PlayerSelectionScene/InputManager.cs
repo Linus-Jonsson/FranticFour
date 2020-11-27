@@ -32,7 +32,6 @@ public class InputManager : MonoBehaviour
             if (!playersSelected[i])
                 return;
         }
-
         PassControllersToGame.playersAssigned = true;
         Debug.Log("ALL PLAYERS ASSIGNED. GAME LOADING...");
         LoadGame();
@@ -40,6 +39,9 @@ public class InputManager : MonoBehaviour
 
     public void SetTextAssigned(int _selected, int _id)
     {
+        playerOwnedBy[_selected] = _id;
+        playersSelected[_selected] = true;
+        PassControllersToGame.playerOwnedBy[_selected] = _id;
         selectedText[_selected].text = $"[Player {_id}]";
     }
 

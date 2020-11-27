@@ -84,6 +84,7 @@ public class SelectionController : MonoBehaviour
             {
                 controllerAssignedToPlayer = true;
                 PassControllersToGame.playerOwnedBy[selected] = CONTROLLER_ID;
+                controllerAssignedToPlayer = true;
                 playerHandler.SetTextAssigned(selected, CONTROLLER_ID);
                 playerHandler.CheckPlayers();
                 isAssigned = true;
