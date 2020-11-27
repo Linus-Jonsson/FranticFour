@@ -239,6 +239,7 @@ MonoBehaviour:
   OnPush:
     m_PersistentCalls:
       m_Calls: []
+  canJump: 1
 --- !u!95 &1012635212
 Animator:
   serializedVersion: 3
@@ -308,7 +309,7 @@ GameObject:
   - component: {fileID: 5575129103467070817}
   - component: {fileID: 742136907}
   - component: {fileID: 742136906}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: nose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
