@@ -22,7 +22,10 @@ public class InputManager : MonoBehaviour
             playersSelected[i] = true;
             break;
         }
+    }
 
+    public void CheckPlayers()
+    {
         //Check if all players is assigned
         for (int i = 0; i < playersSelected.Length; i++)
         {
@@ -35,16 +38,19 @@ public class InputManager : MonoBehaviour
         LoadGame();
     }
 
+    public void SetTextAssigned(int _selected, int _id)
+    {
+        selectedText[_selected].text = $"[Player {_id}]";
+    }
+
     public void SelectNext(int _controllerId, ref int _selected, int ompaLompaBompa, int ompaLompaKonka)
     {
-        Debug.Log("InputManager");
-        selectedText[_selected].text = "Moved";
-        int m_players = playerOwnedBy.Length - 1;
         int m_nextSelect = _selected;
-        int[,] ompaLompaDompa = new int[2,2] {{0,1}, {0,1}};
         int[,] ompaLompaaDompa = new int[2,2] {{0,2}, {1,3}};
         int ompaLompaRompa = 0;
         int ompaLompaSompa = 0;
+        int ompaLompaOompa = 0;
+        int ompaLompaDompa = 0;
         ompaLompaKonka *= -1;
 
         switch (_selected)
@@ -92,11 +98,26 @@ public class InputManager : MonoBehaviour
                 ompaLompaSompa = 1;
                 break;
         }
-
+        
         m_nextSelect = ompaLompaaDompa[ompaLompaSompa, ompaLompaRompa]; //Fuck u rider
-        Debug.Log(m_nextSelect + "|Y" + ompaLompaSompa + "|X" + ompaLompaRompa + "|" + ompaLompaaDompa[ompaLompaRompa, ompaLompaSompa]);
 
-        selectedText[m_nextSelect].text = _controllerId.ToString();
+        if (m_nextSelect == _selected)
+            return;
+        //Debug.Log(m_nextSelect + "|Y" + ompaLompaSompa + "|X" + ompaLompaRompa + "|" + ompaLompaaDompa[ompaLompaRompa, ompaLompaSompa]);
+
+        //Om platsen redan används
+        if (PassControllersToGame.playerOwnedBy[m_nextSelect] < 4)
+            selectedText[m_nextSelect].text =
+                $"[Player {PassControllersToGame.playerOwnedBy[m_nextSelect]}] {_controllerId.ToString()}";
+        else
+            selectedText[m_nextSelect].text = _controllerId.ToString();
+
+        //Om platsen redan används flytt
+        if (PassControllersToGame.playerOwnedBy[_selected] < 4)
+            selectedText[_selected].text = $"[Player {PassControllersToGame.playerOwnedBy[_selected]}]";
+        else
+            selectedText[_selected].text = "";
+        
         _selected = m_nextSelect;
     }
 

@@ -20,6 +20,8 @@ public class SelectionController : MonoBehaviour
 
     [SerializeField] private InputManager playerHandler;
 
+    private bool isAssigned = false;
+
     private void Start()
     {
         selected = CONTROLLER_ID;
@@ -50,36 +52,59 @@ public class SelectionController : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject); //DEBUG
             if (!PassControllersToGame.isKeyboardUsed)
             {
                 PassControllersToGame.isKeyboardUsed = true;
                 PassControllersToGame.keyBoardOwnedBy = CONTROLLER_ID;
+                
+                rightHorizontal = StringManager.Inputs.horizontalKeyboard;
+                rightVertical = StringManager.Inputs.verticalKeyboard;
                 action1 = StringManager.Inputs.action1Keyboard;
+                
                 Debug.LogWarning("Controller is missing or cant be recognized: " + controllerName +
                                  " You are set to keyboard");
             }
             else
             {
                 action1 = StringManager.Inputs.action1 + CONTROLLER_ID;
-                Debug.LogWarning("Controller is missing or cant be recognized: " + controllerName);
+                Debug.LogError("Controller is missing or cant be recognized: " + controllerName);
+                isAssigned = true; //Error so skip loop in update
             }
         }
     }
 
     private void Update()
     {
-        if (Input.GetAxis(action1) == 1 && !controllerAssignedToPlayer) //Funkar med PS4 och Xbox
+        if (isAssigned)
+            return;
+            
+            if (Input.GetAxis(action1) == 1 && !controllerAssignedToPlayer) //Funkar med PS4 och Xbox
         {
-            controllerAssignedToPlayer = true;
-            Debug.Log("Player assigned" + Input.GetAxis(action1));
-            playerHandler.TakeNextPlayer(CONTROLLER_ID);
+            if (PassControllersToGame.playerOwnedBy[selected] > 3) //Är den större än 3 är den inte vald
+            {
+                controllerAssignedToPlayer = true;
+                PassControllersToGame.playerOwnedBy[selected] = CONTROLLER_ID;
+                playerHandler.SetTextAssigned(selected, CONTROLLER_ID);
+                playerHandler.CheckPlayers();
+                isAssigned = true;
+                Debug.Log("Player "+ selected +" assigned" + Input.GetAxis(action1));
+            }
+            //playerHandler.TakeNextPlayer(CONTROLLER_ID);
         }
         else if (Input.GetButton(action1) && !controllerAssignedToPlayer) //Funkar med tangentbord
         {
-            controllerAssignedToPlayer = true;
-            Debug.Log("Player assigned" + Input.GetButton(action1));
-            playerHandler.TakeNextPlayer(CONTROLLER_ID);
+            if (PassControllersToGame.playerOwnedBy[selected] > 3 && !PassControllersToGame.isKeyboardUsed) //Är den större än 3 är den inte vald
+            {
+                controllerAssignedToPlayer = true;
+                PassControllersToGame.isKeyboardUsed = true;
+                PassControllersToGame.keyBoardOwnedBy = CONTROLLER_ID;
+                PassControllersToGame.playerOwnedBy[selected] = CONTROLLER_ID;
+                playerHandler.SetTextAssigned(selected, CONTROLLER_ID);
+                playerHandler.CheckPlayers();
+                isAssigned = true;
+                Debug.Log("Player "+ selected +" assigned" + Input.GetButton(action1));
+            }
+            //playerHandler.TakeNextPlayer(CONTROLLER_ID);
         }
 
         float m_inputX = Input.GetAxis(rightHorizontal);
