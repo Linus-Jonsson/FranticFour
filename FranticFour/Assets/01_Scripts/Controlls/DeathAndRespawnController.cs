@@ -34,55 +34,63 @@ public class DeathAndRespawnController : MonoBehaviour
     }
 
     private void HandleDeath()
-    {
+    {       
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        if (player.PushedBy != null && player.Prey)
-            HandlePreyKilledBySomeone();
-        else if (player.Prey)
-            HandlePreyLapseInJudgement();
-
         if (deathParticles) //Null check
-            Instantiate(deathParticles, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
-        if (!player.Prey)
+            ShowDeathEffect();
+        if (player.Prey)
+            HandlePreyKilled();
+        else
             gameLoopController.RespawnPlayer(player, onOffObject);
     }
-    private void HandlePreyKilledBySomeone()
+    private void ShowDeathEffect()
     {
-        player.PushedBy.IncreaseScore(scoreValue);
+        Vector3 position = new Vector3(transform.position.x, transform.position.y, 0);
+        Instantiate(deathParticles, position, Quaternion.identity);
+    }
+
+    private void HandlePreyKilled()
+    {
+        if (player.PushedBy == null)
+            PreyKilledBySomeone(false);
+        else
+            PreyKilledBySomeone(true);
+    }
+    private void PreyKilledBySomeone(bool killedBySomeone)
+    {
+        if (killedBySomeone)
+            player.PushedBy.IncreaseScore(scoreValue);
+        else
+            gameLoopController.IncreaseAllScores(Mathf.RoundToInt(scoreValue / 3));
+
         player.NumberOfDeaths = player.NumberOfDeaths + 1;
         gameLoopController.RespawnAllPlayers(player.PushedBy);
-    }
-    private void HandlePreyLapseInJudgement()
-    {
-        gameLoopController.IncreaseAllScores(Mathf.RoundToInt(scoreValue / 3));
-        player.NumberOfDeaths = player.NumberOfDeaths + 1;
-        gameLoopController.RespawnAllPlayers(null);
-    }
 
+    }
 
     public void ResetPlayer(Vector3 position)
-    {
-        playerActionController.ResetPlayerActions();
-        movementController.ResetMovement();
-        SetNewPosition(position);
-        player.PushedBy = null;
-    }
-    private void SetNewPosition(Vector3 position)
-    {
-        transform.position = position;
-    }
-
-    // remove methods below this point once we have set respawn points for hunters.
-    public void ResetPlayer()
     {
         spriteRenderer.color = originalColor;
         playerActionController.ResetPlayerActions();
         movementController.ResetMovement();
-        SetNewPosition();
         player.PushedBy = null;
+        SetNewPosition(position);
     }
-    private void SetNewPosition()
+    public void ResetPlayer() // remove once hunter spawn points are implemented.
+    {
+        spriteRenderer.color = originalColor;
+        playerActionController.ResetPlayerActions();
+        movementController.ResetMovement();
+        player.PushedBy = null;
+        SetNewPosition();
+    }
+
+    private void SetNewPosition(Vector3 position)
+    {
+        transform.position = position;
+    }
+    private void SetNewPosition() // remove once hunter spawn points are implemented.
     {
         transform.position = new Vector3(Random.Range(-7f, 1f), Random.Range(-0.38f, 4.3f), transform.position.z);
-    }
+    } 
 }

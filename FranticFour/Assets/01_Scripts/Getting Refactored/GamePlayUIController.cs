@@ -1,84 +1,9 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 
-public class GameLoopUIController : MonoBehaviour
+public class GamePlayUIController : GamePlayUIDisplay
 {
-
-    [SerializeField] TextMeshProUGUI roundTimeText = null;
-
-    [SerializeField] float timeDecreaseIncrement = 0.1f;
-
-
-    [Header("Pree Prey Reveal Display Configuration")]
-    [SerializeField] GameObject preeRoundDisplay = null;
-
-    [SerializeField] TextMeshProUGUI preRoundTimeText = null;
-    [SerializeField] TextMeshProUGUI roundText = null;
-
-    [SerializeField] TextMeshProUGUI orangePlayerText = null;
-    [SerializeField] TextMeshProUGUI greenPlayerText = null;
-    [SerializeField] TextMeshProUGUI purplePlayerText = null;
-    [SerializeField] TextMeshProUGUI cyanPlayerText = null;
-
-    [Header("Prey Display Configuration")]
-    [SerializeField] GameObject preyDisplay = null;
-    [SerializeField] TextMeshProUGUI preyNumberText = null;
-    [SerializeField] TextMeshProUGUI preyCountdownText = null;
-    [SerializeField] GameObject orangePrey = null;
-    [SerializeField] GameObject greenPrey = null;
-    [SerializeField] GameObject purplePrey = null;
-    [SerializeField] GameObject cyanPrey = null;
-
-    [Header("Score Display Configuration")]
-    [SerializeField] GameObject scoreDisplay = null;
-
-    [SerializeField] TextMeshProUGUI orangeScorePlayerText = null;
-    [SerializeField] TextMeshProUGUI orangePlayerScoreText = null;
-
-    [SerializeField] TextMeshProUGUI greenScorePlayerText = null;
-    [SerializeField] TextMeshProUGUI greenPlayerScoreText = null;
-
-    [SerializeField] TextMeshProUGUI purpleScorePlayerText = null;
-    [SerializeField] TextMeshProUGUI purplePlayerScoreText = null;
-
-    [SerializeField] TextMeshProUGUI cyanScorePlayerText = null;
-    [SerializeField] TextMeshProUGUI cyanPlayerScoreText = null;
-
-    [SerializeField] TextMeshProUGUI nextRoundInText = null;
-    [SerializeField] TextMeshProUGUI roundScoreText = null;
-
-    [Header("Final result display configuration")]
-    [SerializeField] GameObject finalResultDisplay = null;
-    [SerializeField] TextMeshProUGUI finalResultOrangePlayerScoreText = null;
-    [SerializeField] TextMeshProUGUI finalResultOrangePlayerText = null;
-    [SerializeField] TextMeshProUGUI finalResultGreenPlayerScoreText = null;
-    [SerializeField] TextMeshProUGUI finalResultGreenPlayerText = null;
-    [SerializeField] TextMeshProUGUI finalResultPurplePlayerScoreText = null;
-    [SerializeField] TextMeshProUGUI finalResultPurplePlayerText = null;
-    [SerializeField] TextMeshProUGUI finalResultCyanPlayerScoreText = null;
-    [SerializeField] TextMeshProUGUI finalResultCyanPlayerText = null;
-
-    [SerializeField] TextMeshProUGUI player1Placement = null;
-    [SerializeField] TextMeshProUGUI player2Placement = null;
-    [SerializeField] TextMeshProUGUI player3Placement = null;
-    [SerializeField] TextMeshProUGUI player4Placement = null;
-
-    [SerializeField] int[] placementTextSizes = new int[4];
-    [SerializeField] Color[] placementColors = new Color[4];
-    [SerializeField] string[] placements = new string[4];
-
-    [Header("Prey kill screen configuration")]
-    [SerializeField] GameObject killScreenDisplay = null;
-    [SerializeField] TextMeshProUGUI killedByText = null;
-    [SerializeField] GameObject[] killerImages = null;
-    [SerializeField] Transform hunter1Transform = null;
-    [SerializeField] Transform hunter2Transform = null;
-    [SerializeField] Transform hunter3Transform = null;
-
     public IEnumerator PreRoundCountdown(float duration, Player[] players, int roundNumber)
     {
         SetRoundAndPlayerDisplay(players, roundNumber);
@@ -86,7 +11,7 @@ public class GameLoopUIController : MonoBehaviour
         while (duration > 0)
         {
             float numberToDisplay = (float)System.Math.Round(duration, 2);
-            preRoundTimeText.text = "Time until prey reveal: " + numberToDisplay.ToString();
+            preRoundTime.text = "Time until prey reveal: " + numberToDisplay.ToString();
             yield return new WaitForSeconds(timeDecreaseIncrement);
             duration -= timeDecreaseIncrement;
         }
@@ -94,28 +19,28 @@ public class GameLoopUIController : MonoBehaviour
     }
     private void SetRoundAndPlayerDisplay(Player[] players, int roundNumber)
     {
-        roundText.text = "Round: " + roundNumber;
+        round.text = "Round: " + roundNumber;
         foreach (var player in players)
         {
             switch (player.gameObject.name)
             {
                 case "Orange":
-                    orangePlayerText.text = "Player: " + player.PlayerNumber.ToString();
+                    orangePlayer.text = "Player: " + player.PlayerNumber.ToString();
                     break;
                 case "Green":
-                    greenPlayerText.text = "Player: " + player.PlayerNumber.ToString();
+                    greenPlayer.text = "Player: " + player.PlayerNumber.ToString();
                     break;
                 case "Purple":
-                    purplePlayerText.text = "Player: " + player.PlayerNumber.ToString();
+                    purplePlayer.text = "Player: " + player.PlayerNumber.ToString();
                     break;
                 case "Cyan":
-                    cyanPlayerText.text = "Player: " + player.PlayerNumber.ToString();
+                    cyanPlayer.text = "Player: " + player.PlayerNumber.ToString();
                     break;
             }
         }
     }
 
-    public IEnumerator preyCountdown(Player prey, float duration)
+    public IEnumerator PreyCountdown(Player prey, float duration)
     {
         DisplayThePrey(prey);
 
@@ -123,7 +48,7 @@ public class GameLoopUIController : MonoBehaviour
         while (duration > 0)
         {
             float numberToDisplay = (float)System.Math.Round(duration, 2);
-            preyCountdownText.text = "Time until round starts: " + numberToDisplay.ToString();
+            base.preyCountdown.text = "Time until round starts: " + numberToDisplay.ToString();
             yield return new WaitForSeconds(timeDecreaseIncrement);
             duration -= timeDecreaseIncrement;
         }
@@ -154,24 +79,25 @@ public class GameLoopUIController : MonoBehaviour
                 break;
         }
 
-        preyNumberText.text = preyPlayer + " Is the prey this round";
+        preyNumber.text = preyPlayer + " Is the prey this round";
     }
 
     public IEnumerator CountRoundTime(float duration)
     {
-        roundTimeText.gameObject.SetActive(true);
-        while(duration > 0)
+        roundTime.gameObject.SetActive(true);
+        while (duration > 0)
         {
             float numberToDisplay = (float)System.Math.Round(duration, 2);
-            roundTimeText.text = numberToDisplay.ToString();
+            roundTime.text = numberToDisplay.ToString();
             yield return new WaitForSeconds(timeDecreaseIncrement);
             duration -= timeDecreaseIncrement;
         }
-        roundTimeText.gameObject.SetActive(false);
+        roundTime.gameObject.SetActive(false);
 
     }
 
     // add a way to discintively show who is leading in points?.
+    // add scores for this round aswell as the total score
     public IEnumerator NextRoundCountdown(Player[] players, float duration, int roundNumber)
     {
         SetPlayerRoundScores(players, roundNumber);
@@ -194,20 +120,20 @@ public class GameLoopUIController : MonoBehaviour
             switch (player.gameObject.name)
             {
                 case "Orange":
-                    orangeScorePlayerText.text = "Player: " + player.PlayerNumber.ToString();
-                    orangePlayerScoreText.text = "Score: " + player.Score;
+                    orangeScorePlayer.text = "Player: " + player.PlayerNumber.ToString();
+                    orangeCurrentScore.text = "Score: " + player.Score;
                     break;
                 case "Green":
-                    greenScorePlayerText.text = "Player: " + player.PlayerNumber.ToString();
-                    greenPlayerScoreText.text = "Score: " + player.Score;
+                    greenScorePlayer.text = "Player: " + player.PlayerNumber.ToString();
+                    greenCurrentScore.text = "Score: " + player.Score;
                     break;
                 case "Purple":
-                    purpleScorePlayerText.text = "Player: " + player.PlayerNumber.ToString();
-                    purplePlayerScoreText.text = "Score: " + player.Score;
+                    purpleScorePlayer.text = "Player: " + player.PlayerNumber.ToString();
+                    purpleCurrentScore.text = "Score: " + player.Score;
                     break;
                 case "Cyan":
-                    cyanScorePlayerText.text = "Player: " + player.PlayerNumber.ToString();
-                    cyanPlayerScoreText.text = "Score: " + player.Score;
+                    cyanScorePlayer.text = "Player: " + player.PlayerNumber.ToString();
+                    cyanCurrentScore.text = "Score: " + player.Score;
                     break;
             }
         }
@@ -259,30 +185,30 @@ public class GameLoopUIController : MonoBehaviour
             switch (player.gameObject.name)
             {
                 case "Orange":
-                    finalResultOrangePlayerScoreText.text = "Score: " + player.Score;
-                    finalResultOrangePlayerText.text = "Player: " + player.PlayerNumber;
+                    orangeTotalScore.text = "Score: " + player.Score;
+                    resultOrangeName.text = "Player: " + player.PlayerNumber;
                     player1Placement.fontSize = placementTextSizes[player.Placement];
                     player1Placement.color = placementColors[player.Placement];
                     player1Placement.text = placements[player.Placement];
 
                     break;
                 case "Green":
-                    finalResultGreenPlayerScoreText.text = "Score: " + player.Score;
-                    finalResultGreenPlayerText.text = "Player: " + player.PlayerNumber;
+                    greenTotalScore.text = "Score: " + player.Score;
+                    resultOrangeName.text = "Player: " + player.PlayerNumber;
                     player2Placement.fontSize = placementTextSizes[player.Placement];
                     player2Placement.color = placementColors[player.Placement];
                     player2Placement.text = placements[player.Placement];
                     break;
                 case "Purple":
-                    finalResultPurplePlayerScoreText.text = "Score: " + player.Score;
-                    finalResultPurplePlayerText.text = "Player: " + player.PlayerNumber;
+                    purpleTotalScore.text = "Score: " + player.Score;
+                    resultPurpleName.text = "Player: " + player.PlayerNumber;
                     player3Placement.fontSize = placementTextSizes[player.Placement];
                     player3Placement.color = placementColors[player.Placement];
                     player3Placement.text = placements[player.Placement];
                     break;
                 case "Cyan":
-                    finalResultCyanPlayerScoreText.text = "Score: " + player.Score;
-                    finalResultCyanPlayerText.text = "Player: " + player.PlayerNumber;
+                    cyanTotalScore.text = "Score: " + player.Score;
+                    resultCyanName.text = "Player: " + player.PlayerNumber;
                     player4Placement.fontSize = placementTextSizes[player.Placement];
                     player4Placement.color = placementColors[player.Placement];
                     player4Placement.text = placements[player.Placement];
@@ -304,10 +230,7 @@ public class GameLoopUIController : MonoBehaviour
         return playerlist;
     }
 
-    public void PlayAgain()
-    {
-        finalResultDisplay.SetActive(false);
-    }
+
 
     public void SetKillScreen(Player prey, Player killer, bool value)
     {
@@ -342,7 +265,7 @@ public class GameLoopUIController : MonoBehaviour
                     }
                     if (image.activeSelf)
                     {
-                        switch(index)
+                        switch (index)
                         {
                             case 0:
                                 image.transform.position = hunter1Transform.position;
@@ -379,5 +302,10 @@ public class GameLoopUIController : MonoBehaviour
             }
         }
         killScreenDisplay.SetActive(value);
+    }
+
+    public void PlayAgain()
+    {
+        finalResultDisplay.SetActive(false);
     }
 }

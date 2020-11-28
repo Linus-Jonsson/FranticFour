@@ -5,9 +5,7 @@ using UnityEngine;
 public class PreyTrap : MonoBehaviour
 {
     [SerializeField] float stunDuration = 2;
-
     Rigidbody2D rb2d;
-    PlayerActionsController playerActionsController;
 
     private void Awake()
     {
@@ -26,7 +24,6 @@ public class PreyTrap : MonoBehaviour
 
     public void DestroyTrap()
     {
-        playerActionsController.DecreaseThrownTraps();
         Destroy(gameObject);
     }
 
@@ -34,10 +31,4 @@ public class PreyTrap : MonoBehaviour
     {
         rb2d.AddForce(pushForce,ForceMode2D.Impulse);
     }
-
-    public void SetPlayerActionController(PlayerActionsController playerActionsController)
-    {
-        this.playerActionsController = playerActionsController;
-    }
-
 }
