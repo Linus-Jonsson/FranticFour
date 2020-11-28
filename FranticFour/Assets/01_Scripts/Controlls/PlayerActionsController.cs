@@ -30,13 +30,11 @@ public class PlayerActionsController : MonoBehaviour
     public float PushCooldown => pushCooldown;
     public UnityEvent OnPush = new UnityEvent();
 
-    int thrownTraps = 0;
     float originalDrag;
 
     bool canThrowTraps = true;
     bool canPush = true;
-    [SerializeField] bool canJump = true;
-    bool prey;
+    bool canJump = true;
 
     PushController pushController;
     RotationController rotationController;
@@ -47,8 +45,7 @@ public class PlayerActionsController : MonoBehaviour
     List<PreyTrap> laidTraps = new List<PreyTrap>();
 
     private void Start()
-    {
-        canJump = true;
+    {        
         GetReferences();
         originalDrag = rb2d.drag;
     }
@@ -65,45 +62,49 @@ public class PlayerActionsController : MonoBehaviour
 
     private void Update()
     {
+        if (player.FreezeInput)
+            return;
         int m_number;
         bool mouseUsed = Int32.TryParse(controller.Action1, out m_number);
-
-        if (canJump && Input.GetButton(controller.Jump) && !player.FreezeInput)
-            animator.SetTrigger("Jump");
-
-        if (!Input.GetButtonDown(controller.Action1) &&
-            !(Input.GetAxis(controller.Action1) > 0) ||
-            player.FreezeInput)
-            return;
-        
         if (mouseUsed)
-        {
-            if (!Input.GetMouseButton(m_number))
-                return;
-            if (player.Prey && canThrowTraps && thrownTraps < maximumTraps)
-                StartCoroutine(ThrowTrap());
-            else if (!player.Prey && canPush && pushController.InPushRange())
-                HandlePush();
-        }
-
-        if (player.Prey && canThrowTraps && thrownTraps < maximumTraps)
-            StartCoroutine(ThrowTrap());
+            HandleMouseInput(m_number);
+        if (canJump && Input.GetButton(controller.Jump))
+            animator.SetTrigger("Jump");
+        if (Input.GetAxis(controller.Action1) > 0 || Input.GetButtonDown(controller.Action1))
+            HandlePushOrThrow();
+    }
+    private void HandleMouseInput(int m_number)
+    {
+        if (!Input.GetMouseButton(m_number))
+            return;
+        if (player.Prey && canThrowTraps && laidTraps.Count < maximumTraps)
+            StartCoroutine(HandleTrapThrow());
+        else if (!player.Prey && canPush && pushController.InPushRange())
+            HandlePush();
+    }
+    private void HandlePushOrThrow()
+    {
+        laidTraps.RemoveAll(trap => trap == null);
+        if (player.Prey && canThrowTraps && laidTraps.Count < maximumTraps)
+            StartCoroutine(HandleTrapThrow());
         else if (!player.Prey && canPush)
             HandlePush();
     }
 
-    IEnumerator ThrowTrap()
+    IEnumerator HandleTrapThrow()
     {
-        thrownTraps++;
         canThrowTraps = false;
+        ThrowTrap();
+        yield return new WaitForSeconds(trapsCoolDown);
+        canThrowTraps = true;
+    }
+    private void ThrowTrap()
+    {
         Vector2 direction = rotationController.Dir.normalized;
         Vector3 offset = direction * rawOffset;
         PreyTrap newTrap = Instantiate(preyTrap, transform.position + offset, Quaternion.identity);
         newTrap.PushTrap(direction * trapPushForce);
-        newTrap.SetPlayerActionController(this);
         laidTraps.Add(newTrap);
-        yield return new WaitForSeconds(trapsCoolDown);
-        canThrowTraps = true;
     }
 
     private void HandlePush()
@@ -121,47 +122,44 @@ public class PlayerActionsController : MonoBehaviour
         canPush = true;
     }
 
-    public void DecreaseThrownTraps()
-    {
-        thrownTraps--;
-        if (thrownTraps < 0)
-            thrownTraps = 0;
-    }
-
-    private void ResetTraps()
-    {
-        laidTraps.RemoveAll(trap => trap == null);
-        foreach (var trap in laidTraps)
-        {
-            trap.DestroyTrap();
-        }
-    }
-
     public void ResetPlayerActions()
     {
         ResetTraps();
         StopAllCoroutines();
-        rb2d.drag = originalDrag;
-        canJump = true;
+        Jumping(false);
         canPush = true;
         canThrowTraps = true;
+    }
+    private void ResetTraps()
+    {
+        laidTraps.RemoveAll(trap => trap == null);
+        foreach (var trap in laidTraps)
+            trap.DestroyTrap();
+    }
+    private void Jumping(bool value)
+    {
+        canJump = !value;
+        rb2d.freezeRotation = value;
+        player.FreezeInput = value;
+        if (value)
+        {
+            gameObject.layer = jumpLayer;
+            rb2d.drag = jumpingDrag;
+        }
+        else
+        {
+            gameObject.layer = playerLayer;
+            rb2d.drag = originalDrag;
+        }
     }
 
     //AnimationEvents:
     public void StartJumping()
     {
-        canJump = false;
-        rb2d.freezeRotation = true;
-        gameObject.layer = jumpLayer;
-        rb2d.drag = jumpingDrag;
-        player.FreezeInput = true;
+        Jumping(true);
     }
     public void EndJumping()
     {
-        rb2d.freezeRotation = false;
-        gameObject.layer = playerLayer;
-        rb2d.drag = originalDrag;
-        player.FreezeInput = false;
-        canJump = true;
+        Jumping(false);
     }
 }
