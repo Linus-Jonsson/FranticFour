@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    //[SerializeField] string playerName = ""; // not currently in use
+
     int score = 0;
     public int Score { get { return score; } set { score = value; } }
 
@@ -16,7 +18,7 @@ public class Player : MonoBehaviour
     bool prey = false;
     public bool Prey { get { return prey; } set { prey = value; } }
 
-    [SerializeField] int numberOfDeaths = 0;
+    int numberOfDeaths = 0;
     public int NumberOfDeaths { get { return numberOfDeaths; } set { numberOfDeaths = value; } }
 
     int huntersKilled = 0;
@@ -25,7 +27,6 @@ public class Player : MonoBehaviour
     bool freezeInput = false;
     public bool FreezeInput { get { return freezeInput; } set { freezeInput = value; } }
 
-    //[SerializeField] string playerName = ""; // not currently in use
     Player pushedBy = null;
     public Player PushedBy { get { return pushedBy; } set { pushedBy = value; } }
 
