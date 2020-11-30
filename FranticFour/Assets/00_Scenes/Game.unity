@@ -2005,17 +2005,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c42e1a7a37290b14ba3e357c6fbcabb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1891843498 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5264495175527307952, guid: d610c520da297514f94b093d00f97efa, type: 3}
-  m_PrefabInstance: {fileID: 5264495175808526106}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fe43d1dba5a932459a100223a9fe85c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1902357717 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
@@ -2735,6 +2724,10 @@ PrefabInstance:
       propertyPath: roundDuration
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 5264495175527307952, guid: d610c520da297514f94b093d00f97efa, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5264495175527307953, guid: d610c520da297514f94b093d00f97efa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.0971375
@@ -2783,8 +2776,53 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameLoopManager
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5264495175527307952, guid: d610c520da297514f94b093d00f97efa, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d610c520da297514f94b093d00f97efa, type: 3}
+--- !u!1 &5264495175808526107 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5264495175527307955, guid: d610c520da297514f94b093d00f97efa, type: 3}
+  m_PrefabInstance: {fileID: 5264495175808526106}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5264495175808526108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5264495175808526107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d581b606b1fdf734899da7b228883592, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roundDuration: 10
+  startCountDownDuration: 5
+  preyRevealDuration: 5
+  roundOverDuration: 5
+  players:
+  - {fileID: 1902357717}
+  - {fileID: 1222378967}
+  - {fileID: 1248635937}
+  - {fileID: 1434075777}
+  numberOfRounds: 2
+  spawnPoints:
+  - {fileID: 6611614306743309169, guid: 163262a44bd49d040999c1979f670f68, type: 3}
+  - {fileID: 1647817926229260146, guid: 9c68aa0ea9844a64f9e55d4ec25c0a81, type: 3}
+  - {fileID: 7985688645945616376, guid: 9b988440f5028a342bb0ab88647fb92d, type: 3}
+  - {fileID: 5857546134421466556, guid: 75b5fee2a466c764585f334fb4120199, type: 3}
+  hunterSpeed: 130
+  preySpeed: 110
+  onOffObjects:
+  - {fileID: 1721517807}
+  - {fileID: 122360166}
+  - {fileID: 1827197165}
+  - {fileID: 529353430}
+  preySurvivalBaseScore: 10
+  pacifistAward: 10
+  respawnDelay: 3
+  spawnParticles: {fileID: 8171510603094556011, guid: 8381ec2f60ab6f544b505ff318b2f4b5, type: 3}
+  preyProbability: 
 --- !u!1001 &5665952893549175725
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3059,7 +3097,7 @@ PrefabInstance:
     - target: {fileID: 7473697052416217152, guid: 235d37168752fc84ea578ff9108da983, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1891843498}
+      objectReference: {fileID: 5264495175808526108}
     - target: {fileID: 7473697052432825028, guid: 235d37168752fc84ea578ff9108da983, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3148,22 +3186,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1649004844}
-    - target: {fileID: 7473697052432825031, guid: 235d37168752fc84ea578ff9108da983, type: 3}
-      propertyPath: placements.Array.data[0]
-      value: 1st
-      objectReference: {fileID: 0}
-    - target: {fileID: 7473697052432825031, guid: 235d37168752fc84ea578ff9108da983, type: 3}
-      propertyPath: placements.Array.data[1]
-      value: 2nd
-      objectReference: {fileID: 0}
-    - target: {fileID: 7473697052432825031, guid: 235d37168752fc84ea578ff9108da983, type: 3}
-      propertyPath: placements.Array.data[2]
-      value: 3rd
-      objectReference: {fileID: 0}
-    - target: {fileID: 7473697052432825031, guid: 235d37168752fc84ea578ff9108da983, type: 3}
-      propertyPath: placements.Array.data[3]
-      value: 4th
-      objectReference: {fileID: 0}
     - target: {fileID: 7473697052432825032, guid: 235d37168752fc84ea578ff9108da983, type: 3}
       propertyPath: m_Name
       value: Gameplay UI

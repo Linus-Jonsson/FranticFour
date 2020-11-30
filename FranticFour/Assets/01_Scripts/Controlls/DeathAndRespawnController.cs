@@ -12,16 +12,20 @@ public class DeathAndRespawnController : MonoBehaviour
     [SerializeField] Color originalColor = new Color(0, 0, 0, 255);
 
     Player player;
-    GameLoopController gameLoopController;
+    InGameLoopController gameLoopController;
     PlayerActionsController playerActionController;
     MovementController movementController;
     SpriteRenderer spriteRenderer;
 
+    private void Awake()
+    {
+        GetReferences();
+    }
 
-    void Start()
+    private void GetReferences()
     {
         player = GetComponent<Player>();
-        gameLoopController = FindObjectOfType<GameLoopController>();
+        gameLoopController = FindObjectOfType<InGameLoopController>();
         playerActionController = GetComponent<PlayerActionsController>();
         movementController = GetComponent<MovementController>();
         spriteRenderer = body.GetComponent<SpriteRenderer>();

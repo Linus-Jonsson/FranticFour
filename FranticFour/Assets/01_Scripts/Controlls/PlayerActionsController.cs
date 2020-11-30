@@ -44,8 +44,8 @@ public class PlayerActionsController : MonoBehaviour
     Rigidbody2D rb2d;
     List<PreyTrap> laidTraps = new List<PreyTrap>();
 
-    private void Start()
-    {        
+    private void Awake()
+    {
         GetReferences();
         originalDrag = rb2d.drag;
     }

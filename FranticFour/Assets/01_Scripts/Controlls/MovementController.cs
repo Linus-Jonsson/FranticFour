@@ -19,7 +19,7 @@ public class MovementController : MonoBehaviour
     PlayerAnimationsController playerAnimationsController;
     Player player;
 
-    void Start()
+    private void Awake()
     {
         GetReferences();
     }

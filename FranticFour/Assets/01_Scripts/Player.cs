@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    //[SerializeField] string playerName = ""; // not currently in use
+    // [SerializeField] string playerName = ""; // not currently in use
+    // public string PlayerName { get { return playerName; } } 
 
     int score = 0;
     public int Score { get { return score; } set { score = value; } }
