@@ -34,96 +34,144 @@ public class InGameLoopController : MonoBehaviour
 
 
     int currentRound = 1;
-    Player leader = null;
     Player currentPrey = null;
-    GameLoopUIController gameLoopUIController;
+    GamePlayUIController gameLoopUIController;
     [SerializeField] private List<int> preyProbability; //Serialized temporarily to make sure it works properly
     TargetGroupController targetGroupController;
 
     void Start()
     {
-        gameLoopUIController = FindObjectOfType<GameLoopUIController>();
-        targetGroupController = FindObjectOfType<TargetGroupController>();
+        GetReferences();
         StartCoroutine(HandleGameLoop());
+    }
+    private void GetReferences()
+    {
+        gameLoopUIController = FindObjectOfType<GamePlayUIController>();
+        targetGroupController = FindObjectOfType<TargetGroupController>();
     }
 
     IEnumerator HandleGameLoop()
     {
-        preyProbability = new List<int> { 0, 1, 2, 3 }; // resets the preyProbability list everytime you restart the game.
-
+        preyProbability = new List<int> { 0, 1, 2, 3 }; // resets the preyProbability list everytime you play.
         while (currentRound <= numberOfRounds)
         {
-            DeactivatePlayers();
+            ActivateAllPlayers(false);
             yield return StartCoroutine(gameLoopUIController.PreRoundCountdown(startCountDownDuration, players, currentRound));
-            SetPrey();
-            SpawnAllPlayers();
-
-            yield return StartCoroutine(gameLoopUIController.preyCountdown(currentPrey, preyRevealDuration));
-            ActivatePlayers();
-
+            HandleRoleSetting();
+            targetGroupController.UpdateTargetGroup(players);
+            yield return StartCoroutine(gameLoopUIController.PreyCountdown(currentPrey, preyRevealDuration));
+            HandleStartOfRound();
             yield return StartCoroutine(gameLoopUIController.CountRoundTime(roundDuration));
-            StopCoroutine(HandleRespawnOfAllPlayers(null));
-            StopCoroutine(HandlePlayerRespawn(null, null));
-            gameLoopUIController.SetKillScreen(null, null, false);
-            DeactivatePlayers();
-            CalculateScores();
-            DisplayScores();
+            HandleEndOfRound();
             if (currentRound == numberOfRounds)
                 break;
             yield return StartCoroutine(gameLoopUIController.NextRoundCountdown(players, roundOverDuration, currentRound));
             currentRound++;
         }
         gameLoopUIController.DisplayFinalResults(players);
+    }        
+    private void ActivateAllPlayers(bool value)
+    {
+        foreach (var onOffObject in onOffObjects) // the naming sucks, will be changed once a better system is implemented
+        {
+            ActivatePlayer(value, onOffObject);
+        }
+    }
+    private static void ActivatePlayer(bool value, GameObject onOffObject)
+    {
+        onOffObject.SetActive(value);
+        onOffObject.GetComponentInChildren<Player>().FreezeInput = !value;
     }
 
-    private void SetPrey()
+    private void HandleRoleSetting()
     {
         int random = Random.Range(0, preyProbability.Count);
         int numberOfPrey = preyProbability[random];
         //Debug.Log($"Random: {random}, Player: {numberOfPrey}"); - To check if it works properly (REMOVE later)
+        SetPreyTrueOrFalse(numberOfPrey);
+        ChangePreyProbability(numberOfPrey);
+    }
+
+    private void SetPreyTrueOrFalse(int numberOfPrey)
+    {
         for (int i = 0; i < players.Length; i++)
         {
-            players[i].NumberOfDeaths = 0;
-            players[i].HuntersKilled = 0;
             if (i == numberOfPrey)
-            {
-                players[i].Prey = true;
-                players[i].GetComponent<MovementController>().MovementSpeed = preySpeed;
-                currentPrey = players[i];
-            }
+                SetPrey(true, i, preySpeed);
             else
-            {
-                players[i].Prey = false;
-                players[i].GetComponent<MovementController>().MovementSpeed = hunterSpeed;
-                // preyProbability.Add(i); - Temporarily inactive while playtesting!
-            }
+                SetPrey(false, i, hunterSpeed);
         }
+    }
+    private void SetPrey(bool value, int i, float speed)
+    {
+        players[i].NumberOfDeaths = 0;
+        players[i].HuntersKilled = 0;       
+        players[i].GetComponent<MovementController>().MovementSpeed = speed;
+        players[i].Prey = value;
+        if(value)
+        currentPrey = players[i];
+/*        else
+            preyProbability.Add(i); - Temporarily inactive while playtesting!*/
+    }
+
+    private void ChangePreyProbability(int numberOfPrey)
+    {
         for (int i = 0; i < preyProbability.Count; i++)
             if (preyProbability[i].Equals(numberOfPrey))
                 preyProbability.RemoveAt(i);
-        targetGroupController.UpdateTargetGroup(players);
+    }
+
+    private void HandleStartOfRound()
+    {
+        SpawnAllPlayers();
+        ActivateAllPlayers(true);
+    }
+    private void HandleEndOfRound()
+    {
+        StopCoroutine(HandleRespawnOfAllPlayers(null));
+        StopCoroutine(HandlePlayerRespawn(null, null));
+        gameLoopUIController.SetKillScreen(null, null, false);
+        ActivateAllPlayers(false);
+        CalculateScores();
     }
 
     private void SpawnAllPlayers()
     {
-        int random = Random.Range(0, spawnPoints.Length - 1);
-        SpawnPoint spawnPoint = spawnPoints[random].GetComponent<SpawnPoint>();
+        SpawnPoint spawnPoint = GetSpawnPoint();
         int hunterSpawnCount = 1;
         foreach (var player in players)
         {
+            Vector2 spawnPosition;
             player.GetComponent<PlayerActionsController>().ResetPlayerActions();
             if (player.Prey == true)
             {
-                player.GetComponent<DeathAndRespawnController>().ResetPlayer(spawnPoint.spawnPosition[0].transform.position);
-                Instantiate(spawnParticles, new Vector3(player.transform.position.x, player.transform.position.y - 0.5f, 0), Quaternion.identity);
+                spawnPosition = spawnPoint.spawnPosition[0].transform.position;
+                spawnPlayer(spawnPosition, player);
             }
             else
             {
-                player.GetComponent<DeathAndRespawnController>().ResetPlayer(spawnPoint.spawnPosition[hunterSpawnCount].transform.position);
-                Instantiate(spawnParticles, new Vector3(player.transform.position.x, player.transform.position.y - 0.5f, 0), Quaternion.identity);
+                spawnPosition = spawnPoint.spawnPosition[hunterSpawnCount].transform.position;
+                spawnPlayer(spawnPosition, player);
                 hunterSpawnCount += 1;
             }
         }
+    }
+    private SpawnPoint GetSpawnPoint()
+    {
+        int random = Random.Range(0, spawnPoints.Length - 1);
+        SpawnPoint spawnPoint = spawnPoints[random].GetComponent<SpawnPoint>();
+        return spawnPoint;
+    }
+    private void spawnPlayer(Vector2 spawnPosition, Player player)
+    {
+        player.GetComponent<DeathAndRespawnController>().ResetPlayer(spawnPosition);
+        Instantiate(spawnParticles, new Vector3(spawnPosition.x, spawnPosition.y - 0.5f, 0), Quaternion.identity);
+    }
+    private void spawnPlayer(Player player)
+    {
+        player.GetComponent<DeathAndRespawnController>().ResetPlayer();
+        Vector2 position = new Vector2(player.transform.position.x, player.transform.position.y);
+        Instantiate(spawnParticles, new Vector3(position.x, position.y - 0.5f, 0), Quaternion.identity);
     }
 
     public void RespawnAllPlayers(Player killer)
@@ -132,56 +180,33 @@ public class InGameLoopController : MonoBehaviour
     }
     private IEnumerator HandleRespawnOfAllPlayers(Player killer)
     {
-        foreach (var player in players)
-        {
-            player.FreezeInput = true;
-            DeactivatePlayers();
-        }
+        ActivateAllPlayers(false);
         gameLoopUIController.SetKillScreen(currentPrey, killer, true);
         yield return new WaitForSeconds(respawnDelay);
-        int random = Random.Range(0, spawnPoints.Length - 1);
-        SpawnPoint spawnPoint = spawnPoints[random].GetComponent<SpawnPoint>();
-        int hunterSpawnCount = 1;
-        foreach (var player in players)
-        {
-            ActivatePlayers();
-            player.GetComponent<PlayerActionsController>().ResetPlayerActions();
-            if (player.Prey == true)
-            {
-                player.GetComponent<DeathAndRespawnController>().ResetPlayer(spawnPoint.spawnPosition[0].transform.position);
-            }
-            else
-            {
-                player.GetComponent<DeathAndRespawnController>().ResetPlayer(spawnPoint.spawnPosition[hunterSpawnCount].transform.position);
-                hunterSpawnCount += 1;
-            }
-            player.FreezeInput = false;
-        }
+        SpawnAllPlayers();
+        ActivateAllPlayers(true);
         gameLoopUIController.SetKillScreen(currentPrey, killer, false);
     }
+
     public void RespawnPlayer(Player playerToSpawn, GameObject onOffObject)
     {
         StartCoroutine(HandlePlayerRespawn(playerToSpawn, onOffObject));
     }
     private IEnumerator HandlePlayerRespawn(Player playerToSpawn, GameObject onOffObject)
     {
-        playerToSpawn.FreezeInput = true;
-        onOffObject.SetActive(false);
+        ActivatePlayer(false,onOffObject);
         yield return new WaitForSeconds(respawnDelay);
-        onOffObject.SetActive(true);
-        playerToSpawn.GetComponent<DeathAndRespawnController>().ResetPlayer();
-        playerToSpawn.FreezeInput = false;
+        ActivatePlayer(true, onOffObject);
+        spawnPlayer(playerToSpawn);
     }
 
     private void CalculateScores()
     {
         // this method will be used to calculate the score that the prey should get based on how few times they died.
         // in here all special point reward systems will be handled aswell
-
         GivePreySurvivalScore();
         GivePacifistReward();
     }
-
     private void GivePreySurvivalScore()
     {
         int scoreToAdd = preySurvivalBaseScore - currentPrey.NumberOfDeaths;
@@ -192,60 +217,36 @@ public class InGameLoopController : MonoBehaviour
 
     private void GivePacifistReward()
     {
-        List<int> huntersKilledByPlayers = new List<int>();
-        foreach (var player in players)
-        {
-            if (player.Prey)
-                continue;
-            huntersKilledByPlayers.Add(player.HuntersKilled);
-        }
-        huntersKilledByPlayers.Sort();
-        int lowestAmount = huntersKilledByPlayers[0];
-        List<Player> eligiblePlayers = new List<Player>();
-        foreach (var player in players)
-        {
-            if (player.Prey)
-                continue;
-            if (player.HuntersKilled == lowestAmount)
-            {
-                eligiblePlayers.Add(player);
-            }
-        }
+        List<Player> eligiblePlayers = GetPlayersEligibleForPacifistAward();
         int pacifistTrueReward = Mathf.RoundToInt(pacifistAward / eligiblePlayers.Count);
         foreach (var player in eligiblePlayers)
         {
             player.IncreaseScore(pacifistTrueReward);
         }
     }
-
-    private void DisplayScores()
+    private List<Player> GetPlayersEligibleForPacifistAward()
     {
-        // make this method set each players score in the UI controller instead
+        int lowestHunterKills = GetLowestHunterKillHunterNumber();
+        List<Player> eligiblePlayers = new List<Player>();
         foreach (var player in players)
         {
-            if (player.Score <= 0)
+            if (player.Prey || player.HuntersKilled != lowestHunterKills)
                 continue;
-            if (leader == null)
-                leader = player;
-            else if (player.Score > leader.Score)
-                leader = player;
+            eligiblePlayers.Add(player);
         }
+        return eligiblePlayers;
     }
-
-    private void DeactivatePlayers()
+    private int GetLowestHunterKillHunterNumber()
     {
-        foreach (var onOffObject in onOffObjects) // the naming sucks, will be changed once a better system is implemented
+        List<int> HunterXHunterNumberList = new List<int>();
+        foreach (var player in players)
         {
-            onOffObject.SetActive(false);
+            if (player.Prey)
+                continue;
+            HunterXHunterNumberList.Add(player.HuntersKilled);
         }
-    }
-
-    private void ActivatePlayers()
-    {
-        foreach (var onOffObject in onOffObjects) // the naming sucks, will be changed once a better system is implemented
-        {
-            onOffObject.SetActive(true);
-        }
+        HunterXHunterNumberList.Sort();
+        return HunterXHunterNumberList[0];
     }
 
     public void PlayAgain()
@@ -256,7 +257,6 @@ public class InGameLoopController : MonoBehaviour
             player.Score = 0;
         }
         currentRound = 1;
-        leader = null;
         currentPrey = null;
         StartCoroutine(HandleGameLoop());
     }
@@ -270,4 +270,20 @@ public class InGameLoopController : MonoBehaviour
             player.IncreaseScore(scoreToAdd);
         }
     }
+
+    // not in use remove if no need for it.    
+  /*Player leader = null;
+    private void DisplayScores()
+    {
+        // make this method set each players score in the UI controller instead
+        foreach (var player in players)
+        {
+            if (player.Score <= 0)
+                continue;
+            if (leader == null)
+                leader = player;
+            else if (player.Score > leader.Score)
+                leader = player;
+        }
+    }*/
 }

@@ -19,10 +19,7 @@ public class GamePlayUIDisplay : MonoBehaviour
 
     [Header("Prey Display Configuration")]
     [SerializeField] protected GameObject preyDisplay = null;
-    [SerializeField] protected GameObject orangePrey = null;
-    [SerializeField] protected GameObject greenPrey = null;
-    [SerializeField] protected GameObject purplePrey = null;
-    [SerializeField] protected GameObject cyanPrey = null;
+    [SerializeField] protected GameObject[] preyImages = null;
     [SerializeField] protected TextMeshProUGUI preyNumber = null;
     [SerializeField] protected TextMeshProUGUI preyCountdown = null; // remove later?
 
@@ -63,17 +60,15 @@ public class GamePlayUIDisplay : MonoBehaviour
     [SerializeField] protected TextMeshProUGUI cyanTotalScore = null;
     [SerializeField] protected TextMeshProUGUI resultCyanName = null;
 
-    [SerializeField] protected TextMeshProUGUI player1Placement = null;
-    [SerializeField] protected TextMeshProUGUI player2Placement = null;
-    [SerializeField] protected TextMeshProUGUI player3Placement = null;
-    [SerializeField] protected TextMeshProUGUI player4Placement = null;
+    [SerializeField] protected TextMeshProUGUI orangePlacement = null;
+    [SerializeField] protected TextMeshProUGUI greenPlacement = null;
+    [SerializeField] protected TextMeshProUGUI purplePlacement = null;
+    [SerializeField] protected TextMeshProUGUI cyanPlacement = null;
 
 
     [Header("Prey kill screen configuration")]
     [SerializeField] protected GameObject killScreenDisplay = null;
     [SerializeField] protected TextMeshProUGUI killedByText = null;
     [SerializeField] protected GameObject[] killerImages = null;
-    [SerializeField] protected Transform hunter1Transform = null;
-    [SerializeField] protected Transform hunter2Transform = null;
-    [SerializeField] protected Transform hunter3Transform = null;
+    [SerializeField] protected Transform[] hunterImageTransforms = null;
 }

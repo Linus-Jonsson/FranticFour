@@ -2850,8 +2850,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7473697052432825031}
-        m_TargetAssemblyTypeName: GameLoopUIController, Assembly-CSharp
+      - m_Target: {fileID: 7473697052509433327}
+        m_TargetAssemblyTypeName: GamePlayUIController, Assembly-CSharp
         m_MethodName: PlayAgain
         m_Mode: 1
         m_Arguments:
@@ -2863,7 +2863,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameLoopController, Assembly-CSharp
+        m_TargetAssemblyTypeName: InGameLoopController, Assembly-CSharp
         m_MethodName: PlayAgain
         m_Mode: 1
         m_Arguments:
@@ -2886,7 +2886,7 @@ GameObject:
   - component: {fileID: 7473697052432825029}
   - component: {fileID: 7473697052432825034}
   - component: {fileID: 7473697052432825035}
-  - component: {fileID: 7473697052432825031}
+  - component: {fileID: 7473697052509433327}
   m_Layer: 5
   m_Name: Gameplay UI
   m_TagString: Untagged
@@ -2980,7 +2980,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &7473697052432825031
+--- !u!114 &7473697052509433327
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2989,75 +2989,76 @@ MonoBehaviour:
   m_GameObject: {fileID: 7473697052432825032}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 589ad5f31d280cd469447c5b7cab6004, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ef59ef9ce671f143aaedb958af4f086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundTimeText: {fileID: 7473697053304125872}
+  roundTime: {fileID: 7473697053304125872}
   timeDecreaseIncrement: 0.1
   preeRoundDisplay: {fileID: 7473697052863528635}
-  preRoundTimeText: {fileID: 7473697052806335925}
-  roundText: {fileID: 7473697053544401159}
-  orangePlayerText: {fileID: 7473697052308475904}
-  greenPlayerText: {fileID: 7473697053651936532}
-  purplePlayerText: {fileID: 7473697053225456776}
-  cyanPlayerText: {fileID: 7473697053046707601}
+  preRoundTime: {fileID: 7473697052806335925}
+  round: {fileID: 7473697053544401159}
+  orangePlayer: {fileID: 7473697052308475904}
+  greenPlayer: {fileID: 7473697053651936532}
+  purplePlayer: {fileID: 7473697053225456776}
+  cyanPlayer: {fileID: 7473697053046707601}
   preyDisplay: {fileID: 7473697051817167252}
-  preyNumberText: {fileID: 7473697053413203267}
-  preyCountdownText: {fileID: 7473697053710344709}
-  orangePrey: {fileID: 7473697052474642695}
-  greenPrey: {fileID: 7473697051758019040}
-  purplePrey: {fileID: 7473697052971378173}
-  cyanPrey: {fileID: 7473697053315277533}
+  preyImages:
+  - {fileID: 7473697052474642695}
+  - {fileID: 7473697051758019040}
+  - {fileID: 7473697052971378173}
+  - {fileID: 7473697053315277533}
+  preyNumber: {fileID: 7473697053413203267}
+  preyCountdown: {fileID: 7473697053710344709}
   scoreDisplay: {fileID: 7473697052245035331}
-  orangeScorePlayerText: {fileID: 7473697053687887387}
-  orangePlayerScoreText: {fileID: 7473697053085734340}
-  greenScorePlayerText: {fileID: 7473697052006769259}
-  greenPlayerScoreText: {fileID: 7473697053194456730}
-  purpleScorePlayerText: {fileID: 7473697053346199910}
-  purplePlayerScoreText: {fileID: 7473697052608435737}
-  cyanScorePlayerText: {fileID: 7473697052212236121}
-  cyanPlayerScoreText: {fileID: 7473697053202702526}
+  orangeScorePlayer: {fileID: 7473697053687887387}
+  orangeCurrentScore: {fileID: 7473697053085734340}
+  orangePlayerRoundScore: {fileID: 0}
+  greenScorePlayer: {fileID: 7473697052006769259}
+  greenCurrentScore: {fileID: 7473697053194456730}
+  greenPlayerRoundScore: {fileID: 0}
+  purpleScorePlayer: {fileID: 7473697053346199910}
+  purpleCurrentScore: {fileID: 7473697052608435737}
+  purplePlayerRoundScore: {fileID: 0}
+  cyanScorePlayer: {fileID: 7473697052212236121}
+  cyanCurrentScore: {fileID: 7473697053202702526}
+  cyanPlayerRoundScore: {fileID: 0}
   nextRoundInText: {fileID: 7473697052353464057}
   roundScoreText: {fileID: 7473697053171988344}
   finalResultDisplay: {fileID: 7473697052330524822}
-  finalResultOrangePlayerScoreText: {fileID: 7473697053089621169}
-  finalResultOrangePlayerText: {fileID: 7473697052706528134}
-  finalResultGreenPlayerScoreText: {fileID: 7473697052501877903}
-  finalResultGreenPlayerText: {fileID: 7473697052062247707}
-  finalResultPurplePlayerScoreText: {fileID: 7473697052946278891}
-  finalResultPurplePlayerText: {fileID: 7473697052583108763}
-  finalResultCyanPlayerScoreText: {fileID: 7473697052710309595}
-  finalResultCyanPlayerText: {fileID: 7473697052873983099}
-  player1Placement: {fileID: 7473697053074909167}
-  player2Placement: {fileID: 7473697051828924939}
-  player3Placement: {fileID: 7473697051879690846}
-  player4Placement: {fileID: 7473697051724851092}
   placementTextSizes: 96000000780000006400000050000000
   placementColors:
-  - {r: 0.8584906, g: 0.8521544, b: 0.31990921, a: 1}
-  - {r: 0.5990337, g: 0.6886792, b: 0.5879761, a: 1}
-  - {r: 0.6792453, g: 0.43392372, b: 0.20825918, a: 1}
-  - {r: 0.3490566, g: 0.24410498, b: 0.09055714, a: 1}
+  - {r: 0.85882354, g: 0.8509804, b: 0.32156864, a: 1}
+  - {r: 0.6, g: 0.6901961, b: 0.5882353, a: 1}
+  - {r: 0.6784314, g: 0.43529412, b: 0.20784314, a: 1}
+  - {r: 0.34901962, g: 0.24313726, b: 0.09019608, a: 1}
   placements:
-  - 
-  - 
-  - 
-  - 
+  - 1st
+  - 2nd
+  - 3rd
+  - 4th
+  orangeTotalScore: {fileID: 7473697053089621169}
+  resultOrangeName: {fileID: 7473697052706528134}
+  greenTotalScore: {fileID: 7473697052501877903}
+  resultGreenName: {fileID: 7473697052062247707}
+  purpleTotalScore: {fileID: 7473697052946278891}
+  resultPurpleName: {fileID: 7473697052583108763}
+  cyanTotalScore: {fileID: 7473697052710309595}
+  resultCyanName: {fileID: 7473697052873983099}
+  orangePlacement: {fileID: 7473697053074909167}
+  greenPlacement: {fileID: 7473697051828924939}
+  purplePlacement: {fileID: 7473697051879690846}
+  cyanPlacement: {fileID: 7473697051724851092}
   killScreenDisplay: {fileID: 7473697051942670459}
   killedByText: {fileID: 7473697053600329836}
-  preyImages:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   killerImages:
   - {fileID: 7473697051942607974}
   - {fileID: 7473697051856669360}
   - {fileID: 7473697051969977171}
   - {fileID: 7473697053285570910}
-  hunter1Transform: {fileID: 7473697052863402865}
-  hunter2Transform: {fileID: 7473697053125838955}
-  hunter3Transform: {fileID: 7473697052242042171}
+  hunterImageTransforms:
+  - {fileID: 7473697052863402865}
+  - {fileID: 7473697053125838955}
+  - {fileID: 7473697052242042171}
 --- !u!1 &7473697052461105551
 GameObject:
   m_ObjectHideFlags: 0
