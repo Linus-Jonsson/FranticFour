@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 
+//Assigns the player from playerSelect
 public class AssignPlayers : MonoBehaviour
 {
-    [SerializeField] private AssignedController[] players = new AssignedController[4];
+    [SerializeField]
+    private AssignedController[] players = new AssignedController[4];
     public static bool keyboardAssigned = false;
 
     private void Awake()
@@ -14,8 +16,6 @@ public class AssignPlayers : MonoBehaviour
         }
 
         for (int i = 0; i < players.Length; i++)
-        {
             players[i].PlayerID = PassControllersToGame.playerOwnedBy[i];
-        }
     }
 }

@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using static StringManager;
 
 public class AssignedController : MonoBehaviour
 {
@@ -15,16 +17,17 @@ public class AssignedController : MonoBehaviour
             GetControllerType();
         }
     }
-    
+
     public bool UsesMouse
     {
         get => usesMouse;
         private set => usesMouse = value;
     }
-    
 
-    [Header("Assigned controls")]
-    [SerializeField] private string vertical;
+    //Control buttons
+    [Header("Assigned controls")] [SerializeField]
+    private string vertical;
+
     [SerializeField] private string horizontal;
     [SerializeField] private string rightVertical;
     [SerializeField] private string rightHorizontal;
@@ -43,42 +46,48 @@ public class AssignedController : MonoBehaviour
         GetControllerType();
     }
 
-    private void SetControllerKeysXbox()
+    private void SetControllerKeysXbox() //XBOX
     {
-        vertical = StringManager.Inputs.vertical + playerID;
-        horizontal = StringManager.Inputs.horizontal + playerID;
+        vertical = Inputs.Vertical + playerID;
+        horizontal = Inputs.Horizontal + playerID;
 
-        rightVertical = StringManager.Inputs.rightVertical + playerID; //5th
-        rightHorizontal = StringManager.Inputs.rightHorizontal + playerID; //4th
+        rightVertical = Inputs.RightVertical + playerID;
+        rightHorizontal = Inputs.RightHorizontal + playerID;
 
-        action1 = StringManager.Inputs.action1 + playerID;
-        jump = StringManager.Inputs.jump + playerID;
+        action1 = Inputs.Action1 + playerID;
+        jump = Inputs.Jump + playerID;
     }
 
-    private void SetControllerKeysPS4()
+    private void SetControllerKeysPS4() //PS4
     {
-        vertical = StringManager.Inputs.vertical + playerID;
-        horizontal = StringManager.Inputs.horizontal + playerID;
+        vertical = Inputs.Vertical + playerID;
+        horizontal = Inputs.Horizontal + playerID;
 
-        rightVertical = StringManager.Inputs.rightVerticalPS4 + playerID; //4th
-        rightHorizontal = StringManager.Inputs.rightHorizontalPS4 + playerID; //3th
+        rightVertical = Inputs.RightVerticalPS4 + playerID;
+        rightHorizontal = Inputs.RightHorizontalPS4 + playerID;
 
-        action1 = StringManager.Inputs.action1PS4 + playerID;
-        jump = StringManager.Inputs.jump + playerID;
+        action1 = Inputs.Action1PS4 + playerID;
+        jump = Inputs.Jump + playerID;
+    }
+    
+    private void SetControllerKeysSwitch() //Todo Switch
+    {
+        throw new NotImplementedException();
     }
 
-    private void SetControllerKeyboardAndMouse()
+    private void SetControllerKeyboardAndMouse() //KEYBOARD
     {
+        AssignPlayers.keyboardAssigned = true;
         usesMouse = true;
-        
-        vertical = StringManager.Inputs.verticalKeyboard;
-        horizontal = StringManager.Inputs.horizontalKeyboard;
+
+        vertical = Inputs.VerticalKeyboard;
+        horizontal = Inputs.HorizontalKeyboard;
 
         rightVertical = vertical;
         rightHorizontal = horizontal;
 
-        action1 = StringManager.Inputs.action1Keyboard;
-        jump = StringManager.Inputs.jumpKeboard;
+        action1 = Inputs.Action1Keyboard;
+        jump = Inputs.JumpKeboard;
     }
 
     private void GetControllerType()
@@ -88,29 +97,20 @@ public class AssignedController : MonoBehaviour
 
         if (playerID < controllersConnected.Length)
             controllerName = controllersConnected[playerID];
-        
+
         controllerName = controllerName.ToLower();
-        
-        if (controllerName.Contains("xbox"))
+
+        if (controllerName.Contains(Controllers.Xbox))
             SetControllerKeysXbox();
-        else if (controllerName.Contains("wireless controller"))
+        else if (controllerName.Contains(Controllers.PS4))
             SetControllerKeysPS4();
-        else if (controllerName.Contains("Switch??"))
-        {
-            //Implement nitendo switch controller support
-        }
-        else if(PassControllersToGame.isKeyboardUsed && PlayerID == PassControllersToGame.keyBoardOwnedBy)
-        {
+        else if (controllerName.Contains(Controllers.Switch)) //Todo Implement nitendo switch controller support
+            SetControllerKeysSwitch();
+        else if (PassControllersToGame.isKeyboardUsed && PlayerID == PassControllersToGame.keyBoardOwnedBy) //Runs if controller is missing or can't be recognized AND is not in use
             SetControllerKeyboardAndMouse();
-        }
-        else if (AssignPlayers.keyboardAssigned == false && 1 == 0) //Debug
-        {
-            AssignPlayers.keyboardAssigned = true;
+        else if (AssignPlayers.keyboardAssigned == false) //Runs if the game starts without going through PlayerSelection
             SetControllerKeyboardAndMouse();
-        }
         else
-        {
-            SetControllerKeysXbox();   
-        }
+            SetControllerKeysXbox(); //If controller name is not recognized and keyboard is taken, map the controller as xbox
     }
 }
