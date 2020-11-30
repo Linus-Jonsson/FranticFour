@@ -216,8 +216,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 40
-  pushForceMultiplier: 8
-  pushVelocityDivider: 8
+  pushForceMultiplier: 25
+  pushVelocityDivider: 35
 --- !u!114 &362613495
 MonoBehaviour:
   m_ObjectHideFlags: 0
