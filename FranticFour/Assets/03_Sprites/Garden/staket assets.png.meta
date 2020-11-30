@@ -1,0 +1,427 @@
+fileFormatVersion: 2
+guid: 6565ed6e1d6280a41a7588a73db1bddf
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6881231933477343540
+    second: staket assets_0
+  - first:
+      213: 3157711825915231278
+    second: staket assets_1
+  - first:
+      213: 2435285634527885434
+    second: staket assets_2
+  - first:
+      213: -6080237225675684330
+    second: staket assets_3
+  - first:
+      213: -4175075511909204796
+    second: staket assets_4
+  - first:
+      213: 1184200620215284601
+    second: staket assets_5
+  - first:
+      213: -7048086311277902637
+    second: staket assets_6
+  - first:
+      213: 4354045086172648990
+    second: staket assets_7
+  - first:
+      213: -4203835844983115640
+    second: staket assets_6
+  - first:
+      213: 8210111430996554812
+    second: staket assets_7
+  - first:
+      213: -2719384394904245311
+    second: staket assets_5
+  - first:
+      213: -3464730306245602434
+    second: staket assets_11
+  - first:
+      213: -2322878464716569133
+    second: staket assets_8
+  - first:
+      213: 6399064858118699316
+    second: staket assets_9
+  - first:
+      213: -5295223082163737098
+    second: staket assets_10
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: staket assets_0
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1279
+        width: 235
+        height: 344
+      alignment: 9
+      pivot: {x: 0.15, y: 0.42}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35b5eb11152508650800000000000000
+      internalID: 6233072392424282963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: staket assets_1
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 1279
+        width: 400
+        height: 282
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56ebd3f0afaea97f0800000000000000
+      internalID: -604912840209482139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: staket assets_2
+      rect:
+        serializedVersion: 2
+        x: 1542
+        y: 1284
+        width: 235
+        height: 293
+      alignment: 9
+      pivot: {x: 0.87, y: 0.7}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa117add28f22b720800000000000000
+      internalID: 2860400952444653994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: staket assets_3
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 739
+        width: 30
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a670dda0feb66fcc0800000000000000
+      internalID: -3677633371277818006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: staket assets_4
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 783
+        width: 238
+        height: 348
+      alignment: 9
+      pivot: {x: 0.15, y: 0.43}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe118589f56854ae0800000000000000
+      internalID: -1565697550305455633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: staket assets_6
+      rect:
+        serializedVersion: 2
+        x: 1376
+        y: 792
+        width: 234
+        height: 347
+      alignment: 9
+      pivot: {x: 0.85, y: 0.43}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20d64a0d201270180800000000000000
+      internalID: -9149307822005785342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: staket assets_7
+      rect:
+        serializedVersion: 2
+        x: 1688
+        y: 749
+        width: 89
+        height: 400
+      alignment: 9
+      pivot: {x: 0.75, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71f048cf6419c6010800000000000000
+      internalID: 1183480536161849111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: staket assets_5
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 783
+        width: 400
+        height: 291
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6047f54af60b1cca0800000000000000
+      internalID: -5998319235135212538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: staket assets_11
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 199
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa21ffc9e83128a40800000000000000
+      internalID: 5368875209019298479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: staket assets_8
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 199
+        width: 234
+        height: 400
+      alignment: 9
+      pivot: {x: 0.14, y: 0.365}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab16269101b469370800000000000000
+      internalID: 8328927093385748922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: staket assets_9
+      rect:
+        serializedVersion: 2
+        x: 837
+        y: 198
+        width: 401
+        height: 337
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a9a829617a4d3950800000000000000
+      internalID: 6430377693910968743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: staket assets_10
+      rect:
+        serializedVersion: 2
+        x: 1572
+        y: 200
+        width: 232
+        height: 400
+      alignment: 9
+      pivot: {x: 0.86, y: 0.365}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5538d66cdee70ae40800000000000000
+      internalID: 5665667890933498709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
