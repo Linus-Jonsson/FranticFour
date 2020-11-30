@@ -21,12 +21,16 @@ public class SelectionController : MonoBehaviour
     {
         selected = CONTROLLER_ID;
         playerHandler = FindObjectOfType<InputManager>();
+        
+        if (CONTROLLER_ID == 0)
+            playerHandler.canSelect[CONTROLLER_ID] = true;
+        
         MapController();
     }
 
     private void Update()
     {
-        if (isAssigned) //If controller have been assigned skip loop
+        if (isAssigned || !playerHandler.canSelect[CONTROLLER_ID]) //If controller have been assigned skip loop or can't select
             return;
 
         if (Input.GetAxis(action1) == 1 && !controllerAssignedToPlayer) //For PS4 and Xbox
@@ -48,11 +52,16 @@ public class SelectionController : MonoBehaviour
 
         if (CONTROLLER_ID >= controllersConnected.Length) //If there there are more expected controllers then controllers
         {
-            if (!PassControllersToGame.isKeyboardUsed
-            ) //If controller is missing or could not be recognized AND keyboard is not in use
-                MapKeyboard();
-            else //If controller is missing or could not be recognized AND keyboard is not IN USE
-                Destroy(gameObject);
+            if (!PassControllersToGame.isKeyboardUsed) 
+                //If controller is missing or could not be recognized AND keyboard is not in use
+            {
+                if (controllersConnected.Length < 4 && CONTROLLER_ID == controllersConnected.Length) //Assign last spot to keyboard
+                {
+                    MapKeyboard();
+                    return;
+                }
+                Destroy(gameObject); //If controller is missing or could not be recognized AND keyboard is not IN USE
+            }
 
             return;
         }
@@ -103,10 +112,14 @@ public class SelectionController : MonoBehaviour
         
         playerHandler.playersSelected[selected] = true;
         controllerAssignedToPlayer = true;
-        isAssigned = true; 
-            
+        isAssigned = true;
+        playerHandler.canSelect[CONTROLLER_ID] = false;
+
+        if (CONTROLLER_ID < 3)
+            playerHandler.canSelect[CONTROLLER_ID + 1] = true;
+        
         PassControllersToGame.playerOwnedBy[selected] = CONTROLLER_ID;
-            
+
         playerHandler.SetTextAssigned(selected, CONTROLLER_ID);
         playerHandler.CheckPlayers();
             
@@ -121,7 +134,11 @@ public class SelectionController : MonoBehaviour
         playerHandler.playersSelected[selected] = true;
         controllerAssignedToPlayer = true;
         isAssigned = true;
-            
+        playerHandler.canSelect[CONTROLLER_ID] = false;
+
+        if (CONTROLLER_ID < 3)
+            playerHandler.canSelect[CONTROLLER_ID + 1] = true;
+        
         PassControllersToGame.isKeyboardUsed = true;
         PassControllersToGame.keyBoardOwnedBy = CONTROLLER_ID;
         PassControllersToGame.playerOwnedBy[selected] = CONTROLLER_ID;

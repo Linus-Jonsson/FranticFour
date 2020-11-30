@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
-using UnityEngine.Serialization;
 
 public class InputManager : MonoBehaviour
 {
     [SerializeField] private string sceneToLoad = "Game";
     [SerializeField] private int[] playerOwnedBy = new int[4];
     [SerializeField] public bool[] playersSelected = new bool[4];
+    [SerializeField] public bool[] canSelect = new bool[4];
     [SerializeField] private TextMeshPro[] selectedText = new TextMeshPro[4];
 
     public void CheckPlayers()
