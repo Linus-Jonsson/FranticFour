@@ -25,8 +25,8 @@ public class AssignedController : MonoBehaviour
     }
 
     //Control buttons
-    [Header("Assigned controls")] [SerializeField]
-    private string vertical;
+    [Header("Assigned controls")]
+    [SerializeField] private string vertical;
 
     [SerializeField] private string horizontal;
     [SerializeField] private string rightVertical;
