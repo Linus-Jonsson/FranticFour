@@ -1,28 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.Serialization;
 
 public class InputManager : MonoBehaviour
 {
+    [SerializeField] private string sceneToLoad = "Game";
     [SerializeField] private int[] playerOwnedBy = new int[4];
     [SerializeField] public bool[] playersSelected = new bool[4];
     [SerializeField] private TextMeshPro[] selectedText = new TextMeshPro[4];
-
-    public void TakeNextPlayer(int controllerID)
-    {
-        DebugLogControllers(); //Debug
-        for (int i = 0; i < playerOwnedBy.Length; i++)
-        {
-            if (playersSelected[i] == true)
-                continue;
-
-            playerOwnedBy[i] = controllerID;
-            PassControllersToGame.playerOwnedBy[i] = controllerID;
-            selectedText[i].text = controllerID.ToString();
-            playersSelected[i] = true;
-            break;
-        }
-    }
 
     public void CheckPlayers()
     {
@@ -33,14 +19,14 @@ public class InputManager : MonoBehaviour
                 return;
         }
         
-        PassControllersToGame.playersAssigned = true;
-        Debug.Log("ALL PLAYERS ASSIGNED. GAME LOADING...");
+        PassControllersToGame.playersAssigned = true; //If assigned, the game scene will load from PassControllersToGame
         LoadGame();
     }
     
     private void LoadGame()
     {
-        SceneManager.LoadScene("Game");
+        //Todo make transition
+        SceneManager.LoadScene(sceneToLoad);
     }
 
     public void SetTextAssigned(int _selected, int _id)
@@ -51,90 +37,77 @@ public class InputManager : MonoBehaviour
         selectedText[_selected].text = $"[Player {_id}]";
     }
 
-    public void SelectNext(int _controllerId, ref int _selected, int ompaLompaBompa, int ompaLompaKonka)
+    public void SelectNext(int _controllerId, ref int _selected, int _inputX, int _inputY)
     {
         int m_nextSelect = _selected;
-        int[,] ompaLompaaDompa = new int[2,2] {{0,2}, {1,3}};
-        int ompaLompaRompa = 0;
-        int ompaLompaSompa = 0;
-        ompaLompaKonka *= -1;
+        int[][] m_nextSelection = new[] {new int[] {0,2}, new int[] {1,3}};
+        int m_nextX = 0;
+        int m_nextY = 0;
+        _inputY *= -1;
 
+        //Converts current selected pos to jagged array positions
         switch (_selected)
         {
-            //Robin du får fixa detta på måndag, trevlig helg och lycka till nästa vecka!
-            //Mvh Robin på en fredags morgon
             case 0:
-                ompaLompaRompa = 0; //Fuck u rider
-                ompaLompaSompa = 0;
+                m_nextX = 0;
+                m_nextY = 0;
                 break;
             case 1:
-                ompaLompaRompa = 0; //Fuck u rider
-                ompaLompaSompa = 1;
+                m_nextX = 0;
+                m_nextY = 1;
                 break;
             case 2:
-                ompaLompaRompa = 1; //Fuck u rider
-                ompaLompaSompa = 0;
+                m_nextX = 1;
+                m_nextY = 0;
                 break;
             case 3:
-                ompaLompaRompa = 1; //Fuck u rider
-                ompaLompaSompa = 1;
+                m_nextX = 1;
+                m_nextY = 1;
                 break;
         }
 
-        switch (ompaLompaBompa)
+        switch (_inputX)
         {
             case -1:
-                ompaLompaRompa = 0;
+                m_nextX = 0;
                 break;
             case 0:
                 break;
             case 1:
-                ompaLompaRompa = 1;
+                m_nextX = 1;
                 break;
         }
 
-        switch (ompaLompaKonka)
+        switch (_inputY)
         {
             case -1:
-                ompaLompaSompa = 0;
+                m_nextY = 0;
                 break;
             case 0:
                 break;
             case 1:
-                ompaLompaSompa = 1;
+                m_nextY = 1;
                 break;
         }
         
-        m_nextSelect = ompaLompaaDompa[ompaLompaSompa, ompaLompaRompa]; //Fuck u rider
+        m_nextSelect = m_nextSelection[m_nextY][m_nextX]; //Gets int value from array
 
         if (m_nextSelect == _selected)
             return;
-        //Debug.Log(m_nextSelect + "|Y" + ompaLompaSompa + "|X" + ompaLompaRompa + "|" + ompaLompaaDompa[ompaLompaRompa, ompaLompaSompa]);
 
-        //Om platsen redan används
+        //If the spot is already in use
         if (PassControllersToGame.playerOwnedBy[m_nextSelect] < 4)
             selectedText[m_nextSelect].text =
-                $"[Player {PassControllersToGame.playerOwnedBy[m_nextSelect]}] {_controllerId.ToString()}";
+                $"[Player {PassControllersToGame.playerOwnedBy[m_nextSelect]}] {_controllerId.ToString()}"; //Todo Remake the visual of slection
         else
             selectedText[m_nextSelect].text = _controllerId.ToString();
 
-        //Om platsen redan används flytt
+        //If the spot to move to is already in use
         if (PassControllersToGame.playerOwnedBy[_selected] < 4)
-            selectedText[_selected].text = $"[Player {PassControllersToGame.playerOwnedBy[_selected]}]";
+            selectedText[_selected].text = $"[Player {PassControllersToGame.playerOwnedBy[_selected]}]"; //Todo Remake the visual of slection
         else
             selectedText[_selected].text = "";
         
         _selected = m_nextSelect;
-    }
-
-    private void DebugLogControllers() //Debug
-    {
-        string[] controllersConnected = Input.GetJoystickNames();
-        for (int i = 0; i < controllersConnected.Length; i++)
-        {
-            Debug.Log(controllersConnected[i]);
-        }
-
-        Debug.Log("Controllers = " + controllersConnected.Length);
     }
 }
