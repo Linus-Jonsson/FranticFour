@@ -7,8 +7,11 @@ public class Player : MonoBehaviour
     // [SerializeField] string playerName = ""; // not currently in use
     // public string PlayerName { get { return playerName; } } 
 
-    int score = 0;
-    public int Score { get { return score; } set { score = value; } }
+    int totalScore = 0;
+    public int TotalScore { get { return totalScore; } set { totalScore = value; } }
+
+    int roundScore = 0;
+    public int RoundScore { get { return roundScore; } set { roundScore = value; } }
 
     int playerNumber = 0;
     public int PlayerNumber { get { return playerNumber; } }
@@ -33,11 +36,16 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        playerNumber = GetComponent<AssignedController>().PlayerID + 1;
+        playerNumber = GetComponent<AssignedController>().PlayerID + 1;        
     }
 
     public void IncreaseScore(int scoreChange)
     {
-        score += scoreChange;
+        roundScore += scoreChange;
+    }
+
+    public void SumScore()
+    {
+        totalScore += roundScore;
     }
 }

@@ -123,24 +123,26 @@ public class GamePlayUIController : GamePlayUIDisplay
             switch (player.gameObject.name)
             {
                 case "Orange":
-                    SetRoundScoreTexts(player, orangeScorePlayer, orangeCurrentScore);
+                    SetRoundScoreTexts(player, orangeScorePlayer, orangeCurrentScore,orangeRoundScore);
                     break;
                 case "Green":
-                    SetRoundScoreTexts(player, greenScorePlayer, greenCurrentScore);
+                    SetRoundScoreTexts(player, greenScorePlayer, greenCurrentScore,greenRoundScore);
                     break;
                 case "Purple":
-                    SetRoundScoreTexts(player, purpleScorePlayer, purpleCurrentScore);
+                    SetRoundScoreTexts(player, purpleScorePlayer, purpleCurrentScore, purpleRoundScore);
                     break;
                 case "Cyan":
-                    SetRoundScoreTexts(player, cyanScorePlayer, cyanCurrentScore);
+                    SetRoundScoreTexts(player, cyanScorePlayer, cyanCurrentScore, cyanRoundScore);
                     break;
             }
         }
     }
-    private void SetRoundScoreTexts(Player player, TextMeshProUGUI nameText, TextMeshProUGUI scoreText)
+    private void SetRoundScoreTexts(Player player, TextMeshProUGUI nameText, TextMeshProUGUI totalScoreText, TextMeshProUGUI roundScoreText)
     {
         nameText.text = "Player: " + player.PlayerNumber.ToString();
-        scoreText.text = "Score: " + player.Score;
+        totalScoreText.text = player.TotalScore.ToString();
+        roundScoreText.text = player.RoundScore.ToString();
+        player.RoundScore = 0;
     }
 
     public void DisplayFinalResults(Player[] players)
@@ -156,11 +158,11 @@ public class GamePlayUIController : GamePlayUIDisplay
         List<int> scoreList = SortPlayerStanding(players);
         foreach (var player in players)
         {
-            if (player.Score == scoreList[0])
+            if (player.TotalScore == scoreList[0])
                 player.Placement = 0;
-            else if (player.Score == scoreList[1])
+            else if (player.TotalScore == scoreList[1])
                 player.Placement = 1;
-            else if (player.Score == scoreList[2])
+            else if (player.TotalScore == scoreList[2])
                 player.Placement = 2;
             else
                 player.Placement = 3;
@@ -170,8 +172,8 @@ public class GamePlayUIController : GamePlayUIDisplay
     {
         List<int> playerlist = new List<int>();
         foreach (var player in players)
-            if (!playerlist.Contains(player.Score))
-                playerlist.Add(player.Score);
+            if (!playerlist.Contains(player.TotalScore))
+                playerlist.Add(player.TotalScore);
         playerlist.Sort();
         playerlist.Reverse();
         return playerlist;
@@ -198,7 +200,7 @@ public class GamePlayUIController : GamePlayUIDisplay
     }
     private void SetPlayerResults(Player player, TextMeshProUGUI placement, TextMeshProUGUI name, TextMeshProUGUI score )
     {
-        score.text = "Score: " + player.Score;
+        score.text = player.TotalScore.ToString(); ;
         name.text = "Player: " + player.PlayerNumber;
         placement.fontSize = placementTextSizes[player.Placement];
         placement.color = placementColors[player.Placement];

@@ -195,19 +195,19 @@ public class GameLoopUIController : MonoBehaviour
             {
                 case "Orange":
                     orangeScorePlayerText.text = "Player: " + player.PlayerNumber.ToString();
-                    orangePlayerScoreText.text = "Score: " + player.Score;
+                    orangePlayerScoreText.text = "Score: " + player.TotalScore;
                     break;
                 case "Green":
                     greenScorePlayerText.text = "Player: " + player.PlayerNumber.ToString();
-                    greenPlayerScoreText.text = "Score: " + player.Score;
+                    greenPlayerScoreText.text = "Score: " + player.TotalScore;
                     break;
                 case "Purple":
                     purpleScorePlayerText.text = "Player: " + player.PlayerNumber.ToString();
-                    purplePlayerScoreText.text = "Score: " + player.Score;
+                    purplePlayerScoreText.text = "Score: " + player.TotalScore;
                     break;
                 case "Cyan":
                     cyanScorePlayerText.text = "Player: " + player.PlayerNumber.ToString();
-                    cyanPlayerScoreText.text = "Score: " + player.Score;
+                    cyanPlayerScoreText.text = "Score: " + player.TotalScore;
                     break;
             }
         }
@@ -236,19 +236,19 @@ public class GameLoopUIController : MonoBehaviour
 
         foreach (var player in players)
         {
-            if (player.Score == firstPlace)
+            if (player.TotalScore == firstPlace)
             {
                 player.Placement = 0;
             }
-            else if (player.Score == secondPlace)
+            else if (player.TotalScore == secondPlace)
             {
                 player.Placement = 1;
             }
-            else if (player.Score == thirdPlace)
+            else if (player.TotalScore == thirdPlace)
             {
                 player.Placement = 2;
             }
-            else if (player.Score == fourthPlace)
+            else if (player.TotalScore == fourthPlace)
             {
                 player.Placement = 3;
             }
@@ -259,7 +259,7 @@ public class GameLoopUIController : MonoBehaviour
             switch (player.gameObject.name)
             {
                 case "Orange":
-                    finalResultOrangePlayerScoreText.text = "Score: " + player.Score;
+                    finalResultOrangePlayerScoreText.text = "Score: " + player.TotalScore;
                     finalResultOrangePlayerText.text = "Player: " + player.PlayerNumber;
                     player1Placement.fontSize = placementTextSizes[player.Placement];
                     player1Placement.color = placementColors[player.Placement];
@@ -267,21 +267,21 @@ public class GameLoopUIController : MonoBehaviour
 
                     break;
                 case "Green":
-                    finalResultGreenPlayerScoreText.text = "Score: " + player.Score;
+                    finalResultGreenPlayerScoreText.text = "Score: " + player.TotalScore;
                     finalResultGreenPlayerText.text = "Player: " + player.PlayerNumber;
                     player2Placement.fontSize = placementTextSizes[player.Placement];
                     player2Placement.color = placementColors[player.Placement];
                     player2Placement.text = placements[player.Placement];
                     break;
                 case "Purple":
-                    finalResultPurplePlayerScoreText.text = "Score: " + player.Score;
+                    finalResultPurplePlayerScoreText.text = "Score: " + player.TotalScore;
                     finalResultPurplePlayerText.text = "Player: " + player.PlayerNumber;
                     player3Placement.fontSize = placementTextSizes[player.Placement];
                     player3Placement.color = placementColors[player.Placement];
                     player3Placement.text = placements[player.Placement];
                     break;
                 case "Cyan":
-                    finalResultCyanPlayerScoreText.text = "Score: " + player.Score;
+                    finalResultCyanPlayerScoreText.text = "Score: " + player.TotalScore;
                     finalResultCyanPlayerText.text = "Player: " + player.PlayerNumber;
                     player4Placement.fontSize = placementTextSizes[player.Placement];
                     player4Placement.color = placementColors[player.Placement];
@@ -297,7 +297,7 @@ public class GameLoopUIController : MonoBehaviour
         List<int> playerlist = new List<int>();
         foreach (var player in players)
         {
-            playerlist.Add(player.Score);
+            playerlist.Add(player.TotalScore);
         }
         playerlist.Sort();
         playerlist.Reverse();
