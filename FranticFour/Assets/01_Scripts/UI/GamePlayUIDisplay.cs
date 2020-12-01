@@ -28,19 +28,19 @@ public class GamePlayUIDisplay : MonoBehaviour
 
     [SerializeField] protected TextMeshProUGUI orangeScorePlayer = null;
     [SerializeField] protected TextMeshProUGUI orangeCurrentScore = null;
-    [SerializeField] protected TextMeshProUGUI orangePlayerRoundScore = null;
+    [SerializeField] protected TextMeshProUGUI orangeRoundScore = null;
 
     [SerializeField] protected TextMeshProUGUI greenScorePlayer= null;
     [SerializeField] protected TextMeshProUGUI greenCurrentScore = null;
-    [SerializeField] protected TextMeshProUGUI greenPlayerRoundScore = null;
+    [SerializeField] protected TextMeshProUGUI greenRoundScore = null;
 
     [SerializeField] protected TextMeshProUGUI purpleScorePlayer = null;
     [SerializeField] protected TextMeshProUGUI purpleCurrentScore = null;
-    [SerializeField] protected TextMeshProUGUI purplePlayerRoundScore = null;
+    [SerializeField] protected TextMeshProUGUI purpleRoundScore = null;
 
     [SerializeField] protected TextMeshProUGUI cyanScorePlayer = null;
     [SerializeField] protected TextMeshProUGUI cyanCurrentScore = null;
-    [SerializeField] protected TextMeshProUGUI cyanPlayerRoundScore = null;
+    [SerializeField] protected TextMeshProUGUI cyanRoundScore = null;
 
     [SerializeField] protected TextMeshProUGUI nextRoundInText = null; // remove later?
     [SerializeField] protected TextMeshProUGUI roundScoreText = null;
