@@ -24,14 +24,14 @@ public class PreyTrap : MonoBehaviour
 
     private void SetTrapTriggeredAnimation()
     {
-        animator.SetTrigger(""); // name this to the trigger that starts the trap triggered animaton
+        animator.SetTrigger("Triggered"); // name this to the trigger that starts the trap triggered animaton
         GetComponent<BoxCollider2D>().enabled = false;
     }
 
     private void SetPlayerStunAnimation(Player player)
     {
         player.FreezeInput = true;
-        player.GetComponent<Animator>().SetTrigger("");// name this to the trigger that starts the player stun animation
+        player.GetComponent<Animator>().SetTrigger("Stunned");// name this to the trigger that starts the player stun animation
     }
 
     public void DestroyTrap()
