@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: dfc8fdd668927614789d7e8993e31b99, type: 3}
-  m_Color: {r: 1, g: 0.21176472, b: 0, a: 0.19607843}
+  m_Color: {r: 1, g: 0.21176472, b: 0, a: 0.39215687}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -93,22 +93,38 @@ PrefabInstance:
       propertyPath: playerID
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 742136906, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 742136906, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2.0153847
+      objectReference: {fileID: 0}
+    - target: {fileID: 742136906, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.8615384
+      objectReference: {fileID: 0}
     - target: {fileID: 1012635212, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 4bf56b0119d2a424b9f2816339cc595d, type: 2}
     - target: {fileID: 2128330477, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2128330477, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: m_Color.g
-      value: 0.9607843
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2128330477, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: m_Color.b
-      value: 0.039824992
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2128330477, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 53216772889e80049864095919d072e8, type: 3}
     - target: {fileID: 5439504268739004778, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: onOffObject
       value: 
@@ -172,6 +188,18 @@ PrefabInstance:
     - target: {fileID: 5575129103255632267, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: m_Name
       value: Pig
+      objectReference: {fileID: 0}
+    - target: {fileID: 5575129103467070817, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b7b41007fe4037647809aa882fce2963, type: 3}
+    - target: {fileID: 5575129103467070817, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: m_Color.g
+      value: 0.21062648
+      objectReference: {fileID: 0}
+    - target: {fileID: 5575129103467070817, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: m_Color.b
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7163962998717739410, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: originalColor.g

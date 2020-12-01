@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: IMG_1080
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: de6d1dcd549ef8147a965d7c5d2834ca, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f5e4d7cb45a096b4ba70fab24f671676, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
