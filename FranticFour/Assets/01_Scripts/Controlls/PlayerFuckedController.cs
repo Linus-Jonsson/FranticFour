@@ -17,12 +17,14 @@ public class PlayerFuckedController : MonoBehaviour
     Rigidbody2D rb2d;
     Player player;
     SpriteRenderer spriteRenderer;
+    Animator animator;
 
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         player = GetComponent<Player>();
         spriteRenderer = body.GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     public void GetPushed(Vector2 pushForce, Player pusher)
@@ -37,6 +39,7 @@ public class PlayerFuckedController : MonoBehaviour
     }
     IEnumerator HandlePush(Vector2 pushForce)
     {
+        animator.SetTrigger("Pushed");
         player.FreezeInput = true;
         rb2d.velocity = Vector2.zero;
         rb2d.AddForce(pushForce, ForceMode2D.Impulse);
