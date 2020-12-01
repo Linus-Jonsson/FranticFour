@@ -39,6 +39,11 @@ public class Player : MonoBehaviour
         playerNumber = GetComponent<AssignedController>().PlayerID + 1;        
     }
 
+    public void UnFreeze()
+    {
+        freezeInput = false;
+    }
+
     public void IncreaseScore(int scoreChange)
     {
         roundScore += scoreChange;

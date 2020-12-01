@@ -142,15 +142,14 @@ public class PlayerActionsController : MonoBehaviour
         rb2d.freezeRotation = value;
         player.FreezeInput = value;
         if (value)
-        {
-            gameObject.layer = jumpLayer;
-            rb2d.drag = jumpingDrag;
-        }
-        else
-        {
-            gameObject.layer = playerLayer;
-            rb2d.drag = originalDrag;
-        }
+            SetLayerAndDrag(jumpLayer,jumpingDrag);
+        else          
+            SetLayerAndDrag(playerLayer, originalDrag);
+    }
+    private void SetLayerAndDrag(int layer, float drag)
+    {
+        gameObject.layer = layer;
+        rb2d.drag = drag;
     }
 
     //AnimationEvents:

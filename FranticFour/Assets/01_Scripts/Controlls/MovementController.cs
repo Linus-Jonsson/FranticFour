@@ -34,9 +34,8 @@ public class MovementController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (player.FreezeInput)
-            return;
-        MovePlayer();
+        if (!player.FreezeInput)
+            MovePlayer();
     }
 
     private void MovePlayer()
