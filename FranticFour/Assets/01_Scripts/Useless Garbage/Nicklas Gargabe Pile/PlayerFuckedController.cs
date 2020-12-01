@@ -35,7 +35,6 @@ public class PlayerFuckedController : MonoBehaviour
             StopCoroutine(HandlePushedByTimer(pusher));
             StartCoroutine(HandlePushedByTimer(pusher));
         }
-
     }
     IEnumerator HandlePush(Vector2 pushForce)
     {
