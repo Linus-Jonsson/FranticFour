@@ -68,6 +68,7 @@ public class InGameLoopController : MonoBehaviour
             yield return StartCoroutine(gameLoopUIController.NextRoundCountdown(players, roundOverDuration, currentRound));
             currentRound++;
         }
+
         gameLoopUIController.DisplayFinalResults(players);
     }        
     private void ActivateAllPlayers(bool value)
@@ -206,6 +207,7 @@ public class InGameLoopController : MonoBehaviour
         // in here all special point reward systems will be handled aswell
         GivePreySurvivalScore();
         GivePacifistReward();
+        TotalAllPlayersScore();
     }
     private void GivePreySurvivalScore()
     {
@@ -254,7 +256,7 @@ public class InGameLoopController : MonoBehaviour
         foreach (var player in players)
         {
             player.GetComponent<DeathAndRespawnController>().ResetPlayer();
-            player.Score = 0;
+            player.TotalScore = 0;
         }
         currentRound = 1;
         currentPrey = null;
@@ -268,6 +270,14 @@ public class InGameLoopController : MonoBehaviour
             if (player.Prey)
                 continue;
             player.IncreaseScore(scoreToAdd);
+        }
+    }
+
+    public void TotalAllPlayersScore()
+    {
+        foreach (var player in players)
+        {
+            player.SumScore();
         }
     }
 

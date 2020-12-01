@@ -223,11 +223,11 @@ public class GameLoopController : MonoBehaviour
         // make this method set each players score in the UI controller instead
         foreach (var player in players)
         {
-            if (player.Score <= 0)
+            if (player.TotalScore <= 0)
                 continue;
             if (leader == null)
                 leader = player;
-            else if (player.Score > leader.Score)
+            else if (player.TotalScore > leader.TotalScore)
                 leader = player;
         }
     }
@@ -253,7 +253,7 @@ public class GameLoopController : MonoBehaviour
         foreach (var player in players)
         {
             player.GetComponent<DeathAndRespawnController>().ResetPlayer();
-            player.Score = 0;
+            player.TotalScore = 0;
         }
         currentRound = 1;
         leader = null;
