@@ -34,6 +34,14 @@ public class Player : MonoBehaviour
     Player pushedBy = null;
     public Player PushedBy { get { return pushedBy; } set { pushedBy = value; } }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.layer == 13)
+            print("Triggered a hole and is now falling to death");
+        else
+            print("Jumped over the hole");
+    }
+
     private void Awake()
     {
         playerNumber = GetComponent<AssignedController>().PlayerID + 1;        
