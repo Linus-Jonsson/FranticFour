@@ -247,17 +247,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4571054493860122463, guid: 0a8f6b1e92cdfa44caa655d7d807ff06, type: 3}
   m_PrefabInstance: {fileID: 69999368}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &76471097 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6500163289584686771, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
-  m_PrefabInstance: {fileID: 1046825737}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &76471103 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1687704663410451919, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
   m_PrefabInstance: {fileID: 1046825737}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 76471097}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c42e1a7a37290b14ba3e357c6fbcabb0, type: 3}
@@ -268,7 +263,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9097514043899898084, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
   m_PrefabInstance: {fileID: 1046825737}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 76471097}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 75659d9530a15ed47aa69b09cb3a239c, type: 3}
@@ -284,7 +279,7 @@ GameObject:
   m_Component:
   - component: {fileID: 122360167}
   m_Layer: 0
-  m_Name: Player 2 (Pig)
+  m_Name: Pig Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -306,11 +301,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &124833114 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6500163289584686771, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
-  m_PrefabInstance: {fileID: 1687704664358307173}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &128540077
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,17 +339,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &141531200 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5661316974895686381, guid: acfb9a05aaeba90459fcf1e0904d6c62, type: 3}
-  m_PrefabInstance: {fileID: 959414845}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &141531206 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 274684026557075857, guid: acfb9a05aaeba90459fcf1e0904d6c62, type: 3}
   m_PrefabInstance: {fileID: 959414845}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 141531200}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c42e1a7a37290b14ba3e357c6fbcabb0, type: 3}
@@ -370,7 +355,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7702541897934757050, guid: acfb9a05aaeba90459fcf1e0904d6c62, type: 3}
   m_PrefabInstance: {fileID: 959414845}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 141531200}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 75659d9530a15ed47aa69b09cb3a239c, type: 3}
@@ -42188,7 +42173,7 @@ GameObject:
   m_Component:
   - component: {fileID: 529353431}
   m_Layer: 0
-  m_Name: Player 4 (Purple)
+  m_Name: Sheep Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42445,7 +42430,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5768939795489499244, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
       propertyPath: m_Name
-      value: Push Cooldown Purple
+      value: Push Cooldown Bunny
       objectReference: {fileID: 0}
     - target: {fileID: 5768939795489499244, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
       propertyPath: m_IsActive
@@ -42789,7 +42774,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5768939795489499244, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
       propertyPath: m_Name
-      value: Push Cooldown Green
+      value: Push Cooldown Pig
       objectReference: {fileID: 0}
     - target: {fileID: 5768939795489499244, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
       propertyPath: m_IsActive
@@ -42842,7 +42827,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4571054493860122463, guid: 0a8f6b1e92cdfa44caa655d7d807ff06, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4571054493860122463, guid: 0a8f6b1e92cdfa44caa655d7d807ff06, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -42964,7 +42949,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5661316974895686381, guid: acfb9a05aaeba90459fcf1e0904d6c62, type: 3}
       propertyPath: m_Name
-      value: Duck2
+      value: Bunny
       objectReference: {fileID: 0}
     - target: {fileID: 5661316975086624263, guid: acfb9a05aaeba90459fcf1e0904d6c62, type: 3}
       propertyPath: m_Color.g
@@ -47454,7 +47439,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6500163289584686771, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
       propertyPath: m_Name
-      value: Pig2
+      value: Sheep
       objectReference: {fileID: 0}
     - target: {fileID: 6500163289584686781, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
       propertyPath: m_LocalPosition.x
@@ -47736,7 +47721,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9097514043899898084, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
   m_PrefabInstance: {fileID: 1687704664358307173}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 124833114}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 75659d9530a15ed47aa69b09cb3a239c, type: 3}
@@ -75726,7 +75711,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4571054493860122463, guid: 0a8f6b1e92cdfa44caa655d7d807ff06, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4571054493860122463, guid: 0a8f6b1e92cdfa44caa655d7d807ff06, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -75752,7 +75737,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7702541897934757050, guid: acfb9a05aaeba90459fcf1e0904d6c62, type: 3}
   m_PrefabInstance: {fileID: 274684027691933085}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1704475200}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 75659d9530a15ed47aa69b09cb3a239c, type: 3}
@@ -75820,7 +75805,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1687704663410451919, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
   m_PrefabInstance: {fileID: 1687704664358307173}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 124833114}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c42e1a7a37290b14ba3e357c6fbcabb0, type: 3}
@@ -75895,7 +75880,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5768939795489499244, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
       propertyPath: m_Name
-      value: Push Cooldown Cyan
+      value: Push Cooldown Sheep
       objectReference: {fileID: 0}
     - target: {fileID: 5768939795489499244, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
       propertyPath: m_IsActive
@@ -76138,7 +76123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1618431951}
   m_Layer: 0
-  m_Name: Player 1 (Duck)
+  m_Name: Duck Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77203,11 +77188,6 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 4801723092207956066, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
   m_PrefabInstance: {fileID: 4801723092773740878}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1704475200 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5661316974895686381, guid: acfb9a05aaeba90459fcf1e0904d6c62, type: 3}
-  m_PrefabInstance: {fileID: 274684027691933085}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1710054677 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5768939795489499235, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
@@ -77258,7 +77238,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4571054493860122463, guid: 0a8f6b1e92cdfa44caa655d7d807ff06, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4571054493860122463, guid: 0a8f6b1e92cdfa44caa655d7d807ff06, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -77470,7 +77450,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1827197166}
   m_Layer: 0
-  m_Name: Player 3 (Green)
+  m_Name: Bunny Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77497,7 +77477,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 274684026557075857, guid: acfb9a05aaeba90459fcf1e0904d6c62, type: 3}
   m_PrefabInstance: {fileID: 274684027691933085}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1704475200}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c42e1a7a37290b14ba3e357c6fbcabb0, type: 3}
@@ -77576,7 +77556,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5768939795489499244, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
       propertyPath: m_Name
-      value: Push Cooldown Orange
+      value: Push Cooldown Duck
       objectReference: {fileID: 0}
     - target: {fileID: 5768939795489499244, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
       propertyPath: m_IsActive
@@ -78767,7 +78747,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4801723092207956066, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
       propertyPath: orthographic size
-      value: 9
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4801723092207956066, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
       propertyPath: m_AllowMSAA
@@ -78787,27 +78767,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4801723092207956067, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.69
+      value: -2.9750004
       objectReference: {fileID: 0}
     - target: {fileID: 4801723092207956067, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.4799999
+      value: 0.31249994
       objectReference: {fileID: 0}
     - target: {fileID: 4801723092207956067, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.5
+      value: -4.5
       objectReference: {fileID: 0}
     - target: {fileID: 4801723092218131178, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.69
+      value: -2.9750004
       objectReference: {fileID: 0}
     - target: {fileID: 4801723092218131178, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.4799999
+      value: 0.31249994
       objectReference: {fileID: 0}
     - target: {fileID: 4801723092218131178, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.5
+      value: -4.5
       objectReference: {fileID: 0}
     - target: {fileID: 4801723092218131180, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
       propertyPath: m_BoundingShape2D
@@ -79222,6 +79202,34 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 185804857}
+    - target: {fileID: 7473697051758019040, guid: 235d37168752fc84ea578ff9108da983, type: 3}
+      propertyPath: m_Name
+      value: Pig
+      objectReference: {fileID: 0}
+    - target: {fileID: 7473697051817167252, guid: 235d37168752fc84ea578ff9108da983, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7473697051856669360, guid: 235d37168752fc84ea578ff9108da983, type: 3}
+      propertyPath: m_Name
+      value: Pig
+      objectReference: {fileID: 0}
+    - target: {fileID: 7473697051942607974, guid: 235d37168752fc84ea578ff9108da983, type: 3}
+      propertyPath: m_Name
+      value: Duck
+      objectReference: {fileID: 0}
+    - target: {fileID: 7473697051942670459, guid: 235d37168752fc84ea578ff9108da983, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7473697051969977171, guid: 235d37168752fc84ea578ff9108da983, type: 3}
+      propertyPath: m_Name
+      value: Bunny
+      objectReference: {fileID: 0}
+    - target: {fileID: 7473697052248053646, guid: 235d37168752fc84ea578ff9108da983, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7473697052416217152, guid: 235d37168752fc84ea578ff9108da983, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -79318,22 +79326,62 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gameplay UI
       objectReference: {fileID: 0}
+    - target: {fileID: 7473697052432825032, guid: 235d37168752fc84ea578ff9108da983, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7473697052474642695, guid: 235d37168752fc84ea578ff9108da983, type: 3}
+      propertyPath: m_Name
+      value: Duck
+      objectReference: {fileID: 0}
+    - target: {fileID: 7473697052509433327, guid: 235d37168752fc84ea578ff9108da983, type: 3}
+      propertyPath: killerImages.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7473697052509433327, guid: 235d37168752fc84ea578ff9108da983, type: 3}
+      propertyPath: preyImages.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7473697052509433327, guid: 235d37168752fc84ea578ff9108da983, type: 3}
       propertyPath: killerImages.Array.data[0]
       value: 
-      objectReference: {fileID: 1704475200}
+      objectReference: {fileID: 7473697052509433281}
     - target: {fileID: 7473697052509433327, guid: 235d37168752fc84ea578ff9108da983, type: 3}
       propertyPath: killerImages.Array.data[1]
       value: 
-      objectReference: {fileID: 124833114}
+      objectReference: {fileID: 7473697052509433280}
     - target: {fileID: 7473697052509433327, guid: 235d37168752fc84ea578ff9108da983, type: 3}
       propertyPath: killerImages.Array.data[2]
       value: 
-      objectReference: {fileID: 141531200}
+      objectReference: {fileID: 7473697052509433279}
     - target: {fileID: 7473697052509433327, guid: 235d37168752fc84ea578ff9108da983, type: 3}
       propertyPath: killerImages.Array.data[3]
       value: 
-      objectReference: {fileID: 76471097}
+      objectReference: {fileID: 7473697052509433278}
+    - target: {fileID: 7473697052509433327, guid: 235d37168752fc84ea578ff9108da983, type: 3}
+      propertyPath: killerImages.Array.data[4]
+      value: 
+      objectReference: {fileID: 7473697052509433281}
+    - target: {fileID: 7473697052509433327, guid: 235d37168752fc84ea578ff9108da983, type: 3}
+      propertyPath: killerImages.Array.data[5]
+      value: 
+      objectReference: {fileID: 7473697052509433280}
+    - target: {fileID: 7473697052509433327, guid: 235d37168752fc84ea578ff9108da983, type: 3}
+      propertyPath: killerImages.Array.data[6]
+      value: 
+      objectReference: {fileID: 7473697052509433279}
+    - target: {fileID: 7473697052509433327, guid: 235d37168752fc84ea578ff9108da983, type: 3}
+      propertyPath: killerImages.Array.data[7]
+      value: 
+      objectReference: {fileID: 7473697052509433278}
+    - target: {fileID: 7473697052971378173, guid: 235d37168752fc84ea578ff9108da983, type: 3}
+      propertyPath: m_Name
+      value: Bunny
+      objectReference: {fileID: 0}
+    - target: {fileID: 7473697053285570910, guid: 235d37168752fc84ea578ff9108da983, type: 3}
+      propertyPath: m_Name
+      value: Sheep
+      objectReference: {fileID: 0}
     - target: {fileID: 7473697053304125872, guid: 235d37168752fc84ea578ff9108da983, type: 3}
       propertyPath: m_fontSize
       value: 100
@@ -79354,8 +79402,32 @@ PrefabInstance:
       propertyPath: m_fontColor.b
       value: 0.9672507
       objectReference: {fileID: 0}
+    - target: {fileID: 7473697053315277533, guid: 235d37168752fc84ea578ff9108da983, type: 3}
+      propertyPath: m_Name
+      value: Sheep
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 235d37168752fc84ea578ff9108da983, type: 3}
+--- !u!1 &7473697052509433278 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7473697053285570910, guid: 235d37168752fc84ea578ff9108da983, type: 3}
+  m_PrefabInstance: {fileID: 7473697052509433277}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7473697052509433279 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7473697051969977171, guid: 235d37168752fc84ea578ff9108da983, type: 3}
+  m_PrefabInstance: {fileID: 7473697052509433277}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7473697052509433280 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7473697051856669360, guid: 235d37168752fc84ea578ff9108da983, type: 3}
+  m_PrefabInstance: {fileID: 7473697052509433277}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7473697052509433281 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7473697051942607974, guid: 235d37168752fc84ea578ff9108da983, type: 3}
+  m_PrefabInstance: {fileID: 7473697052509433277}
+  m_PrefabAsset: {fileID: 0}
 --- !u!212 &7536358663692806708
 SpriteRenderer:
   m_ObjectHideFlags: 0

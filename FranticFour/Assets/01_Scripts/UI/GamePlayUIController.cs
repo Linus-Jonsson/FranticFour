@@ -30,16 +30,16 @@ public class GamePlayUIController : GamePlayUIDisplay
     {
         switch (player.name)
         {
-            case "Orange":
+            case "Duck":
                 orangePlayer.text = "Player: " + player.PlayerNumber.ToString();
                 break;
-            case "Green":
+            case "Pig":
                 greenPlayer.text = "Player: " + player.PlayerNumber.ToString();
                 break;
-            case "Purple":
+            case "Bunny":
                 purplePlayer.text = "Player: " + player.PlayerNumber.ToString();
                 break;
-            case "Cyan":
+            case "Sheep":
                 cyanPlayer.text = "Player: " + player.PlayerNumber.ToString();
                 break;
         }
@@ -69,16 +69,16 @@ public class GamePlayUIController : GamePlayUIDisplay
     {
         switch (prey.name)
         {
-            case "Orange":
+            case "Duck":
                 preyImages[0].SetActive(true);
                 break;
-            case "Green":
+            case "Pig":
                 preyImages[1].SetActive(true);
                 break;
-            case "Purple":
+            case "Bunny":
                 preyImages[2].SetActive(true);
                 break;
-            case "Cyan":
+            case "Sheep":
                 preyImages[3].SetActive(true);
                 break;
         }
@@ -122,16 +122,16 @@ public class GamePlayUIController : GamePlayUIDisplay
         {
             switch (player.gameObject.name)
             {
-                case "Orange":
+                case "Duck":
                     SetRoundScoreTexts(player, orangeScorePlayer, orangeCurrentScore,orangeRoundScore);
                     break;
-                case "Green":
+                case "Pig":
                     SetRoundScoreTexts(player, greenScorePlayer, greenCurrentScore,greenRoundScore);
                     break;
-                case "Purple":
+                case "Bunny":
                     SetRoundScoreTexts(player, purpleScorePlayer, purpleCurrentScore, purpleRoundScore);
                     break;
-                case "Cyan":
+                case "Sheep":
                     SetRoundScoreTexts(player, cyanScorePlayer, cyanCurrentScore, cyanRoundScore);
                     break;
             }
@@ -184,16 +184,16 @@ public class GamePlayUIController : GamePlayUIDisplay
         foreach (var player in players)
             switch (player.gameObject.name)
             {
-                case "Orange":
+                case "Duck":
                     SetPlayerResults(player, orangePlacement, resultOrangeName, orangeTotalScore);
                     break;
-                case "Green":
+                case "Pig":
                     SetPlayerResults(player, greenPlacement, resultGreenName, greenTotalScore);
                     break;
-                case "Purple":
+                case "Bunny":
                     SetPlayerResults(player, purplePlacement, resultPurpleName, purpleTotalScore);
                     break;
-                case "Cyan":
+                case "Sheep":
                     SetPlayerResults(player, cyanPlacement, resultCyanName, cyanTotalScore);
                     break;
             }
@@ -263,16 +263,16 @@ public class GamePlayUIController : GamePlayUIDisplay
         killedByText.text = "The prey got hunted by Player " + killer.PlayerNumber;
         switch (killer.gameObject.name)
         {
-            case "Orange":
+            case "Duck":
                 killerImages[0].SetActive(true);
                 break;
-            case "Green":
+            case "Pig":
                 killerImages[1].SetActive(true);
                 break;
-            case "Purple":
+            case "Bunny":
                 killerImages[2].SetActive(true);
                 break;
-            case "Cyan":
+            case "Sheep":
                 killerImages[3].SetActive(true);
                 break;
         }
