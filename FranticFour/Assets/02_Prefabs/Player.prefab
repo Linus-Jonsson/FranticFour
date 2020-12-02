@@ -444,7 +444,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2117035707468413441}
   - component: {fileID: 941208656543686220}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: Bounce Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
