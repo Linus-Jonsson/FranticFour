@@ -16,9 +16,9 @@ public class PushController : MonoBehaviour
 
     private void GetReferences()
     {
-        player = GetComponent<Player>();
-        rb2d = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        player = GetComponentInParent<Player>();
+        rb2d = GetComponentInParent<Rigidbody2D>();
+        animator = GetComponentInParent<Animator>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
