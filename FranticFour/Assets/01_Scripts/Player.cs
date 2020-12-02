@@ -38,8 +38,6 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.layer == 13)
             print("Triggered a hole and is now falling to death");
-        else
-            print("Jumped over the hole");
     }
 
     private void Awake()
