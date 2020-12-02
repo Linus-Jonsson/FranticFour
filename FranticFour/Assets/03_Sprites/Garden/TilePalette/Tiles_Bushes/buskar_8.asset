@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: buskar_8
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 6455644069972926220, guid: 07cbed2e9e2487c428653acf305227cc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 81750bb1b91a6a742b8f90c73a9b4ae2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
