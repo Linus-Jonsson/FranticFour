@@ -81,7 +81,7 @@ public class InGameLoopController : MonoBehaviour
     private static void ActivatePlayer(bool value, GameObject onOffObject)
     {
         onOffObject.SetActive(value);
-        onOffObject.GetComponentInChildren<Player>().FreezeInput = !value;
+        onOffObject.GetComponentInChildren<Player>().FreezeInput = false;
     }
 
     private void HandleRoleSetting()
