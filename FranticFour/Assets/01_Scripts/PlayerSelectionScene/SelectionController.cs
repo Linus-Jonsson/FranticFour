@@ -1,10 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 public class SelectionController : MonoBehaviour
 {
     [Header("Player")] [Range(0, 3)]
     [SerializeField] private int CONTROLLER_ID = 0;
     [SerializeField] private bool controllerAssignedToPlayer = false;
+    [SerializeField] private bool hasControllerJoined;
+    [SerializeField] private MyPlayer myPlayer;
 
     [Header("Assigned controls")]
     [SerializeField] private string action1;
@@ -16,34 +19,70 @@ public class SelectionController : MonoBehaviour
     private string rightVertical;
     private bool inputBool;
     private bool isAssigned;
+    private bool isSelecting;
+    private bool playerSelected;
 
     private void Start()
     {
-        selected = CONTROLLER_ID;
+        bool checkFailSafe = false;
+        ControllerCheck(ref checkFailSafe);
+
+        if (checkFailSafe)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        
         playerHandler = FindObjectOfType<InputManager>();
-        
-        if (CONTROLLER_ID == 0)
-            playerHandler.canSelect[CONTROLLER_ID] = true;
-        
         MapController();
+        myPlayer = playerHandler.GetPlayer(CONTROLLER_ID);
+    }
+
+    private void ControllerCheck(ref bool _failSafe)
+    {
+        //Check if controllers are connected
+        string[] joystickNames = Input.GetJoystickNames();
+
+        if (CONTROLLER_ID > joystickNames.Length)
+            _failSafe = true;
     }
 
     private void Update()
     {
-        if (isAssigned || !playerHandler.canSelect[CONTROLLER_ID]) //If controller have been assigned skip loop or can't select
-            return;
-
-        if (Input.GetAxis(action1) == 1 && !controllerAssignedToPlayer) //For PS4 and Xbox
-            AssignPlayerController();
-        else if (Input.GetButton(action1) && !controllerAssignedToPlayer) //For keyboard
-                AssignPlayerKeyboard();
+        if (!hasControllerJoined && Input.GetAxis(action1) == 1) //For PS4, Xbox and Keyboard
+            ControllerJoin();
+        else if (hasControllerJoined && !isSelecting && Input.GetAxis(action1) == 1) //For PS4, Xbox and Keyboard
+            ControllerSelectPlayer();
+        else if (isSelecting && Input.GetAxis(action1) == 0)
+            isSelecting = false;
 
         float m_inputX = Input.GetAxis(rightHorizontal);
-        float m_inputY = Input.GetAxis(rightVertical);
 
-        if (m_inputX != 0 || m_inputY != 0)
-            CheckSelection(m_inputX, m_inputY);
+        if (hasControllerJoined && !playerSelected && m_inputX != 0)
+            CheckSelection(m_inputX);
 
+    }
+
+    private void ControllerJoin()
+    {
+        isSelecting = true;
+        hasControllerJoined = true;
+        
+        myPlayer.PressToJoinTmPro.text = "";
+        myPlayer.PressToJoinIcon.SetActive(false);
+        myPlayer.SelectedHighlight.SetActive(true);
+        myPlayer.SelectedHighlightLerp.StartLerp();
+        myPlayer.CharacterSelectionGameObject.SetActive(true);
+        
+        playerHandler.SelectPlayer(CONTROLLER_ID);
+    }
+
+    private void ControllerSelectPlayer()
+    {
+        playerSelected = true;
+        myPlayer.SelectedHighlightLerp.isLerping = false;
+        myPlayer.SelectedHighlightLerp.hasSelected = true;
+        playerHandler.playersSelected[CONTROLLER_ID] = true;
     }
     
     private void MapController()
@@ -120,7 +159,7 @@ public class SelectionController : MonoBehaviour
         
         PassControllersToGame.playerOwnedBy[selected] = CONTROLLER_ID;
 
-        playerHandler.SetTextAssigned(selected, CONTROLLER_ID);
+        //playerHandler.SetTextAssigned(selected, CONTROLLER_ID);
         playerHandler.CheckPlayers();
             
         Debug.Log("Player "+ selected +" assigned" + Input.GetAxis(action1));
@@ -143,15 +182,14 @@ public class SelectionController : MonoBehaviour
         PassControllersToGame.keyBoardOwnedBy = CONTROLLER_ID;
         PassControllersToGame.playerOwnedBy[selected] = CONTROLLER_ID;
             
-        playerHandler.SetTextAssigned(selected, CONTROLLER_ID);
+        //playerHandler.SetTextAssigned(selected, CONTROLLER_ID);
         playerHandler.CheckPlayers();
             
         Debug.Log("Player "+ selected +" assigned" + Input.GetButton(action1));
     }
-
-    private void CheckSelection(float _inputX, float _inputY)
+    private void CheckSelection(float _inputX)
     {
-        if (_inputX > inputZone || _inputX < -inputZone || _inputY < -inputZone || _inputY > inputZone)
+        if (_inputX > inputZone || _inputX < -inputZone)
         {
             if (inputBool)
                 return;
@@ -159,12 +197,12 @@ public class SelectionController : MonoBehaviour
             if (_inputX > inputZone) _inputX = Mathf.CeilToInt(_inputX);
             else if (_inputX < -inputZone) _inputX = Mathf.FloorToInt(_inputX);
 
-            if (_inputY > inputZone) _inputY = Mathf.CeilToInt(_inputY);
-            else if (_inputY < -inputZone) _inputY = Mathf.FloorToInt(_inputY);
-
             inputBool = true;
-            Debug.LogWarning(_inputX);
-            playerHandler.SelectNext(CONTROLLER_ID, ref selected, (int)_inputX, (int)_inputY);
+
+            if (_inputX > 0)
+                myPlayer.SelectedCharacterSelection.NextCharacter(true);
+            else if (_inputX < 0)
+                myPlayer.SelectedCharacterSelection.NextCharacter(false);
         }
         else
             inputBool = false;
