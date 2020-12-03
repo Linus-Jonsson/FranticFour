@@ -106,13 +106,13 @@ public class InGameLoopController : MonoBehaviour
     private void SetPrey(bool value, int i, float speed)
     {
         players[i].NumberOfDeaths = 0;
-        players[i].HuntersKilled = 0;       
+        players[i].HuntersKilled = 0;
         players[i].GetComponent<MovementController>().MovementSpeed = speed;
         players[i].Prey = value;
-        if(value)
-        currentPrey = players[i];
+        if (value)
+            currentPrey = players[i];
 /*        else
-            preyProbability.Add(i); - Temporarily inactive while playtesting!*/
+            preyProbability.Add(i); implement once game is done getting tested*/
     }
 
     private void ChangePreyProbability(int numberOfPrey)
@@ -143,7 +143,7 @@ public class InGameLoopController : MonoBehaviour
         foreach (var player in players)
         {
             Vector2 spawnPosition;
-            player.GetComponent<PlayerActionsController>().ResetPlayerActions();
+            player.GetComponent<DeathAndRespawnController>().ResetPlayer();
             if (player.Prey == true)
             {
                 spawnPosition = spawnPoint.spawnPosition[0].transform.position;
