@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SelectionController : MonoBehaviour
 {
@@ -53,7 +52,7 @@ public class SelectionController : MonoBehaviour
             ControllerJoin();
         else if (hasControllerJoined && !isSelecting && Input.GetAxis(action1) == 1) //For PS4, Xbox and Keyboard
             ControllerSelectPlayer();
-        else if (isSelecting && Input.GetAxis(action1) == 0)
+        else if (isSelecting && Input.GetAxis(action1) <= 0)
             isSelecting = false;
 
         float m_inputX = Input.GetAxis(rightHorizontal);
@@ -79,10 +78,15 @@ public class SelectionController : MonoBehaviour
 
     private void ControllerSelectPlayer()
     {
+        if (PassControllersToGame.playerOwnedBy[myPlayer.SelectedCharacterSelection.SelectedCharacterIndex] < 4) //Already assigned
+            return;
+        
         playerSelected = true;
         myPlayer.SelectedHighlightLerp.isLerping = false;
         myPlayer.SelectedHighlightLerp.hasSelected = true;
+        myPlayer.CharacterMaskCloseSelect.OnSelected();
         playerHandler.playersSelected[CONTROLLER_ID] = true;
+        PassControllersToGame.playerOwnedBy[myPlayer.SelectedCharacterSelection.SelectedCharacterIndex] = CONTROLLER_ID;
     }
     
     private void MapController()

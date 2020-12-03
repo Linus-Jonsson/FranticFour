@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CharacterSelection : MonoBehaviour
 {
@@ -9,6 +6,8 @@ public class CharacterSelection : MonoBehaviour
     [SerializeField] private SpriteRenderer[] spriteRenderers = new SpriteRenderer[3];
     [Header("Character sprites")]
     [SerializeField] private Sprite[] characters = new Sprite[4];
+    [SerializeField] private int selectedCharacterIndex;
+    public int SelectedCharacterIndex => selectedCharacterIndex;
 
     private void Start()
     {
@@ -25,6 +24,7 @@ public class CharacterSelection : MonoBehaviour
     {
         if (_right)
         {
+            selectedCharacterIndex++;
             Sprite m_temp = characters[characters.Length - 1];
 
             for (int i = characters.Length - 2; i >= 0; i--)
@@ -33,12 +33,18 @@ public class CharacterSelection : MonoBehaviour
         }
         else
         {
+            selectedCharacterIndex--;
             Sprite m_temp = characters[0];
 
             for (int i = 1; i < characters.Length; i++)
                 characters[i - 1] = characters[i];
             characters[characters.Length - 1] = m_temp;   
         }
+
+        if (selectedCharacterIndex < 0)
+            selectedCharacterIndex += 4;
+            
+        selectedCharacterIndex %= characters.Length;
         UpdateRenderer();
     }
 }

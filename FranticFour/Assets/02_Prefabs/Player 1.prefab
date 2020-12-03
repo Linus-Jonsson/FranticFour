@@ -425,9 +425,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 7799542763351400413}
   originalColor: {r: 0, g: 0, b: 0, a: 0}
-  originalAlpha: 0
+  maxAlphaSelected: 0.7
   lerpSpeed: 0.7
   isLerping: 0
+  hasSelected: 0
 --- !u!1 &5407236037843858471
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,6 +611,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4207700762454497393}
   - component: {fileID: 4178379668965133628}
+  - component: {fileID: 8906902644441261625}
   m_Layer: 0
   m_Name: New Sprite Mask
   m_TagString: Untagged
@@ -681,6 +683,20 @@ SpriteMask:
   m_BackSortingOrder: 0
   m_IsCustomRangeActive: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8906902644441261625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6329720774842900929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09cedb07d56df0548829631fbdf972c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animTime: 1.2
+  xScaleTo: 3
 --- !u!1 &6998779927648383170
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,3 +980,4 @@ MonoBehaviour:
   selectedHighlightLerp: {fileID: 4981610621748977049}
   selectedCharacterSelection: {fileID: 3153165024394145032}
   characterSelectionGameObject: {fileID: 8539167374821323862}
+  characterMaskCloseSelect: {fileID: 8906902644441261625}
