@@ -480,6 +480,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6329720774842900929, guid: 23864b56fd99ac343a967154847eaf8e, type: 3}
+      propertyPath: m_Name
+      value: Mask
+      objectReference: {fileID: 0}
     - target: {fileID: 6447486289909243013, guid: 23864b56fd99ac343a967154847eaf8e, type: 3}
       propertyPath: m_text
       value: Player 3
@@ -634,6 +638,10 @@ PrefabInstance:
     - target: {fileID: 4768386524772043465, guid: 23864b56fd99ac343a967154847eaf8e, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6329720774842900929, guid: 23864b56fd99ac343a967154847eaf8e, type: 3}
+      propertyPath: m_Name
+      value: Mask
       objectReference: {fileID: 0}
     - target: {fileID: 6447486289909243013, guid: 23864b56fd99ac343a967154847eaf8e, type: 3}
       propertyPath: m_text
@@ -857,6 +865,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6329720774842900929, guid: 23864b56fd99ac343a967154847eaf8e, type: 3}
+      propertyPath: m_Name
+      value: Mask
+      objectReference: {fileID: 0}
     - target: {fileID: 6447486289909243013, guid: 23864b56fd99ac343a967154847eaf8e, type: 3}
       propertyPath: m_text
       value: Player 4
@@ -1048,6 +1060,10 @@ PrefabInstance:
     - target: {fileID: 4981610621748977049, guid: 23864b56fd99ac343a967154847eaf8e, type: 3}
       propertyPath: lerpSpeedOut
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6329720774842900929, guid: 23864b56fd99ac343a967154847eaf8e, type: 3}
+      propertyPath: m_Name
+      value: Mask
       objectReference: {fileID: 0}
     - target: {fileID: 8539167374821323862, guid: 23864b56fd99ac343a967154847eaf8e, type: 3}
       propertyPath: m_IsActive

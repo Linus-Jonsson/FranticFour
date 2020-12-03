@@ -1,11 +1,10 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class HighlightLerp : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Color originalColor;
-    [SerializeField] private float originalAlpha;
+    [SerializeField] private float maxAlphaSelected = 0.7f;
     [SerializeField] private float lerpSpeed;
     [SerializeField] public bool isLerping;
     [SerializeField] public bool hasSelected;
@@ -13,7 +12,6 @@ public class HighlightLerp : MonoBehaviour
     private void Awake()
     {
         originalColor = spriteRenderer.color;
-        originalAlpha = originalColor.a;
     }
 
     public void StartLerp()
@@ -36,6 +34,7 @@ public class HighlightLerp : MonoBehaviour
 
     private void LerpSelect()
     {
+        //When selected
         //Todo Make transition better
         if (originalColor.a >= 1f)
             hasSelected = false;
@@ -55,10 +54,11 @@ public class HighlightLerp : MonoBehaviour
 
     private void LerpAlpha()
     {
+        //While selecting
         spriteRenderer.color = new Color (
             originalColor.r,
             originalColor.g,
             originalColor.b, 
-            Mathf.PingPong(Time.fixedTime * lerpSpeed, originalAlpha));
+            Mathf.PingPong(Time.fixedTime * lerpSpeed, maxAlphaSelected));
     }
 }

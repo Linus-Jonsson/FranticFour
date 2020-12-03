@@ -16,6 +16,7 @@ public class MyPlayer : MonoBehaviour
     [SerializeField] private HighlightLerp selectedHighlightLerp;
     [SerializeField] private CharacterSelection selectedCharacterSelection;
     [SerializeField] private GameObject characterSelectionGameObject;
+    [SerializeField] private CharacterMaskClose characterMaskCloseSelect;
 
     public int PlayerID => playerID;
     public GameObject PressToJoinGameObject => pressToJoinGameObject;
@@ -28,4 +29,5 @@ public class MyPlayer : MonoBehaviour
     public HighlightLerp SelectedHighlightLerp => selectedHighlightLerp;
     public CharacterSelection SelectedCharacterSelection => selectedCharacterSelection;
     public GameObject CharacterSelectionGameObject => characterSelectionGameObject;
+    public CharacterMaskClose CharacterMaskCloseSelect => characterMaskCloseSelect;
 }
