@@ -111,15 +111,15 @@ public class GameLoopController : MonoBehaviour
         int hunterSpawnCount = 1;
         foreach (var player in players)
         {
-            player.GetComponent<PlayerActionsController>().ResetPlayerActions();
+            //player.GetComponent<PlayerActionsController>().ResetPlayerActions();
             if (player.Prey == true)
             {
-                player.GetComponent<DeathAndRespawnController>().ResetPlayer(spawnPoint.spawnPosition[0].transform.position);
+                //player.GetComponent<DeathAndRespawnController>().ResetPlayer(spawnPoint.spawnPosition[0].transform.position);
                 Instantiate(spawnParticles, new Vector3(player.transform.position.x, player.transform.position.y - 0.5f, 0), Quaternion.identity);
             }
             else
             {
-                player.GetComponent<DeathAndRespawnController>().ResetPlayer(spawnPoint.spawnPosition[hunterSpawnCount].transform.position);
+                //player.GetComponent<DeathAndRespawnController>().ResetPlayer(spawnPoint.spawnPosition[hunterSpawnCount].transform.position);
                 Instantiate(spawnParticles, new Vector3(player.transform.position.x, player.transform.position.y - 0.5f, 0), Quaternion.identity);
                 hunterSpawnCount += 1;
             }
@@ -145,14 +145,14 @@ public class GameLoopController : MonoBehaviour
         foreach (var player in players)
         {
             ActivatePlayers();
-            player.GetComponent<PlayerActionsController>().ResetPlayerActions();
+            //player.GetComponent<PlayerActionsController>().ResetPlayerActions();
             if (player.Prey == true)
             {
-                player.GetComponent<DeathAndRespawnController>().ResetPlayer(spawnPoint.spawnPosition[0].transform.position);
+                //player.GetComponent<DeathAndRespawnController>().ResetPlayer(spawnPoint.spawnPosition[0].transform.position);
             }
             else
             {
-                player.GetComponent<DeathAndRespawnController>().ResetPlayer(spawnPoint.spawnPosition[hunterSpawnCount].transform.position);
+                //player.GetComponent<DeathAndRespawnController>().ResetPlayer(spawnPoint.spawnPosition[hunterSpawnCount].transform.position);
                 hunterSpawnCount += 1;
             }
             player.FreezeInput = false;

@@ -22,8 +22,8 @@ TagManager:
   - Holes
   - Bounce
   - OnlyPlayerCollision
-  - 
-  - 
+  - Camera
+  - RespawnPoint
   - 
   - 
   - InGameUI

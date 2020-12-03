@@ -16,6 +16,8 @@ public class DeathAndRespawnController : MonoBehaviour
     PlayerActionsController playerActionController;
     MovementController movementController;
     SpriteRenderer spriteRenderer;
+    HunterRespawnHandler hunterRespawnHandler;
+    PushController pushController;
 
     private void Awake()
     {
@@ -29,6 +31,8 @@ public class DeathAndRespawnController : MonoBehaviour
         playerActionController = GetComponent<PlayerActionsController>();
         movementController = GetComponent<MovementController>();
         spriteRenderer = body.GetComponent<SpriteRenderer>();
+        hunterRespawnHandler = FindObjectOfType<HunterRespawnHandler>();
+        pushController = GetComponentInChildren<PushController>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -77,15 +81,21 @@ public class DeathAndRespawnController : MonoBehaviour
         spriteRenderer.color = originalColor;
         playerActionController.ResetPlayerActions();
         movementController.ResetMovement();
+        if (player.PushedBy != null)
+            player.PushedBy.GetComponentInChildren<PushController>().RemoveFromPushList(transform);
         player.PushedBy = null;
+        pushController.ResetPushList();
         SetNewPosition(position);
     }
-    public void ResetPlayer() // remove once hunter spawn points are implemented.
+    public void ResetPlayer()
     {
         spriteRenderer.color = originalColor;
         playerActionController.ResetPlayerActions();
         movementController.ResetMovement();
+        if (player.PushedBy != null)
+            player.PushedBy.GetComponentInChildren<PushController>().RemoveFromPushList(transform);
         player.PushedBy = null;
+        pushController.ResetPushList();
         SetNewPosition();
     }
 
@@ -93,8 +103,10 @@ public class DeathAndRespawnController : MonoBehaviour
     {
         transform.position = position;
     }
-    private void SetNewPosition() // remove once hunter spawn points are implemented.
+    private void SetNewPosition()
     {
-        transform.position = new Vector3(Random.Range(-7f, 1f), Random.Range(-0.38f, 4.3f), transform.position.z);
+        transform.position = hunterRespawnHandler.GetSpawnPoint().position;
     } 
+
+
 }

@@ -15,19 +15,28 @@ public class CameraBoundaryScaler : MonoBehaviour
     BoxCollider2D boxCollider;
     Camera mainCamera;
 
+    float orthoSize = 0f;
+
     private void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
         mainCamera = GetComponentInParent<Camera>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
+        if (orthoSize != mainCamera.orthographicSize)
+            SetBoundarySizeAndPosition();
 
-        if(vertical)
+    }
+
+    private void SetBoundarySizeAndPosition()
+    {
+        orthoSize = mainCamera.orthographicSize;
+        if (vertical)
         {
-            boxCollider.size = new Vector2(1, scaler * mainCamera.orthographicSize);
-            float trueOffset = offset * mainCamera.orthographicSize;
+            boxCollider.size = new Vector2(1, scaler * orthoSize);
+            float trueOffset = offset * orthoSize;
             if (positive)
                 boxCollider.offset = new Vector2(trueOffset, 0);
             else
@@ -35,8 +44,8 @@ public class CameraBoundaryScaler : MonoBehaviour
         }
         else
         {
-            boxCollider.size = new Vector2(scaler * mainCamera.orthographicSize, 1);
-            float trueOffset = offset + mainCamera.orthographicSize;
+            boxCollider.size = new Vector2(scaler * orthoSize, 1);
+            float trueOffset = offset + orthoSize;
             if (positive)
                 boxCollider.offset = new Vector2(0, trueOffset);
             else

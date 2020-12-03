@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PushController : MonoBehaviour
 {
-    List<Transform> targets = new List<Transform>();
+    [SerializeField] List<Transform> targets = new List<Transform>();
     Player player;
     Rigidbody2D rb2d;
     Animator animator;
@@ -82,5 +82,15 @@ public class PushController : MonoBehaviour
     {
         player.FreezeInput = false;
         player.PushedBy = null;
+    }
+
+    public void ResetPushList()
+    {
+        targets = new List<Transform>();
+    }
+
+    public void RemoveFromPushList(Transform transform)
+    {
+
     }
 }
