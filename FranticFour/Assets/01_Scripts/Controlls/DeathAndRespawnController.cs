@@ -33,7 +33,7 @@ public class DeathAndRespawnController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Danger"))
+        if (other.gameObject.CompareTag("Danger") || other.gameObject.layer == 13)
             HandleDeath();
     }
 
