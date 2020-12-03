@@ -81,6 +81,8 @@ public class DeathAndRespawnController : MonoBehaviour
         spriteRenderer.color = originalColor;
         playerActionController.ResetPlayerActions();
         movementController.ResetMovement();
+        if (player.PushedBy != null)
+            player.PushedBy.GetComponentInChildren<PushController>().RemoveFromPushList(transform);
         player.PushedBy = null;
         pushController.ResetPushList();
         SetNewPosition(position);
@@ -90,6 +92,8 @@ public class DeathAndRespawnController : MonoBehaviour
         spriteRenderer.color = originalColor;
         playerActionController.ResetPlayerActions();
         movementController.ResetMovement();
+        if (player.PushedBy != null)
+            player.PushedBy.GetComponentInChildren<PushController>().RemoveFromPushList(transform);
         player.PushedBy = null;
         pushController.ResetPushList();
         SetNewPosition();
@@ -103,4 +107,6 @@ public class DeathAndRespawnController : MonoBehaviour
     {
         transform.position = hunterRespawnHandler.GetSpawnPoint().position;
     } 
+
+
 }

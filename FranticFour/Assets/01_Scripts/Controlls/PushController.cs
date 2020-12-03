@@ -88,4 +88,9 @@ public class PushController : MonoBehaviour
     {
         targets = new List<Transform>();
     }
+
+    public void RemoveFromPushList(Transform transform)
+    {
+
+    }
 }
