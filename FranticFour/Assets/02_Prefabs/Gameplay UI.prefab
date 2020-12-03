@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1931443440921111642}
   - component: {fileID: 5000559325936828909}
   m_Layer: 5
-  m_Name: Player2 round score text
+  m_Name: Green round score text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 2391887539837042293}
   - component: {fileID: 2941289444035112647}
   m_Layer: 5
-  m_Name: Player1 round score text
+  m_Name: Orange round score text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -414,7 +414,7 @@ GameObject:
   - component: {fileID: 364218910624502390}
   - component: {fileID: 3414494325917550837}
   m_Layer: 5
-  m_Name: Player3 round score text
+  m_Name: Purple round score text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -548,7 +548,7 @@ GameObject:
   - component: {fileID: 7473697051611978132}
   - component: {fileID: 7473697051611978133}
   m_Layer: 5
-  m_Name: Player2
+  m_Name: Green Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -756,7 +756,7 @@ GameObject:
   - component: {fileID: 7473697051668336994}
   - component: {fileID: 7473697051668336995}
   m_Layer: 5
-  m_Name: Player3
+  m_Name: Purple Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -834,7 +834,7 @@ GameObject:
   - component: {fileID: 7473697051710881117}
   - component: {fileID: 7473697051710881122}
   m_Layer: 5
-  m_Name: Player4
+  m_Name: Cyan Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1046,7 +1046,7 @@ GameObject:
   - component: {fileID: 7473697051758019037}
   - component: {fileID: 7473697051758019042}
   m_Layer: 5
-  m_Name: Pig
+  m_Name: Green Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1368,7 +1368,7 @@ GameObject:
   - component: {fileID: 7473697051856669357}
   - component: {fileID: 7473697051856669362}
   m_Layer: 5
-  m_Name: Pig
+  m_Name: Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1577,7 +1577,7 @@ GameObject:
   - component: {fileID: 7473697051920783384}
   - component: {fileID: 7473697051920783385}
   m_Layer: 5
-  m_Name: Player1
+  m_Name: Orange Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1655,7 +1655,7 @@ GameObject:
   - component: {fileID: 7473697051927563016}
   - component: {fileID: 7473697051927563017}
   m_Layer: 5
-  m_Name: Player2
+  m_Name: Green Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1733,7 +1733,7 @@ GameObject:
   - component: {fileID: 7473697051942607971}
   - component: {fileID: 7473697051942607968}
   m_Layer: 5
-  m_Name: Duck
+  m_Name: Orange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1844,7 +1844,7 @@ GameObject:
   - component: {fileID: 7473697051948743802}
   - component: {fileID: 7473697051948743803}
   m_Layer: 5
-  m_Name: Player2
+  m_Name: Green Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1919,7 +1919,7 @@ GameObject:
   - component: {fileID: 7473697051969977164}
   - component: {fileID: 7473697051969977165}
   m_Layer: 5
-  m_Name: Bunny
+  m_Name: Purple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1994,7 +1994,7 @@ GameObject:
   - component: {fileID: 7473697052006769256}
   - component: {fileID: 7473697052006769259}
   m_Layer: 5
-  m_Name: Player2 text
+  m_Name: Green player text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2047,7 +2047,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Player 2
+  m_text: 'Player: 2'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2128,7 +2128,7 @@ GameObject:
   - component: {fileID: 7473697052034018298}
   - component: {fileID: 7473697052034018299}
   m_Layer: 5
-  m_Name: Player3
+  m_Name: Purple Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2206,7 +2206,7 @@ GameObject:
   - component: {fileID: 7473697052062247706}
   - component: {fileID: 7473697052062247707}
   m_Layer: 5
-  m_Name: Player2 final header
+  m_Name: Green final player text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2259,7 +2259,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Player 2
+  m_text: 'Player: 2'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2499,7 +2499,7 @@ GameObject:
   - component: {fileID: 7473697052212236126}
   - component: {fileID: 7473697052212236121}
   m_Layer: 5
-  m_Name: Player4 text
+  m_Name: Cyan player text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2552,7 +2552,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Player 4
+  m_text: 'Player: 4'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2900,7 +2900,7 @@ GameObject:
   - component: {fileID: 7473697052308475907}
   - component: {fileID: 7473697052308475904}
   m_Layer: 5
-  m_Name: Player1 text
+  m_Name: Orange player text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2953,7 +2953,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Player 1
+  m_text: 'Player: 1'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3206,7 +3206,7 @@ GameObject:
   - component: {fileID: 7473697052367319784}
   - component: {fileID: 7473697052367319785}
   m_Layer: 5
-  m_Name: Player3
+  m_Name: Purple Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3537,10 +3537,10 @@ MonoBehaviour:
   preeRoundDisplay: {fileID: 7473697052863528635}
   preRoundTime: {fileID: 7473697052806335925}
   round: {fileID: 7473697053544401159}
-  player1: {fileID: 7473697052308475904}
-  player2: {fileID: 7473697053651936532}
-  player3: {fileID: 7473697053225456776}
-  player4: {fileID: 7473697053046707601}
+  orangePlayer: {fileID: 7473697052308475904}
+  greenPlayer: {fileID: 7473697053651936532}
+  purplePlayer: {fileID: 7473697053225456776}
+  cyanPlayer: {fileID: 7473697053046707601}
   preyDisplay: {fileID: 7473697051817167252}
   preyImages:
   - {fileID: 7473697052474642695}
@@ -3550,18 +3550,18 @@ MonoBehaviour:
   preyNumber: {fileID: 7473697053413203267}
   preyCountdown: {fileID: 7473697053710344709}
   scoreDisplay: {fileID: 7473697052245035331}
-  player1ScoreHeader: {fileID: 7473697053687887387}
-  player1CurrentScore: {fileID: 7473697053085734340}
-  player1RoundScore: {fileID: 2941289444035112647}
-  player2ScoreHeader: {fileID: 7473697052006769259}
-  player2CurrentScore: {fileID: 7473697053194456730}
-  player2RoundScore: {fileID: 5000559325936828909}
-  player3ScoreHeader: {fileID: 7473697053346199910}
-  player3CurrentScore: {fileID: 7473697052608435737}
-  player3RoundScore: {fileID: 3414494325917550837}
-  player4ScoreHeader: {fileID: 7473697052212236121}
-  player4CurrentScore: {fileID: 7473697053202702526}
-  player4RoundScore: {fileID: 7696346635631525389}
+  orangeScorePlayer: {fileID: 7473697053687887387}
+  orangeCurrentScore: {fileID: 7473697053085734340}
+  orangeRoundScore: {fileID: 2941289444035112647}
+  greenScorePlayer: {fileID: 7473697052006769259}
+  greenCurrentScore: {fileID: 7473697053194456730}
+  greenRoundScore: {fileID: 5000559325936828909}
+  purpleScorePlayer: {fileID: 7473697053346199910}
+  purpleCurrentScore: {fileID: 7473697052608435737}
+  purpleRoundScore: {fileID: 3414494325917550837}
+  cyanScorePlayer: {fileID: 7473697052212236121}
+  cyanCurrentScore: {fileID: 7473697053202702526}
+  cyanRoundScore: {fileID: 7696346635631525389}
   nextRoundInText: {fileID: 7473697052353464057}
   roundScoreText: {fileID: 7473697053171988344}
   finalResultDisplay: {fileID: 7473697052330524822}
@@ -3576,25 +3576,25 @@ MonoBehaviour:
   - 2nd
   - 3rd
   - 4th
-  player1TotalScore: {fileID: 7473697053089621169}
-  player1ResultHeader: {fileID: 7473697052706528134}
-  player2TotalScore: {fileID: 7473697052501877903}
-  player2ResultHeader: {fileID: 7473697052062247707}
-  player3TotalScore: {fileID: 7473697052946278891}
-  player3ResultHeader: {fileID: 7473697052583108763}
-  player4TotalScore: {fileID: 7473697052710309595}
-  player4ResultHeader: {fileID: 7473697052873983099}
-  player1Placement: {fileID: 7473697053074909167}
-  player2Placement: {fileID: 7473697051828924939}
-  player3Placement: {fileID: 7473697051879690846}
-  player4Placement: {fileID: 7473697051724851092}
+  orangeTotalScore: {fileID: 7473697053089621169}
+  resultOrangeName: {fileID: 7473697052706528134}
+  greenTotalScore: {fileID: 7473697052501877903}
+  resultGreenName: {fileID: 7473697052062247707}
+  purpleTotalScore: {fileID: 7473697052946278891}
+  resultPurpleName: {fileID: 7473697052583108763}
+  cyanTotalScore: {fileID: 7473697052710309595}
+  resultCyanName: {fileID: 7473697052873983099}
+  orangePlacement: {fileID: 7473697053074909167}
+  greenPlacement: {fileID: 7473697051828924939}
+  purplePlacement: {fileID: 7473697051879690846}
+  cyanPlacement: {fileID: 7473697051724851092}
   killScreenDisplay: {fileID: 7473697051942670459}
   killedByText: {fileID: 7473697053600329836}
   killerImages:
-  - {fileID: 7473697051942607974}
-  - {fileID: 7473697051856669360}
-  - {fileID: 7473697051969977171}
-  - {fileID: 7473697053285570910}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   hunterImageTransforms:
   - {fileID: 7473697052863402865}
   - {fileID: 7473697053125838955}
@@ -3689,7 +3689,7 @@ GameObject:
   - component: {fileID: 7473697052474642688}
   - component: {fileID: 7473697052474642689}
   m_Layer: 5
-  m_Name: Duck
+  m_Name: Orange Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3764,7 +3764,7 @@ GameObject:
   - component: {fileID: 7473697052501877902}
   - component: {fileID: 7473697052501877903}
   m_Layer: 5
-  m_Name: Player2 final score
+  m_Name: Green final player score text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3937,7 +3937,7 @@ GameObject:
   - component: {fileID: 7473697052583108762}
   - component: {fileID: 7473697052583108763}
   m_Layer: 5
-  m_Name: Player3 final header
+  m_Name: Purple final player text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3990,7 +3990,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Player 3
+  m_text: 'Player: 3'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4071,7 +4071,7 @@ GameObject:
   - component: {fileID: 7473697052608435742}
   - component: {fileID: 7473697052608435737}
   m_Layer: 5
-  m_Name: Player3 score text
+  m_Name: Purple player score text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4205,7 +4205,7 @@ GameObject:
   - component: {fileID: 7473697052660421158}
   - component: {fileID: 7473697052660421159}
   m_Layer: 5
-  m_Name: Player1
+  m_Name: Orange Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4283,7 +4283,7 @@ GameObject:
   - component: {fileID: 7473697052706528129}
   - component: {fileID: 7473697052706528134}
   m_Layer: 5
-  m_Name: Player1 final header
+  m_Name: Orange final player text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4336,7 +4336,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Player 1
+  m_text: 'Player: 1'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4417,7 +4417,7 @@ GameObject:
   - component: {fileID: 7473697052710309594}
   - component: {fileID: 7473697052710309595}
   m_Layer: 5
-  m_Name: Player4 final score
+  m_Name: Cyan final player score text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4551,7 +4551,7 @@ GameObject:
   - component: {fileID: 7473697052726422661}
   - component: {fileID: 7473697052726422666}
   m_Layer: 5
-  m_Name: Player1
+  m_Name: Orange Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4665,7 +4665,7 @@ GameObject:
   - component: {fileID: 7473697052790129963}
   - component: {fileID: 7473697052790129960}
   m_Layer: 5
-  m_Name: Player1
+  m_Name: Orange Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4946,7 +4946,7 @@ GameObject:
   - component: {fileID: 7473697052873983098}
   - component: {fileID: 7473697052873983099}
   m_Layer: 5
-  m_Name: Player4 final header
+  m_Name: Cyan final player text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4999,7 +4999,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Player 4
+  m_text: 'Player: 4'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5080,7 +5080,7 @@ GameObject:
   - component: {fileID: 7473697052946278890}
   - component: {fileID: 7473697052946278891}
   m_Layer: 5
-  m_Name: Player3 final score
+  m_Name: Purple final player score text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5214,7 +5214,7 @@ GameObject:
   - component: {fileID: 7473697052971378174}
   - component: {fileID: 7473697052971378175}
   m_Layer: 5
-  m_Name: Bunny
+  m_Name: Purple Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5289,7 +5289,7 @@ GameObject:
   - component: {fileID: 7473697053046707600}
   - component: {fileID: 7473697053046707601}
   m_Layer: 5
-  m_Name: Player4 text
+  m_Name: Cyan player text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5342,7 +5342,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Player 4
+  m_text: 'Player: 4'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5557,7 +5557,7 @@ GameObject:
   - component: {fileID: 7473697053085734341}
   - component: {fileID: 7473697053085734340}
   m_Layer: 5
-  m_Name: Player1 score text
+  m_Name: Orange player score text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5691,7 +5691,7 @@ GameObject:
   - component: {fileID: 7473697053089621168}
   - component: {fileID: 7473697053089621169}
   m_Layer: 5
-  m_Name: Player1 final score
+  m_Name: Orange final player score text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6033,7 +6033,7 @@ GameObject:
   - component: {fileID: 7473697053194456731}
   - component: {fileID: 7473697053194456730}
   m_Layer: 5
-  m_Name: Player2 score text
+  m_Name: Green player score text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6206,7 +6206,7 @@ GameObject:
   - component: {fileID: 7473697053202702527}
   - component: {fileID: 7473697053202702526}
   m_Layer: 5
-  m_Name: Player4 score text
+  m_Name: Cyan player score text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6340,7 +6340,7 @@ GameObject:
   - component: {fileID: 7473697053225456779}
   - component: {fileID: 7473697053225456776}
   m_Layer: 5
-  m_Name: Player3 text
+  m_Name: Purple player text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6393,7 +6393,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Player 3
+  m_text: 'Player: 3'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6474,7 +6474,7 @@ GameObject:
   - component: {fileID: 7473697053245090378}
   - component: {fileID: 7473697053245090379}
   m_Layer: 5
-  m_Name: Player4
+  m_Name: Cyan Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6628,7 +6628,7 @@ GameObject:
   - component: {fileID: 7473697053285570907}
   - component: {fileID: 7473697053285570904}
   m_Layer: 5
-  m_Name: Sheep
+  m_Name: Cyan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6723,10 +6723,10 @@ RectTransform:
   m_Father: {fileID: 7473697052432825028}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -57.3}
-  m_SizeDelta: {x: 305.50317, y: 109.38495}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 434}
+  m_SizeDelta: {x: 305.50317, y: 109.384964}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7473697053304125875
 CanvasRenderer:
@@ -6765,8 +6765,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294442975
-  m_fontColor: {r: 0.8726415, g: 1, b: 0.9672507, a: 1}
+    rgba: 4290180352
+  m_fontColor: {r: 0, g: 0.9622642, b: 0.71344215, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6783,14 +6783,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 150
+  m_fontSizeBase: 150
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -6837,7 +6837,7 @@ GameObject:
   - component: {fileID: 7473697053315277535}
   - component: {fileID: 7473697053315277532}
   m_Layer: 5
-  m_Name: Sheep
+  m_Name: Cyan Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6912,7 +6912,7 @@ GameObject:
   - component: {fileID: 7473697053346199911}
   - component: {fileID: 7473697053346199910}
   m_Layer: 5
-  m_Name: Player3 text
+  m_Name: Purple player text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6965,7 +6965,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Player 3
+  m_text: 'Player: 3'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7046,7 +7046,7 @@ GameObject:
   - component: {fileID: 7473697053348089366}
   - component: {fileID: 7473697053348089367}
   m_Layer: 5
-  m_Name: Player2
+  m_Name: Green Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7258,7 +7258,7 @@ GameObject:
   - component: {fileID: 7473697053452793619}
   - component: {fileID: 7473697053452793616}
   m_Layer: 5
-  m_Name: Player3
+  m_Name: Purple Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7774,7 +7774,7 @@ GameObject:
   - component: {fileID: 7473697053651936535}
   - component: {fileID: 7473697053651936532}
   m_Layer: 5
-  m_Name: Player2 text
+  m_Name: Green player text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7827,7 +7827,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Player 2
+  m_text: 'Player: 2'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7908,7 +7908,7 @@ GameObject:
   - component: {fileID: 7473697053676126003}
   - component: {fileID: 7473697053676126000}
   m_Layer: 5
-  m_Name: Player4
+  m_Name: Cyan Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7986,7 +7986,7 @@ GameObject:
   - component: {fileID: 7473697053687887384}
   - component: {fileID: 7473697053687887387}
   m_Layer: 5
-  m_Name: Player1 text
+  m_Name: Orange player text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8039,7 +8039,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Player 1
+  m_text: 'Player: 1'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8120,7 +8120,7 @@ GameObject:
   - component: {fileID: 7473697053697989846}
   - component: {fileID: 7473697053697989847}
   m_Layer: 5
-  m_Name: Player4
+  m_Name: Cyan Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8329,7 +8329,7 @@ GameObject:
   - component: {fileID: 1498282832903432490}
   - component: {fileID: 7696346635631525389}
   m_Layer: 5
-  m_Name: Player4 round score text
+  m_Name: Cyan round score text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

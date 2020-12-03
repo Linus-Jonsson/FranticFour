@@ -31,16 +31,16 @@ public class GamePlayUIController : GamePlayUIDisplay
         switch (player.name)
         {
             case "Duck":
-                player1.text = "Player: " + player.PlayerNumber.ToString();
+                orangePlayer.text = "Player: " + player.PlayerNumber.ToString();
                 break;
             case "Pig":
-                player2.text = "Player: " + player.PlayerNumber.ToString();
+                greenPlayer.text = "Player: " + player.PlayerNumber.ToString();
                 break;
             case "Bunny":
-                player3.text = "Player: " + player.PlayerNumber.ToString();
+                purplePlayer.text = "Player: " + player.PlayerNumber.ToString();
                 break;
             case "Sheep":
-                player4.text = "Player: " + player.PlayerNumber.ToString();
+                cyanPlayer.text = "Player: " + player.PlayerNumber.ToString();
                 break;
         }
     }
@@ -123,16 +123,16 @@ public class GamePlayUIController : GamePlayUIDisplay
             switch (player.gameObject.name)
             {
                 case "Duck":
-                    SetRoundScoreTexts(player, player1ScoreHeader, player1CurrentScore,player1RoundScore);
+                    SetRoundScoreTexts(player, orangeScorePlayer, orangeCurrentScore,orangeRoundScore);
                     break;
                 case "Pig":
-                    SetRoundScoreTexts(player, player2ScoreHeader, player2CurrentScore,player2RoundScore);
+                    SetRoundScoreTexts(player, greenScorePlayer, greenCurrentScore,greenRoundScore);
                     break;
                 case "Bunny":
-                    SetRoundScoreTexts(player, player3ScoreHeader, player3CurrentScore, player3RoundScore);
+                    SetRoundScoreTexts(player, purpleScorePlayer, purpleCurrentScore, purpleRoundScore);
                     break;
                 case "Sheep":
-                    SetRoundScoreTexts(player, player4ScoreHeader, player4CurrentScore, player4RoundScore);
+                    SetRoundScoreTexts(player, cyanScorePlayer, cyanCurrentScore, cyanRoundScore);
                     break;
             }
         }
@@ -185,16 +185,16 @@ public class GamePlayUIController : GamePlayUIDisplay
             switch (player.gameObject.name)
             {
                 case "Duck":
-                    SetPlayerResults(player, player1Placement, player1ResultHeader, player1TotalScore);
+                    SetPlayerResults(player, orangePlacement, resultOrangeName, orangeTotalScore);
                     break;
                 case "Pig":
-                    SetPlayerResults(player, player2Placement, player2ResultHeader, player2TotalScore);
+                    SetPlayerResults(player, greenPlacement, resultGreenName, greenTotalScore);
                     break;
                 case "Bunny":
-                    SetPlayerResults(player, player3Placement, player3ResultHeader, player3TotalScore);
+                    SetPlayerResults(player, purplePlacement, resultPurpleName, purpleTotalScore);
                     break;
                 case "Sheep":
-                    SetPlayerResults(player, player4Placement, player4ResultHeader, player4TotalScore);
+                    SetPlayerResults(player, cyanPlacement, resultCyanName, cyanTotalScore);
                     break;
             }
     }
