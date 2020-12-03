@@ -229,8 +229,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  fullBarColor: {r: 0, g: 1, b: 0.03137255, a: 1}
-  emptyBarColor: {r: 0, g: 0.62352943, b: 1, a: 0}
+  fullBarColor: {r: 0.14999998, g: 1, b: 0.17666665, a: 1}
+  emptyBarColor: {r: 0.14999998, g: 0.68, b: 1, a: 1}
+  fullBarColorPray: {r: 1, g: 0.15666664, b: 0.14999998, a: 1}
+  emptyBarColorPray: {r: 1, g: 0.14999998, b: 0.7000001, a: 1}
+  backgroundBar: {fileID: 5768939794861369399}
+  actualEmptyBarColor: {r: 0, g: 0, b: 0, a: 0}
+  isPray: 0
   barActive: 0
   emptyBarPos: {x: 0, y: 0, z: 0}
   fullBarPos: {x: 0, y: 0, z: 0}
