@@ -154,9 +154,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35b09a2b66307904688808ad7995ad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Game
+  sceneToLoad: GardenTest
   playerOwnedBy: 00000000000000000000000000000000
-  playersSelected: 00000000
+  playersSelected: 01000101
   canSelect: 00000000
   players:
   - {fileID: 1903818702}
