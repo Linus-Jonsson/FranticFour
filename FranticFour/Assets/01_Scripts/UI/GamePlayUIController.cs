@@ -30,17 +30,17 @@ public class GamePlayUIController : GamePlayUIDisplay
     {
         switch (player.name)
         {
-            case "Orange":
-                orangePlayer.text = "Player: " + player.PlayerNumber.ToString();
+            case "Duck":
+                player1.text = "Player: " + player.PlayerNumber.ToString();
                 break;
-            case "Green":
-                greenPlayer.text = "Player: " + player.PlayerNumber.ToString();
+            case "Pig":
+                player2.text = "Player: " + player.PlayerNumber.ToString();
                 break;
-            case "Purple":
-                purplePlayer.text = "Player: " + player.PlayerNumber.ToString();
+            case "Bunny":
+                player3.text = "Player: " + player.PlayerNumber.ToString();
                 break;
-            case "Cyan":
-                cyanPlayer.text = "Player: " + player.PlayerNumber.ToString();
+            case "Sheep":
+                player4.text = "Player: " + player.PlayerNumber.ToString();
                 break;
         }
     }
@@ -69,16 +69,16 @@ public class GamePlayUIController : GamePlayUIDisplay
     {
         switch (prey.name)
         {
-            case "Orange":
+            case "Duck":
                 preyImages[0].SetActive(true);
                 break;
-            case "Green":
+            case "Pig":
                 preyImages[1].SetActive(true);
                 break;
-            case "Purple":
+            case "Bunny":
                 preyImages[2].SetActive(true);
                 break;
-            case "Cyan":
+            case "Sheep":
                 preyImages[3].SetActive(true);
                 break;
         }
@@ -122,25 +122,27 @@ public class GamePlayUIController : GamePlayUIDisplay
         {
             switch (player.gameObject.name)
             {
-                case "Orange":
-                    SetRoundScoreTexts(player, orangeScorePlayer, orangeCurrentScore);
+                case "Duck":
+                    SetRoundScoreTexts(player, player1ScoreHeader, player1CurrentScore,player1RoundScore);
                     break;
-                case "Green":
-                    SetRoundScoreTexts(player, greenScorePlayer, greenCurrentScore);
+                case "Pig":
+                    SetRoundScoreTexts(player, player2ScoreHeader, player2CurrentScore,player2RoundScore);
                     break;
-                case "Purple":
-                    SetRoundScoreTexts(player, purpleScorePlayer, purpleCurrentScore);
+                case "Bunny":
+                    SetRoundScoreTexts(player, player3ScoreHeader, player3CurrentScore, player3RoundScore);
                     break;
-                case "Cyan":
-                    SetRoundScoreTexts(player, cyanScorePlayer, cyanCurrentScore);
+                case "Sheep":
+                    SetRoundScoreTexts(player, player4ScoreHeader, player4CurrentScore, player4RoundScore);
                     break;
             }
         }
     }
-    private void SetRoundScoreTexts(Player player, TextMeshProUGUI nameText, TextMeshProUGUI scoreText)
+    private void SetRoundScoreTexts(Player player, TextMeshProUGUI nameText, TextMeshProUGUI totalScoreText, TextMeshProUGUI roundScoreText)
     {
         nameText.text = "Player: " + player.PlayerNumber.ToString();
-        scoreText.text = "Score: " + player.Score;
+        totalScoreText.text = player.TotalScore.ToString();
+        roundScoreText.text = player.RoundScore.ToString();
+        player.RoundScore = 0;
     }
 
     public void DisplayFinalResults(Player[] players)
@@ -156,11 +158,11 @@ public class GamePlayUIController : GamePlayUIDisplay
         List<int> scoreList = SortPlayerStanding(players);
         foreach (var player in players)
         {
-            if (player.Score == scoreList[0])
+            if (player.TotalScore == scoreList[0])
                 player.Placement = 0;
-            else if (player.Score == scoreList[1])
+            else if (player.TotalScore == scoreList[1])
                 player.Placement = 1;
-            else if (player.Score == scoreList[2])
+            else if (player.TotalScore == scoreList[2])
                 player.Placement = 2;
             else
                 player.Placement = 3;
@@ -170,8 +172,8 @@ public class GamePlayUIController : GamePlayUIDisplay
     {
         List<int> playerlist = new List<int>();
         foreach (var player in players)
-            if (!playerlist.Contains(player.Score))
-                playerlist.Add(player.Score);
+            if (!playerlist.Contains(player.TotalScore))
+                playerlist.Add(player.TotalScore);
         playerlist.Sort();
         playerlist.Reverse();
         return playerlist;
@@ -182,23 +184,23 @@ public class GamePlayUIController : GamePlayUIDisplay
         foreach (var player in players)
             switch (player.gameObject.name)
             {
-                case "Orange":
-                    SetPlayerResults(player, orangePlacement, resultOrangeName, orangeTotalScore);
+                case "Duck":
+                    SetPlayerResults(player, player1Placement, player1ResultHeader, player1TotalScore);
                     break;
-                case "Green":
-                    SetPlayerResults(player, greenPlacement, resultGreenName, greenTotalScore);
+                case "Pig":
+                    SetPlayerResults(player, player2Placement, player2ResultHeader, player2TotalScore);
                     break;
-                case "Purple":
-                    SetPlayerResults(player, purplePlacement, resultPurpleName, purpleTotalScore);
+                case "Bunny":
+                    SetPlayerResults(player, player3Placement, player3ResultHeader, player3TotalScore);
                     break;
-                case "Cyan":
-                    SetPlayerResults(player, cyanPlacement, resultCyanName, cyanTotalScore);
+                case "Sheep":
+                    SetPlayerResults(player, player4Placement, player4ResultHeader, player4TotalScore);
                     break;
             }
     }
     private void SetPlayerResults(Player player, TextMeshProUGUI placement, TextMeshProUGUI name, TextMeshProUGUI score )
     {
-        score.text = "Score: " + player.Score;
+        score.text = player.TotalScore.ToString(); ;
         name.text = "Player: " + player.PlayerNumber;
         placement.fontSize = placementTextSizes[player.Placement];
         placement.color = placementColors[player.Placement];
@@ -261,16 +263,16 @@ public class GamePlayUIController : GamePlayUIDisplay
         killedByText.text = "The prey got hunted by Player " + killer.PlayerNumber;
         switch (killer.gameObject.name)
         {
-            case "Orange":
+            case "Duck":
                 killerImages[0].SetActive(true);
                 break;
-            case "Green":
+            case "Pig":
                 killerImages[1].SetActive(true);
                 break;
-            case "Purple":
+            case "Bunny":
                 killerImages[2].SetActive(true);
                 break;
-            case "Cyan":
+            case "Sheep":
                 killerImages[3].SetActive(true);
                 break;
         }

@@ -72,8 +72,6 @@ public class SelectionController : MonoBehaviour
         myPlayer.SelectedHighlight.SetActive(true);
         myPlayer.SelectedHighlightLerp.StartLerp();
         myPlayer.CharacterSelectionGameObject.SetActive(true);
-        
-        playerHandler.SelectPlayer(CONTROLLER_ID);
     }
 
     private void ControllerSelectPlayer()
@@ -87,6 +85,7 @@ public class SelectionController : MonoBehaviour
         myPlayer.CharacterMaskCloseSelect.OnSelected();
         playerHandler.playersSelected[CONTROLLER_ID] = true;
         PassControllersToGame.playerOwnedBy[myPlayer.SelectedCharacterSelection.SelectedCharacterIndex] = CONTROLLER_ID;
+        playerHandler.SelectPlayer(CONTROLLER_ID);
     }
     
     private void MapController()

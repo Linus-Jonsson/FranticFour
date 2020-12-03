@@ -12,10 +12,10 @@ public class GamePlayUIDisplay : MonoBehaviour
     [SerializeField] protected TextMeshProUGUI preRoundTime = null; // remove later?
     [SerializeField] protected TextMeshProUGUI round = null;
 
-    [SerializeField] protected TextMeshProUGUI orangePlayer = null;
-    [SerializeField] protected TextMeshProUGUI greenPlayer = null;
-    [SerializeField] protected TextMeshProUGUI purplePlayer = null;
-    [SerializeField] protected TextMeshProUGUI cyanPlayer = null;
+    [SerializeField] protected TextMeshProUGUI player1 = null;
+    [SerializeField] protected TextMeshProUGUI player2 = null;
+    [SerializeField] protected TextMeshProUGUI player3 = null;
+    [SerializeField] protected TextMeshProUGUI player4 = null;
 
     [Header("Prey Display Configuration")]
     [SerializeField] protected GameObject preyDisplay = null;
@@ -26,21 +26,21 @@ public class GamePlayUIDisplay : MonoBehaviour
     [Header("Score Display Configuration")]
     [SerializeField] protected GameObject scoreDisplay = null;
 
-    [SerializeField] protected TextMeshProUGUI orangeScorePlayer = null;
-    [SerializeField] protected TextMeshProUGUI orangeCurrentScore = null;
-    [SerializeField] protected TextMeshProUGUI orangePlayerRoundScore = null;
+    [SerializeField] protected TextMeshProUGUI player1ScoreHeader = null;
+    [SerializeField] protected TextMeshProUGUI player1CurrentScore = null;
+    [SerializeField] protected TextMeshProUGUI player1RoundScore = null;
 
-    [SerializeField] protected TextMeshProUGUI greenScorePlayer= null;
-    [SerializeField] protected TextMeshProUGUI greenCurrentScore = null;
-    [SerializeField] protected TextMeshProUGUI greenPlayerRoundScore = null;
+    [SerializeField] protected TextMeshProUGUI player2ScoreHeader= null;
+    [SerializeField] protected TextMeshProUGUI player2CurrentScore = null;
+    [SerializeField] protected TextMeshProUGUI player2RoundScore = null;
 
-    [SerializeField] protected TextMeshProUGUI purpleScorePlayer = null;
-    [SerializeField] protected TextMeshProUGUI purpleCurrentScore = null;
-    [SerializeField] protected TextMeshProUGUI purplePlayerRoundScore = null;
+    [SerializeField] protected TextMeshProUGUI player3ScoreHeader = null;
+    [SerializeField] protected TextMeshProUGUI player3CurrentScore = null;
+    [SerializeField] protected TextMeshProUGUI player3RoundScore = null;
 
-    [SerializeField] protected TextMeshProUGUI cyanScorePlayer = null;
-    [SerializeField] protected TextMeshProUGUI cyanCurrentScore = null;
-    [SerializeField] protected TextMeshProUGUI cyanPlayerRoundScore = null;
+    [SerializeField] protected TextMeshProUGUI player4ScoreHeader = null;
+    [SerializeField] protected TextMeshProUGUI player4CurrentScore = null;
+    [SerializeField] protected TextMeshProUGUI player4RoundScore = null;
 
     [SerializeField] protected TextMeshProUGUI nextRoundInText = null; // remove later?
     [SerializeField] protected TextMeshProUGUI roundScoreText = null;
@@ -51,19 +51,19 @@ public class GamePlayUIDisplay : MonoBehaviour
     [SerializeField] protected Color[] placementColors = new Color[4];
     [SerializeField] protected string[] placements = new string[4];
 
-    [SerializeField] protected TextMeshProUGUI orangeTotalScore = null;
-    [SerializeField] protected TextMeshProUGUI resultOrangeName = null;
-    [SerializeField] protected TextMeshProUGUI greenTotalScore = null;
-    [SerializeField] protected TextMeshProUGUI resultGreenName = null;
-    [SerializeField] protected TextMeshProUGUI purpleTotalScore = null;
-    [SerializeField] protected TextMeshProUGUI resultPurpleName = null;
-    [SerializeField] protected TextMeshProUGUI cyanTotalScore = null;
-    [SerializeField] protected TextMeshProUGUI resultCyanName = null;
+    [SerializeField] protected TextMeshProUGUI player1TotalScore = null;
+    [SerializeField] protected TextMeshProUGUI player1ResultHeader = null;
+    [SerializeField] protected TextMeshProUGUI player2TotalScore = null;
+    [SerializeField] protected TextMeshProUGUI player2ResultHeader = null;
+    [SerializeField] protected TextMeshProUGUI player3TotalScore = null;
+    [SerializeField] protected TextMeshProUGUI player3ResultHeader = null;
+    [SerializeField] protected TextMeshProUGUI player4TotalScore = null;
+    [SerializeField] protected TextMeshProUGUI player4ResultHeader = null;
 
-    [SerializeField] protected TextMeshProUGUI orangePlacement = null;
-    [SerializeField] protected TextMeshProUGUI greenPlacement = null;
-    [SerializeField] protected TextMeshProUGUI purplePlacement = null;
-    [SerializeField] protected TextMeshProUGUI cyanPlacement = null;
+    [SerializeField] protected TextMeshProUGUI player1Placement = null;
+    [SerializeField] protected TextMeshProUGUI player2Placement = null;
+    [SerializeField] protected TextMeshProUGUI player3Placement = null;
+    [SerializeField] protected TextMeshProUGUI player4Placement = null;
 
 
     [Header("Prey kill screen configuration")]

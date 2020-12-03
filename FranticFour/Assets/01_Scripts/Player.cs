@@ -1,14 +1,18 @@
 ﻿using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
     // [SerializeField] string playerName = ""; // not currently in use
     // public string PlayerName { get { return playerName; } } 
 
-    int score = 0;
-    public int Score { get { return score; } set { score = value; } }
+    int totalScore = 0;
+    public int TotalScore { get { return totalScore; } set { totalScore = value; } }
+
+    int roundScore = 0;
+    public int RoundScore { get { return roundScore; } set { roundScore = value; } }
 
     int playerNumber = 0;
     public int PlayerNumber { get { return playerNumber; } }
@@ -16,8 +20,8 @@ public class Player : MonoBehaviour
     int placement = 0;
     public int Placement { get{ return placement; } set{ placement = value; } }
 
-    bool prey = false;
-    public bool Prey { get { return prey; } set { prey = value; } }
+    bool isPrey = false;
+    public bool Prey { get { return isPrey; } set { isPrey = value; BecamePray.Invoke();} }
 
     int numberOfDeaths = 0;
     public int NumberOfDeaths { get { return numberOfDeaths; } set { numberOfDeaths = value; } }
@@ -30,14 +34,32 @@ public class Player : MonoBehaviour
 
     Player pushedBy = null;
     public Player PushedBy { get { return pushedBy; } set { pushedBy = value; } }
+    
+    public UnityEvent BecamePray = new UnityEvent();
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.layer == 13)
+            print("Triggered a hole and is now falling to death");
+    }
 
     private void Awake()
     {
-        playerNumber = GetComponent<AssignedController>().PlayerID + 1;
+        playerNumber = GetComponent<AssignedController>().PlayerID + 1;        
+    }
+
+    public void UnFreeze()
+    {
+        freezeInput = false;
     }
 
     public void IncreaseScore(int scoreChange)
     {
-        score += scoreChange;
+        roundScore += scoreChange;
+    }
+
+    public void SumScore()
+    {
+        totalScore += roundScore;
     }
 }

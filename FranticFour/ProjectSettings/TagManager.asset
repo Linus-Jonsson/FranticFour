@@ -19,9 +19,9 @@ TagManager:
   - Danger
   - Trap
   - NonPlayerCollision
-  - 
-  - 
-  - 
+  - Holes
+  - Bounce
+  - OnlyPlayerCollision
   - 
   - 
   - 

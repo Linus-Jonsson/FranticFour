@@ -44,9 +44,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.05, y: 0.18}
   serializedVersion: 2
-  m_Radius: 0.45
+  m_Radius: 0.4
 --- !u!1 &7986219203063273604
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,6 +60,7 @@ GameObject:
   - component: {fileID: 7986219203063273627}
   - component: {fileID: 2378431006662313727}
   - component: {fileID: 3995311620739301643}
+  - component: {fileID: 495634269179553169}
   m_Layer: 11
   m_Name: PreyTrap
   m_TagString: Untagged
@@ -94,7 +95,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1253d12812340eb48b498a95553ce45b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stunDuration: 1.5
 --- !u!212 &7986219203063273627
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -134,8 +134,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 2e0935ebabbccf84999d2a67929ae2f4, type: 3}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 786c23efa835fd64da2858e37fb7b5b3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -165,7 +165,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: 4305848d6eaf06e4db9e65677e11881b, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &3995311620739301643
 BoxCollider2D:
@@ -180,16 +180,35 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.023642115, y: -0.023643702}
+  m_Offset: {x: 0.049765468, y: 0.17341925}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.2727273, y: 1.2727273}
+    oldSize: {x: 1.8285714, y: 1.3714286}
     newSize: {x: 2.8, y: 2.8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.42965966, y: 0.4293657}
+  m_Size: {x: 0.67407286, y: 0.0951494}
   m_EdgeRadius: 0
+--- !u!95 &495634269179553169
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7986219203063273604}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 40d997103165e814e8db7c6a188d0305, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

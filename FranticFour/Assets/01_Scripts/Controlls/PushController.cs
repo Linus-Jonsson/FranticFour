@@ -1,9 +1,25 @@
 ﻿using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class PushController : MonoBehaviour
 {
     List<Transform> targets = new List<Transform>();
+    Player player;
+    Rigidbody2D rb2d;
+    Animator animator;
+
+    private void Awake()
+    {
+        GetReferences();
+    }
+
+    private void GetReferences()
+    {
+        player = GetComponentInParent<Player>();
+        rb2d = GetComponentInParent<Rigidbody2D>();
+        animator = GetComponentInParent<Animator>();
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -19,11 +35,11 @@ public class PushController : MonoBehaviour
 
     public void PushTarget(Vector2 pushForce)
     {
-        PlayerFuckedController closestTarget = GetClosestTarget();
+        PushController closestTarget = GetClosestTarget();
         closestTarget.GetPushed(pushForce,GetComponentInParent<Player>());
     }
 
-    private PlayerFuckedController GetClosestTarget()
+    private PushController GetClosestTarget()
     {
         Transform closestTarget = targets[0];
         Transform player = gameObject.transform;
@@ -39,11 +55,32 @@ public class PushController : MonoBehaviour
             }
         }
 
-        return closestTarget.GetComponent<PlayerFuckedController>();
+        return closestTarget.GetComponentInChildren<PushController>();
     }
 
     public bool InPushRange()
     {
         return targets.Count > 0;
+    }
+
+    public void GetPushed(Vector2 pushForce, Player pusher)
+    {
+        if (!player.FreezeInput)
+            HandlePush(pushForce, pusher);
+    }
+
+    private void HandlePush(Vector2 pushForce, Player pusher)
+    {
+        player.FreezeInput = true;
+        animator.SetTrigger("Pushed");
+        player.PushedBy = pusher;
+        rb2d.velocity = Vector2.zero;
+        rb2d.AddForce(pushForce, ForceMode2D.Impulse);
+    }
+
+    public void EndPush()
+    {
+        player.FreezeInput = false;
+        player.PushedBy = null;
     }
 }

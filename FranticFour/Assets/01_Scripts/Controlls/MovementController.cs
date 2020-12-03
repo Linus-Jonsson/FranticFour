@@ -34,14 +34,15 @@ public class MovementController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (player.FreezeInput)
-            return;
-        MovePlayer();
+        if (!player.FreezeInput)
+            MovePlayer();
     }
 
     private void MovePlayer()
     {
         Vector2 movement = GetMovement();
+        if (movement.sqrMagnitude > 1)
+            movement = movement.normalized;
         playerAnimationsController.SetMovement(movement);
         rb2d.AddForce(movement * movementSpeed);
     }
@@ -49,7 +50,7 @@ public class MovementController : MonoBehaviour
     {
         float xMovement = Input.GetAxis(controller.Horizontal);
         float yMovement = Input.GetAxis(controller.Vertical);
-        return new Vector2(xMovement, yMovement).normalized;
+        return new Vector2(xMovement, yMovement);
     }
 
     public void ResetMovement()

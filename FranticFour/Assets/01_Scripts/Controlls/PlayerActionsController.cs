@@ -21,6 +21,9 @@ public class PlayerActionsController : MonoBehaviour
     [SerializeField] float rawOffset = 1f;
     [SerializeField] float trapPushForce = 2f;
     [SerializeField] float trapsCoolDown = 4f;
+
+    public float TrapsCoolDown => trapsCoolDown;
+
     [SerializeField] int maximumTraps = 5;
 
     [Header("Hunter Configuration")]
@@ -29,6 +32,7 @@ public class PlayerActionsController : MonoBehaviour
 
     public float PushCooldown => pushCooldown;
     public UnityEvent OnPush = new UnityEvent();
+    public UnityEvent OnTrapYeet = new UnityEvent();
 
     float originalDrag;
 
@@ -39,6 +43,9 @@ public class PlayerActionsController : MonoBehaviour
     PushController pushController;
     RotationController rotationController;
     Player player;
+
+    public Player Player => player;
+
     Animator animator;    
     AssignedController controller;
     Rigidbody2D rb2d;
@@ -100,6 +107,7 @@ public class PlayerActionsController : MonoBehaviour
     }
     private void ThrowTrap()
     {
+        OnTrapYeet.Invoke();
         Vector2 direction = rotationController.Dir.normalized;
         Vector3 offset = direction * rawOffset;
         PreyTrap newTrap = Instantiate(preyTrap, transform.position + offset, Quaternion.identity);
@@ -142,15 +150,14 @@ public class PlayerActionsController : MonoBehaviour
         rb2d.freezeRotation = value;
         player.FreezeInput = value;
         if (value)
-        {
-            gameObject.layer = jumpLayer;
-            rb2d.drag = jumpingDrag;
-        }
-        else
-        {
-            gameObject.layer = playerLayer;
-            rb2d.drag = originalDrag;
-        }
+            SetLayerAndDrag(jumpLayer,jumpingDrag);
+        else          
+            SetLayerAndDrag(playerLayer, originalDrag);
+    }
+    private void SetLayerAndDrag(int layer, float drag)
+    {
+        gameObject.layer = layer;
+        rb2d.drag = drag;
     }
 
     //AnimationEvents:
