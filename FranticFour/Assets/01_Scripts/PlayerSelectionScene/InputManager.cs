@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
 
 public class InputManager : MonoBehaviour
 {

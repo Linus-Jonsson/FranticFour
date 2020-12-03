@@ -2,12 +2,12 @@
 
 public class HighlightLerp : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer spriteRenderer;
-    [SerializeField] private Color originalColor;
+    [SerializeField] private SpriteRenderer spriteRenderer = null;
+    [SerializeField] private Color originalColor = new Color(0, 0, 0);
     [SerializeField] private float maxAlphaSelected = 0.7f;
-    [SerializeField] private float lerpSpeed;
-    [SerializeField] public bool isLerping;
-    [SerializeField] public bool hasSelected;
+    [SerializeField] private float lerpSpeed = 0f;
+    [SerializeField] public bool isLerping = false;
+    [SerializeField] public bool hasSelected = false;
 
     private void Awake()
     {
@@ -42,7 +42,7 @@ public class HighlightLerp : MonoBehaviour
         Color.RGBToHSV(spriteRenderer.color, out float _h, out float _s, out float _v);
         _s += Time.fixedTime * 0.01f;
         Color m_temp = Color.HSVToRGB(_h, _s, _v);
-        
+
         m_temp = new Color(
             originalColor.r,
             originalColor.g,
@@ -55,10 +55,10 @@ public class HighlightLerp : MonoBehaviour
     private void LerpAlpha()
     {
         //While selecting
-        spriteRenderer.color = new Color (
+        spriteRenderer.color = new Color(
             originalColor.r,
             originalColor.g,
-            originalColor.b, 
+            originalColor.b,
             Mathf.PingPong(Time.fixedTime * lerpSpeed, maxAlphaSelected));
     }
 }

@@ -12,14 +12,14 @@ public class SelectionController : MonoBehaviour
     [SerializeField] private string action1;
     [SerializeField] private InputManager playerHandler;
     
-    private int selected;
+    private int selected = 0;
     private readonly float inputZone = 0.04f;
-    private string rightHorizontal;
-    private string rightVertical;
-    private bool inputBool;
-    private bool isAssigned;
-    private bool isSelecting;
-    private bool playerSelected;
+    private string rightHorizontal = null;
+    private string rightVertical = null;
+    private bool inputBool = false;
+    private bool isAssigned = false;
+    private bool isSelecting = false;
+    private bool playerSelected = false;
 
     private void Start()
     {
@@ -147,50 +147,7 @@ public class SelectionController : MonoBehaviour
         rightVertical = StringManager.Inputs.VerticalKeyboard;
         action1 = StringManager.Inputs.Action1Keyboard;
     }
-
-    private void AssignPlayerController()
-    {
-        if (playerHandler.playersSelected[selected])
-            return;
-        
-        playerHandler.playersSelected[selected] = true;
-        controllerAssignedToPlayer = true;
-        isAssigned = true;
-        playerHandler.canSelect[CONTROLLER_ID] = false;
-
-        if (CONTROLLER_ID < 3)
-            playerHandler.canSelect[CONTROLLER_ID + 1] = true;
-        
-        PassControllersToGame.playerOwnedBy[selected] = CONTROLLER_ID;
-
-        //playerHandler.SetTextAssigned(selected, CONTROLLER_ID);
-        playerHandler.CheckPlayers();
-            
-        Debug.Log("Player "+ selected +" assigned" + Input.GetAxis(action1));
-    }
     
-    private void AssignPlayerKeyboard()
-    {
-        if (playerHandler.playersSelected[selected] || PassControllersToGame.isKeyboardUsed)
-            return;
-        
-        playerHandler.playersSelected[selected] = true;
-        controllerAssignedToPlayer = true;
-        isAssigned = true;
-        playerHandler.canSelect[CONTROLLER_ID] = false;
-
-        if (CONTROLLER_ID < 3)
-            playerHandler.canSelect[CONTROLLER_ID + 1] = true;
-        
-        PassControllersToGame.isKeyboardUsed = true;
-        PassControllersToGame.keyBoardOwnedBy = CONTROLLER_ID;
-        PassControllersToGame.playerOwnedBy[selected] = CONTROLLER_ID;
-            
-        //playerHandler.SetTextAssigned(selected, CONTROLLER_ID);
-        playerHandler.CheckPlayers();
-            
-        Debug.Log("Player "+ selected +" assigned" + Input.GetButton(action1));
-    }
     private void CheckSelection(float _inputX)
     {
         if (_inputX > inputZone || _inputX < -inputZone)

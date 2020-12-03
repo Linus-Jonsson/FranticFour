@@ -5,18 +5,18 @@ public class MyPlayer : MonoBehaviour
 {
     [Header("Visual stuff for player")]
     [Range(1,4)]
-    [SerializeField] private int playerID;
-    [SerializeField] private GameObject pressToJoinGameObject;
-    [SerializeField] private TextMeshPro pressToJoinTmPro;
-    [SerializeField] private GameObject pressToJoinIcon;
-    [SerializeField] private SpriteRenderer pressToJoinSpriteRenderer;
-    [SerializeField] private GameObject selectedHighlight;
-    [SerializeField] private Color selectedColor;
+    [SerializeField] private int playerID = 0;
+    [SerializeField] private GameObject pressToJoinGameObject = null;
+    [SerializeField] private TextMeshPro pressToJoinTmPro = null;
+    [SerializeField] private GameObject pressToJoinIcon = null;
+    [SerializeField] private SpriteRenderer pressToJoinSpriteRenderer = null;
+    [SerializeField] private GameObject selectedHighlight = null;
+    [SerializeField] private Color selectedColor = new Color(0,0,0);
     [SerializeField] private int selectedColorAlpha = 70;
-    [SerializeField] private HighlightLerp selectedHighlightLerp;
-    [SerializeField] private CharacterSelection selectedCharacterSelection;
-    [SerializeField] private GameObject characterSelectionGameObject;
-    [SerializeField] private CharacterMaskClose characterMaskCloseSelect;
+    [SerializeField] private HighlightLerp selectedHighlightLerp = null;
+    [SerializeField] private CharacterSelection selectedCharacterSelection = null;
+    [SerializeField] private GameObject characterSelectionGameObject = null;
+    [SerializeField] private CharacterMaskClose characterMaskCloseSelect = null;
 
     public int PlayerID => playerID;
     public GameObject PressToJoinGameObject => pressToJoinGameObject;
