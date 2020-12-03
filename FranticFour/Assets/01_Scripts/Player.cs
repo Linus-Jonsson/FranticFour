@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
@@ -19,8 +20,8 @@ public class Player : MonoBehaviour
     int placement = 0;
     public int Placement { get{ return placement; } set{ placement = value; } }
 
-    bool prey = false;
-    public bool Prey { get { return prey; } set { prey = value; } }
+    bool isPrey = false;
+    public bool Prey { get { return isPrey; } set { isPrey = value; BecamePray.Invoke();} }
 
     int numberOfDeaths = 0;
     public int NumberOfDeaths { get { return numberOfDeaths; } set { numberOfDeaths = value; } }
@@ -33,6 +34,8 @@ public class Player : MonoBehaviour
 
     Player pushedBy = null;
     public Player PushedBy { get { return pushedBy; } set { pushedBy = value; } }
+    
+    public UnityEvent BecamePray = new UnityEvent();
 
     private void OnTriggerEnter2D(Collider2D other)
     {
