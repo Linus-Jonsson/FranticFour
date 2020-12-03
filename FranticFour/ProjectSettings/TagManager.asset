@@ -21,7 +21,7 @@ TagManager:
   - NonPlayerCollision
   - Holes
   - Bounce
-  - 
+  - OnlyPlayerCollision
   - 
   - 
   - 
