@@ -1957,7 +1957,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
 --- !u!50 &40933249
 Rigidbody2D:
   serializedVersion: 4
@@ -2022,8 +2021,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2541046482899381967, guid: b584635e7eef13e4a9bb68cb8a8d40bf, type: 3}
   m_PrefabInstance: {fileID: 481216060}
   m_PrefabAsset: {fileID: 0}
-=======
->>>>>>> main
 --- !u!4 &62813325 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4571054493860122463, guid: 0a8f6b1e92cdfa44caa655d7d807ff06, type: 3}
@@ -87381,57 +87378,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b8aa08aba61449439890116aa84a372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
   activeSpawnPoints: []
 --- !u!4 &1991063363 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2541046482899381967, guid: b584635e7eef13e4a9bb68cb8a8d40bf, type: 3}
   m_PrefabInstance: {fileID: 1290344122}
   m_PrefabAsset: {fileID: 0}
-=======
-  activeSpawnPoints:
-  - {fileID: 1990289220}
-  - {fileID: 1370515150}
-  - {fileID: 895528535}
-  - {fileID: 1863089563}
-  - {fileID: 1426531965}
-  - {fileID: 973397224}
-  - {fileID: 1070929274}
-  - {fileID: 966244997}
-  - {fileID: 1681228587}
-  - {fileID: 865064}
-  - {fileID: 1353507247}
-  - {fileID: 1607248219}
-  - {fileID: 2068833523}
-  - {fileID: 790233059}
-  - {fileID: 1700262644}
-  - {fileID: 1747722774}
-  - {fileID: 1954586254}
-  - {fileID: 1591308540}
-  - {fileID: 109628978}
-  - {fileID: 1832090395}
-  - {fileID: 998538569}
-  - {fileID: 1099667918}
-  - {fileID: 40933248}
-  - {fileID: 1463014712}
-  - {fileID: 149675787}
-  - {fileID: 344480662}
-  - {fileID: 1515210545}
-  - {fileID: 1715793092}
-  - {fileID: 378898802}
-  - {fileID: 838056571}
-  - {fileID: 2070482304}
-  - {fileID: 1788721284}
-  - {fileID: 1481186288}
-  - {fileID: 951921103}
-  - {fileID: 1691665242}
-  - {fileID: 1850669605}
-  - {fileID: 1926039949}
-  - {fileID: 740572282}
-  minDistance: 10
-  maxDistance: 20
-  prey: {fileID: 0}
->>>>>>> main
 --- !u!4 &2021797939 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5768939795489499235, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
@@ -87633,7 +87585,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
 --- !u!50 &2070482305
 Rigidbody2D:
   serializedVersion: 4
@@ -87698,8 +87649,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8393188451055521534, guid: b0ffdc7abd166ae4f927b694b3aec1f5, type: 3}
   m_PrefabInstance: {fileID: 8393188451564321815}
   m_PrefabAsset: {fileID: 0}
-=======
->>>>>>> main
 --- !u!1001 &2116632830
 PrefabInstance:
   m_ObjectHideFlags: 0
