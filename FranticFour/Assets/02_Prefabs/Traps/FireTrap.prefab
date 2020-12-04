@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 8086356271132997251}
   - component: {fileID: 8086356270547099848}
   - component: {fileID: 2465013434675702302}
+  - component: {fileID: 7287188729612870262}
   m_Layer: 10
   m_Name: FireTrap
   m_TagString: Danger
@@ -182,3 +183,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.8866386, y: 0.481781}
   m_EdgeRadius: 0
+--- !u!114 &7287188729612870262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8086356271132997248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70472ff33ed73364682a786b070c29da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolPoints: []
+  movementSpeed: 5
+  rotationSpeed: 10
+  activationTimer: {x: 2, y: 10}
+  deactivationTimer: {x: 2, y: 10}
+  childCollider: {fileID: 0}
+  moving: 0
+  backtrack: 0
+  timed: 1
+  rotating: 0
+  startOn: 1
