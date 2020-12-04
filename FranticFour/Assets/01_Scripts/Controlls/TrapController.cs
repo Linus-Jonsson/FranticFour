@@ -18,10 +18,6 @@ public class TrapController : MonoBehaviour
     [Tooltip("The range in seconds until the trap deactivates when activated (X is lowest, Y is highest (inclusive)")]
     [SerializeField] Vector2 deactivationTimer = new Vector2(2,10);
 
-    [Header("Other")]
-    [Tooltip("Place the gameobject carrying the collider here as a child to the trap, to turn it on or off on the timer")]
-    [SerializeField] GameObject childCollider = null; // this might be removed once we get animations in place for timed traps properly
-
     [Header("Booleans for determining the traps behaviour")]
     [Tooltip("Determines if the trap should move along the partol points (Don't forget to add them)")]
     [SerializeField] bool moving = false;
@@ -31,6 +27,8 @@ public class TrapController : MonoBehaviour
     [SerializeField] bool timed = false;
     [Tooltip("Determines if the trap should rotate")]
     [SerializeField] bool rotating = false;
+    [Tooltip("Check this if the trap needs to start activated (flamethrower is one of such traps)")]
+    [SerializeField] bool startOn = false;
 
     Rigidbody2D rb2d;
     Vector3 targetPosition;
@@ -54,7 +52,7 @@ public class TrapController : MonoBehaviour
         if (timed)
         {
             int random = Random.Range(0, 2);
-            if(random == 0)
+            if(random == 0 || startOn)
                 StartCoroutine(ActivateTrap());
             else
                 StartCoroutine(DeactivateTrap());
@@ -120,23 +118,13 @@ public class TrapController : MonoBehaviour
     IEnumerator ActivateTrap()
     {
         animator.SetTrigger("On");
-        //TrapActive(true);
-
         yield return new WaitForSeconds(Random.Range(activationTimer.x, activationTimer.y));
         StartCoroutine(DeactivateTrap());
     }
     IEnumerator DeactivateTrap()
     {
-        animator.SetTrigger("Off");
-        
-        //TrapActive(false);
+        animator.SetTrigger("Off");      
         yield return new WaitForSeconds(Random.Range(deactivationTimer.x, deactivationTimer.y));
         StartCoroutine(ActivateTrap());
-    }
-    private void TrapActive(bool active)
-    {
-        // the animation for the traps on off will be set here (using the bool active passed in)4
-        print("trap active is " + active); // remove this once everything is in place
-        childCollider.SetActive(active); // this will be controlled in the animation 
     }
 }
