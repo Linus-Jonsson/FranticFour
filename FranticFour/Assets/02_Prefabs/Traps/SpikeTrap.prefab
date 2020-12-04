@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2826172928157078116}
   - component: {fileID: -2768483631063642237}
   - component: {fileID: 7291022454944819249}
+  - component: {fileID: 8454379172232270182}
   m_Layer: 10
   m_Name: SpikeTrap
   m_TagString: Danger
@@ -151,3 +152,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8454379172232270182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969485075884854441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70472ff33ed73364682a786b070c29da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolPoints: []
+  movementSpeed: 5
+  rotationSpeed: 10
+  activationTimer: {x: 2, y: 10}
+  deactivationTimer: {x: 2, y: 10}
+  childCollider: {fileID: 0}
+  moving: 0
+  backtrack: 0
+  timed: 0
+  rotating: 0
