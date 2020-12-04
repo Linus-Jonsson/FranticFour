@@ -14,7 +14,7 @@ public class GamePlayUIController : GamePlayUIDisplay
         preeRoundDisplay.SetActive(true);
         while (duration > 0)
         {
-            SetCountDownDisplayNumber(duration, "Prey revealed in: ", preRoundTime);
+            SetCountDownDisplayNumber(duration, "Prey revealed in ", preRoundTime);
             yield return new WaitForSeconds(timeDecreaseIncrement);
             duration -= timeDecreaseIncrement;
         }
@@ -22,7 +22,7 @@ public class GamePlayUIController : GamePlayUIDisplay
     }
     private void SetRoundAndPlayerDisplay(Player[] players, int roundNumber)
     {
-        round.text = "Round: " + roundNumber;
+        round.text = "Round " + roundNumber;
         foreach (var player in players)
             SetPlayerText(player);
     }
@@ -31,16 +31,16 @@ public class GamePlayUIController : GamePlayUIDisplay
         switch (player.name)
         {
             case "Duck":
-                player1.text = "Player: " + player.PlayerNumber.ToString();
+                player1.text = "Player " + player.PlayerNumber.ToString();
                 break;
             case "Pig":
-                player2.text = "Player: " + player.PlayerNumber.ToString();
+                player2.text = "Player " + player.PlayerNumber.ToString();
                 break;
             case "Bunny":
-                player3.text = "Player: " + player.PlayerNumber.ToString();
+                player3.text = "Player " + player.PlayerNumber.ToString();
                 break;
             case "Sheep":
-                player4.text = "Player: " + player.PlayerNumber.ToString();
+                player4.text = "Player " + player.PlayerNumber.ToString();
                 break;
         }
     }
@@ -51,7 +51,7 @@ public class GamePlayUIController : GamePlayUIDisplay
         preyDisplay.SetActive(true);
         while (duration > 0)
         {
-            SetCountDownDisplayNumber(duration, "Round starts in: ", preyCountdown);
+            SetCountDownDisplayNumber(duration, "Round starts in ", preyCountdown);
             yield return new WaitForSeconds(timeDecreaseIncrement);
             duration -= timeDecreaseIncrement;
         }
@@ -63,7 +63,7 @@ public class GamePlayUIController : GamePlayUIDisplay
         foreach (var image in preyImages)
             image.SetActive(false);
         TurnPreyOn(prey);
-        preyNumber.text = prey.name + " Is the prey this round";
+        preyNumber.text = prey.name + " is the PREY this round!";
     }
     private void TurnPreyOn(Player prey)
     {
@@ -102,7 +102,7 @@ public class GamePlayUIController : GamePlayUIDisplay
         scoreDisplay.SetActive(true);
         while (duration > 0)
         {
-            SetCountDownDisplayNumber(duration, "Next round begins in: ", nextRoundInText);
+            SetCountDownDisplayNumber(duration, "Next round begins in ", nextRoundInText);
             yield return new WaitForSeconds(timeDecreaseIncrement);
             duration -= timeDecreaseIncrement;
         }
@@ -117,7 +117,7 @@ public class GamePlayUIController : GamePlayUIDisplay
 
     private void SetPlayerRoundScores(Player[] players, int roundNumber)
     {
-        roundScoreText.text = "Score standings after round: " + roundNumber;
+        roundScoreText.text = "Score Round " + roundNumber;
         foreach (var player in players)
         {
             switch (player.gameObject.name)
@@ -139,7 +139,7 @@ public class GamePlayUIController : GamePlayUIDisplay
     }
     private void SetRoundScoreTexts(Player player, TextMeshProUGUI nameText, TextMeshProUGUI totalScoreText, TextMeshProUGUI roundScoreText)
     {
-        nameText.text = "Player: " + player.PlayerNumber.ToString();
+        nameText.text = "Player " + player.PlayerNumber.ToString();
         totalScoreText.text = player.TotalScore.ToString();
         roundScoreText.text = player.RoundScore.ToString();
         player.RoundScore = 0;
@@ -200,8 +200,8 @@ public class GamePlayUIController : GamePlayUIDisplay
     }
     private void SetPlayerResults(Player player, TextMeshProUGUI placement, TextMeshProUGUI name, TextMeshProUGUI score )
     {
-        score.text = player.TotalScore.ToString(); ;
-        name.text = "Player: " + player.PlayerNumber;
+        score.text = player.TotalScore.ToString() + " points"; ;
+        name.text = "Player " + player.PlayerNumber;
         placement.fontSize = placementTextSizes[player.Placement];
         placement.color = placementColors[player.Placement];
         placement.text = placements[player.Placement];
@@ -260,7 +260,7 @@ public class GamePlayUIController : GamePlayUIDisplay
 
     private void SetWhoHuntedPrey(Player killer)
     {
-        killedByText.text = "The prey got hunted by Player " + killer.PlayerNumber;
+        killedByText.text = "Prey got killed by Player " + killer.PlayerNumber;
         switch (killer.gameObject.name)
         {
             case "Duck":
