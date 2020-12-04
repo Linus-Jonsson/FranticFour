@@ -132,9 +132,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 865064}
-  - component: {fileID: 865067}
-  - component: {fileID: 865066}
-  - component: {fileID: 865065}
   m_Layer: 17
   m_Name: HunterRespawnPoint (8)
   m_TagString: Untagged
@@ -156,65 +153,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &865065
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 865063}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &865066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 865063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2639d65496bcf649aed123e877434e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &865067
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 865063}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &32060059
 GameObject:
   m_ObjectHideFlags: 0
@@ -1998,9 +1936,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 40933248}
-  - component: {fileID: 40933251}
-  - component: {fileID: 40933250}
-  - component: {fileID: 40933249}
   m_Layer: 17
   m_Name: HunterRespawnPoint (21)
   m_TagString: Untagged
@@ -2022,6 +1957,7 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!50 &40933249
 Rigidbody2D:
   serializedVersion: 4
@@ -2086,6 +2022,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2541046482899381967, guid: b584635e7eef13e4a9bb68cb8a8d40bf, type: 3}
   m_PrefabInstance: {fileID: 481216060}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> main
 --- !u!4 &62813325 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4571054493860122463, guid: 0a8f6b1e92cdfa44caa655d7d807ff06, type: 3}
@@ -2196,9 +2134,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 109628978}
-  - component: {fileID: 109628981}
-  - component: {fileID: 109628980}
-  - component: {fileID: 109628979}
   m_Layer: 17
   m_Name: HunterRespawnPoint (17)
   m_TagString: Untagged
@@ -2220,65 +2155,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &109628979
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 109628977}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &109628980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 109628977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2639d65496bcf649aed123e877434e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &109628981
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 109628977}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &122360166
 GameObject:
   m_ObjectHideFlags: 0
@@ -2542,9 +2418,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 149675787}
-  - component: {fileID: 149675790}
-  - component: {fileID: 149675789}
-  - component: {fileID: 149675788}
   m_Layer: 17
   m_Name: HunterRespawnPoint (23)
   m_TagString: Untagged
@@ -2566,65 +2439,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &149675788
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 149675786}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &149675789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 149675786}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2639d65496bcf649aed123e877434e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &149675790
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 149675786}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &152074326
 GameObject:
   m_ObjectHideFlags: 0
@@ -39409,9 +39223,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 344480662}
-  - component: {fileID: 344480665}
-  - component: {fileID: 344480664}
-  - component: {fileID: 344480663}
   m_Layer: 17
   m_Name: HunterRespawnPoint (24)
   m_TagString: Untagged
@@ -39433,65 +39244,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &344480663
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 344480661}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &344480664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 344480661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2639d65496bcf649aed123e877434e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &344480665
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 344480661}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1001 &357662955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39585,9 +39337,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 378898802}
-  - component: {fileID: 378898805}
-  - component: {fileID: 378898804}
-  - component: {fileID: 378898803}
   m_Layer: 17
   m_Name: HunterRespawnPoint (27)
   m_TagString: Untagged
@@ -39609,65 +39358,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &378898803
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 378898801}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &378898804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 378898801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2639d65496bcf649aed123e877434e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &378898805
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 378898801}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1001 &383873066
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40729,9 +40419,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 740572282}
-  - component: {fileID: 740572285}
-  - component: {fileID: 740572284}
-  - component: {fileID: 740572283}
   m_Layer: 17
   m_Name: HunterRespawnPoint (36)
   m_TagString: Untagged
@@ -40753,65 +40440,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &740572283
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 740572281}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &740572284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 740572281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2639d65496bcf649aed123e877434e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &740572285
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 740572281}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1001 &758920290
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40948,9 +40576,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 790233059}
-  - component: {fileID: 790233062}
-  - component: {fileID: 790233061}
-  - component: {fileID: 790233060}
   m_Layer: 17
   m_Name: HunterRespawnPoint (12)
   m_TagString: Untagged
@@ -40972,65 +40597,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &790233060
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 790233058}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &790233061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 790233058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2639d65496bcf649aed123e877434e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &790233062
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 790233058}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!4 &795939399 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6474566466611805072, guid: 0a8f6b1e92cdfa44caa655d7d807ff06, type: 3}
@@ -41065,9 +40631,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 838056571}
-  - component: {fileID: 838056574}
-  - component: {fileID: 838056573}
-  - component: {fileID: 838056572}
   m_Layer: 17
   m_Name: HunterRespawnPoint (28)
   m_TagString: Untagged
@@ -41089,65 +40652,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &838056572
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 838056570}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &838056573
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 838056570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2639d65496bcf649aed123e877434e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &838056574
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 838056570}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!4 &850512965 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6884489928361834149, guid: 0a8f6b1e92cdfa44caa655d7d807ff06, type: 3}
@@ -41214,9 +40718,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 895528535}
-  - component: {fileID: 895528538}
-  - component: {fileID: 895528537}
-  - component: {fileID: 895528536}
   m_Layer: 17
   m_Name: HunterRespawnPoint (1)
   m_TagString: Untagged
@@ -41238,65 +40739,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &895528536
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 895528534}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &895528537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 895528534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2639d65496bcf649aed123e877434e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &895528538
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 895528534}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!4 &910685219 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4571054493860122463, guid: 0a8f6b1e92cdfa44caa655d7d807ff06, type: 3}
@@ -41465,9 +40907,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 951921103}
-  - component: {fileID: 951921106}
-  - component: {fileID: 951921105}
-  - component: {fileID: 951921104}
   m_Layer: 17
   m_Name: HunterRespawnPoint (32)
   m_TagString: Untagged
@@ -41489,65 +40928,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &951921104
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 951921102}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &951921105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 951921102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2639d65496bcf649aed123e877434e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &951921106
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 951921102}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1001 &959414845
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41716,9 +41096,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 966244997}
-  - component: {fileID: 966245000}
-  - component: {fileID: 966244999}
-  - component: {fileID: 966244998}
   m_Layer: 17
   m_Name: HunterRespawnPoint (6)
   m_TagString: Untagged
@@ -41740,65 +41117,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &966244998
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 966244996}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &966244999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 966244996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2639d65496bcf649aed123e877434e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &966245000
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 966244996}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &973397223
 GameObject:
   m_ObjectHideFlags: 0
@@ -41808,9 +41126,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 973397224}
-  - component: {fileID: 973397227}
-  - component: {fileID: 973397226}
-  - component: {fileID: 973397225}
   m_Layer: 17
   m_Name: HunterRespawnPoint (4)
   m_TagString: Untagged
@@ -41832,65 +41147,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &973397225
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 973397223}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &973397226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 973397223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2639d65496bcf649aed123e877434e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &973397227
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 973397223}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &978076381
 GameObject:
   m_ObjectHideFlags: 0
@@ -46242,9 +45498,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 998538569}
-  - component: {fileID: 998538572}
-  - component: {fileID: 998538571}
-  - component: {fileID: 998538570}
   m_Layer: 17
   m_Name: HunterRespawnPoint (19)
   m_TagString: Untagged
@@ -46266,65 +45519,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &998538570
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 998538568}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &998538571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 998538568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2639d65496bcf649aed123e877434e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &998538572
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 998538568}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!4 &999936770 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6884489928361834149, guid: 0a8f6b1e92cdfa44caa655d7d807ff06, type: 3}
@@ -46568,9 +45762,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1070929274}
-  - component: {fileID: 1070929277}
-  - component: {fileID: 1070929276}
-  - component: {fileID: 1070929275}
   m_Layer: 17
   m_Name: HunterRespawnPoint (5)
   m_TagString: Untagged
@@ -46592,65 +45783,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1070929275
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1070929273}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &1070929276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1070929273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2639d65496bcf649aed123e877434e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &1070929277
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1070929273}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1001 &1087686536
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46722,9 +45854,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1099667918}
-  - component: {fileID: 1099667921}
-  - component: {fileID: 1099667920}
-  - component: {fileID: 1099667919}
   m_Layer: 17
   m_Name: HunterRespawnPoint (20)
   m_TagString: Untagged
@@ -46746,65 +45875,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1099667919
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1099667917}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &1099667920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1099667917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2639d65496bcf649aed123e877434e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &1099667921
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1099667917}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1001 &1125650723
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -77983,9 +77053,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1353507247}
-  - component: {fileID: 1353507250}
-  - component: {fileID: 1353507249}
-  - component: {fileID: 1353507248}
   m_Layer: 17
   m_Name: HunterRespawnPoint (9)
   m_TagString: Untagged
@@ -78007,65 +77074,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1353507248
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1353507246}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &1353507249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1353507246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2639d65496bcf649aed123e877434e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &1353507250
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1353507246}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!114 &1361377651 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1687704663410451919, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
@@ -78086,9 +77094,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1370515150}
-  - component: {fileID: 1370515153}
-  - component: {fileID: 1370515152}
-  - component: {fileID: 1370515151}
   m_Layer: 17
   m_Name: HunterRespawnPoint
   m_TagString: Untagged
@@ -78110,65 +77115,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1370515151
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1370515149}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &1370515152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1370515149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2639d65496bcf649aed123e877434e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &1370515153
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1370515149}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!4 &1393733224 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6474566466611805072, guid: 0a8f6b1e92cdfa44caa655d7d807ff06, type: 3}
@@ -78240,9 +77186,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1426531965}
-  - component: {fileID: 1426531968}
-  - component: {fileID: 1426531967}
-  - component: {fileID: 1426531966}
   m_Layer: 17
   m_Name: HunterRespawnPoint (3)
   m_TagString: Untagged
@@ -78264,65 +77207,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1426531966
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1426531964}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &1426531967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1426531964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2639d65496bcf649aed123e877434e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &1426531968
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1426531964}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1001 &1455394128
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -78544,9 +77428,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1463014712}
-  - component: {fileID: 1463014715}
-  - component: {fileID: 1463014714}
-  - component: {fileID: 1463014713}
   m_Layer: 17
   m_Name: HunterRespawnPoint (22)
   m_TagString: Untagged
@@ -78568,65 +77449,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1463014713
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1463014711}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &1463014714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1463014711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2639d65496bcf649aed123e877434e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &1463014715
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1463014711}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1001 &1465114709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -78703,9 +77525,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1481186288}
-  - component: {fileID: 1481186291}
-  - component: {fileID: 1481186290}
-  - component: {fileID: 1481186289}
   m_Layer: 17
   m_Name: HunterRespawnPoint (31)
   m_TagString: Untagged
@@ -78727,65 +77546,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1481186289
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1481186287}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &1481186290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1481186287}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2639d65496bcf649aed123e877434e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &1481186291
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1481186287}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!4 &1483345484 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6884489928361834149, guid: 0a8f6b1e92cdfa44caa655d7d807ff06, type: 3}
@@ -78866,9 +77626,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1515210545}
-  - component: {fileID: 1515210548}
-  - component: {fileID: 1515210547}
-  - component: {fileID: 1515210546}
   m_Layer: 17
   m_Name: HunterRespawnPoint (25)
   m_TagString: Untagged
@@ -78890,131 +77647,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1515210546
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1515210544}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &1515210547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1515210544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2639d65496bcf649aed123e877434e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &1515210548
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1515210544}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!1 &1521613522 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4801723092207956068, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
-  m_PrefabInstance: {fileID: 4801723092773740878}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1521613523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1521613522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2be691d3aa9f18546905aed9dbc60c02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xScale: 3.5
-  yScale: 1.95
---- !u!61 &1521613524
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1521613522}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 35, y: 19.5}
-  m_EdgeRadius: 0
---- !u!50 &1521613525
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1521613522}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!4 &1536635214 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6474566466611805072, guid: 0a8f6b1e92cdfa44caa655d7d807ff06, type: 3}
@@ -79163,9 +77795,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1591308540}
-  - component: {fileID: 1591308543}
-  - component: {fileID: 1591308542}
-  - component: {fileID: 1591308541}
   m_Layer: 17
   m_Name: HunterRespawnPoint (16)
   m_TagString: Untagged
@@ -79187,65 +77816,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1591308541
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1591308539}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &1591308542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1591308539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2639d65496bcf649aed123e877434e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &1591308543
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1591308539}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &1607248218
 GameObject:
   m_ObjectHideFlags: 0
@@ -79255,9 +77825,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1607248219}
-  - component: {fileID: 1607248222}
-  - component: {fileID: 1607248221}
-  - component: {fileID: 1607248220}
   m_Layer: 17
   m_Name: HunterRespawnPoint (10)
   m_TagString: Untagged
@@ -79279,65 +77846,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1607248220
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1607248218}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &1607248221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1607248218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2639d65496bcf649aed123e877434e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &1607248222
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1607248218}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &1618431950
 GameObject:
   m_ObjectHideFlags: 0
@@ -87714,9 +86222,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1681228587}
-  - component: {fileID: 1681228590}
-  - component: {fileID: 1681228589}
-  - component: {fileID: 1681228588}
   m_Layer: 17
   m_Name: HunterRespawnPoint (7)
   m_TagString: Untagged
@@ -87738,65 +86243,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1681228588
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1681228586}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &1681228589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1681228586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2639d65496bcf649aed123e877434e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &1681228590
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1681228586}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &1691665241
 GameObject:
   m_ObjectHideFlags: 0
@@ -87806,9 +86252,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1691665242}
-  - component: {fileID: 1691665245}
-  - component: {fileID: 1691665244}
-  - component: {fileID: 1691665243}
   m_Layer: 17
   m_Name: HunterRespawnPoint (33)
   m_TagString: Untagged
@@ -87830,65 +86273,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1691665243
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1691665241}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &1691665244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1691665241}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2639d65496bcf649aed123e877434e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &1691665245
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1691665241}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1001 &1697008224
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -87955,9 +86339,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1700262644}
-  - component: {fileID: 1700262647}
-  - component: {fileID: 1700262646}
-  - component: {fileID: 1700262645}
   m_Layer: 17
   m_Name: HunterRespawnPoint (13)
   m_TagString: Untagged
@@ -87979,65 +86360,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1700262645
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1700262643}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &1700262646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1700262643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2639d65496bcf649aed123e877434e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &1700262647
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1700262643}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1001 &1702283917
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -88121,9 +86443,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1715793092}
-  - component: {fileID: 1715793095}
-  - component: {fileID: 1715793094}
-  - component: {fileID: 1715793093}
   m_Layer: 17
   m_Name: HunterRespawnPoint (26)
   m_TagString: Untagged
@@ -88145,65 +86464,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1715793093
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1715793091}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &1715793094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1715793091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2639d65496bcf649aed123e877434e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &1715793095
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1715793091}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1001 &1728002995
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -88364,9 +86624,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1747722774}
-  - component: {fileID: 1747722777}
-  - component: {fileID: 1747722776}
-  - component: {fileID: 1747722775}
   m_Layer: 17
   m_Name: HunterRespawnPoint (14)
   m_TagString: Untagged
@@ -88388,65 +86645,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1747722775
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1747722773}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &1747722776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1747722773}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2639d65496bcf649aed123e877434e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &1747722777
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1747722773}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!4 &1749058833 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6884489928361834149, guid: 0a8f6b1e92cdfa44caa655d7d807ff06, type: 3}
@@ -88585,9 +86783,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1788721284}
-  - component: {fileID: 1788721287}
-  - component: {fileID: 1788721286}
-  - component: {fileID: 1788721285}
   m_Layer: 17
   m_Name: HunterRespawnPoint (30)
   m_TagString: Untagged
@@ -88609,65 +86804,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1788721285
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1788721283}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &1788721286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1788721283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2639d65496bcf649aed123e877434e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &1788721287
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1788721283}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1001 &1809085601
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -88781,9 +86917,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1832090395}
-  - component: {fileID: 1832090398}
-  - component: {fileID: 1832090397}
-  - component: {fileID: 1832090396}
   m_Layer: 17
   m_Name: HunterRespawnPoint (18)
   m_TagString: Untagged
@@ -88805,65 +86938,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1832090396
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1832090394}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &1832090397
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1832090394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2639d65496bcf649aed123e877434e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &1832090398
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1832090394}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!114 &1842982838 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 274684026557075857, guid: acfb9a05aaeba90459fcf1e0904d6c62, type: 3}
@@ -88884,9 +86958,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1850669605}
-  - component: {fileID: 1850669608}
-  - component: {fileID: 1850669607}
-  - component: {fileID: 1850669606}
   m_Layer: 17
   m_Name: HunterRespawnPoint (34)
   m_TagString: Untagged
@@ -88908,65 +86979,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1850669606
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1850669604}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &1850669607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1850669604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2639d65496bcf649aed123e877434e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &1850669608
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1850669604}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &1863089562
 GameObject:
   m_ObjectHideFlags: 0
@@ -88976,9 +86988,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1863089563}
-  - component: {fileID: 1863089566}
-  - component: {fileID: 1863089565}
-  - component: {fileID: 1863089564}
   m_Layer: 17
   m_Name: HunterRespawnPoint (2)
   m_TagString: Untagged
@@ -89000,65 +87009,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1863089564
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1863089562}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &1863089565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1863089562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2639d65496bcf649aed123e877434e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &1863089566
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1863089562}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!4 &1864535706 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6474566466611805072, guid: 0a8f6b1e92cdfa44caa655d7d807ff06, type: 3}
@@ -89216,9 +87166,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1926039949}
-  - component: {fileID: 1926039952}
-  - component: {fileID: 1926039951}
-  - component: {fileID: 1926039950}
   m_Layer: 17
   m_Name: HunterRespawnPoint (35)
   m_TagString: Untagged
@@ -89240,65 +87187,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1926039950
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1926039948}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &1926039951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1926039948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2639d65496bcf649aed123e877434e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &1926039952
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1926039948}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &1954586253
 GameObject:
   m_ObjectHideFlags: 0
@@ -89308,9 +87196,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1954586254}
-  - component: {fileID: 1954586257}
-  - component: {fileID: 1954586256}
-  - component: {fileID: 1954586255}
   m_Layer: 17
   m_Name: HunterRespawnPoint (15)
   m_TagString: Untagged
@@ -89332,65 +87217,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1954586255
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1954586253}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &1954586256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1954586253}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2639d65496bcf649aed123e877434e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &1954586257
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1954586253}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!4 &1963158192 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4571054493860122463, guid: 0a8f6b1e92cdfa44caa655d7d807ff06, type: 3}
@@ -89555,12 +87381,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b8aa08aba61449439890116aa84a372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   activeSpawnPoints: []
 --- !u!4 &1991063363 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2541046482899381967, guid: b584635e7eef13e4a9bb68cb8a8d40bf, type: 3}
   m_PrefabInstance: {fileID: 1290344122}
   m_PrefabAsset: {fileID: 0}
+=======
+  activeSpawnPoints:
+  - {fileID: 1990289220}
+  - {fileID: 1370515150}
+  - {fileID: 895528535}
+  - {fileID: 1863089563}
+  - {fileID: 1426531965}
+  - {fileID: 973397224}
+  - {fileID: 1070929274}
+  - {fileID: 966244997}
+  - {fileID: 1681228587}
+  - {fileID: 865064}
+  - {fileID: 1353507247}
+  - {fileID: 1607248219}
+  - {fileID: 2068833523}
+  - {fileID: 790233059}
+  - {fileID: 1700262644}
+  - {fileID: 1747722774}
+  - {fileID: 1954586254}
+  - {fileID: 1591308540}
+  - {fileID: 109628978}
+  - {fileID: 1832090395}
+  - {fileID: 998538569}
+  - {fileID: 1099667918}
+  - {fileID: 40933248}
+  - {fileID: 1463014712}
+  - {fileID: 149675787}
+  - {fileID: 344480662}
+  - {fileID: 1515210545}
+  - {fileID: 1715793092}
+  - {fileID: 378898802}
+  - {fileID: 838056571}
+  - {fileID: 2070482304}
+  - {fileID: 1788721284}
+  - {fileID: 1481186288}
+  - {fileID: 951921103}
+  - {fileID: 1691665242}
+  - {fileID: 1850669605}
+  - {fileID: 1926039949}
+  - {fileID: 740572282}
+  minDistance: 10
+  maxDistance: 20
+  prey: {fileID: 0}
+>>>>>>> main
 --- !u!4 &2021797939 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5768939795489499235, guid: 711ff91ce23a3a84fa85ac9af5805ec4, type: 3}
@@ -89711,9 +87582,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2068833523}
-  - component: {fileID: 2068833526}
-  - component: {fileID: 2068833525}
-  - component: {fileID: 2068833524}
   m_Layer: 17
   m_Name: HunterRespawnPoint (11)
   m_TagString: Untagged
@@ -89735,65 +87603,6 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &2068833524
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2068833522}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &2068833525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2068833522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2639d65496bcf649aed123e877434e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &2068833526
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2068833522}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &2070482303
 GameObject:
   m_ObjectHideFlags: 0
@@ -89803,9 +87612,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2070482304}
-  - component: {fileID: 2070482307}
-  - component: {fileID: 2070482306}
-  - component: {fileID: 2070482305}
   m_Layer: 17
   m_Name: HunterRespawnPoint (29)
   m_TagString: Untagged
@@ -89827,6 +87633,7 @@ Transform:
   m_Father: {fileID: 1990289220}
   m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!50 &2070482305
 Rigidbody2D:
   serializedVersion: 4
@@ -89891,6 +87698,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8393188451055521534, guid: b0ffdc7abd166ae4f927b694b3aec1f5, type: 3}
   m_PrefabInstance: {fileID: 8393188451564321815}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> main
 --- !u!1001 &2116632830
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -90869,58 +88678,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6925852, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
-      propertyPath: m_Layer
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6925855, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
-      propertyPath: m_Size.y
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6925855, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
-      propertyPath: m_Offset.x
-      value: -18.300001
-      objectReference: {fileID: 0}
-    - target: {fileID: 312668911, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
-      propertyPath: m_Layer
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 312668914, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
-      propertyPath: m_Size.y
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 312668914, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
-      propertyPath: m_Offset.x
-      value: 18.300001
-      objectReference: {fileID: 0}
-    - target: {fileID: 901284402, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
-      propertyPath: m_Layer
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 901284405, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
-      propertyPath: m_Size.x
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 901284405, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
-      propertyPath: m_Offset.y
-      value: 10.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 901362985, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
-      propertyPath: m_Layer
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1325530775, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
-      propertyPath: m_Layer
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1325530778, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
-      propertyPath: m_Size.x
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 1325530778, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
-      propertyPath: m_Offset.y
-      value: -10.5
-      objectReference: {fileID: 0}
     - target: {fileID: 4801723092115776966, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -90969,66 +88726,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraManager
       objectReference: {fileID: 0}
-    - target: {fileID: 4801723092207956066, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
-      propertyPath: m_AllowMSAA
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4801723092207956066, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
-      propertyPath: orthographic size
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4801723092207956067, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.6900008
-      objectReference: {fileID: 0}
-    - target: {fileID: 4801723092207956067, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.47999996
-      objectReference: {fileID: 0}
-    - target: {fileID: 4801723092207956067, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -5.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4801723092207956067, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4801723092207956067, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4801723092207956067, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4801723092207956068, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
-      propertyPath: m_Layer
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 4801723092218131178, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.6900008
-      objectReference: {fileID: 0}
-    - target: {fileID: 4801723092218131178, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.47999996
-      objectReference: {fileID: 0}
-    - target: {fileID: 4801723092218131178, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -5.5
-      objectReference: {fileID: 0}
     - target: {fileID: 4801723092218131180, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
       propertyPath: m_BoundingShape2D
       value: 
       objectReference: {fileID: 2482378809095527622}
-    - target: {fileID: 4801723092236097599, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
-      propertyPath: m_MaximumOrthoSize
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4801723092236097599, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
-      propertyPath: m_MinimumOrthoSize
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 4801723092894242550, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
       propertyPath: m_Targets.Array.data[0].target
       value: 
@@ -91045,30 +88746,6 @@ PrefabInstance:
       propertyPath: m_Targets.Array.data[3].target
       value: 
       objectReference: {fileID: 1046825738}
-    - target: {fileID: 4801723092894242551, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.975
-      objectReference: {fileID: 0}
-    - target: {fileID: 4801723092894242551, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.31249994
-      objectReference: {fileID: 0}
-    - target: {fileID: 4801723092894242551, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 5.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4801723092894242551, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4801723092894242551, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4801723092894242551, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
 --- !u!1001 &4849128453322805107

@@ -110,7 +110,11 @@ public class InGameLoopController : MonoBehaviour
         players[i].GetComponent<MovementController>().MovementSpeed = speed;
         players[i].Prey = value;
         if (value)
+        {
             currentPrey = players[i];
+            FindObjectOfType<HunterRespawnHandler>().SetPrey(players[i].transform);
+        }
+
 /*        else
             preyProbability.Add(i); implement once game is done getting tested*/
     }
