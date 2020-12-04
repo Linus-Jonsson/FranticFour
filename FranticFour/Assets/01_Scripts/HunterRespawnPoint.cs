@@ -11,14 +11,4 @@ public class HunterRespawnPoint : MonoBehaviour
     {
         hunterRespawnHandler = GetComponentInParent<HunterRespawnHandler>();
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        print("entered camera");
-        hunterRespawnHandler.AddToActiveSpawnPoint(transform);
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        print("exit camera");
-        hunterRespawnHandler.RemoveActiveSpawnPoint(transform);
-    }
 }

@@ -107,6 +107,4 @@ public class DeathAndRespawnController : MonoBehaviour
     {
         transform.position = hunterRespawnHandler.GetSpawnPoint().position;
     } 
-
-
 }
