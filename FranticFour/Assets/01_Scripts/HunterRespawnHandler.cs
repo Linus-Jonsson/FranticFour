@@ -5,21 +5,33 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class HunterRespawnHandler : MonoBehaviour
 {
-    [SerializeField] List<Transform> activeSpawnPoints = new List<Transform>();
+    [SerializeField] Transform[] activeSpawnPoints = null;
+    [SerializeField] float minDistance = 10f;
+    [SerializeField] float maxDistance = 20f;
 
-    public void AddToActiveSpawnPoint(Transform spawnPoint)
+    [SerializeField] Transform prey = null; // remove serializeField once all works
+     
+    private void Start()
     {
-        activeSpawnPoints.Add(spawnPoint);
-    }
-    public void RemoveActiveSpawnPoint(Transform spawnPoint)
-    {
-        activeSpawnPoints.Remove(spawnPoint);
-        activeSpawnPoints.RemoveAll(point => point == null);
+        activeSpawnPoints = GetComponentsInChildren<Transform>();
     }
 
     public Transform GetSpawnPoint()
     {
-        int random = Random.Range(0, activeSpawnPoints.Count);
-        return activeSpawnPoints[random];
+        foreach (var transform in activeSpawnPoints)
+        {
+            float xDistance = Mathf.Abs(transform.position.x - prey.position.x);
+            float yDistance = Mathf.Abs(transform.position.y - prey.position.y);
+            if(xDistance > minDistance && xDistance < maxDistance && yDistance > minDistance && yDistance < maxDistance)
+            {
+                return transform;
+            }
+        }
+        return activeSpawnPoints[0];
+    }
+
+    public void SetPrey(Transform prey)
+    {
+        this.prey = prey;
     }
 }
