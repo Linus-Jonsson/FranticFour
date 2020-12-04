@@ -36,16 +36,21 @@ public class TrapController : MonoBehaviour
     Vector3 targetPosition;
     int patrolPointIndex = 0;
     bool increasePoints = true;
+    Animator animator;
 
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         StartTrap();
     }
     private void StartTrap()
     {
-        transform.position = patrolPoints[0].transform.position;
-        targetPosition = patrolPoints[0].transform.position;
+        if(moving)
+        {
+            transform.position = patrolPoints[0].transform.position;
+            targetPosition = patrolPoints[0].transform.position;
+        }
         if (timed)
         {
             int random = Random.Range(0, 2);
@@ -114,13 +119,17 @@ public class TrapController : MonoBehaviour
 
     IEnumerator ActivateTrap()
     {
-        TrapActive(true);
+        animator.SetTrigger("On");
+        //TrapActive(true);
+
         yield return new WaitForSeconds(Random.Range(activationTimer.x, activationTimer.y));
         StartCoroutine(DeactivateTrap());
     }
     IEnumerator DeactivateTrap()
     {
-        TrapActive(false);
+        animator.SetTrigger("Off");
+        
+        //TrapActive(false);
         yield return new WaitForSeconds(Random.Range(deactivationTimer.x, deactivationTimer.y));
         StartCoroutine(ActivateTrap());
     }
