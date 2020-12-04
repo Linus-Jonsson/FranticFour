@@ -28,7 +28,8 @@ public class InputManager : MonoBehaviour
         
         //If assigned, the GAME SCENE will load from PassControllersToGame and not assign new values
         PassControllersToGame.playersAssigned = true;
-        StartCoroutine(LoadGame());
+        SceneManager.LoadScene(sceneToLoad);
+        //StartCoroutine(LoadGame());
     }
 
     public void SelectPlayer(int _controllerID)
