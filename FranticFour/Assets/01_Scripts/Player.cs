@@ -62,4 +62,10 @@ public class Player : MonoBehaviour
     {
         totalScore += roundScore;
     }
+
+    public void EndPush()
+    {
+        freezeInput = false;
+        pushedBy = null;
+    }
 }

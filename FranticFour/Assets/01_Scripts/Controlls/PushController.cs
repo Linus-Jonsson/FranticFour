@@ -78,12 +78,6 @@ public class PushController : MonoBehaviour
         rb2d.AddForce(pushForce, ForceMode2D.Impulse);
     }
 
-    public void EndPush()
-    {
-        player.FreezeInput = false;
-        player.PushedBy = null;
-    }
-
     public void ResetPushList()
     {
         targets = new List<Transform>();
@@ -91,6 +85,6 @@ public class PushController : MonoBehaviour
 
     public void RemoveFromPushList(Transform transform)
     {
-
+        targets.Remove(transform);
     }
 }
