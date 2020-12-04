@@ -167,10 +167,10 @@ MonoBehaviour:
   patrolPoints: []
   movementSpeed: 5
   rotationSpeed: 10
-  activationTimer: {x: 2, y: 10}
-  deactivationTimer: {x: 2, y: 10}
-  childCollider: {fileID: 0}
+  activationTimer: {x: 2, y: 5}
+  deactivationTimer: {x: 2, y: 5}
   moving: 0
   backtrack: 0
-  timed: 0
+  timed: 1
   rotating: 0
+  startOn: 0
