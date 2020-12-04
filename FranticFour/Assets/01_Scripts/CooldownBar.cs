@@ -14,7 +14,7 @@ public class CooldownBar : MonoBehaviour
     [SerializeField] private Color fullBarColorPray = new Color(0,0,0);
     [SerializeField] private Color emptyBarColorPray = new Color(0, 0, 0);
     [Header("Player")]
-    [SerializeField] private SpriteRenderer backgroundBar;
+    [SerializeField] private SpriteRenderer backgroundBar = null;
     [SerializeField] private Color actualEmptyBarColor = new Color(0, 0, 0);
     
     private Color activeFullBarColor = new Color();

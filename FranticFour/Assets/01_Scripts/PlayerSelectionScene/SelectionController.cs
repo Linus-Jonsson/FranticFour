@@ -1,23 +1,21 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class SelectionController : MonoBehaviour
 {
     [Header("Player")] [Range(0, 3)]
     [SerializeField] private int CONTROLLER_ID = 0;
-    [SerializeField] private bool controllerAssignedToPlayer = false;
     [SerializeField] private bool hasControllerJoined;
     [SerializeField] private MyPlayer myPlayer;
 
     [Header("Assigned controls")]
     [SerializeField] private string action1;
     [SerializeField] private InputManager playerHandler;
-    
-    private int selected = 0;
+
     private readonly float inputZone = 0.04f;
     private string rightHorizontal = null;
     private string rightVertical = null;
     private bool inputBool = false;
-    private bool isAssigned = false;
     private bool isSelecting = false;
     private bool playerSelected = false;
 
@@ -31,7 +29,6 @@ public class SelectionController : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        
         playerHandler = FindObjectOfType<InputManager>();
         MapController();
         myPlayer = playerHandler.GetPlayer(CONTROLLER_ID);
@@ -41,8 +38,10 @@ public class SelectionController : MonoBehaviour
     {
         //Check if controllers are connected
         string[] joystickNames = Input.GetJoystickNames();
+        if (joystickNames.Length == 1 && joystickNames[0] == string.Empty)
+            joystickNames = null;
 
-        if (CONTROLLER_ID > joystickNames.Length)
+        if ((joystickNames == null || CONTROLLER_ID > joystickNames.Length) && CONTROLLER_ID != 0)
             _failSafe = true;
     }
 
@@ -91,31 +90,36 @@ public class SelectionController : MonoBehaviour
     private void MapController()
     {
         string[] controllersConnected = Input.GetJoystickNames();
-
-        if (CONTROLLER_ID >= controllersConnected.Length) //If there there are more expected controllers then controllers
+        
+        if (controllersConnected.Length == 0 && CONTROLLER_ID == 0)
         {
-            if (!PassControllersToGame.isKeyboardUsed) 
-                //If controller is missing or could not be recognized AND keyboard is not in use
-            {
-                if (controllersConnected.Length < 4 && CONTROLLER_ID == controllersConnected.Length) //Assign last spot to keyboard
-                {
-                    MapKeyboard();
-                    return;
-                }
-                Destroy(gameObject); //If controller is missing or could not be recognized AND keyboard is not IN USE
-            }
-
+            MapKeyboard();
             return;
         }
 
-        string controllerName = controllersConnected[CONTROLLER_ID].ToLower();
+        if (CONTROLLER_ID <= controllersConnected.Length - 1 && CONTROLLER_ID >= 0)
+        {
+                string controllerName = controllersConnected[CONTROLLER_ID].ToLower();
 
-        if (controllerName.Contains(StringManager.Controllers.Xbox))
-            MapXbox();
-        else if (controllerName.Contains(StringManager.Controllers.PS4))
-            MapPs4();
-        else if (controllerName.Contains(StringManager.Controllers.Switch))
-            MapSwitch();
+            if (controllerName.Contains(StringManager.Controllers.Xbox))
+                MapXbox();
+            else if (controllerName.Contains(StringManager.Controllers.PS4))
+                MapPs4();
+            else if (controllerName.Contains(StringManager.Controllers.Switch))
+                MapSwitch();
+        }
+        else
+        {
+            if (controllersConnected.Length < playerHandler.MAX_PLAYERS && CONTROLLER_ID == controllersConnected.Length
+            ) //Assign last spot to keyboard
+            {
+                MapKeyboard();
+                return;
+            }
+
+            Destroy(gameObject); //If controller is missing or could not be recognized AND keyboard is not IN USE
+            return;
+        }
     }
 
     private void MapXbox()
