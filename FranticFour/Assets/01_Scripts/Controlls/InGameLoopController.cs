@@ -124,8 +124,8 @@ public class InGameLoopController : MonoBehaviour
 
     private void HandleStartOfRound()
     {
-        SpawnAllPlayers();
         ActivateAllPlayers(true);
+        StartCoroutine(SpawnAllPlayers());
     }
     private void HandleEndOfRound()
     {
@@ -136,7 +136,7 @@ public class InGameLoopController : MonoBehaviour
         CalculateScores();
     }
 
-    private void SpawnAllPlayers()
+    IEnumerator SpawnAllPlayers()
     {
         SpawnPoint spawnPoint = GetSpawnPoint();
         int hunterSpawnCount = 1;
@@ -148,13 +148,20 @@ public class InGameLoopController : MonoBehaviour
             {
                 spawnPosition = spawnPoint.spawnPosition[0].transform.position;
                 spawnPlayer(spawnPosition, player);
+                player.FreezeInput = true;
             }
             else
             {
                 spawnPosition = spawnPoint.spawnPosition[hunterSpawnCount].transform.position;
                 spawnPlayer(spawnPosition, player);
+                player.FreezeInput = true;
                 hunterSpawnCount += 1;
             }
+        }
+        yield return new WaitForSeconds(1);
+        foreach (var player in players)
+        {
+            player.FreezeInput = false;
         }
     }
     private SpawnPoint GetSpawnPoint()
@@ -184,8 +191,8 @@ public class InGameLoopController : MonoBehaviour
         ActivateAllPlayers(false);
         gameLoopUIController.SetKillScreen(currentPrey, killer, true);
         yield return new WaitForSeconds(respawnDelay);
-        SpawnAllPlayers();
         ActivateAllPlayers(true);
+        StartCoroutine(SpawnAllPlayers());
         gameLoopUIController.SetKillScreen(currentPrey, killer, false);
     }
 
