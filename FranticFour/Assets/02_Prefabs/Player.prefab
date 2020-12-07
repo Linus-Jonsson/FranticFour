@@ -194,6 +194,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75659d9530a15ed47aa69b09cb3a239c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 2128330477}
+  originalColor: {r: 1, g: 1, b: 1, a: 1}
+  ghostColor: {r: 1, g: 1, b: 1, a: 0.5019608}
+  scoreValue: 3
   BecamePray:
     m_PersistentCalls:
       m_Calls: []
@@ -257,7 +261,7 @@ MonoBehaviour:
   OnPush:
     m_PersistentCalls:
       m_Calls: []
-  OnTrapYeet:
+  OnTrapThrow:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &4384462609397879459
@@ -297,10 +301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa17058d60ec8cc48b4801199f783801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreValue: 3
   deathParticles: {fileID: 8171510603094556011, guid: 4daac6d3fbfde42468e742d41eb8884c, type: 3}
-  body: {fileID: 2128330475}
-  originalColor: {r: 0, g: 0, b: 0, a: 255}
 --- !u!114 &3119606327936163567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,11 +314,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8de97f8dd08e6c14e997db1c8c8d418c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 2128330477}
   ghostDuration: 3
   PushArea: {fileID: 5575129103467070823}
-  ghostColor: {r: 1, g: 1, b: 1, a: 0.5882353}
-  originalColor: {r: 1, g: 1, b: 1, a: 1}
-  spriteRenderer: {fileID: 2128330477}
+  blinkDuration: 0.1
   originalSpeed: 0
   ghostSpeed: 0
 --- !u!1 &5575129103467070823

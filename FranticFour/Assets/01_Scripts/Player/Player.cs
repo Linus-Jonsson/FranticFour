@@ -8,6 +8,15 @@ public class Player : MonoBehaviour
     // [SerializeField] string playerName = ""; // not currently in use
     // public string PlayerName { get { return playerName; } } 
 
+    [SerializeField] SpriteRenderer spriteRenderer = null;
+
+    [SerializeField] public Color originalColor = new Color(0, 0, 0, 0);
+
+    [SerializeField] public Color ghostColor = new Color(0, 0, 0, 50);
+
+    [SerializeField] int scoreValue = 3;
+    public int ScoreValue { get { return scoreValue; } }
+
     int totalScore = 0;
     public int TotalScore { get { return totalScore; } set { totalScore = value; } }
 
@@ -40,6 +49,14 @@ public class Player : MonoBehaviour
     
     public UnityEvent BecamePray = new UnityEvent();
 
+    DeathController deathAndRespawnController;
+    MovementController movementController;
+    PlayerActionsController playerActionsController;
+    PlayerAnimationsController playerAnimationsController;
+    RespawnController playerGhostController;
+    PushController pushController;
+    RotationController rotationController;
+
     // remove this once we are done with the print message.
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -50,7 +67,18 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         dead = false;
-        playerNumber = GetComponent<AssignedController>().PlayerID + 1;        
+        playerNumber = GetComponent<AssignedController>().PlayerID + 1;
+        GetReferences();
+    }
+    private void GetReferences()
+    {
+        deathAndRespawnController = GetComponent<DeathController>();
+        movementController = GetComponent<MovementController>();
+        playerActionsController = GetComponent<PlayerActionsController>();
+        playerGhostController = GetComponent<RespawnController>();
+        pushController = GetComponentInChildren<PushController>();
+        rotationController = GetComponent<RotationController>();
+        playerAnimationsController = GetComponent<PlayerAnimationsController>();
     }
 
     public void UnFreeze()
@@ -72,5 +100,30 @@ public class Player : MonoBehaviour
     {
         freezeInput = false;
         pushedBy = null;
+    }
+
+    public void ResetPlayer()
+    {
+        spriteRenderer.sharedMaterial.color = originalColor;
+        freezeInput = false;
+        dead = false;
+        playerGhostController.ResetRespawn();
+        playerActionsController.ResetPlayerActions();
+        movementController.ResetMovement();
+        
+        if(pushedBy != null)
+            pushedBy.GetComponentInChildren<PushController>().RemoveFromPushList(transform);
+        pushedBy = null;
+        pushController.ResetPushList();
+    }
+
+    public void SetNewPosition(Vector3 position)
+    {
+        transform.position = position;
+    }
+
+    public void playerDead()
+    {
+        playerGhostController.StartGhosting();
     }
 }

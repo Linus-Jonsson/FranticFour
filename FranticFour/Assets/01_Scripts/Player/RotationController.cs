@@ -5,12 +5,15 @@ public class RotationController : MonoBehaviour
     [SerializeField] GameObject body = null;
     AssignedController controller;
 
+    bool mouseRotation = false;
+
     Vector2 dir = new Vector2(0, 0);
     public Vector2 Dir { get { return dir; } }
 
     void Start()
     {
-        controller = GetComponentInParent<AssignedController>();
+        controller = GetComponent<AssignedController>();
+        mouseRotation = controller.UsesMouse;
     }
 
     void Update()
@@ -25,7 +28,7 @@ public class RotationController : MonoBehaviour
 
     private void HandleRotation()
     {
-        if (controller.UsesMouse)
+        if (mouseRotation)
             HandleMouseRotation(); //Musen skriver över kontroller inputs
         else
             HandleControllerRotation();
