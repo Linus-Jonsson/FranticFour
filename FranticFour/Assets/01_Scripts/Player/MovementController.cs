@@ -6,7 +6,7 @@ using UnityEngine;
 public class MovementController : MonoBehaviour
 {
     [Header("Movement configuration")]
-    //[SerializeField] float maxSpeed = 10f; curently not in use
+    [SerializeField] float maxSpeed = 10f;
     [SerializeField] float movementSpeed = 10f;
     public float MovementSpeed { set { movementSpeed = value; } }
 
@@ -46,6 +46,9 @@ public class MovementController : MonoBehaviour
         if (movement.sqrMagnitude > 1)
             movement = movement.normalized;
         rb2d.AddForce(movement * movementSpeed);
+
+        if (rb2d.velocity.magnitude > maxSpeed)
+            rb2d.velocity = Vector2.ClampMagnitude(rb2d.velocity, maxSpeed);
     }
     private Vector2 GetMovement()
     {
