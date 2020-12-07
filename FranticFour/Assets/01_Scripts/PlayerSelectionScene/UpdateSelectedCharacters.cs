@@ -5,6 +5,7 @@ public class UpdateSelectedCharacters : MonoBehaviour
 {
     [SerializeField] private Sprite[] characters = new Sprite[4];
     [SerializeField] private Sprite[] charactersSelected = new Sprite[4];
+    [SerializeField] private Sprite[] charactersChosed = new Sprite[4];
     [SerializeField] private UnityEvent onSpriteChange;
 
     public UnityEvent OnSpriteChange => onSpriteChange;
@@ -14,5 +15,10 @@ public class UpdateSelectedCharacters : MonoBehaviour
     {
         characters[(_index + 1) % 4] = charactersSelected[(_index + 1) % 4];
         onSpriteChange.Invoke();
+    }
+
+    public Sprite GetSelected(int _index)
+    {
+        return charactersChosed[(_index + 1) % 4];
     }
 }

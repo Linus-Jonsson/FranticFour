@@ -1145,6 +1145,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 99e97992d205eee4882b2357f36c0f90, type: 3}
   - {fileID: 21300000, guid: e4ff1e0334ba62543b719f7f91b62cf5, type: 3}
   - {fileID: 21300000, guid: 91b24d642bbfa824ea7fe12979012b6a, type: 3}
+  charactersChosed:
+  - {fileID: 21300000, guid: c4384f1fc1b3297419c9380389e288ad, type: 3}
+  - {fileID: 21300000, guid: 0a3d9133d5cad304c98e2ebf968e32db, type: 3}
+  - {fileID: 21300000, guid: f5a08f43183a52747ba96665efc9bbfa, type: 3}
+  - {fileID: 21300000, guid: 31600a648ad2e4c4785dc966613f0a63, type: 3}
   onSpriteChange:
     m_PersistentCalls:
       m_Calls: []
