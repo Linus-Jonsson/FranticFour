@@ -9,6 +9,7 @@ public class SelectionController : MonoBehaviour
 
     [Header("Assigned controls")]
     [SerializeField] private string action1;
+    [SerializeField] private string aButton;
     [SerializeField] private InputManager playerHandler;
 
     private float deadZoneX = 0f;
@@ -49,6 +50,8 @@ public class SelectionController : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(Input.GetButton(aButton));
+        
         if (!hasControllerJoined && Input.GetAxis(action1) >= 1 - deadZoneAction) //For PS4, Xbox and Keyboard
             ControllerJoin();
         else if (hasControllerJoined && !isSelecting && Input.GetAxis(action1) >= 1 - deadZoneAction) //For PS4, Xbox and Keyboard
@@ -61,7 +64,6 @@ public class SelectionController : MonoBehaviour
         
         if (hasControllerJoined && !playerSelected && (m_inputX != 0 || m_inputX2 != 0))
             CheckSelection(m_inputX, m_inputX2);
-
     }
 
     private void ControllerJoin()
@@ -131,6 +133,7 @@ public class SelectionController : MonoBehaviour
     private void MapXbox()
     {
         action1 = StringManager.Inputs.Action1 + CONTROLLER_ID;
+        aButton = StringManager.ButtonInputs.A_Button + CONTROLLER_ID;
         rightHorizontal = StringManager.Inputs.RightHorizontal + CONTROLLER_ID;
         horizontal = StringManager.Inputs.Horizontal + CONTROLLER_ID;
     }
@@ -138,6 +141,7 @@ public class SelectionController : MonoBehaviour
     private void MapPs4()
     {
         action1 = StringManager.Inputs.Action1PS4 + CONTROLLER_ID;
+        aButton = StringManager.ButtonInputs.X_ButtonPS4 + CONTROLLER_ID;
         rightHorizontal = StringManager.Inputs.RightHorizontalPS4 + CONTROLLER_ID;
         horizontal = StringManager.Inputs.Horizontal + CONTROLLER_ID;
     }

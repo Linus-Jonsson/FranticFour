@@ -360,6 +360,7 @@ MonoBehaviour:
   hasControllerJoined: 0
   myPlayer: {fileID: 0}
   action1: 
+  aButton: 
   playerHandler: {fileID: 0}
 --- !u!1 &545568813
 GameObject:
@@ -491,6 +492,7 @@ MonoBehaviour:
   hasControllerJoined: 0
   myPlayer: {fileID: 0}
   action1: 
+  aButton: 
   playerHandler: {fileID: 0}
 --- !u!1 &1015626623
 GameObject:
@@ -539,6 +541,7 @@ MonoBehaviour:
   hasControllerJoined: 0
   myPlayer: {fileID: 0}
   action1: 
+  aButton: 
   playerHandler: {fileID: 0}
 --- !u!1001 &1080114173
 PrefabInstance:
@@ -697,6 +700,7 @@ MonoBehaviour:
   hasControllerJoined: 0
   myPlayer: {fileID: 0}
   action1: 
+  aButton: 
   playerHandler: {fileID: 0}
 --- !u!1001 &1138898312
 PrefabInstance:

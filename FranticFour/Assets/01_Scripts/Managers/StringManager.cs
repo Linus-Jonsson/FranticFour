@@ -27,4 +27,10 @@
         public const string Jump = "Jump"; //R1 | XBOX, PS4
         public const string JumpKeboard = "JumpKeyboard"; //Keyboard
     }
+
+    public struct ButtonInputs
+    {
+        public const string A_Button = "ButtonA"; //XBOX
+        public const string X_ButtonPS4 = "ButtonXPS4"; //PS4
+    }
 }
