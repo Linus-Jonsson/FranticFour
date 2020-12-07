@@ -31,15 +31,17 @@ public class CharacterSelection : MonoBehaviour
     private void UpdateSprites()
     {
         for (int i = 0; i < playersSpriteHandler.Characters.Length; i++)
-        {
-            characters[(i + selectedCharacterIndex) % characters.Length] = playersSpriteHandler.Characters[(i + selectedCharacterIndex) % characters.Length];
-        }
-        
+            characters[(i + selectedCharacterIndex) % characters.Length] =
+                playersSpriteHandler.Characters[(i + selectedCharacterIndex) % characters.Length];
+
         UpdateRenderer();
     }
 
     public void CharacterSelected()
     {
+        // 1 = the renderer in the middle
+        spriteRenderers[1].sprite = playersSpriteHandler.GetSelected(selectedCharacterIndex);
+        playersSpriteHandler.OnSpriteChange.RemoveListener(UpdateSprites);
         playersSpriteHandler.SetSelected(selectedCharacterIndex);
     }
 
