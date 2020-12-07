@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
     
     public UnityEvent BecamePray = new UnityEvent();
 
-    DeathController deathAndRespawnController;
+    DeathController deathController;
     MovementController movementController;
     PlayerActionsController playerActionsController;
     PlayerAnimationsController playerAnimationsController;
@@ -72,7 +72,7 @@ public class Player : MonoBehaviour
     }
     private void GetReferences()
     {
-        deathAndRespawnController = GetComponent<DeathController>();
+        deathController = GetComponent<DeathController>();
         movementController = GetComponent<MovementController>();
         playerActionsController = GetComponent<PlayerActionsController>();
         playerGhostController = GetComponent<RespawnController>();
