@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Debug = UnityEngine.Debug;
 
 public class CharacterSelection : MonoBehaviour
 {
@@ -26,9 +25,7 @@ public class CharacterSelection : MonoBehaviour
     private void UpdateRenderer()
     {
         for (int i = 0; i < spriteRenderers.Length; i++)
-        {
             spriteRenderers[i].sprite = characters[(selectedCharacterIndex + i) % characters.Length];
-        }
     }
 
     private void UpdateSprites()
