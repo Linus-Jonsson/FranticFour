@@ -5,45 +5,63 @@ public class CharacterSelection : MonoBehaviour
     [Header("Sprite renderers")] [Tooltip("Should be assigned in the order [0] = left, [1] = middle, [2] = right")]
     [SerializeField] private SpriteRenderer[] spriteRenderers = new SpriteRenderer[3];
     [Header("Character sprites")]
-    [SerializeField] private Sprite[] characters = new Sprite[4];
-    [SerializeField] private int selectedCharacterIndex;
+    [SerializeField] private Sprite[] characters = null;
+    [SerializeField] private int selectedCharacterIndex = 0;
+    [SerializeField] private UpdateSelectedCharacters playersSpriteHandler = null;
     public int SelectedCharacterIndex => selectedCharacterIndex;
 
     private void Start()
     {
+        playersSpriteHandler = GetComponentInParent<UpdateSelectedCharacters>();
+        characters = new Sprite[playersSpriteHandler.Characters.Length];
+        playersSpriteHandler.OnSpriteChange.AddListener(UpdateSprites);
+
+        for (int i = 0; i < playersSpriteHandler.Characters.Length; i++)
+            characters[i] = playersSpriteHandler.Characters[i];
+        
         UpdateRenderer();
     }
 
     private void UpdateRenderer()
     {
         for (int i = 0; i < spriteRenderers.Length; i++)
-            spriteRenderers[i].sprite = characters[i];
+            spriteRenderers[i].sprite = characters[(selectedCharacterIndex + i) % characters.Length];
+    }
+
+    private void UpdateSprites()
+    {
+        for (int i = 0; i < playersSpriteHandler.Characters.Length; i++)
+        {
+            characters[(i + selectedCharacterIndex) % characters.Length] = playersSpriteHandler.Characters[(i + selectedCharacterIndex) % characters.Length];
+        }
+        
+        UpdateRenderer();
+    }
+
+    public void CharacterSelected()
+    {
+        playersSpriteHandler.SetSelected(selectedCharacterIndex);
     }
 
     public void NextCharacter(bool _right)
     {
-        if (_right)
+        if (!_right)
         {
             selectedCharacterIndex++;
-            Sprite m_temp = characters[characters.Length - 1];
-
-            for (int i = characters.Length - 2; i >= 0; i--)
-                characters[i + 1] = characters[i];
-            characters[0] = m_temp;
         }
         else
         {
             selectedCharacterIndex--;
-            Sprite m_temp = characters[0];
-
-            for (int i = 1; i < characters.Length; i++)
-                characters[i - 1] = characters[i];
-            characters[characters.Length - 1] = m_temp;   
+            if (selectedCharacterIndex < 0)
+                selectedCharacterIndex = characters.Length - 1;
+            
         }
 
         if (selectedCharacterIndex < 0)
-            selectedCharacterIndex += 4;
+            selectedCharacterIndex += characters.Length;
             
+        
+        
         selectedCharacterIndex %= characters.Length;
         UpdateRenderer();
     }
