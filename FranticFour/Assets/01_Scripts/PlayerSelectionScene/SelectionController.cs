@@ -12,8 +12,9 @@ public class SelectionController : MonoBehaviour
     [SerializeField] private InputManager playerHandler;
 
     private float deadZoneX = 0f;
+    private readonly float deadZoneAction = 0.5f;
     private readonly float deadZoneRight = 0.04f;
-    private float deadZoneLeft = 0.4f;
+    private readonly float deadZoneLeft = 0.65f;
     private string rightHorizontal = null;
     private string horizontal = null;
     private bool inputBool = false;
@@ -48,9 +49,9 @@ public class SelectionController : MonoBehaviour
 
     private void Update()
     {
-        if (!hasControllerJoined && Input.GetAxis(action1) >= 1 - 0.5f) //For PS4, Xbox and Keyboard
+        if (!hasControllerJoined && Input.GetAxis(action1) >= 1 - deadZoneAction) //For PS4, Xbox and Keyboard
             ControllerJoin();
-        else if (hasControllerJoined && !isSelecting && Input.GetAxis(action1) >= 1 - 0.5f) //For PS4, Xbox and Keyboard
+        else if (hasControllerJoined && !isSelecting && Input.GetAxis(action1) >= 1 - deadZoneAction) //For PS4, Xbox and Keyboard
             ControllerSelectPlayer();
         else if (isSelecting && Input.GetAxis(action1) <= 0)
             isSelecting = false;
@@ -158,7 +159,7 @@ public class SelectionController : MonoBehaviour
     
     private void CheckSelection(float _inputXRight, float _inputXLeft)
     {
-        if (Mathf.Abs(_inputXLeft) > Mathf.Abs(_inputXRight))
+        if (Mathf.Abs(_inputXLeft) > Mathf.Abs(_inputXRight) && Mathf.Abs(_inputXLeft) > deadZoneLeft)
         {
             _inputXRight = _inputXLeft;
             deadZoneX = deadZoneLeft;
