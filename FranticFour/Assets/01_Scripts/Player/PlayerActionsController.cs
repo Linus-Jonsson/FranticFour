@@ -32,24 +32,25 @@ public class PlayerActionsController : MonoBehaviour
 
     public float PushCooldown => pushCooldown;
     public UnityEvent OnPush = new UnityEvent();
-    public UnityEvent OnTrapYeet = new UnityEvent();
+    public UnityEvent OnTrapThrow = new UnityEvent();
 
     float originalDrag;
+
+    List<PreyTrap> laidTraps = new List<PreyTrap>();
 
     bool canThrowTraps = true;
     bool canPush = true;
     bool canJump = true;
 
-    PushController pushController;
-    RotationController rotationController;
-
     Player player;
     public Player Player => player;
 
+    PushController pushController;
+    RotationController rotationController;
     Animator animator;    
     AssignedController controller;
     Rigidbody2D rb2d;
-    List<PreyTrap> laidTraps = new List<PreyTrap>();
+
 
     private void Awake()
     {
@@ -86,7 +87,7 @@ public class PlayerActionsController : MonoBehaviour
             return;
         if (player.Prey && canThrowTraps && laidTraps.Count < maximumTraps)
             StartCoroutine(HandleTrapThrow());
-        else if (!player.Prey && canPush && pushController.InPushRange())
+        else if (!player.Prey && canPush)
             HandlePush();
     }
     private void HandlePushOrThrow()
@@ -107,7 +108,7 @@ public class PlayerActionsController : MonoBehaviour
     }
     private void ThrowTrap()
     {
-        OnTrapYeet.Invoke();
+        OnTrapThrow.Invoke();
         Vector2 direction = rotationController.Dir.normalized;
         Vector3 offset = direction * rawOffset;
         PreyTrap newTrap = Instantiate(preyTrap, transform.position + offset, Quaternion.identity);
@@ -144,6 +145,7 @@ public class PlayerActionsController : MonoBehaviour
         foreach (var trap in laidTraps)
             trap.DestroyTrap();
     }
+
     private void Jumping(bool value)
     {
         canJump = !value;

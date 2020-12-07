@@ -52,7 +52,7 @@ public class CooldownBar : MonoBehaviour
         
         playerActionController.Player.BecamePray.AddListener(BecamePray);
         playerActionController.OnPush.AddListener(StartBar);
-        playerActionController.OnTrapYeet.AddListener(StartBarPrey);
+        playerActionController.OnTrapThrow.AddListener(StartBarPrey);
 
         emptyBarPos = new Vector3(-GetComponent<Renderer>().bounds.size.x, 0, 0);
     }

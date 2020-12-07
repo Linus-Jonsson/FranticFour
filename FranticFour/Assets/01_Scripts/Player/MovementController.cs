@@ -10,6 +10,9 @@ public class MovementController : MonoBehaviour
     [SerializeField] float movementSpeed = 10f;
     public float MovementSpeed { set { movementSpeed = value; } }
 
+    Vector2 movement = new Vector2(0,0);
+    public Vector2 Movement { get { return movement;} }
+
     [Tooltip("The amount that the players current velocity gets multiplied by at the start")]
     [SerializeField] float pushForceMultiplier = 5.0f;
     [Tooltip("The amount that the players current velocity gets divided by after push")]
@@ -17,7 +20,6 @@ public class MovementController : MonoBehaviour
 
     AssignedController controller;
     Rigidbody2D rb2d;
-    PlayerAnimationsController playerAnimationsController;
     Player player;
 
     private void Awake()
@@ -29,7 +31,6 @@ public class MovementController : MonoBehaviour
     {
         controller = GetComponent<AssignedController>();
         rb2d = GetComponent<Rigidbody2D>();
-        playerAnimationsController = GetComponent<PlayerAnimationsController>();
         player = GetComponent<Player>();
     }
 
@@ -41,10 +42,9 @@ public class MovementController : MonoBehaviour
 
     private void MovePlayer()
     {
-        Vector2 movement = GetMovement();
+        movement = GetMovement();
         if (movement.sqrMagnitude > 1)
             movement = movement.normalized;
-        playerAnimationsController.SetMovement(movement);
         rb2d.AddForce(movement * movementSpeed);
     }
     private Vector2 GetMovement()
@@ -57,7 +57,6 @@ public class MovementController : MonoBehaviour
     public void ResetMovement()
     {
         StopAllCoroutines();
-        player.FreezeInput = false;
     }
 
     //AnimationEvents:

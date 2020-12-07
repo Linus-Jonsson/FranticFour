@@ -146,7 +146,7 @@ public class InGameLoopController : MonoBehaviour
         foreach (var player in players)
         {
             Vector2 spawnPosition;
-            player.GetComponent<DeathAndRespawnController>().ResetPlayer();
+            player.ResetPlayer();
             if (player.Prey == true)
             {
                 spawnPosition = spawnPoint.spawnPosition[0].transform.position;
@@ -175,12 +175,8 @@ public class InGameLoopController : MonoBehaviour
     }
     private void spawnPlayer(Vector2 spawnPosition, Player player)
     {
-        player.GetComponent<DeathAndRespawnController>().ResetPlayer(spawnPosition);
+        player.SetNewPosition(spawnPosition);
         Instantiate(spawnParticles, new Vector3(spawnPosition.x, spawnPosition.y - 0.5f, 0), Quaternion.identity);
-    }
-    public void spawnPlayer(Player player)
-    {
-        player.GetComponent<PlayerGhostController>().StartGhosting();
     }
 
     public void RespawnAllPlayers(Player killer)
@@ -251,7 +247,7 @@ public class InGameLoopController : MonoBehaviour
     {
         foreach (var player in players)
         {
-            player.GetComponent<DeathAndRespawnController>().ResetPlayer();
+            player.ResetPlayer();
             player.TotalScore = 0;
         }
         currentRound = 1;

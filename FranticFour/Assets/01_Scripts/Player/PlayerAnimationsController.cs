@@ -6,12 +6,14 @@ public class PlayerAnimationsController : MonoBehaviour
 {
     Animator animator;
     RotationController rotationController;
+    MovementController movementController;
     Rigidbody2D rb2d;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         rotationController = GetComponent<RotationController>();
+        movementController = GetComponent<MovementController>();
         rb2d = GetComponent<Rigidbody2D>();
     }
 
@@ -19,6 +21,7 @@ public class PlayerAnimationsController : MonoBehaviour
     {
         SetVelocity();
         SetDirection();
+        SetMovement();
     }
 
     private void SetVelocity()
@@ -35,8 +38,9 @@ public class PlayerAnimationsController : MonoBehaviour
         animator.SetFloat("directionY", direction.y);
     }
     
-    public void SetMovement(Vector2 movement)
+    public void SetMovement()
     {
+        Vector2 movement = movementController.Movement;
         animator.SetFloat("movementX", movement.x);
         animator.SetFloat("movementY", movement.y);
     }
