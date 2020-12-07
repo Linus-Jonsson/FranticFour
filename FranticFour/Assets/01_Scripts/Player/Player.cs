@@ -32,11 +32,15 @@ public class Player : MonoBehaviour
     bool freezeInput = false;
     public bool FreezeInput { get { return freezeInput; } set { freezeInput = value; } }
 
+    bool dead = false;
+    public bool Dead { get { return dead; } set { dead = value; } }
+
     Player pushedBy = null;
     public Player PushedBy { get { return pushedBy; } set { pushedBy = value; } }
     
     public UnityEvent BecamePray = new UnityEvent();
 
+    // remove this once we are done with the print message.
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == 13)
@@ -45,6 +49,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        dead = false;
         playerNumber = GetComponent<AssignedController>().PlayerID + 1;        
     }
 

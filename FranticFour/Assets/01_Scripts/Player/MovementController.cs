@@ -6,7 +6,7 @@ using UnityEngine;
 public class MovementController : MonoBehaviour
 {
     [Header("Movement configuration")]
-    [SerializeField] float maxSpeed = 10f;
+    //[SerializeField] float maxSpeed = 10f; curently not in use
     [SerializeField] float movementSpeed = 10f;
     public float MovementSpeed { set { movementSpeed = value; } }
 
@@ -34,7 +34,7 @@ public class MovementController : MonoBehaviour
     }
 
     void FixedUpdate()
-    {
+    {   
         if (!player.FreezeInput)
             MovePlayer();
     }

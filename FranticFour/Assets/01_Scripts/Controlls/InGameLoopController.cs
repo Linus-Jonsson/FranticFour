@@ -20,6 +20,7 @@ public class InGameLoopController : MonoBehaviour
     [SerializeField] int numberOfRounds = 5;
     [SerializeField] GameObject[] spawnPoints = new GameObject[4];
     [SerializeField] float hunterSpeed = 50f;
+    public float HunterSpeed { get { return hunterSpeed; } }
     [SerializeField] float preySpeed = 45f;
     [SerializeField] GameObject[] onOffObjects = new GameObject[4]; // this can be removed once we implement a better way to disable cooldown bars
 
@@ -112,7 +113,6 @@ public class InGameLoopController : MonoBehaviour
         if (value)
         {
             currentPrey = players[i];
-            FindObjectOfType<HunterRespawnHandler>().SetPrey(players[i].transform);
         }
 
 /*        else
@@ -134,7 +134,6 @@ public class InGameLoopController : MonoBehaviour
     private void HandleEndOfRound()
     {
         StopCoroutine(HandleRespawnOfAllPlayers(null));
-        StopCoroutine(HandlePlayerRespawn(null, null));
         gameLoopUIController.SetKillScreen(null, null, false);
         ActivateAllPlayers(false);
         CalculateScores();
@@ -179,11 +178,9 @@ public class InGameLoopController : MonoBehaviour
         player.GetComponent<DeathAndRespawnController>().ResetPlayer(spawnPosition);
         Instantiate(spawnParticles, new Vector3(spawnPosition.x, spawnPosition.y - 0.5f, 0), Quaternion.identity);
     }
-    private void spawnPlayer(Player player)
+    public void spawnPlayer(Player player)
     {
-        player.GetComponent<DeathAndRespawnController>().ResetPlayer();
-        Vector2 position = new Vector2(player.transform.position.x, player.transform.position.y);
-        Instantiate(spawnParticles, new Vector3(position.x, position.y - 0.5f, 0), Quaternion.identity);
+        player.GetComponent<PlayerGhostController>().StartGhosting();
     }
 
     public void RespawnAllPlayers(Player killer)
@@ -198,18 +195,6 @@ public class InGameLoopController : MonoBehaviour
         ActivateAllPlayers(true);
         StartCoroutine(SpawnAllPlayers());
         gameLoopUIController.SetKillScreen(currentPrey, killer, false);
-    }
-
-    public void RespawnPlayer(Player playerToSpawn, GameObject onOffObject)
-    {
-        StartCoroutine(HandlePlayerRespawn(playerToSpawn, onOffObject));
-    }
-    private IEnumerator HandlePlayerRespawn(Player playerToSpawn, GameObject onOffObject)
-    {
-        ActivatePlayer(false,onOffObject);
-        yield return new WaitForSeconds(respawnDelay);
-        ActivatePlayer(true, onOffObject);
-        spawnPlayer(playerToSpawn);
     }
 
     private void CalculateScores()

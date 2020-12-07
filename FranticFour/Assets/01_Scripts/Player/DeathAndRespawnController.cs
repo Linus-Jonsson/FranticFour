@@ -7,7 +7,6 @@ public class DeathAndRespawnController : MonoBehaviour
     [Tooltip("The value in score that the prey is worth when killing")]
     [SerializeField] int scoreValue = 3;
     [SerializeField] GameObject deathParticles = null;
-    [SerializeField] GameObject onOffObject = null;
     [SerializeField] GameObject body = null;
     [SerializeField] Color originalColor = new Color(0, 0, 0, 255);
 
@@ -16,7 +15,7 @@ public class DeathAndRespawnController : MonoBehaviour
     PlayerActionsController playerActionController;
     MovementController movementController;
     SpriteRenderer spriteRenderer;
-    HunterRespawnHandler hunterRespawnHandler;
+    PlayerGhostController playerGhostController;
     PushController pushController;
 
     private void Awake()
@@ -31,7 +30,7 @@ public class DeathAndRespawnController : MonoBehaviour
         playerActionController = GetComponent<PlayerActionsController>();
         movementController = GetComponent<MovementController>();
         spriteRenderer = body.GetComponent<SpriteRenderer>();
-        hunterRespawnHandler = FindObjectOfType<HunterRespawnHandler>();
+        playerGhostController = FindObjectOfType<PlayerGhostController>();
         pushController = GetComponentInChildren<PushController>();
     }
 
@@ -49,7 +48,7 @@ public class DeathAndRespawnController : MonoBehaviour
         if (player.Prey)
             HandlePreyKilled();
         else
-            gameLoopController.RespawnPlayer(player, onOffObject);
+            gameLoopController.spawnPlayer(player);
     }
     private void ShowDeathEffect()
     {
@@ -59,14 +58,7 @@ public class DeathAndRespawnController : MonoBehaviour
 
     private void HandlePreyKilled()
     {
-        if (player.PushedBy == null)
-            PreyKilledBySomeone(false);
-        else
-            PreyKilledBySomeone(true);
-    }
-    private void PreyKilledBySomeone(bool killedBySomeone)
-    {
-        if (killedBySomeone)
+        if (player.PushedBy != null)
             player.PushedBy.IncreaseScore(scoreValue);
         else
             gameLoopController.IncreaseAllScores(Mathf.RoundToInt(scoreValue / 3));
@@ -76,35 +68,37 @@ public class DeathAndRespawnController : MonoBehaviour
 
     }
 
-    public void ResetPlayer(Vector3 position)
-    {
-        spriteRenderer.color = originalColor;
-        playerActionController.ResetPlayerActions();
-        movementController.ResetMovement();
-        if (player.PushedBy != null)
-            player.PushedBy.GetComponentInChildren<PushController>().RemoveFromPushList(transform);
-        player.PushedBy = null;
-        pushController.ResetPushList();
-        SetNewPosition(position);
-    }
     public void ResetPlayer()
     {
-        spriteRenderer.color = originalColor;
-        playerActionController.ResetPlayerActions();
-        movementController.ResetMovement();
-        if (player.PushedBy != null)
-            player.PushedBy.GetComponentInChildren<PushController>().RemoveFromPushList(transform);
-        player.PushedBy = null;
-        pushController.ResetPushList();
-        SetNewPosition();
+        ResetOtherScriptsAndColor();
+        ResetPushController();
+    }
+    public void ResetPlayer(Vector3 position)
+    {
+        ResetOtherScriptsAndColor();
+        ResetPushController();
+        SetNewPosition(position);
     }
 
     private void SetNewPosition(Vector3 position)
     {
         transform.position = position;
     }
-    private void SetNewPosition()
+
+    private void ResetOtherScriptsAndColor()
     {
-        transform.position = hunterRespawnHandler.GetSpawnPoint().position;
-    } 
+        spriteRenderer.color = originalColor;
+        player.Dead = false;
+        playerActionController.ResetPlayerActions();
+        movementController.ResetMovement();
+        playerGhostController.ResetRespawn();
+    }
+
+    private void ResetPushController()
+    {
+        if (player.PushedBy != null)
+            player.PushedBy.GetComponentInChildren<PushController>().RemoveFromPushList(transform);
+        player.PushedBy = null;
+        pushController.ResetPushList();
+    }
 }
