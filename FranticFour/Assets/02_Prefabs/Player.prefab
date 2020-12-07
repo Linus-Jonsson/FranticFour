@@ -100,7 +100,6 @@ GameObject:
   - component: {fileID: 6598763632442513007}
   - component: {fileID: 4384462609397879459}
   - component: {fileID: 5966693910533769791}
-  - component: {fileID: 7163962998717739410}
   - component: {fileID: 5439504268739004778}
   - component: {fileID: 3119606327936163567}
   m_Layer: 8
@@ -140,7 +139,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 20
+  m_LinearDrag: 30
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -253,7 +252,7 @@ MonoBehaviour:
   trapPushForce: 10
   trapsCoolDown: 4
   maximumTraps: 3
-  pushForce: 80
+  pushForce: 160
   pushCooldown: 2
   OnPush:
     m_PersistentCalls:
@@ -286,22 +285,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 2128330475}
---- !u!114 &7163962998717739410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5575129103255632267}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1704d5a7ba68afb4a89fc8b98c5d29ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pushDuration: 0.3
-  pushedByTime: 2
-  body: {fileID: 2128330475}
-  originalColor: {r: 0, g: 0, b: 0, a: 255}
 --- !u!114 &5439504268739004778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,7 +299,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreValue: 3
   deathParticles: {fileID: 8171510603094556011, guid: 4daac6d3fbfde42468e742d41eb8884c, type: 3}
-  onOffObject: {fileID: 0}
   body: {fileID: 2128330475}
   originalColor: {r: 0, g: 0, b: 0, a: 255}
 --- !u!114 &3119606327936163567
