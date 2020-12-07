@@ -69,7 +69,6 @@ public class InGameLoopController : MonoBehaviour
             yield return StartCoroutine(gameLoopUIController.NextRoundCountdown(players, roundOverDuration, currentRound));
             currentRound++;
         }
-
         gameLoopUIController.DisplayFinalResults(players);
     }        
     private void ActivateAllPlayers(bool value)
@@ -81,8 +80,9 @@ public class InGameLoopController : MonoBehaviour
     }
     private static void ActivatePlayer(bool value, GameObject onOffObject)
     {
+        onOffObject.GetComponentInChildren<Player>().ResetPlayer();
+        onOffObject.GetComponentInChildren<Player>().FreezeInput = !value;
         onOffObject.SetActive(value);
-        onOffObject.GetComponentInChildren<Player>().FreezeInput = false;
     }
 
     private void HandleRoleSetting()
@@ -111,10 +111,7 @@ public class InGameLoopController : MonoBehaviour
         players[i].GetComponent<MovementController>().MovementSpeed = speed;
         players[i].Prey = value;
         if (value)
-        {
             currentPrey = players[i];
-        }
-
 /*        else
             preyProbability.Add(i); implement once game is done getting tested*/
     }
@@ -146,25 +143,23 @@ public class InGameLoopController : MonoBehaviour
         foreach (var player in players)
         {
             Vector2 spawnPosition;
-            player.ResetPlayer();
+            player.FreezeInput = true;
             if (player.Prey == true)
             {
                 spawnPosition = spawnPoint.spawnPosition[0].transform.position;
                 spawnPlayer(spawnPosition, player);
-                player.FreezeInput = true;
             }
             else
             {
                 spawnPosition = spawnPoint.spawnPosition[hunterSpawnCount].transform.position;
                 spawnPlayer(spawnPosition, player);
-                player.FreezeInput = true;
                 hunterSpawnCount += 1;
             }
         }
         yield return new WaitForSeconds(1);
         foreach (var player in players)
         {
-            player.FreezeInput = false;
+            player.ResetPlayer();
         }
     }
     private SpawnPoint GetSpawnPoint()

@@ -61,7 +61,6 @@ public class RespawnController : MonoBehaviour
         spriteRenderer.sharedMaterial.color = player.originalColor;
         yield return new WaitForSeconds(blinkDuration);
         float newTime = time - blinkDuration;
-        print(newTime);
         if (newTime > 0)
             StartCoroutine(BlinkOff(newTime));
         else
@@ -74,7 +73,6 @@ public class RespawnController : MonoBehaviour
         spriteRenderer.sharedMaterial.color = player.ghostColor;
         yield return new WaitForSeconds(blinkDuration);
         float newTime = time - blinkDuration;
-        print(newTime);
         if (newTime > 0)
             StartCoroutine(BlinkOn(newTime));
         else
