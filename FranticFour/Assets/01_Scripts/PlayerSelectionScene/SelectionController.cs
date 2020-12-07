@@ -83,7 +83,10 @@ public class SelectionController : MonoBehaviour
         myPlayer.SelectedHighlightLerp.hasSelected = true;
         myPlayer.CharacterMaskCloseSelect.OnSelected();
         playerHandler.playersSelected[CONTROLLER_ID] = true;
+        
         PassControllersToGame.playerOwnedBy[myPlayer.SelectedCharacterSelection.SelectedCharacterIndex] = CONTROLLER_ID;
+        myPlayer.SelectedCharacterSelection.CharacterSelected();
+        
         playerHandler.SelectPlayer(CONTROLLER_ID);
     }
     
@@ -164,9 +167,9 @@ public class SelectionController : MonoBehaviour
             inputBool = true;
 
             if (_inputX > 0)
-                myPlayer.SelectedCharacterSelection.NextCharacter(true);
-            else if (_inputX < 0)
                 myPlayer.SelectedCharacterSelection.NextCharacter(false);
+            else if (_inputX < 0)
+                myPlayer.SelectedCharacterSelection.NextCharacter(true);
         }
         else
             inputBool = false;

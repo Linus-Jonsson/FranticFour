@@ -919,10 +919,16 @@ MonoBehaviour:
   - {fileID: 9204235528256535349}
   - {fileID: 5473973415262859586}
   characters:
-  - {fileID: 21300000, guid: 74f559dfe799dc3438dfbaa097ac984f, type: 3}
-  - {fileID: 21300000, guid: 6fe5f9e85bcf69f40bcf9625fdc660a8, type: 3}
+  - {fileID: 21300000, guid: e94caa584a1c4eb419b07edb59acac1e, type: 3}
+  - {fileID: 21300000, guid: 9be433a10d16df74c9100a9551a8264e, type: 3}
   - {fileID: 21300000, guid: b7328bf4b4d8b774eb4f37fb5f0cff15, type: 3}
   - {fileID: 21300000, guid: 0cec3c7c00d7a954d997e57b022f3022, type: 3}
+  charactersSelected:
+  - {fileID: 21300000, guid: 99e97992d205eee4882b2357f36c0f90, type: 3}
+  - {fileID: 21300000, guid: a5dc129d6bc83574f8eeed9e0313b293, type: 3}
+  - {fileID: 21300000, guid: 0cec3c7c00d7a954d997e57b022f3022, type: 3}
+  - {fileID: 21300000, guid: b7328bf4b4d8b774eb4f37fb5f0cff15, type: 3}
+  selectedCharacterIndex: 0
 --- !u!1 &8766947298170974516
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,3 +987,6 @@ MonoBehaviour:
   selectedCharacterSelection: {fileID: 3153165024394145032}
   characterSelectionGameObject: {fileID: 8539167374821323862}
   characterMaskCloseSelect: {fileID: 8906902644441261625}
+  characterSelected:
+    m_PersistentCalls:
+      m_Calls: []

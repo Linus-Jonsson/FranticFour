@@ -4,4 +4,5 @@
     public static bool playersAssigned = false;
     public static int keyBoardOwnedBy;
     public static bool isKeyboardUsed;
+    public static int spriteToSwitch;
 }
