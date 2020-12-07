@@ -11,9 +11,11 @@ public class SelectionController : MonoBehaviour
     [SerializeField] private string action1;
     [SerializeField] private InputManager playerHandler;
 
-    private readonly float inputZone = 0.04f;
+    private float deadZoneX = 0f;
+    private readonly float deadZoneRight = 0.04f;
+    private float deadZoneLeft = 0.4f;
     private string rightHorizontal = null;
-    private string rightVertical = null;
+    private string horizontal = null;
     private bool inputBool = false;
     private bool isSelecting = false;
     private bool playerSelected = false;
@@ -46,17 +48,18 @@ public class SelectionController : MonoBehaviour
 
     private void Update()
     {
-        if (!hasControllerJoined && Input.GetAxis(action1) == 1) //For PS4, Xbox and Keyboard
+        if (!hasControllerJoined && Input.GetAxis(action1) >= 1 - 0.5f) //For PS4, Xbox and Keyboard
             ControllerJoin();
-        else if (hasControllerJoined && !isSelecting && Input.GetAxis(action1) == 1) //For PS4, Xbox and Keyboard
+        else if (hasControllerJoined && !isSelecting && Input.GetAxis(action1) >= 1 - 0.5f) //For PS4, Xbox and Keyboard
             ControllerSelectPlayer();
         else if (isSelecting && Input.GetAxis(action1) <= 0)
             isSelecting = false;
 
         float m_inputX = Input.GetAxis(rightHorizontal);
-
-        if (hasControllerJoined && !playerSelected && m_inputX != 0)
-            CheckSelection(m_inputX);
+        float m_inputX2 = Input.GetAxis(horizontal);
+        
+        if (hasControllerJoined && !playerSelected && (m_inputX != 0 || m_inputX2 != 0))
+            CheckSelection(m_inputX, m_inputX2);
 
     }
 
@@ -128,14 +131,14 @@ public class SelectionController : MonoBehaviour
     {
         action1 = StringManager.Inputs.Action1 + CONTROLLER_ID;
         rightHorizontal = StringManager.Inputs.RightHorizontal + CONTROLLER_ID;
-        rightVertical = StringManager.Inputs.RightVertical + CONTROLLER_ID;
+        horizontal = StringManager.Inputs.Horizontal + CONTROLLER_ID;
     }
 
     private void MapPs4()
     {
         action1 = StringManager.Inputs.Action1PS4 + CONTROLLER_ID;
         rightHorizontal = StringManager.Inputs.RightHorizontalPS4 + CONTROLLER_ID;
-        rightVertical = StringManager.Inputs.RightVerticalPS4 + CONTROLLER_ID;
+        horizontal = StringManager.Inputs.Horizontal + CONTROLLER_ID;
     }
 
     private void MapSwitch()
@@ -149,25 +152,33 @@ public class SelectionController : MonoBehaviour
         PassControllersToGame.keyBoardOwnedBy = CONTROLLER_ID;
                 
         rightHorizontal = StringManager.Inputs.HorizontalKeyboard;
-        rightVertical = StringManager.Inputs.VerticalKeyboard;
+        horizontal = StringManager.Inputs.HorizontalKeyboard;
         action1 = StringManager.Inputs.Action1Keyboard;
     }
     
-    private void CheckSelection(float _inputX)
+    private void CheckSelection(float _inputXRight, float _inputXLeft)
     {
-        if (_inputX > inputZone || _inputX < -inputZone)
+        if (Mathf.Abs(_inputXLeft) > Mathf.Abs(_inputXRight))
+        {
+            _inputXRight = _inputXLeft;
+            deadZoneX = deadZoneLeft;
+        }
+        else
+            deadZoneX = deadZoneRight;
+
+        if (_inputXRight > deadZoneX || _inputXRight < -deadZoneX)
         {
             if (inputBool)
                 return;
 
-            if (_inputX > inputZone) _inputX = Mathf.CeilToInt(_inputX);
-            else if (_inputX < -inputZone) _inputX = Mathf.FloorToInt(_inputX);
+            if (_inputXRight > deadZoneX) _inputXRight = Mathf.CeilToInt(_inputXRight);
+            else if (_inputXRight < -deadZoneX) _inputXRight = Mathf.FloorToInt(_inputXRight);
 
             inputBool = true;
 
-            if (_inputX > 0)
+            if (_inputXRight > 0)
                 myPlayer.SelectedCharacterSelection.NextCharacter(false);
-            else if (_inputX < 0)
+            else if (_inputXRight < 0)
                 myPlayer.SelectedCharacterSelection.NextCharacter(true);
         }
         else
