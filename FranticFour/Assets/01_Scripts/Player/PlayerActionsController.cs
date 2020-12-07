@@ -42,8 +42,8 @@ public class PlayerActionsController : MonoBehaviour
 
     PushController pushController;
     RotationController rotationController;
-    Player player;
 
+    Player player;
     public Player Player => player;
 
     Animator animator;    
@@ -69,7 +69,7 @@ public class PlayerActionsController : MonoBehaviour
 
     private void Update()
     {
-        if (player.FreezeInput)
+        if (player.FreezeInput || player.Dead)
             return;
         int m_number;
         bool mouseUsed = Int32.TryParse(controller.Action1, out m_number);

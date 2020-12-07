@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 5966693910533769791}
   - component: {fileID: 7163962998717739410}
   - component: {fileID: 5439504268739004778}
+  - component: {fileID: 3119606327936163567}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -194,6 +195,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75659d9530a15ed47aa69b09cb3a239c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BecamePray:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &5575129103255632260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,6 +258,9 @@ MonoBehaviour:
   OnPush:
     m_PersistentCalls:
       m_Calls: []
+  OnTrapYeet:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &4384462609397879459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,6 +319,25 @@ MonoBehaviour:
   onOffObject: {fileID: 0}
   body: {fileID: 2128330475}
   originalColor: {r: 0, g: 0, b: 0, a: 255}
+--- !u!114 &3119606327936163567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5575129103255632267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8de97f8dd08e6c14e997db1c8c8d418c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ghostDuration: 3
+  PushArea: {fileID: 5575129103467070823}
+  ghostColor: {r: 1, g: 1, b: 1, a: 0.5882353}
+  originalColor: {r: 1, g: 1, b: 1, a: 1}
+  spriteRenderer: {fileID: 2128330477}
+  originalSpeed: 0
+  ghostSpeed: 0
 --- !u!1 &5575129103467070823
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,6 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 745c21cd1bf4e9347a5f4fb33f36b300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targets: []
 --- !u!61 &742136906
 BoxCollider2D:
   m_ObjectHideFlags: 0
