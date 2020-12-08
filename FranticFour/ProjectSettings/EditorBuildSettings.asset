@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/00_Scenes/PlayerSelection.unity
     guid: 34ea673d2b72d494581bcfe09a414739
   - enabled: 1
-    path: Assets/00_Scenes/GardenTest.unity
+    path: Assets/00_Scenes/LinusTest.unity
     guid: 258812e904191ce44ba60f76cbfe8693
   m_configObjects: {}

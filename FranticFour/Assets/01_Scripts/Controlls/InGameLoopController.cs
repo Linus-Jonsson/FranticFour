@@ -6,6 +6,8 @@ using Random = UnityEngine.Random;
 public class InGameLoopController : MonoBehaviour
 {
     [Header("Timer durations")]
+    [Tooltip("The time in seconds for each Playtesting InfoScreen")]
+    [SerializeField] float infoScreenDuration = 5f;
     [Tooltip("The time in seconds for the round")]
     [SerializeField] float roundDuration = 60f;
     [Tooltip("The time in seconds before prey is revealed")]
@@ -30,9 +32,15 @@ public class InGameLoopController : MonoBehaviour
 
     [Header("Respawn Configurations")]
     [SerializeField] float respawnDelay = 3f;
-
+    [SerializeField] float freezeAfterSpawnTime = 3f;
     [SerializeField] GameObject spawnParticles = null;
-
+    
+    [Header("Intro Configurations")]
+    [SerializeField] float overviewTime = 3f;
+    [SerializeField] float zoomInTime = 4f;
+    [SerializeField] GameObject introCamera = null;
+    [SerializeField] GameObject introCamera2 = null;
+    [SerializeField] GameObject gameCamera = null;
 
     int currentRound = 1;
     Player currentPrey = null;
@@ -57,10 +65,16 @@ public class InGameLoopController : MonoBehaviour
         while (currentRound <= numberOfRounds)
         {
             ActivateAllPlayers(false);
+            if (currentRound == 1)
+                yield return StartCoroutine(gameLoopUIController.PlayTestInfoScreens(infoScreenDuration));
             yield return StartCoroutine(gameLoopUIController.PreRoundCountdown(startCountDownDuration, players, currentRound));
             HandleRoleSetting();
             targetGroupController.UpdateTargetGroup(players);
             yield return StartCoroutine(gameLoopUIController.PreyCountdown(currentPrey, preyRevealDuration));
+            if (currentRound == 1)
+            {
+                yield return StartCoroutine(gameLoopUIController.LevelIntro(overviewTime, zoomInTime, introCamera, introCamera2));
+            }
             HandleStartOfRound();
             yield return StartCoroutine(gameLoopUIController.CountRoundTime(roundDuration));
             HandleEndOfRound();
@@ -126,6 +140,7 @@ public class InGameLoopController : MonoBehaviour
     private void HandleStartOfRound()
     {
         ActivateAllPlayers(true);
+        gameCamera.SetActive(true);
         StartCoroutine(SpawnAllPlayers());
     }
     private void HandleEndOfRound()
@@ -156,7 +171,7 @@ public class InGameLoopController : MonoBehaviour
                 hunterSpawnCount += 1;
             }
         }
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(freezeAfterSpawnTime);
         foreach (var player in players)
         {
             player.ResetPlayer();
