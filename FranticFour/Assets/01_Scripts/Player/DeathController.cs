@@ -22,7 +22,7 @@ public class DeathController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (player.Dead && (other.gameObject.CompareTag("Danger") || other.gameObject.layer == 13))
+        if (!player.Dead && (other.gameObject.CompareTag("Danger") || other.gameObject.layer == 13))
             HandleDeath();
     }
 
