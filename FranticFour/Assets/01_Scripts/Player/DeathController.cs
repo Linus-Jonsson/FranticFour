@@ -22,7 +22,7 @@ public class DeathController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Danger") || other.gameObject.layer == 13)
+        if (other.gameObject.CompareTag("Danger") || other.gameObject.layer == 13 && !player.Dead)
             HandleDeath();
     }
 
@@ -48,7 +48,7 @@ public class DeathController : MonoBehaviour
             player.PushedBy.IncreaseScore(player.ScoreValue);
         else
             gameLoopController.IncreaseAllScores(Mathf.RoundToInt(player.ScoreValue / 3));
-
+        player.FreezeInput = true;
         player.NumberOfDeaths = player.NumberOfDeaths + 1;
         gameLoopController.RespawnAllPlayers(player.PushedBy);
     }

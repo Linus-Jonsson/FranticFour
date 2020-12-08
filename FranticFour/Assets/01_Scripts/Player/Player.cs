@@ -122,6 +122,7 @@ public class Player : MonoBehaviour
         transform.position = position;
     }
 
+    // have the animation call the playerGhostController instead.
     public void playerDead()
     {
         playerGhostController.StartGhosting();
