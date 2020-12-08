@@ -13,11 +13,12 @@ public class RespawnController : MonoBehaviour
 
     [SerializeField] float originalSpeed = 0f;
     [SerializeField] float ghostSpeed = 0f;
-
     MovementController movementController;
     CircleCollider2D myCollider;
     InGameLoopController InGameLoopController;
     Player player;
+
+    List<GameObject> unWalkables = new List<GameObject>();
 
     private void Awake()
     {
@@ -40,6 +41,7 @@ public class RespawnController : MonoBehaviour
 
     IEnumerator HandleGhosting()
     {
+        player.FreezeInput = false;
         spriteRenderer.sharedMaterial.color = player.ghostColor;
         TurnGhostOn(true, ghostSpeed);
         yield return new WaitForSeconds(ghostDuration / 3 * 2);
@@ -51,7 +53,7 @@ public class RespawnController : MonoBehaviour
         player.Dead = value;
         movementController.MovementSpeed = speed;
         PushArea.SetActive(!value);
-        myCollider.enabled = !value;
+        myCollider.isTrigger = value;
         if (!value)
             spriteRenderer.sharedMaterial.color = player.originalColor;
     }
@@ -61,11 +63,10 @@ public class RespawnController : MonoBehaviour
         spriteRenderer.sharedMaterial.color = player.originalColor;
         yield return new WaitForSeconds(blinkDuration);
         float newTime = time - blinkDuration;
-        if (newTime > 0)
-            StartCoroutine(BlinkOff(newTime));
-        else
-            TurnGhostOn(false, originalSpeed);
-
+        if (newTime < 0)
+            TryToRevive();
+        if(player.Dead)
+        StartCoroutine(BlinkOff(newTime));
     }
 
     IEnumerator BlinkOff(float time)
@@ -73,10 +74,30 @@ public class RespawnController : MonoBehaviour
         spriteRenderer.sharedMaterial.color = player.ghostColor;
         yield return new WaitForSeconds(blinkDuration);
         float newTime = time - blinkDuration;
-        if (newTime > 0)
-            StartCoroutine(BlinkOn(newTime));
+        if (newTime < 0)
+            TryToRevive();
+        if(player.Dead)
+        StartCoroutine(BlinkOn(newTime));
+    }
+
+    private void TryToRevive()
+    {
+        unWalkables.RemoveAll(gameObject => gameObject == null);
+        if (unWalkables.Count > 0)
+            return;
         else
             TurnGhostOn(false, originalSpeed);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Danger") || collision.gameObject.CompareTag("Unwalkable"))
+            unWalkables.Add(collision.gameObject);
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Danger") || collision.gameObject.CompareTag("Unwalkable"))
+            unWalkables.Remove(collision.gameObject);
     }
 
     public void ResetRespawn()
@@ -84,6 +105,6 @@ public class RespawnController : MonoBehaviour
         StopAllCoroutines();
         movementController.MovementSpeed = originalSpeed;
         PushArea.SetActive(true);
-        myCollider.enabled = true;
+        myCollider.isTrigger = false;
     }
 }

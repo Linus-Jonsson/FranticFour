@@ -24,7 +24,7 @@ TagManager:
   - OnlyPlayerCollision
   - Camera
   - RespawnPoint
-  - 
+  - UnWalkable
   - 
   - InGameUI
   - 
