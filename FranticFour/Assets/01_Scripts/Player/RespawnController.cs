@@ -14,12 +14,12 @@ public class RespawnController : MonoBehaviour
     [SerializeField] float originalSpeed = 0f;
     [SerializeField] float ghostSpeed = 0f;
 
+    List<GameObject> unWalkables = new List<GameObject>();
+
     MovementController movementController;
     CircleCollider2D myCollider;
     InGameLoopController InGameLoopController;
     Player player;
-
-    List<GameObject> unWalkables = new List<GameObject>();
 
     private void Awake()
     {
