@@ -54,7 +54,13 @@ public class MovementController : MonoBehaviour
     {
         float xMovement = Input.GetAxis(controller.Horizontal);
         float yMovement = Input.GetAxis(controller.Vertical);
-        return new Vector2(xMovement, yMovement);
+        
+        Vector2 m_tempVec = new Vector2(xMovement, yMovement);
+        
+        if(m_tempVec.magnitude < DeadZones.DEADZONE_LEFT)
+            m_tempVec = Vector2.zero;
+
+        return m_tempVec;
     }
 
     public void ResetMovement()

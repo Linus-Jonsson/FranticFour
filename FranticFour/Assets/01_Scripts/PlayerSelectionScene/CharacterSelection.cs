@@ -44,6 +44,14 @@ public class CharacterSelection : MonoBehaviour
         playersSpriteHandler.OnSpriteChange.RemoveListener(UpdateSprites);
         playersSpriteHandler.SetSelected(selectedCharacterIndex);
     }
+    
+    public void CharacterDeselected()
+    {
+        // 1 = the renderer in the middle
+        spriteRenderers[1].sprite = playersSpriteHandler.GetDeselected(selectedCharacterIndex);
+        playersSpriteHandler.OnSpriteChange.AddListener(UpdateSprites);
+        playersSpriteHandler.SetDeselected(selectedCharacterIndex);
+    }
 
     public void NextCharacter(bool _right)
     {

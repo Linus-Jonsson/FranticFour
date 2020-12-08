@@ -37,6 +37,11 @@ public class InputManager : MonoBehaviour
         playersSelected[_controllerID] = true;
         CheckPlayers();
     }
+    
+    public void DeselectPlayer(int _controllerID)
+    {
+        playersSelected[_controllerID] = false;
+    }
 
     public MyPlayer GetPlayer(int _controllerID)
     {
