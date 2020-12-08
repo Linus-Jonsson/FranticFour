@@ -5,6 +5,10 @@ public class GamePlayUIDisplay : MonoBehaviour
 {
     [SerializeField] protected TextMeshProUGUI roundTime = null; // remove later?
     [SerializeField] protected float timeDecreaseIncrement = 0.1f;
+    
+    [Header("Info Screen Display Configuration (Only For Playtesting)")]
+    [SerializeField] protected GameObject gameDescriptionDisplay = null;
+    [SerializeField] protected GameObject controllerLayoutDisplay = null;
 
     [Header("Pree Prey Reveal Display Configuration")]
     [SerializeField] protected GameObject preeRoundDisplay = null;

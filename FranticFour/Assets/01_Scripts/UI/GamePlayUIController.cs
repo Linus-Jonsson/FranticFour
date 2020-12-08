@@ -8,6 +8,26 @@ public class GamePlayUIController : GamePlayUIDisplay
     // add a way to discintively show who is leading in points?.
     // add scores for this round aswell as the total score
 
+    public IEnumerator PlayTestInfoScreens(float duration)
+    {
+        gameDescriptionDisplay.SetActive(true);
+        yield return new WaitForSeconds(duration);
+        gameDescriptionDisplay.SetActive(false);
+        controllerLayoutDisplay.SetActive(true);
+        yield return new WaitForSeconds(duration);
+        controllerLayoutDisplay.SetActive(false);
+    }
+
+    public IEnumerator LevelIntro(float overviewDuration, float zoomInDuration, GameObject camera1, GameObject camera2)
+    {
+        camera1.SetActive(true);
+        yield return new WaitForSeconds(overviewDuration);
+        camera2.SetActive(true);
+        yield return new WaitForSeconds(zoomInDuration);
+        camera1.SetActive(false);
+        camera2.SetActive(false);
+    }
+    
     public IEnumerator PreRoundCountdown(float duration, Player[] players, int roundNumber)
     {
         SetRoundAndPlayerDisplay(players, roundNumber);
