@@ -55,7 +55,6 @@ public class SelectionController : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(Input.GetButton(bButton) + "ID: " + CONTROLLER_ID);
         if (!hasControllerJoined && (Input.GetAxis(action1) >= 1 - deadZoneAction || Input.GetButtonUp(aButton))) //For PS4, Xbox and Keyboard
             ControllerJoin();
         else if (hasControllerJoined && !isSelecting && (Input.GetAxis(action1) >= 1 - deadZoneAction || Input.GetButtonUp(aButton))) //For PS4, Xbox and Keyboard
