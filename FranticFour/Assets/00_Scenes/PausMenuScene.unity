@@ -639,6 +639,7 @@ MonoBehaviour:
   - {fileID: 626565851}
   - {fileID: 3903831}
   - {fileID: 975363194}
+  - {fileID: 1428522698}
 --- !u!1 &626565851
 GameObject:
   m_ObjectHideFlags: 0
@@ -3163,7 +3164,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 542585340}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: MoveToKeybinds
+        m_MethodName: MoveToKeybindsFromMain
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
