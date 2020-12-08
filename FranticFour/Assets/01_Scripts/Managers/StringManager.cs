@@ -32,5 +32,6 @@
     {
         public const string A_Button = "ButtonA"; //XBOX
         public const string X_ButtonPS4 = "ButtonXPS4"; //PS4
+        public const string A_ButtonKeyboard = "JumpKeyboard"; //Keyboard
     }
 }

@@ -50,11 +50,9 @@ public class SelectionController : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(Input.GetButton(aButton));
-        
-        if (!hasControllerJoined && Input.GetAxis(action1) >= 1 - deadZoneAction) //For PS4, Xbox and Keyboard
+        if (!hasControllerJoined && (Input.GetAxis(action1) >= 1 - deadZoneAction || Input.GetButtonUp(aButton))) //For PS4, Xbox and Keyboard
             ControllerJoin();
-        else if (hasControllerJoined && !isSelecting && Input.GetAxis(action1) >= 1 - deadZoneAction) //For PS4, Xbox and Keyboard
+        else if (hasControllerJoined && !isSelecting && (Input.GetAxis(action1) >= 1 - deadZoneAction || Input.GetButtonUp(aButton))) //For PS4, Xbox and Keyboard
             ControllerSelectPlayer();
         else if (isSelecting && Input.GetAxis(action1) <= 0)
             isSelecting = false;
@@ -159,6 +157,7 @@ public class SelectionController : MonoBehaviour
         rightHorizontal = StringManager.Inputs.HorizontalKeyboard;
         horizontal = StringManager.Inputs.HorizontalKeyboard;
         action1 = StringManager.Inputs.Action1Keyboard;
+        aButton = StringManager.ButtonInputs.A_ButtonKeyboard;
     }
     
     private void CheckSelection(float _inputXRight, float _inputXLeft)

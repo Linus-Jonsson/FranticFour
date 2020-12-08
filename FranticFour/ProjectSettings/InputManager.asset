@@ -358,6 +358,38 @@ InputManager:
     axis: 2
     joyNum: 2
   - serializedVersion: 3
+    m_Name: ButtonA1
+    descriptiveName: A-button on the Xbox controller
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick button 0
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 3
+    dead: 0.001
+    sensitivity: 3
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 2
+    joyNum: 2
+  - serializedVersion: 3
+    m_Name: ButtonXPS41
+    descriptiveName: X-button on the PS4 controller
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick button 1
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 3
+    dead: 0.001
+    sensitivity: 3
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 2
+    joyNum: 2
+  - serializedVersion: 3
     m_Name: Action1PS41
     descriptiveName: 
     descriptiveNegativeName: 
@@ -502,6 +534,38 @@ InputManager:
     axis: 2
     joyNum: 3
   - serializedVersion: 3
+    m_Name: ButtonA2
+    descriptiveName: A-button on the Xbox controller
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick button 0
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 3
+    dead: 0.001
+    sensitivity: 3
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 2
+    joyNum: 3
+  - serializedVersion: 3
+    m_Name: ButtonXPS42
+    descriptiveName: X-button on the PS4 controller
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick button 1
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 3
+    dead: 0.001
+    sensitivity: 3
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 2
+    joyNum: 3
+  - serializedVersion: 3
     m_Name: Action1PS42
     descriptiveName: 
     descriptiveNegativeName: 
@@ -643,6 +707,38 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
+    axis: 2
+    joyNum: 4
+  - serializedVersion: 3
+    m_Name: ButtonA3
+    descriptiveName: A-button on the Xbox controller
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick button 0
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 3
+    dead: 0.001
+    sensitivity: 3
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 2
+    joyNum: 4
+  - serializedVersion: 3
+    m_Name: ButtonXPS43
+    descriptiveName: X-button on the PS4 controller
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick button 1
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 3
+    dead: 0.001
+    sensitivity: 3
+    snap: 0
+    invert: 0
+    type: 0
     axis: 2
     joyNum: 4
   - serializedVersion: 3
