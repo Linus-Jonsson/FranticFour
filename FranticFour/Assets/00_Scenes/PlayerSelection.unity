@@ -361,6 +361,7 @@ MonoBehaviour:
   myPlayer: {fileID: 0}
   action1: 
   aButton: 
+  bButton: 
   playerHandler: {fileID: 0}
 --- !u!1 &545568813
 GameObject:
@@ -493,6 +494,7 @@ MonoBehaviour:
   myPlayer: {fileID: 0}
   action1: 
   aButton: 
+  bButton: 
   playerHandler: {fileID: 0}
 --- !u!1 &1015626623
 GameObject:
@@ -542,6 +544,7 @@ MonoBehaviour:
   myPlayer: {fileID: 0}
   action1: 
   aButton: 
+  bButton: 
   playerHandler: {fileID: 0}
 --- !u!1001 &1080114173
 PrefabInstance:
@@ -701,6 +704,7 @@ MonoBehaviour:
   myPlayer: {fileID: 0}
   action1: 
   aButton: 
+  bButton: 
   playerHandler: {fileID: 0}
 --- !u!1001 &1138898312
 PrefabInstance:
@@ -1140,6 +1144,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characters:
+  - {fileID: 21300000, guid: e94caa584a1c4eb419b07edb59acac1e, type: 3}
+  - {fileID: 21300000, guid: 9be433a10d16df74c9100a9551a8264e, type: 3}
+  - {fileID: 21300000, guid: f945e4e505f86a747b9ce70024b9fca9, type: 3}
+  - {fileID: 21300000, guid: 29a21d24326c3e845ba69769f11c0fe4, type: 3}
+  charactersNotSelected:
   - {fileID: 21300000, guid: e94caa584a1c4eb419b07edb59acac1e, type: 3}
   - {fileID: 21300000, guid: 9be433a10d16df74c9100a9551a8264e, type: 3}
   - {fileID: 21300000, guid: f945e4e505f86a747b9ce70024b9fca9, type: 3}

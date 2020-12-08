@@ -63,6 +63,9 @@ public class SelectionController : MonoBehaviour
         else if (isSelecting && Input.GetAxis(action1) <= 0)
             isSelecting = false;
 
+        if (playerSelected && Input.GetButtonUp(bButton))
+            DeselectPlayer();
+
         float m_inputX = Input.GetAxis(rightHorizontal);
         float m_inputX2 = Input.GetAxis(horizontal);
         
@@ -97,6 +100,21 @@ public class SelectionController : MonoBehaviour
         myPlayer.SelectedCharacterSelection.CharacterSelected();
         
         playerHandler.SelectPlayer(CONTROLLER_ID);
+    }
+
+    private void DeselectPlayer()
+    {
+        playerSelected = false;
+        myPlayer.SelectedHighlightLerp.isLerping = true;
+        myPlayer.SelectedHighlightLerp.hasSelected = false;
+        
+        myPlayer.CharacterMaskCloseSelect.OnDeselected();
+        playerHandler.playersSelected[CONTROLLER_ID] = false;
+        
+        PassControllersToGame.playerOwnedBy[myPlayer.SelectedCharacterSelection.SelectedCharacterIndex] = 99;
+        myPlayer.SelectedCharacterSelection.CharacterDeselected();
+        
+        playerHandler.DeselectPlayer(CONTROLLER_ID);
     }
     
     private void MapController()
