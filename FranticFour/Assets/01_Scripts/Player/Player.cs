@@ -56,6 +56,7 @@ public class Player : MonoBehaviour
     RespawnController respawnController;
     PushController pushController;
     RotationController rotationController;
+    TrailRenderer trailRenderer;
 
     // remove this once we are done with the print message.
     private void OnTriggerEnter2D(Collider2D other)
@@ -79,6 +80,7 @@ public class Player : MonoBehaviour
         pushController = GetComponentInChildren<PushController>();
         rotationController = GetComponent<RotationController>();
         playerAnimationsController = GetComponent<PlayerAnimationsController>();
+        trailRenderer = GetComponent<TrailRenderer>();
     }
 
     public void UnFreeze()
@@ -126,5 +128,10 @@ public class Player : MonoBehaviour
     public void playerDead()
     {
         respawnController.StartGhosting();
+    }
+
+    public void SetTrailTime(float time)
+    {
+        trailRenderer.time = time;
     }
 }
