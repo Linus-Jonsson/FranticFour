@@ -13,6 +13,7 @@ public class RespawnController : MonoBehaviour
 
     [SerializeField] float originalSpeed = 0f;
     [SerializeField] float ghostSpeed = 0f;
+
     MovementController movementController;
     CircleCollider2D myCollider;
     InGameLoopController InGameLoopController;
