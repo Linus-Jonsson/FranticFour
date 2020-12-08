@@ -72,9 +72,7 @@ public class InGameLoopController : MonoBehaviour
             targetGroupController.UpdateTargetGroup(players);
             yield return StartCoroutine(gameLoopUIController.PreyCountdown(currentPrey, preyRevealDuration));
             if (currentRound == 1)
-            {
                 yield return StartCoroutine(gameLoopUIController.LevelIntro(overviewTime, zoomInTime, introCamera, introCamera2));
-            }
             HandleStartOfRound();
             yield return StartCoroutine(gameLoopUIController.CountRoundTime(roundDuration));
             HandleEndOfRound();

@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
     MovementController movementController;
     PlayerActionsController playerActionsController;
     PlayerAnimationsController playerAnimationsController;
-    RespawnController playerGhostController;
+    RespawnController respawnController;
     PushController pushController;
     RotationController rotationController;
 
@@ -75,7 +75,7 @@ public class Player : MonoBehaviour
         deathController = GetComponent<DeathController>();
         movementController = GetComponent<MovementController>();
         playerActionsController = GetComponent<PlayerActionsController>();
-        playerGhostController = GetComponent<RespawnController>();
+        respawnController = GetComponent<RespawnController>();
         pushController = GetComponentInChildren<PushController>();
         rotationController = GetComponent<RotationController>();
         playerAnimationsController = GetComponent<PlayerAnimationsController>();
@@ -107,7 +107,7 @@ public class Player : MonoBehaviour
         spriteRenderer.sharedMaterial.color = originalColor;
         freezeInput = false;
         dead = false;
-        playerGhostController.ResetRespawn();
+        respawnController.ResetRespawn();
         playerActionsController.ResetPlayerActions();
         movementController.ResetMovement();
         
@@ -125,6 +125,6 @@ public class Player : MonoBehaviour
     // have the animation call the playerGhostController instead.
     public void playerDead()
     {
-        playerGhostController.StartGhosting();
+        respawnController.StartGhosting();
     }
 }
