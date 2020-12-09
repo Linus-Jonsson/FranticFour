@@ -48245,8 +48245,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7738138467234794444, guid: e162df6b204d11a46a1d0bf7f0928639, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e162df6b204d11a46a1d0bf7f0928639, type: 3}
+--- !u!1 &3008481819180457900 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7738138467234794444, guid: e162df6b204d11a46a1d0bf7f0928639, type: 3}
+  m_PrefabInstance: {fileID: 3008481819180457899}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4251593401060390322 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4571054493860122463, guid: 0a8f6b1e92cdfa44caa655d7d807ff06, type: 3}
@@ -48847,6 +48856,7 @@ MonoBehaviour:
   gameCamera: {fileID: 1675760545}
   deathCamera: {fileID: 601308674}
   killerCamera: {fileID: 1651965349}
+  cameraWalls: {fileID: 3008481819180457900}
   preyProbability: 
 --- !u!1001 &6705512250176990209
 PrefabInstance:

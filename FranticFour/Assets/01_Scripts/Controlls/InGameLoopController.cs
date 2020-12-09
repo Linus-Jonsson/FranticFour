@@ -45,6 +45,9 @@ public class InGameLoopController : MonoBehaviour
     [SerializeField] GameObject gameCamera = null;
     [SerializeField] GameObject deathCamera = null;
     [SerializeField] GameObject killerCamera = null;
+    
+    [Header("Camera Walls")]
+    [SerializeField] GameObject cameraWalls = null;
 
     int currentRound = 1;
     Player currentPrey = null;
@@ -176,6 +179,7 @@ public class InGameLoopController : MonoBehaviour
         }
         StartCoroutine(gameLoopUIController.SpawnCountDown(freezeAfterSpawnTime));
         yield return new WaitForSeconds(freezeAfterSpawnTime);
+        cameraWalls.SetActive(true);
         foreach (var player in players)
             player.FreezeInput = false;
     }
@@ -291,6 +295,7 @@ public class InGameLoopController : MonoBehaviour
 
     private IEnumerator CameraActionsAtPreyDeath(Player killer)
     {
+        cameraWalls.SetActive(false);
         var cameraAdjustment = new Vector3(0 , 0, 4);
         gameCamera.SetActive(false);
         gameLoopUIController.SetKillScreen(currentPrey, killer, true);
