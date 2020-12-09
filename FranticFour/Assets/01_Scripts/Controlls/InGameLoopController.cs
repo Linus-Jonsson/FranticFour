@@ -24,6 +24,7 @@ public class InGameLoopController : MonoBehaviour
     [SerializeField] float hunterSpeed = 50f;
     public float HunterSpeed { get { return hunterSpeed; } }
     [SerializeField] float preySpeed = 45f;
+    public float PreySpeed { get { return preySpeed; } }
     [SerializeField] GameObject[] onOffObjects = new GameObject[4]; // this can be removed once we implement a better way to disable cooldown bars
 
     [Header("Other score addition configurations")]

@@ -10,17 +10,17 @@ public class RespawnController : MonoBehaviour
     [SerializeField] GameObject PushArea = null;
 
     [SerializeField] float blinkDuration = 0.1f;
-
-    [SerializeField] float hunterSpeed = 0f;
-    [SerializeField] float ghostSpeed = 0f;
-
+    
     [SerializeField] List<GameObject> unWalkables = new List<GameObject>();
 
     MovementController movementController;
     CircleCollider2D myCollider;
     InGameLoopController InGameLoopController;
     Player player;
-
+    
+    float hunterSpeed = 0f;
+    float preySpeed = 0f;
+    float ghostSpeed = 0f;
     float originalColliderRadius = 0;
     float ghostColliderRadius = 0;
 
@@ -37,6 +37,7 @@ public class RespawnController : MonoBehaviour
         originalColliderRadius = myCollider.radius;
         ghostColliderRadius = originalColliderRadius * 3;
         hunterSpeed = InGameLoopController.HunterSpeed;
+        preySpeed = InGameLoopController.PreySpeed;
         ghostSpeed = hunterSpeed / 3;
     }
 
@@ -67,7 +68,6 @@ public class RespawnController : MonoBehaviour
             spriteRenderer.sharedMaterial.color = player.originalColor;
             myCollider.radius = originalColliderRadius;
         }
-
     }
 
     IEnumerator BlinkOn(float time)
@@ -78,7 +78,7 @@ public class RespawnController : MonoBehaviour
         if (newTime < 0)
             TryToRevive();
         if(player.Dead)
-        StartCoroutine(BlinkOff(newTime));
+            StartCoroutine(BlinkOff(newTime));
     }
 
     IEnumerator BlinkOff(float time)
@@ -89,7 +89,7 @@ public class RespawnController : MonoBehaviour
         if (newTime < 0)
             TryToRevive();
         if(player.Dead)
-        StartCoroutine(BlinkOn(newTime));
+            StartCoroutine(BlinkOn(newTime));
     }
 
     private void TryToRevive()
@@ -120,7 +120,7 @@ public class RespawnController : MonoBehaviour
     {
         unWalkables = new List<GameObject>();
         StopAllCoroutines();
-        movementController.MovementSpeed = hunterSpeed;
+        movementController.MovementSpeed = player.Prey ? preySpeed : hunterSpeed;
         PushArea.SetActive(true);
         myCollider.isTrigger = false;
     }
