@@ -1,18 +1,50 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private GameObject pauseMenuUI;
+    [SerializeField] private static bool paused = false;
+    public static bool IsGamePaused => paused;
+
+    private void Start()
     {
+        if (pauseMenuUI is null)
+        {
+            Debug.LogError("PauseMenu missing");
+            Destroy(gameObject);
+        }
         
+        //To set the right state of the pause menu
+        ResumeGame();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        CheckInput();
+    }
+
+    private void CheckInput()
+    {
+        if (!Input.GetKeyUp(KeyCode.Escape))
+            return;
+
+        if (paused)
+            ResumeGame();
+        else
+            PauseGame();
+    }
+    
+    public void ResumeGame()
+    {
+        paused = false;
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+    }
+    
+    public void PauseGame()
+    {
+        paused = true;
+        pauseMenuUI.SetActive(true);
+        Time.timeScale = 0f;
     }
 }

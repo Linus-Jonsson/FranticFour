@@ -70,7 +70,7 @@ public class PlayerActionsController : MonoBehaviour
 
     private void Update()
     {
-        if (player.FreezeInput || player.Dead)
+        if (player.FreezeInput || player.Dead || PauseMenu.IsGamePaused)
             return;
         int m_number;
         bool mouseUsed = Int32.TryParse(controller.Action1, out m_number);
