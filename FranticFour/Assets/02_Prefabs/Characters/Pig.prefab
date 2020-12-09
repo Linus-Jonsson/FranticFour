@@ -91,19 +91,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: ghostColor.b
-      value: 0.796659
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: ghostColor.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: originalColor.b
-      value: 0.83468914
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: originalColor.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 362613495, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: playerID
@@ -126,6 +126,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9100000, guid: 4bf56b0119d2a424b9f2816339cc595d, type: 2}
     - target: {fileID: 2128330477, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: m_Size.x
+      value: 1.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128330477, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128330477, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 53216772889e80049864095919d072e8, type: 3}
@@ -141,6 +149,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2128330477, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c8bc7b880f2e6da458fd8fd3f4799771, type: 2}
     - target: {fileID: 5439504268739004778, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: onOffObject
       value: 
