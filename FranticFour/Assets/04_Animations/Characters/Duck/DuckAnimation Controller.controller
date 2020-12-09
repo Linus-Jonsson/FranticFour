@@ -775,13 +775,7 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 4166755515421831679}
     m_Position: {x: -30, y: 70, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 5395171292277639612}
-    m_Position: {x: 140, y: -170, z: 0}
-  m_ChildStateMachines:
-  - serializedVersion: 1
-    m_StateMachine: {fileID: 5694432181113758186}
-    m_Position: {x: 398.89667, y: -168.66644, z: 0}
+  m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: 7763576400525835426}
   - {fileID: 8499084987736244481}
@@ -793,51 +787,6 @@ AnimatorStateMachine:
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 8560950568595088869}
---- !u!1102 &5395171292277639612
-AnimatorState:
-  serializedVersion: 5
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: New State
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 0}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
---- !u!1107 &5694432181113758186
-AnimatorStateMachine:
-  serializedVersion: 5
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: New StateMachine
-  m_ChildStates: []
-  m_ChildStateMachines: []
-  m_AnyStateTransitions: []
-  m_EntryTransitions: []
-  m_StateMachineTransitions: {}
-  m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 50, y: 20, z: 0}
-  m_EntryPosition: {x: 50, y: 120, z: 0}
-  m_ExitPosition: {x: 380, y: 110, z: 0}
-  m_ParentStateMachinePosition: {x: 390, y: 10, z: 0}
-  m_DefaultState: {fileID: 0}
 --- !u!1102 &6109809686126479231
 AnimatorState:
   serializedVersion: 5
