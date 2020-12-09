@@ -1788,9 +1788,9 @@ GameObject:
   - component: {fileID: 7993501344353116}
   - component: {fileID: 7993501344353117}
   - component: {fileID: 7993501344353107}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Tilemap Bushes
-  m_TagString: Untagged
+  m_TagString: Unwalkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74894,9 +74894,9 @@ GameObject:
   - component: {fileID: 7993502685561904}
   - component: {fileID: 7993502685561911}
   - component: {fileID: 7993502685561910}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Tilemap Fences
-  m_TagString: Untagged
+  m_TagString: Unwalkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -1773,7 +1773,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 529353430}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3.23, y: 3.61, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3318,7 +3318,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 715174851696045208, guid: 50d3b2be1aa94d147993706903082ceb, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 715174851696045208, guid: 50d3b2be1aa94d147993706903082ceb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3445,7 +3445,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1536635214 stripped
 Transform:
@@ -3459,13 +3459,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7993501344353111, guid: 470fb5fd254769a4bbdb972e7e86cb0f, type: 3}
+      propertyPath: m_Layer
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 7993501344353111, guid: 470fb5fd254769a4bbdb972e7e86cb0f, type: 3}
+      propertyPath: m_TagString
+      value: Unwalkable
+      objectReference: {fileID: 0}
+    - target: {fileID: 7993501344353116, guid: 470fb5fd254769a4bbdb972e7e86cb0f, type: 3}
+      propertyPath: m_UsedByComposite
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7993501344353117, guid: 470fb5fd254769a4bbdb972e7e86cb0f, type: 3}
+      propertyPath: m_ColliderPaths.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7993501344353117, guid: 470fb5fd254769a4bbdb972e7e86cb0f, type: 3}
+      propertyPath: m_CompositePaths.m_Paths.Array.size
+      value: 192
+      objectReference: {fileID: 0}
     - target: {fileID: 7993501817674693, guid: 470fb5fd254769a4bbdb972e7e86cb0f, type: 3}
       propertyPath: m_Name
       value: Tilemap Grid
       objectReference: {fileID: 0}
     - target: {fileID: 7993501817674695, guid: 470fb5fd254769a4bbdb972e7e86cb0f, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7993501817674695, guid: 470fb5fd254769a4bbdb972e7e86cb0f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3506,6 +3526,26 @@ PrefabInstance:
     - target: {fileID: 7993501817674695, guid: 470fb5fd254769a4bbdb972e7e86cb0f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7993502685561898, guid: 470fb5fd254769a4bbdb972e7e86cb0f, type: 3}
+      propertyPath: m_Layer
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 7993502685561898, guid: 470fb5fd254769a4bbdb972e7e86cb0f, type: 3}
+      propertyPath: m_TagString
+      value: Unwalkable
+      objectReference: {fileID: 0}
+    - target: {fileID: 7993502685561904, guid: 470fb5fd254769a4bbdb972e7e86cb0f, type: 3}
+      propertyPath: m_UsedByComposite
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7993502685561910, guid: 470fb5fd254769a4bbdb972e7e86cb0f, type: 3}
+      propertyPath: m_ColliderPaths.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7993502685561910, guid: 470fb5fd254769a4bbdb972e7e86cb0f, type: 3}
+      propertyPath: m_CompositePaths.m_Paths.Array.size
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7993502685561910, guid: 470fb5fd254769a4bbdb972e7e86cb0f, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[11].Array.size
@@ -40075,7 +40115,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1618431950}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.36, y: 0.29, z: 0}
+  m_LocalPosition: {x: -7.01, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1234537314}
@@ -41481,6 +41521,10 @@ PrefabInstance:
       propertyPath: onOffObject
       value: 
       objectReference: {fileID: 1618431950}
+    - target: {fileID: 5476808385966663828, guid: acfb9a05aaeba90459fcf1e0904d6c62, type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f7ab459b7b53e4e47b3cc541c3be7bf8, type: 3}
     - target: {fileID: 5661316974895686371, guid: acfb9a05aaeba90459fcf1e0904d6c62, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -41738,6 +41782,18 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c8bc7b880f2e6da458fd8fd3f4799771, type: 2}
+    - target: {fileID: 3073825191243075612, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387716069965782218, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387716069965782218, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f7ab459b7b53e4e47b3cc541c3be7bf8, type: 3}
     - target: {fileID: 6500163289584686771, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
       propertyPath: m_Name
       value: Pig
@@ -41848,6 +41904,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 2fb6919d758eb5b44892365dff77183b, type: 3}
+    - target: {fileID: 8971059940310879005, guid: 3b331333d75cc6249b5e72bd1313c248, type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f7ab459b7b53e4e47b3cc541c3be7bf8, type: 3}
     - target: {fileID: 9146558516898562404, guid: 3b331333d75cc6249b5e72bd1313c248, type: 3}
       propertyPath: m_Name
       value: Sheep
@@ -43205,6 +43265,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1827197166}
     m_Modifications:
+    - target: {fileID: 3791358247282422658, guid: 3858cf9da202f29459664fb17c23f70d, type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f7ab459b7b53e4e47b3cc541c3be7bf8, type: 3}
     - target: {fileID: 3894801978590738933, guid: 3858cf9da202f29459664fb17c23f70d, type: 3}
       propertyPath: m_RootOrder
       value: 0

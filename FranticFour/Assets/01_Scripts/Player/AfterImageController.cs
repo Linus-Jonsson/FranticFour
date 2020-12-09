@@ -7,30 +7,30 @@ public class AfterImageController : MonoBehaviour
     [SerializeField] ParticleSystem afterImage;
     [SerializeField] SpriteRenderer spriteRenderer;
 
+    ParticleSystem.MainModule mainModule;
     private void Start()
     {
+        mainModule = afterImage.main;
         ResetAfterImage();
     }
 
     void Update()
     {
-        if(afterImage.isPlaying)
-            afterImage.textureSheetAnimation.SetSprite(0, spriteRenderer.sprite);
+        afterImage.textureSheetAnimation.SetSprite(0, spriteRenderer.sprite);
     }
 
     public void TurnOnAfterImage()
     {
+        //afterImage.Clear();
         afterImage.Play();
     }
     public void TurnOffAfterImage()
     {
-        // might need to change to paus?
         afterImage.Stop();
     }
 
     public void ResetAfterImage()
     {
-        // might need to change to paus?
         afterImage.Stop();
     }
-}
+}   
