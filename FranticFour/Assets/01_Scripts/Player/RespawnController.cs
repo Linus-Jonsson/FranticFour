@@ -11,15 +11,18 @@ public class RespawnController : MonoBehaviour
 
     [SerializeField] float blinkDuration = 0.1f;
 
-    [SerializeField] float originalSpeed = 0f;
+    [SerializeField] float hunterSpeed = 0f;
     [SerializeField] float ghostSpeed = 0f;
 
-    List<GameObject> unWalkables = new List<GameObject>();
+    [SerializeField] List<GameObject> unWalkables = new List<GameObject>();
 
     MovementController movementController;
     CircleCollider2D myCollider;
     InGameLoopController InGameLoopController;
     Player player;
+
+    float originalColliderRadius = 0;
+    float ghostColliderRadius = 0;
 
     private void Awake()
     {
@@ -31,12 +34,16 @@ public class RespawnController : MonoBehaviour
 
     void Start()
     {
-        originalSpeed = 250;//InGameLoopController.HunterSpeed;
-        ghostSpeed = originalSpeed / 3;
+        originalColliderRadius = myCollider.radius;
+        ghostColliderRadius = originalColliderRadius * 3;
+        hunterSpeed = InGameLoopController.HunterSpeed;
+        ghostSpeed = hunterSpeed / 3;
     }
 
     public void StartGhosting()
     {
+        if(player.Prey) { return; }
+        myCollider.radius = ghostColliderRadius;
         StartCoroutine(HandleGhosting());
     }
 
@@ -56,7 +63,11 @@ public class RespawnController : MonoBehaviour
         PushArea.SetActive(!value);
         myCollider.isTrigger = value;
         if (!value)
+        {
             spriteRenderer.sharedMaterial.color = player.originalColor;
+            myCollider.radius = originalColliderRadius;
+        }
+
     }
 
     IEnumerator BlinkOn(float time)
@@ -87,24 +98,29 @@ public class RespawnController : MonoBehaviour
         if (unWalkables.Count > 0)
             return;
         else
-            TurnGhostOn(false, originalSpeed);
+            TurnGhostOn(false, hunterSpeed);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("Danger") || collision.gameObject.CompareTag("Unwalkable"))
             unWalkables.Add(collision.gameObject);
+        if(unWalkables.Count > 0 && player.Dead)
+            myCollider.radius = ghostColliderRadius;
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Danger") || collision.gameObject.CompareTag("Unwalkable"))
             unWalkables.Remove(collision.gameObject);
+        if(unWalkables.Count <= 0)
+            myCollider.radius = originalColliderRadius;
     }
 
     public void ResetRespawn()
     {
+        unWalkables = new List<GameObject>();
         StopAllCoroutines();
-        movementController.MovementSpeed = originalSpeed;
+        movementController.MovementSpeed = hunterSpeed;
         PushArea.SetActive(true);
         myCollider.isTrigger = false;
     }

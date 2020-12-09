@@ -65,8 +65,6 @@ public class TrapController : MonoBehaviour
             MoveTrap();
         if (rotating)
             rb2d.AddTorque(rotationSpeed);
-        else
-            rb2d.SetRotation(0);
     }
     private void MoveTrap()
     {

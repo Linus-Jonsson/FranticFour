@@ -17,13 +17,20 @@ public class PreyTrap : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            if (other.GetComponent<Player>().Dead)
+                return;
             SetTrapTriggeredAnimation();
             SetPlayerStunAnimation(other.GetComponent<Player>());
+        }
+        if(other.CompareTag("Danger"))
+        {
+            DestroyTrap();
         }
     }
 
     private void SetTrapTriggeredAnimation()
     {
+        rb2d.velocity = Vector2.zero;
         GetComponent<BoxCollider2D>().enabled = false;
         animator.SetTrigger("Triggered");
     }
