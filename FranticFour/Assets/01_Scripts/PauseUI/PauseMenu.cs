@@ -1,10 +1,10 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenuUI;
     [SerializeField] private static bool paused = false;
+    public static bool IsGamePaused => paused;
 
     private void Start()
     {
@@ -15,8 +15,7 @@ public class PauseMenu : MonoBehaviour
         }
         
         //To set the right state of the pause menu
-        if (paused)
-            ResumeGame();
+        ResumeGame();
     }
 
     private void Update()
