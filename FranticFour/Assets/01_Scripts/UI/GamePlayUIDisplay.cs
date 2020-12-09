@@ -26,6 +26,9 @@ public class GamePlayUIDisplay : MonoBehaviour
     [SerializeField] protected GameObject[] preyImages = null;
     [SerializeField] protected TextMeshProUGUI preyNumber = null;
     [SerializeField] protected TextMeshProUGUI preyCountdown = null; // remove later?
+    
+    [Header("CountDown Configuration")]
+    [SerializeField] protected GameObject countDownDisplay = null;
 
     [Header("Score Display Configuration")]
     [SerializeField] protected GameObject scoreDisplay = null;

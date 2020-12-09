@@ -38,9 +38,16 @@ public class InGameLoopController : MonoBehaviour
     [Header("Intro Configurations")]
     [SerializeField] float overviewTime = 3f;
     [SerializeField] float zoomInTime = 4f;
+    
+    [Header("Cameras")]
     [SerializeField] GameObject introCamera = null;
     [SerializeField] GameObject introCamera2 = null;
     [SerializeField] GameObject gameCamera = null;
+    [SerializeField] GameObject deathCamera = null;
+    [SerializeField] GameObject killerCamera = null;
+    
+    [Header("Camera Walls")]
+    [SerializeField] GameObject cameraWalls = null;
 
     int currentRound = 1;
     Player currentPrey = null;
@@ -72,9 +79,7 @@ public class InGameLoopController : MonoBehaviour
             targetGroupController.UpdateTargetGroup(players);
             yield return StartCoroutine(gameLoopUIController.PreyCountdown(currentPrey, preyRevealDuration));
             if (currentRound == 1)
-            {
                 yield return StartCoroutine(gameLoopUIController.LevelIntro(overviewTime, zoomInTime, introCamera, introCamera2));
-            }
             HandleStartOfRound();
             yield return StartCoroutine(gameLoopUIController.CountRoundTime(roundDuration));
             HandleEndOfRound();
@@ -140,6 +145,7 @@ public class InGameLoopController : MonoBehaviour
     private void HandleStartOfRound()
     {
         ActivateAllPlayers(true);
+        introCamera2.SetActive(false);
         gameCamera.SetActive(true);
         StartCoroutine(SpawnAllPlayers());
     }
@@ -171,11 +177,11 @@ public class InGameLoopController : MonoBehaviour
                 hunterSpawnCount += 1;
             }
         }
+        StartCoroutine(gameLoopUIController.SpawnCountDown(freezeAfterSpawnTime));
         yield return new WaitForSeconds(freezeAfterSpawnTime);
+        cameraWalls.SetActive(true);
         foreach (var player in players)
-        {
-            player.ResetPlayer();
-        }
+            player.FreezeInput = false;
     }
     private SpawnPoint GetSpawnPoint()
     {
@@ -195,12 +201,16 @@ public class InGameLoopController : MonoBehaviour
     }
     private IEnumerator HandleRespawnOfAllPlayers(Player killer)
     {
-        ActivateAllPlayers(false);
-        gameLoopUIController.SetKillScreen(currentPrey, killer, true);
-        yield return new WaitForSeconds(respawnDelay);
+        foreach (var player in players)
+        {
+            if (player == killer)
+                player.FreezeInput = true;
+            else
+                ActivatePlayer(false, player.transform.parent.gameObject);
+        }
+        yield return StartCoroutine(CameraActionsAtPreyDeath(killer));
         ActivateAllPlayers(true);
         StartCoroutine(SpawnAllPlayers());
-        gameLoopUIController.SetKillScreen(currentPrey, killer, false);
     }
 
     private void CalculateScores()
@@ -283,6 +293,29 @@ public class InGameLoopController : MonoBehaviour
         }
     }
 
+    private IEnumerator CameraActionsAtPreyDeath(Player killer)
+    {
+        cameraWalls.SetActive(false);
+        var cameraAdjustment = new Vector3(0 , 0, 4);
+        gameCamera.SetActive(false);
+        gameLoopUIController.SetKillScreen(currentPrey, killer, true);
+        if (killer == null)
+        {
+            deathCamera.transform.position = currentPrey.transform.position - cameraAdjustment;
+            deathCamera.SetActive(true);
+        }
+        else
+        {
+            killerCamera.transform.position = killer.transform.position - cameraAdjustment;
+            killerCamera.SetActive(true);
+        }
+        yield return new WaitForSeconds(respawnDelay);
+        deathCamera.SetActive(false);
+        killerCamera.SetActive(false);
+        gameCamera.SetActive(true);
+        gameLoopUIController.SetKillScreen(currentPrey, killer, false);
+    }
+}
     // not in use remove if no need for it.    
   /*Player leader = null;
     private void DisplayScores()
@@ -298,4 +331,4 @@ public class InGameLoopController : MonoBehaviour
                 leader = player;
         }
     }*/
-}
+
