@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
     RespawnController respawnController;
     PushController pushController;
     RotationController rotationController;
-    TrailRenderer trailRenderer;
+    AfterImageController afterImageController;
 
     // remove this once we are done with the print message.
     private void OnTriggerEnter2D(Collider2D other)
@@ -80,7 +80,7 @@ public class Player : MonoBehaviour
         pushController = GetComponentInChildren<PushController>();
         rotationController = GetComponent<RotationController>();
         playerAnimationsController = GetComponent<PlayerAnimationsController>();
-        trailRenderer = GetComponent<TrailRenderer>();
+        afterImageController = GetComponent<AfterImageController>();
     }
 
     public void UnFreeze()
@@ -112,7 +112,7 @@ public class Player : MonoBehaviour
         respawnController.ResetRespawn();
         playerActionsController.ResetPlayerActions();
         movementController.ResetMovement();
-        
+        afterImageController.ResetAfterImage();
         if(pushedBy != null)
             pushedBy.GetComponentInChildren<PushController>().RemoveFromPushList(transform);
         pushedBy = null;
@@ -127,11 +127,7 @@ public class Player : MonoBehaviour
     // have the animation call the playerGhostController instead.
     public void playerDead()
     {
+        afterImageController.ResetAfterImage();
         respawnController.StartGhosting();
-    }
-
-    public void SetTrailTime(float time)
-    {
-        trailRenderer.time = time;
     }
 }

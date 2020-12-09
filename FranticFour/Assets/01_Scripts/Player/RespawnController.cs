@@ -31,7 +31,7 @@ public class RespawnController : MonoBehaviour
 
     void Start()
     {
-        originalSpeed = InGameLoopController.HunterSpeed;
+        originalSpeed = 250;//InGameLoopController.HunterSpeed;
         ghostSpeed = originalSpeed / 3;
     }
 
