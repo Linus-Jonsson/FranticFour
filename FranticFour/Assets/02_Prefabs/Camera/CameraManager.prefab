@@ -182,6 +182,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3008481817596404237}
   - component: {fileID: 3008481817596404236}
+  - component: {fileID: 1651965350}
   m_Layer: 0
   m_Name: CM KillerCam
   m_TagString: Untagged
@@ -239,6 +240,23 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 3008481819528872358}
+--- !u!114 &1651965350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3008481817596404238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2fba25a5cd15594e8f050a11e386c80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ConfineMode: 0
+  m_BoundingVolume: {fileID: 0}
+  m_BoundingShape2D: {fileID: 0}
+  m_ConfineScreenEdges: 1
+  m_Damping: 0
 --- !u!1 &3008481817597014325
 GameObject:
   m_ObjectHideFlags: 0
@@ -714,6 +732,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3008481818663969192}
   - component: {fileID: 3008481818663969199}
+  - component: {fileID: 601308675}
   m_Layer: 0
   m_Name: CM DeathCam
   m_TagString: Untagged
@@ -771,6 +790,23 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 3008481818690611696}
+--- !u!114 &601308675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3008481818663969193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2fba25a5cd15594e8f050a11e386c80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ConfineMode: 0
+  m_BoundingVolume: {fileID: 0}
+  m_BoundingShape2D: {fileID: 0}
+  m_ConfineScreenEdges: 1
+  m_Damping: 0
 --- !u!1 &3008481818690611697
 GameObject:
   m_ObjectHideFlags: 0
@@ -1106,7 +1142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7738138467234794447
 Transform:
   m_ObjectHideFlags: 0
