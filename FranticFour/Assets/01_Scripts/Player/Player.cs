@@ -53,9 +53,10 @@ public class Player : MonoBehaviour
     MovementController movementController;
     PlayerActionsController playerActionsController;
     PlayerAnimationsController playerAnimationsController;
-    RespawnController playerGhostController;
+    RespawnController respawnController;
     PushController pushController;
     RotationController rotationController;
+    AfterImageController afterImageController;
 
     // remove this once we are done with the print message.
     private void OnTriggerEnter2D(Collider2D other)
@@ -75,10 +76,11 @@ public class Player : MonoBehaviour
         deathController = GetComponent<DeathController>();
         movementController = GetComponent<MovementController>();
         playerActionsController = GetComponent<PlayerActionsController>();
-        playerGhostController = GetComponent<RespawnController>();
+        respawnController = GetComponent<RespawnController>();
         pushController = GetComponentInChildren<PushController>();
         rotationController = GetComponent<RotationController>();
         playerAnimationsController = GetComponent<PlayerAnimationsController>();
+        afterImageController = GetComponent<AfterImageController>();
     }
 
     public void UnFreeze()
@@ -107,10 +109,10 @@ public class Player : MonoBehaviour
         spriteRenderer.sharedMaterial.color = originalColor;
         freezeInput = false;
         dead = false;
-        playerGhostController.ResetRespawn();
+        respawnController.ResetRespawn();
         playerActionsController.ResetPlayerActions();
         movementController.ResetMovement();
-        
+        afterImageController.ResetAfterImage();
         if(pushedBy != null)
             pushedBy.GetComponentInChildren<PushController>().RemoveFromPushList(transform);
         pushedBy = null;
@@ -125,6 +127,7 @@ public class Player : MonoBehaviour
     // have the animation call the playerGhostController instead.
     public void playerDead()
     {
-        playerGhostController.StartGhosting();
+        afterImageController.ResetAfterImage();
+        respawnController.StartGhosting();
     }
 }
