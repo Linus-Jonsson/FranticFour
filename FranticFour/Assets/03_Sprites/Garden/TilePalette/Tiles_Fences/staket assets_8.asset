@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: staket assets_8
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -2322878464716569133, guid: 6565ed6e1d6280a41a7588a73db1bddf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dfc20115cac3d7e4385646e377ddf84e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
