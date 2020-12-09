@@ -131,7 +131,7 @@ public class GamePlayUIController : GamePlayUIDisplay
     public IEnumerator SpawnCountDown(float freezeTime)
     {
         countDownDisplay.SetActive(true);
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(3);
         countDownDisplay.SetActive(false);
     }
 
