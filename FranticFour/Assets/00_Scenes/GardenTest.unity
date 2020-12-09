@@ -2799,7 +2799,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!4 &1234537314 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5661316974895686371, guid: acfb9a05aaeba90459fcf1e0904d6c62, type: 3}
@@ -3459,14 +3459,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7993501344353111, guid: 470fb5fd254769a4bbdb972e7e86cb0f, type: 3}
-      propertyPath: m_Layer
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 7993501344353111, guid: 470fb5fd254769a4bbdb972e7e86cb0f, type: 3}
-      propertyPath: m_TagString
-      value: Unwalkable
-      objectReference: {fileID: 0}
     - target: {fileID: 7993501344353116, guid: 470fb5fd254769a4bbdb972e7e86cb0f, type: 3}
       propertyPath: m_UsedByComposite
       value: 1
@@ -3526,14 +3518,6 @@ PrefabInstance:
     - target: {fileID: 7993501817674695, guid: 470fb5fd254769a4bbdb972e7e86cb0f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7993502685561898, guid: 470fb5fd254769a4bbdb972e7e86cb0f, type: 3}
-      propertyPath: m_Layer
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 7993502685561898, guid: 470fb5fd254769a4bbdb972e7e86cb0f, type: 3}
-      propertyPath: m_TagString
-      value: Unwalkable
       objectReference: {fileID: 0}
     - target: {fileID: 7993502685561904, guid: 470fb5fd254769a4bbdb972e7e86cb0f, type: 3}
       propertyPath: m_UsedByComposite
