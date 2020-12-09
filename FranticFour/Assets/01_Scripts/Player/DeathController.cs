@@ -45,7 +45,9 @@ public class DeathController : MonoBehaviour
     private void HandlePreyKilled()
     {
         if (player.PushedBy != null)
+        {
             player.PushedBy.IncreaseScore(player.ScoreValue);
+        }
         else
             gameLoopController.IncreaseAllScores(Mathf.RoundToInt(player.ScoreValue / 3));
         player.FreezeInput = true;
