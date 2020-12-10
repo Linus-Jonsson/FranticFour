@@ -866,7 +866,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7634481659942182475, guid: 96fa55c2585414d4d8660ee692f4ec1d, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7634481659942182475, guid: 96fa55c2585414d4d8660ee692f4ec1d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -41949,6 +41949,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 601308675, guid: e162df6b204d11a46a1d0bf7f0928639, type: 3}
+      propertyPath: m_BoundingShape2D
+      value: 
+      objectReference: {fileID: 2482378809095527622}
+    - target: {fileID: 1651965350, guid: e162df6b204d11a46a1d0bf7f0928639, type: 3}
+      propertyPath: m_BoundingShape2D
+      value: 
+      objectReference: {fileID: 2482378809095527622}
     - target: {fileID: 3008481817588845577, guid: e162df6b204d11a46a1d0bf7f0928639, type: 3}
       propertyPath: m_BoundingShape2D
       value: 
@@ -42001,10 +42009,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraManager
       objectReference: {fileID: 0}
-    - target: {fileID: 7738138467234794444, guid: e162df6b204d11a46a1d0bf7f0928639, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e162df6b204d11a46a1d0bf7f0928639, type: 3}
 --- !u!1 &3008481819180457900 stripped
@@ -42030,7 +42034,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4256269258545571820, guid: b416e92c334cb9a40b6e1c488482a635, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4256269258545571820, guid: b416e92c334cb9a40b6e1c488482a635, type: 3}
       propertyPath: m_LocalPosition.x
@@ -42573,10 +42577,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d581b606b1fdf734899da7b228883592, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infoScreenDuration: 2
-  roundDuration: 60
-  startCountDownDuration: 2
-  preyRevealDuration: 2
+  infoScreenDuration: 1
+  roundDuration: 30
+  startCountDownDuration: 1
+  preyRevealDuration: 1
   roundOverDuration: 4
   players:
   - {fileID: 1234537322}
@@ -42682,6 +42686,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 769942676, guid: 235d37168752fc84ea578ff9108da983, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2015870051, guid: 235d37168752fc84ea578ff9108da983, type: 3}
       propertyPath: m_IsActive
       value: 0

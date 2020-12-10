@@ -25,6 +25,7 @@ public class GamePlayUIController : GamePlayUIDisplay
         camera2.SetActive(true);
         yield return new WaitForSeconds(zoomInDuration);
         camera1.SetActive(false);
+        camera2.SetActive(false);
     }
     
     public IEnumerator PreRoundCountdown(float duration, Player[] players, int roundNumber)
@@ -131,7 +132,7 @@ public class GamePlayUIController : GamePlayUIDisplay
     public IEnumerator SpawnCountDown(float freezeTime)
     {
         countDownDisplay.SetActive(true);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(freezeTime + 1);
         countDownDisplay.SetActive(false);
     }
 
@@ -307,5 +308,10 @@ public class GamePlayUIController : GamePlayUIDisplay
     public void PlayAgain()
     {
         finalResultDisplay.SetActive(false);
+    }
+
+    public void StopSpawnCountDown()
+    {
+        countDownDisplay.SetActive(false);
     }
 }
