@@ -58,8 +58,6 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
-FranticFour/Assets/Scenes/TestScene.unity
-FranticFour/Assets/Scenes/TestScene.unity.meta
 FranticFour/.idea/.idea.FranticFour/.idea/codeStyles/codeStyleConfig.xml
 FranticFour/.idea/.idea.FranticFour/.idea/contentModel.xml
 FranticFour/.idea/.idea.FranticFour/.idea/encodings.xml
@@ -228,4 +226,7 @@ DS4Windows/UtilLibrary.dll
 DS4Windows/WPFLocalizeExtension.dll
 DS4Windows/XAMLMarkupExtensions.dll
 DS4Windows/Xceed.Wpf.Toolkit.dll
-FranticFour/Assets/00_Scenes/TestScene.unity
+FranticFour/Assets/00_Scenes/LinusTest.unity
+FranticFour/Assets/00_Scenes/LinusTest.unity.meta
+DS4Windows/Lang/uk-UA/DS4Windows.resources.dll
+DS4Windows/Lang/hu-HU/DS4Windows.resources.dll

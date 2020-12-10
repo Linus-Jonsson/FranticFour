@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Danger
+  - Unwalkable
   layers:
   - Default
   - TransparentFX
@@ -24,8 +25,8 @@ TagManager:
   - OnlyPlayerCollision
   - Camera
   - RespawnPoint
-  - 
-  - 
+  - UnWalkable
+  - Ghost
   - InGameUI
   - 
   - 

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class RotationController : MonoBehaviour
 {
@@ -12,7 +10,7 @@ public class RotationController : MonoBehaviour
 
     void Start()
     {
-        controller = GetComponentInParent<AssignedController>();
+        controller = GetComponent<AssignedController>();
     }
 
     void Update()

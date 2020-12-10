@@ -40,7 +40,7 @@ public class AssignedController : MonoBehaviour
     public string Action1 => action1;
     public string Jump => jump;
 
-    private void Start()
+    public void Init()
     {
         GetControllerType();
     }
@@ -107,7 +107,7 @@ public class AssignedController : MonoBehaviour
             SetControllerKeysSwitch();
         else if (PassControllersToGame.isKeyboardUsed && PlayerID == PassControllersToGame.keyBoardOwnedBy) //Runs if controller is missing or can't be recognized AND is not in use
             SetControllerKeyboardAndMouse();
-        else if (AssignPlayers.keyboardAssigned == false) //Runs if the game starts without going through PlayerSelection
+        else if (AssignPlayers.keyboardAssigned == false && !PassControllersToGame.isKeyboardUsed) //Runs if the game starts without going through PlayerSelection
             SetControllerKeyboardAndMouse();
         else
             SetControllerKeysXbox(); //If controller name is not recognized and keyboard is taken, map the controller as xbox

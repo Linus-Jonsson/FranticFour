@@ -8,6 +8,26 @@ public class GamePlayUIController : GamePlayUIDisplay
     // add a way to discintively show who is leading in points?.
     // add scores for this round aswell as the total score
 
+    public IEnumerator PlayTestInfoScreens(float duration)
+    {
+        gameDescriptionDisplay.SetActive(true);
+        yield return new WaitForSeconds(duration);
+        gameDescriptionDisplay.SetActive(false);
+        controllerLayoutDisplay.SetActive(true);
+        yield return new WaitForSeconds(duration);
+        controllerLayoutDisplay.SetActive(false);
+    }
+
+    public IEnumerator LevelIntro(float overviewDuration, float zoomInDuration, GameObject camera1, GameObject camera2)
+    {
+        camera1.SetActive(true);
+        yield return new WaitForSeconds(overviewDuration);
+        camera2.SetActive(true);
+        yield return new WaitForSeconds(zoomInDuration);
+        camera1.SetActive(false);
+        camera2.SetActive(false);
+    }
+    
     public IEnumerator PreRoundCountdown(float duration, Player[] players, int roundNumber)
     {
         SetRoundAndPlayerDisplay(players, roundNumber);
@@ -107,6 +127,13 @@ public class GamePlayUIController : GamePlayUIDisplay
             duration -= timeDecreaseIncrement;
         }
         scoreDisplay.SetActive(false);
+    }
+    
+    public IEnumerator SpawnCountDown(float freezeTime)
+    {
+        countDownDisplay.SetActive(true);
+        yield return new WaitForSeconds(freezeTime + 1);
+        countDownDisplay.SetActive(false);
     }
 
     private void SetCountDownDisplayNumber(float duration, string message,TextMeshProUGUI countDownText)
@@ -281,5 +308,11 @@ public class GamePlayUIController : GamePlayUIDisplay
     public void PlayAgain()
     {
         finalResultDisplay.SetActive(false);
+    }
+
+    public void StopSpawnCountDown()
+    {
+        StopCoroutine(SpawnCountDown(0));
+        countDownDisplay.SetActive(false);
     }
 }
