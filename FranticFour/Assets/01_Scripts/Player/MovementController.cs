@@ -17,6 +17,8 @@ public class MovementController : MonoBehaviour
     [SerializeField] float pushForceMultiplier = 5.0f;
     [Tooltip("The amount that the players current velocity gets divided by after push")]
     [SerializeField] float pushVelocityDivider = 4.0f;
+    [Tooltip("The amount that the players current velocity gets divided by after jump")]
+    [SerializeField] float jumpVelocityDivider = 4.0f;
 
     AssignedController controller;
     Rigidbody2D rb2d;
@@ -79,5 +81,11 @@ public class MovementController : MonoBehaviour
     {
         if (!player.FreezeInput)
             rb2d.velocity = rb2d.velocity / pushVelocityDivider;
+    }
+    
+    public void ReduceVelocityAfterJump()
+    {
+        if (!player.FreezeInput)
+            rb2d.velocity = rb2d.velocity / jumpVelocityDivider;
     }
 }
