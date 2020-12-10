@@ -5113,7 +5113,8 @@ MonoBehaviour:
   maxSpeed: 10
   movementSpeed: 40
   pushForceMultiplier: 25
-  pushVelocityDivider: 35
+  pushVelocityDivider: 100
+  jumpVelocityDivider: 100
 --- !u!114 &362613495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5148,7 +5149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerLayer: 8
   jumpLayer: 9
-  jumpingDrag: 0.3
+  jumpingDrag: 1
   preyTrap: {fileID: 3140399524871574758, guid: a0ff91c6e4bdf6b45ab4387956b9838f, type: 3}
   rawOffset: 1
   trapPushForce: 10

@@ -312,6 +312,7 @@ public class GamePlayUIController : GamePlayUIDisplay
 
     public void StopSpawnCountDown()
     {
+        StopCoroutine(SpawnCountDown(0));
         countDownDisplay.SetActive(false);
     }
 }

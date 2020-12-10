@@ -41758,6 +41758,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 122360167}
     m_Modifications:
+    - target: {fileID: 1633663565908421958, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
+      propertyPath: m_Color.a
+      value: 0.34117648
+      objectReference: {fileID: 0}
+    - target: {fileID: 1633663565908421958, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1633663565908421958, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
+      propertyPath: m_Color.g
+      value: 0.102089725
+      objectReference: {fileID: 0}
+    - target: {fileID: 1633663565908421958, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1633663565908421958, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1687704663410451919, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
       propertyPath: playerID
       value: 1
@@ -42577,8 +42597,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d581b606b1fdf734899da7b228883592, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infoScreenDuration: 1
-  roundDuration: 30
+  infoScreenDuration: 2
+  roundDuration: 60
   startCountDownDuration: 1
   preyRevealDuration: 1
   roundOverDuration: 4
@@ -42686,14 +42706,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 769942676, guid: 235d37168752fc84ea578ff9108da983, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2015870051, guid: 235d37168752fc84ea578ff9108da983, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7473697051620045209, guid: 235d37168752fc84ea578ff9108da983, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
