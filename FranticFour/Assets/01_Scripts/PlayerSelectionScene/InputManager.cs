@@ -1,11 +1,8 @@
-﻿using System.Collections;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
     [SerializeField] internal readonly int MAX_PLAYERS = 4;
-    [SerializeField] private string sceneToLoad = "GardenTest";
     [SerializeField] private int[] playerOwnedBy = new int[4];
     [SerializeField] public bool[] playersSelected = new bool[4]; //Todo Dod set to private or removed
     [SerializeField] public bool[] canSelect = new bool[4]; //Todo Dod set to private or removed

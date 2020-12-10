@@ -156,7 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: GardenTest
   playerOwnedBy: 00000000000000000000000000000000
-  playersSelected: 01000101
+  playersSelected: 00000000
   canSelect: 00000000
   players:
   - {fileID: 1903818702}
