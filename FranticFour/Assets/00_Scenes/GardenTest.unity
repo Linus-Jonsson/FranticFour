@@ -42578,7 +42578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoScreenDuration: 1
-  roundDuration: 60
+  roundDuration: 30
   startCountDownDuration: 1
   preyRevealDuration: 1
   roundOverDuration: 4
@@ -42686,6 +42686,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 769942676, guid: 235d37168752fc84ea578ff9108da983, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2015870051, guid: 235d37168752fc84ea578ff9108da983, type: 3}
       propertyPath: m_IsActive
       value: 0

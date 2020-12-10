@@ -90,7 +90,8 @@ public class InGameLoopController : MonoBehaviour
             currentRound++;
         }
         gameLoopUIController.DisplayFinalResults(players);
-    }        
+    }      
+    
     private void ActivateAllPlayers(bool value)
     {
         foreach (var onOffObject in onOffObjects) // the naming sucks, will be changed once a better system is implemented
@@ -98,6 +99,7 @@ public class InGameLoopController : MonoBehaviour
             ActivatePlayer(value, onOffObject);
         }
     }
+    
     private static void ActivatePlayer(bool value, GameObject onOffObject)
     {
         onOffObject.GetComponentInChildren<Player>().ResetPlayer();
@@ -124,6 +126,7 @@ public class InGameLoopController : MonoBehaviour
                 SetPrey(false, i, hunterSpeed);
         }
     }
+    
     private void SetPrey(bool value, int i, float speed)
     {
         players[i].NumberOfDeaths = 0;
@@ -146,13 +149,17 @@ public class InGameLoopController : MonoBehaviour
     private void HandleStartOfRound()
     {
         ActivateAllPlayers(true);
-        introCamera2.SetActive(false);
         gameCamera.SetActive(true);
         StartCoroutine(SpawnAllPlayers());
     }
+    
     private void HandleEndOfRound()
     {
+        StopCoroutine(SpawnAllPlayers());
+        StopCoroutine(CameraActionsAtPreyDeath(null));
         StopCoroutine(HandleRespawnOfAllPlayers(null));
+        gameCamera.SetActive(false);      
+        gameLoopUIController.StopSpawnCountDown();         
         gameLoopUIController.SetKillScreen(null, null, false);
         ActivateAllPlayers(false);
         CalculateScores();
@@ -184,12 +191,14 @@ public class InGameLoopController : MonoBehaviour
         foreach (var player in players)
             player.FreezeInput = false;
     }
+    
     private SpawnPoint GetSpawnPoint()
     {
         int random = Random.Range(0, spawnPoints.Length - 1);
         SpawnPoint spawnPoint = spawnPoints[random].GetComponent<SpawnPoint>();
         return spawnPoint;
     }
+    
     private void spawnPlayer(Vector2 spawnPosition, Player player)
     {
         player.SetNewPosition(spawnPosition);
@@ -200,6 +209,7 @@ public class InGameLoopController : MonoBehaviour
     {
         StartCoroutine(HandleRespawnOfAllPlayers(killer));
     }
+
     private IEnumerator HandleRespawnOfAllPlayers(Player killer)
     {
         foreach (var player in players)
@@ -222,6 +232,7 @@ public class InGameLoopController : MonoBehaviour
         GivePacifistReward();
         TotalAllPlayersScore();
     }
+    
     private void GivePreySurvivalScore()
     {
         int scoreToAdd = preySurvivalBaseScore - currentPrey.NumberOfDeaths;
@@ -239,6 +250,7 @@ public class InGameLoopController : MonoBehaviour
             player.IncreaseScore(pacifistTrueReward);
         }
     }
+    
     private List<Player> GetPlayersEligibleForPacifistAward()
     {
         int lowestHunterKills = GetLowestHunterKillHunterNumber();
@@ -251,6 +263,7 @@ public class InGameLoopController : MonoBehaviour
         }
         return eligiblePlayers;
     }
+    
     private int GetLowestHunterKillHunterNumber()
     {
         List<int> HunterXHunterNumberList = new List<int>();

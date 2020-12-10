@@ -91,7 +91,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4571054493860122463}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Sawblade
   m_TagString: Danger
   m_Icon: {fileID: 0}
@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 8382559940497253827}
   - component: {fileID: 109710980003920614}
   - component: {fileID: 5025744347374280338}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Sawblade
   m_TagString: Danger
   m_Icon: {fileID: 0}
