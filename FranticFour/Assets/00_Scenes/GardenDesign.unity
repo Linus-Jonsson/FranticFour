@@ -93464,11 +93464,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4801723092207956067, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.690001
+      value: -2.6900008
       objectReference: {fileID: 0}
     - target: {fileID: 4801723092218131178, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.690001
+      value: -2.6900008
       objectReference: {fileID: 0}
     - target: {fileID: 4801723092218131178, guid: 21a3a7a88cbc6ae4ab1c71b49cbca3c4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -94961,11 +94961,11 @@ PrefabInstance:
     - target: {fileID: 9172410940952403563, guid: ca43ac31b2dc5cd46a2bb71393d4ef67, type: 3}
       propertyPath: players.Array.data[0]
       value: 
-      objectReference: {fileID: 1842982838}
+      objectReference: {fileID: 76471103}
     - target: {fileID: 9172410940952403563, guid: ca43ac31b2dc5cd46a2bb71393d4ef67, type: 3}
       propertyPath: players.Array.data[1]
       value: 
-      objectReference: {fileID: 1361377651}
+      objectReference: {fileID: 1842982838}
     - target: {fileID: 9172410940952403563, guid: ca43ac31b2dc5cd46a2bb71393d4ef67, type: 3}
       propertyPath: players.Array.data[2]
       value: 
@@ -94973,7 +94973,7 @@ PrefabInstance:
     - target: {fileID: 9172410940952403563, guid: ca43ac31b2dc5cd46a2bb71393d4ef67, type: 3}
       propertyPath: players.Array.data[3]
       value: 
-      objectReference: {fileID: 76471103}
+      objectReference: {fileID: 1361377651}
     - target: {fileID: 9172410940952403564, guid: ca43ac31b2dc5cd46a2bb71393d4ef67, type: 3}
       propertyPath: m_Name
       value: PlayerAssignManager
