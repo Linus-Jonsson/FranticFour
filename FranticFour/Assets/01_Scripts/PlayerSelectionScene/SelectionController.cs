@@ -55,6 +55,13 @@ public class SelectionController : MonoBehaviour
 
     private void Update()
     {
+        //Error check
+        if (action1 == String.Empty || action1 is null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        
         if (!hasControllerJoined && (Input.GetAxis(action1) >= 1 - deadZoneAction || Input.GetButtonUp(aButton))) //For PS4, Xbox and Keyboard
             ControllerJoin();
         else if (hasControllerJoined && !isSelecting && (Input.GetAxis(action1) >= 1 - deadZoneAction || Input.GetButtonUp(aButton))) //For PS4, Xbox and Keyboard
