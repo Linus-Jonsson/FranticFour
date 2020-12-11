@@ -44,6 +44,9 @@ public class Player : MonoBehaviour
     bool dead = false;
     public bool Dead { get { return dead; } set { dead = value; } }
 
+    bool isPushed = false;
+    public bool IsPushed { get { return isPushed; } set { isPushed = value; } }
+
     Player pushedBy = null;
     public Player PushedBy { get { return pushedBy; } set { pushedBy = value; } }
     
@@ -104,10 +107,16 @@ public class Player : MonoBehaviour
         pushedBy = null;
     }
 
+    public void StopIsPushed()
+    {
+        isPushed = false;
+    }
+
     public void ResetPlayer()
     {
         spriteRenderer.sharedMaterial.color = originalColor;
         freezeInput = false;
+        isPushed = false;
         dead = false;
         respawnController.ResetRespawn();
         playerActionsController.ResetPlayerActions();
@@ -127,6 +136,7 @@ public class Player : MonoBehaviour
     // have the animation call the playerGhostController instead.
     public void playerDead()
     {
+        StopIsPushed();
         afterImageController.ResetAfterImage();
         respawnController.StartGhosting();
     }
