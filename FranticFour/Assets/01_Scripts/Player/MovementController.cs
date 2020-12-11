@@ -21,6 +21,7 @@ public class MovementController : MonoBehaviour
     [SerializeField] float jumpVelocityDivider = 4.0f;
 
     AssignedController controller;
+    RotationController rotationController;
     Rigidbody2D rb2d;
     Player player;
 
@@ -32,6 +33,7 @@ public class MovementController : MonoBehaviour
     private void GetReferences()
     {
         controller = GetComponent<AssignedController>();
+        rotationController = GetComponent<RotationController>();
         rb2d = GetComponent<Rigidbody2D>();
         player = GetComponent<Player>();
     }
@@ -74,7 +76,7 @@ public class MovementController : MonoBehaviour
     public void AddPushForce()
     {
         if (!player.FreezeInput)
-            rb2d.AddRelativeForce(Vector2.up * pushForceMultiplier, ForceMode2D.Impulse);
+            rb2d.AddRelativeForce(rotationController.Dir * pushForceMultiplier * 10, ForceMode2D.Impulse);
     }
 
     public void ReduceVelocity()
