@@ -55,6 +55,7 @@ public class InGameLoopController : MonoBehaviour
     GamePlayUIController gameLoopUIController;
     [SerializeField] private List<int> preyProbability; //Serialized temporarily to make sure it works properly
     TargetGroupController targetGroupController;
+    bool isBetweenRounds = true;
 
     void Start()
     {
@@ -148,6 +149,7 @@ public class InGameLoopController : MonoBehaviour
 
     private void HandleStartOfRound()
     {
+        isBetweenRounds = false;
         ActivateAllPlayers(true);
         gameCamera.SetActive(true);
         StartCoroutine(SpawnAllPlayers());
@@ -155,8 +157,7 @@ public class InGameLoopController : MonoBehaviour
     
     private void HandleEndOfRound()
     {
-        StopCoroutine(SpawnAllPlayers());
-        StopCoroutine(CameraActionsAtPreyDeath(null));
+        isBetweenRounds = true;
         StopCoroutine(HandleRespawnOfAllPlayers(null));
         gameCamera.SetActive(false);      
         gameLoopUIController.StopSpawnCountDown();         
@@ -185,7 +186,8 @@ public class InGameLoopController : MonoBehaviour
                 hunterSpawnCount += 1;
             }
         }
-        StartCoroutine(gameLoopUIController.SpawnCountDown(freezeAfterSpawnTime));
+        if (!isBetweenRounds)
+            StartCoroutine(gameLoopUIController.SpawnCountDown(freezeAfterSpawnTime));
         yield return new WaitForSeconds(freezeAfterSpawnTime);
         cameraWalls.SetActive(true);
         foreach (var player in players)
