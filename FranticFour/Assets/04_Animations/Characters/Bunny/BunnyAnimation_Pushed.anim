@@ -21,25 +21,25 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: 21300000, guid: 02689add83307184ba505348cd27e400, type: 3}
-    - time: 0.06666667
-      value: {fileID: 21300000, guid: d77447cf9741caa4f8be24f36a8ca0c2, type: 3}
     - time: 0.13333334
-      value: {fileID: 21300000, guid: 96eb51f34416bf54b89ea86accd0e852, type: 3}
+      value: {fileID: 21300000, guid: d77447cf9741caa4f8be24f36a8ca0c2, type: 3}
     - time: 0.2
-      value: {fileID: 21300000, guid: 62e33a327a7d0f640b14252dee8dfed7, type: 3}
+      value: {fileID: 21300000, guid: 96eb51f34416bf54b89ea86accd0e852, type: 3}
     - time: 0.26666668
-      value: {fileID: 21300000, guid: 935bfa53a6d6c9742959ea4ea72af57d, type: 3}
+      value: {fileID: 21300000, guid: 62e33a327a7d0f640b14252dee8dfed7, type: 3}
     - time: 0.33333334
-      value: {fileID: 21300000, guid: de5f796a451534a469362cb7451eed7b, type: 3}
+      value: {fileID: 21300000, guid: 935bfa53a6d6c9742959ea4ea72af57d, type: 3}
     - time: 0.4
-      value: {fileID: 21300000, guid: aab5e911b411074459e7e322c48c8704, type: 3}
+      value: {fileID: 21300000, guid: de5f796a451534a469362cb7451eed7b, type: 3}
     - time: 0.46666667
-      value: {fileID: 21300000, guid: 7d66434f7170aaf4db1bbaac24828ecf, type: 3}
+      value: {fileID: 21300000, guid: aab5e911b411074459e7e322c48c8704, type: 3}
     - time: 0.53333336
-      value: {fileID: 21300000, guid: c127ce113658c0342be11e6a30768f53, type: 3}
+      value: {fileID: 21300000, guid: 7d66434f7170aaf4db1bbaac24828ecf, type: 3}
     - time: 0.6
+      value: {fileID: 21300000, guid: c127ce113658c0342be11e6a30768f53, type: 3}
+    - time: 0.6666667
       value: {fileID: 21300000, guid: 4cc25d7a08369864791a6dd76d538efd, type: 3}
-    - time: 0.8666667
+    - time: 0.93333334
       value: {fileID: 21300000, guid: 4cc25d7a08369864791a6dd76d538efd, type: 3}
     attribute: m_Sprite
     path: Body
@@ -76,7 +76,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.93333334
+    m_StopTime: 1
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -110,14 +110,21 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.4
+  - time: 0.46666667
     functionName: TurnOffAfterImage
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.8666667
+  - time: 0.46666667
+    functionName: StopIsPushed
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.93333334
     functionName: EndPush
     data: 
     objectReferenceParameter: {fileID: 0}

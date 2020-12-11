@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using System.Threading;
+using System.Threading.Tasks;
 
 public class PushController : MonoBehaviour
 {
@@ -24,13 +26,13 @@ public class PushController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
-            targets.Add(other.gameObject.transform);
+            targets.Add(other.transform.parent);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
-            targets.Remove(other.gameObject.transform);
+            targets.Remove(other.transform.parent);
     }
 
     public void PushTarget(Vector2 pushForce)
@@ -79,10 +81,20 @@ public class PushController : MonoBehaviour
     private void HandlePush(Vector2 pushForce, Player pusher)
     {
         player.FreezeInput = true;
+        player.IsPushed = true;
         animator.SetTrigger("Pushed");
         player.PushedBy = pusher;
         rb2d.velocity = Vector2.zero;
-        rb2d.AddForce(pushForce, ForceMode2D.Impulse);
+        AddPushForce(pushForce);
+    }
+
+    private async void AddPushForce(Vector2 pushForce)
+    {
+        while(player.IsPushed)
+        {
+            await Task.Delay(10);
+            rb2d.AddForce(pushForce);
+        }
     }
 
     public void ResetPushList()
