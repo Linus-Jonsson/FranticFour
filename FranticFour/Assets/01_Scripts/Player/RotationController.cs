@@ -2,7 +2,7 @@
 
 public class RotationController : MonoBehaviour
 {
-    [SerializeField] GameObject body = null;
+    [SerializeField] GameObject objectToRotate = null;
     AssignedController controller;
 
     Vector2 dir = new Vector2(0, 0);
@@ -18,13 +18,9 @@ public class RotationController : MonoBehaviour
         HandleRotation();
     }
 
-    void LateUpdate()
-    {
-        body.transform.rotation = Quaternion.Euler(0.0f, 0.0f, transform.rotation.z * -1.0f);
-    }
-
     private void HandleRotation()
     {
+        transform.rotation = Quaternion.identity;
         if (controller.UsesMouse)
             HandleMouseRotation(); //Musen skriver över kontroller inputs
         else
@@ -39,13 +35,13 @@ public class RotationController : MonoBehaviour
             dir.x = inputX;
         if (inputY != 0)
             dir.y = inputY;
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(-dir.x, dir.y) * Mathf.Rad2Deg));
+        objectToRotate.transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(-dir.x, dir.y) * Mathf.Rad2Deg));
     }
 
     private void HandleMouseRotation()
     {
         var position = Camera.main.WorldToScreenPoint(transform.position);
         dir = Input.mousePosition - position;
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(-dir.x, dir.y) * Mathf.Rad2Deg));
+        objectToRotate.transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(-dir.x, dir.y) * Mathf.Rad2Deg));
     }
 }
