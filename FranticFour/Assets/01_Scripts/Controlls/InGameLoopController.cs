@@ -70,6 +70,7 @@ public class InGameLoopController : MonoBehaviour
         preyProbability = new List<int> { 0, 1, 2, 3 }; // resets the preyProbability list everytime you play.
         while (currentRound <= numberOfRounds)
         {
+            ShowPlayers(false);
             ActivateAllPlayers(false);
             yield return StartCoroutine(gameLoopUIController.PreRoundCountdown(startCountDownDuration, players, currentRound));
             HandleRoleSetting();
@@ -86,8 +87,16 @@ public class InGameLoopController : MonoBehaviour
             currentRound++;
         }
         gameLoopUIController.DisplayFinalResults(players);
-    }      
-    
+    }
+
+    private void ShowPlayers(bool value)
+    {
+        foreach (var player in players)
+        {
+            player.gameObject.SetActive(value);
+        }
+    }
+
     private void ActivateAllPlayers(bool value)
     {
         foreach (var player in players)
@@ -142,6 +151,7 @@ public class InGameLoopController : MonoBehaviour
 
     private void HandleStartOfRound()
     {
+        ShowPlayers(true);
         isBetweenRounds = false;
         ActivateAllPlayers(true);
         gameCamera.SetActive(true);
@@ -150,6 +160,7 @@ public class InGameLoopController : MonoBehaviour
     
     private void HandleEndOfRound()
     {
+        ShowPlayers(false);
         isBetweenRounds = true;
         StopCoroutine(HandleRespawnOfAllPlayers(null));
         gameCamera.SetActive(false);      

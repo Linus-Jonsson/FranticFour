@@ -42532,6 +42532,22 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -0.18
       objectReference: {fileID: 0}
+    - target: {fileID: 6175737647763604625, guid: 522538c54bd304c48af3775065125cdb, type: 3}
+      propertyPath: m_FlipY
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6175737648343695559, guid: 522538c54bd304c48af3775065125cdb, type: 3}
+      propertyPath: m_FlipY
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6175737648392304426, guid: 522538c54bd304c48af3775065125cdb, type: 3}
+      propertyPath: m_FlipY
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6175737648403943777, guid: 522538c54bd304c48af3775065125cdb, type: 3}
+      propertyPath: m_FlipY
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7163356036995512023, guid: 522538c54bd304c48af3775065125cdb, type: 3}
       propertyPath: m_Size.x
       value: 4.8866386
@@ -42759,11 +42775,6 @@ MonoBehaviour:
   - {fileID: 489097826}
   hunterSpeed: 200
   preySpeed: 150
-  onOffObjects:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   preySurvivalBaseScore: 5
   pacifistAward: 3
   respawnDelay: 2
