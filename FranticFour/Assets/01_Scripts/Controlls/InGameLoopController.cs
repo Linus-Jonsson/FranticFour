@@ -25,7 +25,6 @@ public class InGameLoopController : MonoBehaviour
     public float HunterSpeed { get { return hunterSpeed; } }
     [SerializeField] float preySpeed = 45f;
     public float PreySpeed { get { return preySpeed; } }
-    [SerializeField] GameObject[] onOffObjects = new GameObject[4]; // this can be removed once we implement a better way to disable cooldown bars
 
     [Header("Other score addition configurations")]
     [SerializeField] int preySurvivalBaseScore = 10;
@@ -95,17 +94,16 @@ public class InGameLoopController : MonoBehaviour
     
     private void ActivateAllPlayers(bool value)
     {
-        foreach (var onOffObject in onOffObjects) // the naming sucks, will be changed once a better system is implemented
+        foreach (var player in players)
         {
-            ActivatePlayer(value, onOffObject);
+            ActivatePlayer(value, player);
         }
     }
-    
-    private static void ActivatePlayer(bool value, GameObject onOffObject)
+
+    private static void ActivatePlayer(bool value, Player player)
     {
-        onOffObject.GetComponentInChildren<Player>().ResetPlayer();
-        onOffObject.GetComponentInChildren<Player>().FreezeInput = !value;
-        onOffObject.SetActive(value);
+        player.ResetPlayer();
+        player.FreezeInput = !value;
     }
 
     private void HandleRoleSetting()
@@ -219,7 +217,7 @@ public class InGameLoopController : MonoBehaviour
             if (player == killer)
                 player.FreezeInput = true;
             else
-                ActivatePlayer(false, player.transform.parent.gameObject);
+                ActivatePlayer(false, player);
         }
         yield return StartCoroutine(CameraActionsAtPreyDeath(killer));
         ActivateAllPlayers(true);

@@ -103,6 +103,7 @@ public class Player : MonoBehaviour
 
     public void EndPush()
     {
+        pushedBy.GetComponentInChildren<PushController>().RemoveFromPushList(this);
         freezeInput = false;
         pushedBy = null;
     }
@@ -123,7 +124,7 @@ public class Player : MonoBehaviour
         movementController.ResetMovement();
         afterImageController.ResetAfterImage();
         if(pushedBy != null)
-            pushedBy.GetComponentInChildren<PushController>().RemoveFromPushList(transform);
+            pushedBy.GetComponentInChildren<PushController>().RemoveFromPushList(this);
         pushedBy = null;
         pushController.ResetPushList();
     }
