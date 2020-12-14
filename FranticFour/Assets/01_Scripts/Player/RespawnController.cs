@@ -10,14 +10,14 @@ public class RespawnController : MonoBehaviour
     [SerializeField] GameObject PushArea = null;
 
     [SerializeField] float blinkDuration = 0.1f;
-    
+
     [SerializeField] List<GameObject> unWalkables = new List<GameObject>();
+    [SerializeField] CircleCollider2D bodyCollider = null;
 
     MovementController movementController;
-    CircleCollider2D myCollider;
     InGameLoopController InGameLoopController;
     Player player;
-    
+
     float hunterSpeed = 0f;
     float preySpeed = 0f;
     float ghostSpeed = 0f;
@@ -27,14 +27,15 @@ public class RespawnController : MonoBehaviour
     private void Awake()
     {
         movementController = GetComponent<MovementController>();
-        myCollider = GetComponent<CircleCollider2D>();
         InGameLoopController = FindObjectOfType<InGameLoopController>();
         player = GetComponent<Player>();
     }
 
+
+
     void Start()
     {
-        originalColliderRadius = myCollider.radius;
+        originalColliderRadius = bodyCollider.radius;
         ghostColliderRadius = originalColliderRadius * 3;
         hunterSpeed = InGameLoopController.HunterSpeed;
         preySpeed = InGameLoopController.PreySpeed;
@@ -43,8 +44,8 @@ public class RespawnController : MonoBehaviour
 
     public void StartGhosting()
     {
-        if(player.Prey) { return; }
-        myCollider.radius = ghostColliderRadius;
+        if (player.Prey) { return; }
+        bodyCollider.radius = ghostColliderRadius;
         StartCoroutine(HandleGhosting());
     }
 
@@ -62,11 +63,12 @@ public class RespawnController : MonoBehaviour
         player.Dead = value;
         movementController.MovementSpeed = speed;
         PushArea.SetActive(!value);
-        myCollider.isTrigger = value;
+        bodyCollider.isTrigger = value;
         if (!value)
         {
+            movementController.ResetMovement();
             spriteRenderer.sharedMaterial.color = player.originalColor;
-            myCollider.radius = originalColliderRadius;
+            bodyCollider.radius = originalColliderRadius;
         }
     }
 
@@ -77,7 +79,7 @@ public class RespawnController : MonoBehaviour
         float newTime = time - blinkDuration;
         if (newTime < 0)
             TryToRevive();
-        if(player.Dead)
+        if (player.Dead)
             StartCoroutine(BlinkOff(newTime));
     }
 
@@ -88,7 +90,7 @@ public class RespawnController : MonoBehaviour
         float newTime = time - blinkDuration;
         if (newTime < 0)
             TryToRevive();
-        if(player.Dead)
+        if (player.Dead)
             StartCoroutine(BlinkOn(newTime));
     }
 
@@ -103,25 +105,25 @@ public class RespawnController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Danger") || collision.gameObject.CompareTag("Unwalkable"))
+        if (collision.gameObject.CompareTag("Danger") || collision.gameObject.CompareTag("Unwalkable"))
             unWalkables.Add(collision.gameObject);
-        if(unWalkables.Count > 0 && player.Dead)
-            myCollider.radius = ghostColliderRadius;
+        if (unWalkables.Count > 0 && player.Dead)
+            bodyCollider.radius = ghostColliderRadius;
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Danger") || collision.gameObject.CompareTag("Unwalkable"))
             unWalkables.Remove(collision.gameObject);
-        if(unWalkables.Count <= 0)
-            myCollider.radius = originalColliderRadius;
+        if (unWalkables.Count <= 0)
+            bodyCollider.radius = originalColliderRadius;
     }
 
     public void ResetRespawn()
     {
-        unWalkables = new List<GameObject>();
         StopAllCoroutines();
+        unWalkables = new List<GameObject>();
         movementController.MovementSpeed = player.Prey ? preySpeed : hunterSpeed;
         PushArea.SetActive(true);
-        myCollider.isTrigger = false;
+        bodyCollider.isTrigger = false;
     }
 }

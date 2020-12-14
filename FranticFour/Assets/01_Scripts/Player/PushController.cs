@@ -26,13 +26,15 @@ public class PushController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
-            targets.Add(other.transform.parent);
+            if (!other.gameObject.GetComponentInParent<Player>().Dead)
+                targets.Add(other.transform.parent);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
-            targets.Remove(other.transform.parent);
+            if (!other.gameObject.GetComponentInParent<Player>().Dead)
+                targets.Remove(other.transform.parent);
     }
 
     public void PushTarget(Vector2 pushForce)
