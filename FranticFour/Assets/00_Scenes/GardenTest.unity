@@ -42777,7 +42777,7 @@ MonoBehaviour:
   preySpeed: 150
   preySurvivalBaseScore: 5
   pacifistAward: 3
-  respawnDelay: 2
+  respawnDelay: 2.5
   freezeAfterSpawnTime: 1.5
   spawnParticles: {fileID: 8171510603094556011, guid: 8381ec2f60ab6f544b505ff318b2f4b5, type: 3}
   overviewTime: 2

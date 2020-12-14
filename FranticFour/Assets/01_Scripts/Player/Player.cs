@@ -57,11 +57,11 @@ public class Player : MonoBehaviour
     DeathController deathController;
     MovementController movementController;
     PlayerActionsController playerActionsController;
-    PlayerAnimationsController playerAnimationsController;
     RespawnController respawnController;
     PushController pushController;
     RotationController rotationController;
     AfterImageController afterImageController;
+    Animator animator;
 
     // remove this once we are done with the print message.
     private void OnTriggerEnter2D(Collider2D other)
@@ -84,8 +84,8 @@ public class Player : MonoBehaviour
         respawnController = GetComponent<RespawnController>();
         pushController = GetComponentInChildren<PushController>();
         rotationController = GetComponent<RotationController>();
-        playerAnimationsController = GetComponent<PlayerAnimationsController>();
         afterImageController = GetComponent<AfterImageController>();
+        animator = GetComponent<Animator>();
     }
 
     public void UnFreeze()
@@ -106,7 +106,7 @@ public class Player : MonoBehaviour
     public void EndPush()
     {
         if(pushedBy)
-        pushedBy.GetComponentInChildren<PushController>().RemoveFromPushList(this);
+            pushedBy.GetComponentInChildren<PushController>().RemoveFromPushList(this);
         freezeInput = false;
         pushedBy = null;
     }
@@ -137,6 +137,11 @@ public class Player : MonoBehaviour
         isPrey = value;
         preySignifier.SetActive(value);
         movementController.MovementSpeed = speed;
+    }
+
+    public void SetAnimationTrigger(string trigger)
+    {
+        animator.SetTrigger(trigger);
     }
 
     public void SetNewPosition(Vector3 position)
