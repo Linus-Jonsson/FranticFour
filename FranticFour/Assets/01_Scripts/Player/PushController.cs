@@ -33,8 +33,15 @@ public class PushController : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("PlayerBody"))
-            if (!other.GetComponentInParent<Player>().Dead)
-                targets.Remove(other.GetComponentInParent<Player>());
+            try
+            {
+                if (!other.GetComponentInParent<Player>().Dead)
+                    targets.Remove(other.GetComponentInParent<Player>());
+            }
+            catch
+            {
+                Debug.LogWarning("Trying to remove target when there is no target");
+            }
     }
 
     public void PushTarget(Vector2 pushForce)

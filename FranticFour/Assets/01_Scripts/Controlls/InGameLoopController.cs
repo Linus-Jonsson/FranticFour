@@ -109,6 +109,7 @@ public class InGameLoopController : MonoBehaviour
     {
         player.ResetPlayer();
         player.FreezeInput = !value;
+        player.gameObject.SetActive(value);
     }
 
     private void HandleRoleSetting()
@@ -224,6 +225,7 @@ public class InGameLoopController : MonoBehaviour
                 player.FreezeInput = true;
             else
                 ActivatePlayer(false, player);
+
         }
         yield return StartCoroutine(CameraActionsAtPreyDeath(killer));
         ActivateAllPlayers(true);
