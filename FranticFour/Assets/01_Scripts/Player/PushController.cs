@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 public class PushController : MonoBehaviour
 {
-    [SerializeField] List<Transform> targets = new List<Transform>();
+    [SerializeField] List<Player> targets = new List<Player>();
     Player player;
     Rigidbody2D rb2d;
     Animator animator;
@@ -25,16 +25,16 @@ public class PushController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
-            if (!other.gameObject.GetComponentInParent<Player>().Dead)
-                targets.Add(other.transform.parent);
+        if (other.gameObject.CompareTag("PlayerBody"))
+            if (!other.GetComponentInParent<Player>().Dead)
+                targets.Add(other.GetComponentInParent<Player>());
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
-            if (!other.gameObject.GetComponentInParent<Player>().Dead)
-                targets.Remove(other.transform.parent);
+        if (other.gameObject.CompareTag("PlayerBody"))
+            if (!other.GetComponentInParent<Player>().Dead)
+                targets.Remove(other.GetComponentInParent<Player>());
     }
 
     public void PushTarget(Vector2 pushForce)
@@ -46,16 +46,16 @@ public class PushController : MonoBehaviour
 
     private PushController GetClosestTarget()
     {
-        Transform closestTarget = targets[0];
+        Transform closestTarget = targets[0].transform;
         Transform player = gameObject.transform;
         float closestTargetDistance = Vector2.Distance(closestTarget.position, player.position);
 
         foreach (var target in targets)
         {
-            float targetDistance = Vector2.Distance(target.position, player.position);
+            float targetDistance = Vector2.Distance(target.transform.position, player.position);
             if (targetDistance < closestTargetDistance)
             {
-                closestTarget = target;
+                closestTarget = target.transform;
                 closestTargetDistance = Vector2.Distance(closestTarget.position, player.position);
             }
         }
@@ -101,11 +101,11 @@ public class PushController : MonoBehaviour
 
     public void ResetPushList()
     {
-        targets = new List<Transform>();
+        targets = new List<Player>();
     }
 
-    public void RemoveFromPushList(Transform transform)
+    public void RemoveFromPushList(Player player)
     {
-        targets.Remove(transform);
+        targets.Remove(player);
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine.Serialization;
 
 public class CooldownBar : MonoBehaviour
 {
-    [Header("Set in editor")] 
+/*    [Header("Set in editor")] 
     [SerializeField] private Transform player = null;
 
     [Header("Hunter")]
@@ -15,37 +15,38 @@ public class CooldownBar : MonoBehaviour
     [SerializeField] private Color emptyBarColorPray = new Color(0, 0, 0);
     [Header("Player")]
     [SerializeField] private SpriteRenderer backgroundBar = null;
-    [SerializeField] private Color actualEmptyBarColor = new Color(0, 0, 0);
+    [SerializeField] private Color actualEmptyBarColor = new Color(0, 0, 0);*/
     
-    private Color activeFullBarColor = new Color();
-    private GameObject parentGObj;
+/*    private Color activeFullBarColor = new Color();*/
+/*    private GameObject parentGObj;*/
 
     //Cooldown bar
-    [Header("Debug")] private float timeLeft;
+    [Header("Debug")] 
+    private float timeLeft;
     private float coolDownTime;
     private float trapsCoolDown;
     private float activeCoolDownTime;
-    [SerializeField] private bool isPray; //I will pray for you! Amen
+    [SerializeField] private bool isPrey; //I will pray for you! Amen
     [SerializeField] private bool barActive;
     [SerializeField] private Vector3 emptyBarPos = new Vector3(0, 0, 0);
     [SerializeField] private Vector3 fullBarPos = new Vector3(0, 0, 0);
-    [SerializeField] private float yOffset = -0.65f;
+/*    [SerializeField] private float yOffset = -0.65f;*/
     private PlayerActionsController playerActionController;
-    private SpriteRenderer render;
+/*    private SpriteRenderer render;*/
     //Full
     //Full green
 
     private void Start()
     {
-        parentGObj = transform.parent.gameObject;
-        render = GetComponent<SpriteRenderer>();
+       // parentGObj = transform.parent.gameObject;
+       // render = GetComponent<SpriteRenderer>();
 
         //Player
-        playerActionController = player.GetComponent<PlayerActionsController>();
+        playerActionController = GetComponentInParent<PlayerActionsController>();
         
-        isPray = playerActionController.Player.Prey;
-        if (isPray)
-            render.color = fullBarColorPray;
+        isPrey = playerActionController.Player.Prey;
+        /*if (isPrey)
+            render.color = fullBarColorPray;*/
 
         coolDownTime = playerActionController.PushCooldown;
         trapsCoolDown = playerActionController.TrapsCoolDown;
@@ -54,69 +55,70 @@ public class CooldownBar : MonoBehaviour
         playerActionController.OnPush.AddListener(StartBar);
         playerActionController.OnTrapThrow.AddListener(StartBarPrey);
 
-        emptyBarPos = new Vector3(-GetComponent<Renderer>().bounds.size.x, 0, 0);
+        //emptyBarPos = new Vector3(-GetComponent<Renderer>().bounds.size.x, 0, 0);
     }
 
     private void Update()
     {
         //Updates cooldown bar pos to match player
-        Vector3 playerPos = player.position;
+/*        Vector3 playerPos = player.position;
         parentGObj.transform.position = new Vector3(
             playerPos.x,
             playerPos.y + yOffset,
-            playerPos.z);
+            playerPos.z);*/
 
         if (barActive)
             BarActive();
     }
 
+    // remove
     private void BecamePray()
     {
         if (playerActionController.Player.Prey)
         {
-            render.color = fullBarColorPray;
-            backgroundBar.color = emptyBarColorPray;
-            isPray = true;
+/*            render.color = fullBarColorPray;
+            backgroundBar.color = emptyBarColorPray;*/
+            isPrey = true;
         }
         else
         {
-            render.color = fullBarColor;
-            backgroundBar.color = emptyBarColor;
-            isPray = false;
+/*            render.color = fullBarColor;
+            backgroundBar.color = emptyBarColor;*/
+            isPrey = false;
         }
     }
 
     private void StartBarPrey()
     { //Prey
         barActive = true;
-        timeLeft = trapsCoolDown;
+        timeLeft = 0;
         activeCoolDownTime = trapsCoolDown;
-        render.color = actualEmptyBarColor;
+        //render.color = actualEmptyBarColor;
         transform.localPosition = emptyBarPos;
-        activeFullBarColor = fullBarColorPray;
+        //activeFullBarColor = fullBarColorPray;
     }
 
     private void StartBar()
     { //Hunter
         barActive = true;
-        timeLeft = coolDownTime;
+        timeLeft = 0;
         activeCoolDownTime = coolDownTime;
-        render.color = actualEmptyBarColor;
+        //render.color = actualEmptyBarColor;
         transform.localPosition = emptyBarPos;
-        activeFullBarColor = fullBarColor;
+        //activeFullBarColor = fullBarColor;
     }
 
     private void BarActive()
     {
-        timeLeft -= Time.deltaTime;
+        timeLeft += Time.deltaTime;
 
-        if (timeLeft > 0)
+        if (timeLeft < activeCoolDownTime)
         {
-            transform.localPosition = new Vector3(((emptyBarPos.x / activeCoolDownTime) * timeLeft), 0, 0);
+            transform.localPosition = new Vector3(0, ((fullBarPos.y / activeCoolDownTime) * timeLeft), 0);
             return;
         }
         transform.localPosition = fullBarPos;
-        render.color = activeFullBarColor;
+        //render.color = activeFullBarColor;
         barActive = false;
     }
 }

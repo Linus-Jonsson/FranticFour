@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Danger
   - Unwalkable
+  - PlayerBody
   layers:
   - Default
   - TransparentFX
@@ -28,7 +29,7 @@ TagManager:
   - UnWalkable
   - Ghost
   - InGameUI
-  - 
+  - PlayerBody
   - 
   - 
   - 
