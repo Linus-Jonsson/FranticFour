@@ -7,25 +7,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
-      propertyPath: ghostColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
-      propertyPath: ghostColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
-      propertyPath: originalColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
-      propertyPath: originalColor.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 362613495, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: playerID
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 742136906, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
@@ -83,6 +67,18 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2808390915108869048, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: m_Color.a
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2808390915108869048, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2808390915108869048, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5439504268739004778, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: onOffObject
       value: 
@@ -118,22 +114,6 @@ PrefabInstance:
     - target: {fileID: 5575129103255632261, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: m_LocalPosition.z
       value: 5.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5575129103255632261, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5575129103255632261, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5575129103255632261, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5575129103255632261, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5575129103255632261, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -182,6 +162,10 @@ PrefabInstance:
     - target: {fileID: 7163962998717739410, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: originalColor.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8341767116159443679, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.453
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}

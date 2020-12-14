@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     // [SerializeField] string playerName = ""; // not currently in use
     // public string PlayerName { get { return playerName; } } 
 
+    [SerializeField] GameObject preySignifier = null;
+
     [SerializeField] SpriteRenderer spriteRenderer = null;
 
     [SerializeField] public Color originalColor = new Color(0, 0, 0, 0);
@@ -103,6 +105,7 @@ public class Player : MonoBehaviour
 
     public void EndPush()
     {
+        if(pushedBy)
         pushedBy.GetComponentInChildren<PushController>().RemoveFromPushList(this);
         freezeInput = false;
         pushedBy = null;
@@ -127,6 +130,13 @@ public class Player : MonoBehaviour
             pushedBy.GetComponentInChildren<PushController>().RemoveFromPushList(this);
         pushedBy = null;
         pushController.ResetPushList();
+    }
+
+    public void SetPrey(bool value, float speed)
+    {
+        isPrey = value;
+        preySignifier.SetActive(value);
+        movementController.MovementSpeed = speed;
     }
 
     public void SetNewPosition(Vector3 position)
