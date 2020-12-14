@@ -126,8 +126,7 @@ public class InGameLoopController : MonoBehaviour
     {
         players[i].NumberOfDeaths = 0;
         players[i].HuntersKilled = 0;
-        players[i].GetComponent<MovementController>().MovementSpeed = speed;
-        players[i].Prey = value;
+        players[i].SetPrey(value, speed);
         if (value)
             currentPrey = players[i];
 /*        else
