@@ -8,16 +8,6 @@ public class GamePlayUIController : GamePlayUIDisplay
     // add a way to discintively show who is leading in points?.
     // add scores for this round aswell as the total score
 
-    public IEnumerator PlayTestInfoScreens(float duration)
-    {
-        gameDescriptionDisplay.SetActive(true);
-        yield return new WaitForSeconds(duration);
-        gameDescriptionDisplay.SetActive(false);
-        controllerLayoutDisplay.SetActive(true);
-        yield return new WaitForSeconds(duration);
-        controllerLayoutDisplay.SetActive(false);
-    }
-
     public IEnumerator LevelIntro(float overviewDuration, float zoomInDuration, GameObject camera1, GameObject camera2)
     {
         camera1.SetActive(true);
@@ -249,7 +239,7 @@ public class GamePlayUIController : GamePlayUIDisplay
 
     private void HandlePreyMisstep(Player prey)
     {
-        killedByText.text = "Prey made a sudden lapse in judgement, everyone else gets a point";
+        killedByText.text = "ACCIDENTAL DEATH - All hunters score a point!";
         int index = 0;
         foreach (var image in killerImages)
         {
@@ -287,7 +277,7 @@ public class GamePlayUIController : GamePlayUIDisplay
 
     private void SetWhoHuntedPrey(Player killer)
     {
-        killedByText.text = "Prey got killed by Player " + killer.PlayerNumber;
+        killedByText.text = "Prey got killed by " + killer.gameObject.name + "!";
         switch (killer.gameObject.name)
         {
             case "Duck":
