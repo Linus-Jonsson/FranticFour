@@ -85,7 +85,7 @@ MonoBehaviour:
   m_MaximumDistance: 5000
   m_MinimumFOV: 3
   m_MaximumFOV: 60
-  m_MinimumOrthoSize: 10
+  m_MinimumOrthoSize: 12
   m_MaximumOrthoSize: 20
 --- !u!1 &3008481817588845578
 GameObject:
@@ -362,7 +362,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3
+  orthographic size: 10
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2

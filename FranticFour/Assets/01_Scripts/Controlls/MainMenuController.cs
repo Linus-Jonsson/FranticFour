@@ -5,6 +5,7 @@ using UnityEngine;
 public class MainMenuController : MonoBehaviour
 {
     [SerializeField] GameObject optionsWindow = null;
+    [SerializeField] GameObject descriptionWindow = null;
     [SerializeField] GameObject controlsWindow = null;
     [SerializeField] GameObject creditsWindow = null;
 
@@ -13,8 +14,14 @@ public class MainMenuController : MonoBehaviour
         optionsWindow.SetActive(value);
     }
 
+    public void SetDescriptionWindow(bool value)
+    {
+        descriptionWindow.SetActive(value);
+    }
+    
     public void SetControlsWindow(bool value)
     {
+        descriptionWindow.SetActive(false);
         controlsWindow.SetActive(value);
     }
 

@@ -6,8 +6,6 @@ using Random = UnityEngine.Random;
 public class InGameLoopController : MonoBehaviour
 {
     [Header("Timer durations")]
-    [Tooltip("The time in seconds for each Playtesting InfoScreen")]
-    [SerializeField] float infoScreenDuration = 5f;
     [Tooltip("The time in seconds for the round")]
     [SerializeField] float roundDuration = 60f;
     [Tooltip("The time in seconds before prey is revealed")]
@@ -74,8 +72,6 @@ public class InGameLoopController : MonoBehaviour
         while (currentRound <= numberOfRounds)
         {
             ActivateAllPlayers(false);
-            if (currentRound == 1)
-                yield return StartCoroutine(gameLoopUIController.PlayTestInfoScreens(infoScreenDuration));
             yield return StartCoroutine(gameLoopUIController.PreRoundCountdown(startCountDownDuration, players, currentRound));
             HandleRoleSetting();
             targetGroupController.UpdateTargetGroup(players);
@@ -288,6 +284,7 @@ public class InGameLoopController : MonoBehaviour
         }
         currentRound = 1;
         currentPrey = null;
+        gameCamera.SetActive(false);
         StartCoroutine(HandleGameLoop());
     }
 
