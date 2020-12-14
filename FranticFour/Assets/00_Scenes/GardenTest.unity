@@ -41909,6 +41909,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pig
       objectReference: {fileID: 0}
+    - target: {fileID: 6500163289584686771, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6500163289584686781, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -42960,18 +42964,6 @@ PrefabInstance:
     - target: {fileID: 7473697052432825032, guid: 235d37168752fc84ea578ff9108da983, type: 3}
       propertyPath: m_Name
       value: Gameplay UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 7473697053600329836, guid: 235d37168752fc84ea578ff9108da983, type: 3}
-      propertyPath: m_fontStyle
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7473697053600329837, guid: 235d37168752fc84ea578ff9108da983, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 1920
-      objectReference: {fileID: 0}
-    - target: {fileID: 7473697053600329837, guid: 235d37168752fc84ea578ff9108da983, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 225
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 235d37168752fc84ea578ff9108da983, type: 3}
