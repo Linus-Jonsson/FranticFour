@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 public class PushController : MonoBehaviour
 {
     [SerializeField] List<Player> targets = new List<Player>();
+    [Tooltip("The time (in milliseconds) that the game freezes when getting pushed")]
+    [SerializeField] int freezeDuration = 150;
     Player player;
     Rigidbody2D rb2d;
     Animator animator;
@@ -32,6 +34,8 @@ public class PushController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        // the try loop is just a extremely quick solution to an error, find a more 
+        // elegant and better way to fix the null reference error (that doesnt come often)
         if (other.gameObject.CompareTag("PlayerBody"))
             try
             {
@@ -89,6 +93,7 @@ public class PushController : MonoBehaviour
 
     private void HandlePush(Vector2 pushForce, Player pusher)
     {
+        Thread.Sleep(freezeDuration);
         player.FreezeInput = true;
         player.IsPushed = true;
         animator.SetTrigger("Pushed");
