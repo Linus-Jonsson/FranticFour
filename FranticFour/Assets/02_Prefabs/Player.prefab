@@ -5781,6 +5781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targets: []
+  freezeDuration: 100
 --- !u!210 &6789121674477903478
 SortingGroup:
   m_ObjectHideFlags: 0
