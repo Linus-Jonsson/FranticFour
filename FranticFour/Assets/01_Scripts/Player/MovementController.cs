@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
@@ -56,15 +53,12 @@ public class MovementController : MonoBehaviour
     }
     private Vector2 GetMovement()
     {
-        float xMovement = Input.GetAxis(controller.Horizontal);
-        float yMovement = Input.GetAxis(controller.Vertical);
+        Vector2 m_inputLeft = new Vector2(Input.GetAxis(controller.Horizontal), Input.GetAxis(controller.Vertical));
         
-        Vector2 m_tempVec = new Vector2(xMovement, yMovement);
+        if(m_inputLeft.magnitude < DeadZones.DEADZONE_LEFT)
+            m_inputLeft = Vector2.zero;
         
-        if(m_tempVec.magnitude < DeadZones.DEADZONE_LEFT)
-            m_tempVec = Vector2.zero;
-
-        return m_tempVec;
+        return m_inputLeft;
     }
 
     public void ResetMovement()

@@ -25,6 +25,7 @@ public class RotationController : MonoBehaviour
     private void HandleRotation()
     {
         transform.rotation = Quaternion.identity;
+        
         if (controller.UsesMouse)
             HandleMouseRotation(); //Musen skriver över kontroller inputs
         else
@@ -38,7 +39,7 @@ public class RotationController : MonoBehaviour
 
         if (inputLeft.magnitude != 0)
         {
-            Debug.Log(inputRight.magnitude);
+            //Debug.Log(inputRight.magnitude + "|" + inputLeft.magnitude);
         }
         
         if (inputRight.magnitude > DeadZones.DEADZONE_RIGHT)

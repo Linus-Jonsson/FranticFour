@@ -70,14 +70,7 @@ public class PushController : MonoBehaviour
                 closestTargetDistance = Vector2.Distance(closestTarget.position, player.position);
             }
         }
-        try
-        {
-            return closestTarget.GetComponentInChildren<PushController>();
-        }
-        catch
-        {
-            return null;
-        }
+        return closestTarget.GetComponentInChildren<PushController>();
     }
 
     public bool InPushRange()
