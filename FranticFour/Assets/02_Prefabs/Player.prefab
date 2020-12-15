@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5907407446603033128}
   m_Layer: 21
   m_Name: Body
-  m_TagString: PlayerBody
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5335,10 +5335,12 @@ MonoBehaviour:
   scoreIncreaseThreshold: 5
   scoreIncreaseAnimator: {fileID: 5330127977976453162}
   scoreText: {fileID: 3985178706338996173}
+  scoreIncreaseTimer: 0
   spriteRenderer: {fileID: 2128330477}
   originalColor: {r: 1, g: 1, b: 1, a: 1}
   ghostColor: {r: 1, g: 1, b: 1, a: 0.5019608}
   scoreValue: 3
+  roundScore: 0
   BecamePray:
     m_PersistentCalls:
       m_Calls: []
@@ -5513,7 +5515,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5575129103467070822}
   - component: {fileID: 5575129103467070817}
-  m_Layer: 15
+  m_Layer: 0
   m_Name: Arrow Outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}

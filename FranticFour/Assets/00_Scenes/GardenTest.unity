@@ -41877,6 +41877,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c8bc7b880f2e6da458fd8fd3f4799771, type: 2}
+    - target: {fileID: 2117770608288733048, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3073825191243075612, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -41895,6 +41899,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3572065731304176768, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
       propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720876347873688838, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6387716069965782218, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
@@ -41960,6 +41968,10 @@ PrefabInstance:
     - target: {fileID: 6635752935297672786, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
       propertyPath: onOffObject
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7859944637050505618, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8358799754898464426, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
       propertyPath: originalColor.b
@@ -42036,6 +42048,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3724983642963014168, guid: 3b331333d75cc6249b5e72bd1313c248, type: 3}
       propertyPath: playerID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3724983642963014168, guid: 3b331333d75cc6249b5e72bd1313c248, type: 3}
+      propertyPath: usesMouse
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3724983643680392706, guid: 3b331333d75cc6249b5e72bd1313c248, type: 3}
@@ -42779,7 +42795,6 @@ MonoBehaviour:
   - {fileID: 489097826}
   hunterSpeed: 200
   preySpeed: 150
-  preySurvivalBaseScore: 5
   pacifistAward: 3
   respawnDelay: 2.5
   freezeAfterSpawnTime: 1.5

@@ -43,18 +43,24 @@ public class RotationController : MonoBehaviour
         }
         
         if (inputRight.magnitude > DeadZones.DEADZONE_RIGHT)
-            objectToRotate.transform.rotation =
-                Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(-inputRight.x, inputRight.y) * Mathf.Rad2Deg));
+        {
+            dir = new Vector2(inputRight.x, inputRight.y);
+            float rotation = Mathf.Atan2(-dir.x, dir.y) * Mathf.Rad2Deg;
+            objectToRotate.transform.rotation = Quaternion.Euler(new Vector3(0, 0, rotation));
+        }            
         else if (inputLeft.magnitude > DeadZones.DEADZONE_LEFT)
-            objectToRotate.transform.rotation =
-                Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(-inputLeft.x, inputLeft.y) * Mathf.Rad2Deg));
+        {
+            dir = new Vector2(inputLeft.x, inputLeft.y);
+            float rotation = Mathf.Atan2(-dir.x, dir.y) * Mathf.Rad2Deg;
+            objectToRotate.transform.rotation = Quaternion.Euler(new Vector3(0, 0, rotation));
+        }
+            
     }
 
     private void HandleMouseRotation()
     {
         var position = Camera.main.WorldToScreenPoint(transform.position);
-        dir = Input.mousePosition - position;
-        objectToRotate.transform.rotation =
-            Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(-dir.x, dir.y) * Mathf.Rad2Deg));
+        dir = (Input.mousePosition - position).normalized;
+        objectToRotate.transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(-dir.x, dir.y) * Mathf.Rad2Deg));
     }
 }

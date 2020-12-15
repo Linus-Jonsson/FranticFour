@@ -9,19 +9,17 @@ public class PlayerActionsController : MonoBehaviour
 {
     [Header("Layer configuration")]
     [Tooltip("Set this to have the layerNumber of the layer that player is")]
-    [SerializeField]
-    int playerLayer = 8;
+    [SerializeField] int playerLayer = 8;
 
-    [Tooltip("Set this to have the layerNumber of the layer that Jump is")] [SerializeField]
-    int jumpLayer = 9;
+    [Tooltip("Set this to have the layerNumber of the layer that Jump is")] 
+    [SerializeField] int jumpLayer = 9;
 
     [Header("Jump configuration")]
     [Tooltip("The drag on the rigidBody while jumping (This should be low due to no force applied during the jump")]
-    [SerializeField]
-    float jumpingDrag = 0.3f;
+    [SerializeField] float jumpingDrag = 0.3f;
 
-    [Header("Prey Configuration")] [SerializeField]
-    PreyTrap preyTrap = null;
+    [Header("Prey Configuration")] 
+    [SerializeField] PreyTrap preyTrap = null;
 
     [SerializeField] float rawOffset = 1f;
     [SerializeField] float trapPushForce = 2f;
@@ -31,8 +29,8 @@ public class PlayerActionsController : MonoBehaviour
 
     [SerializeField] int maximumTraps = 5;
 
-    [Header("Hunter Configuration")] [SerializeField]
-    float pushForce = 10f;
+    [Header("Hunter Configuration")] 
+    [SerializeField] float pushForce = 10f;
 
     [SerializeField] float pushCooldown = 2f;
 

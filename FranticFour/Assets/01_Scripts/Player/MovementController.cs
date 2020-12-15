@@ -70,7 +70,7 @@ public class MovementController : MonoBehaviour
     public void AddPushForce()
     {
         if (!player.FreezeInput)
-            rb2d.AddRelativeForce(rotationController.Dir * pushForceMultiplier * 10, ForceMode2D.Impulse);
+            rb2d.AddForce(rotationController.Dir * pushForceMultiplier, ForceMode2D.Impulse);
     }
 
     public void ReduceVelocity()
