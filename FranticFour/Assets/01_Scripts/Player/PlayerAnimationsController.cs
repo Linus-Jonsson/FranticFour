@@ -38,7 +38,7 @@ public class PlayerAnimationsController : MonoBehaviour
         animator.SetFloat("directionY", direction.y);
     }
     
-    public void SetMovement()
+    private void SetMovement()
     {
         Vector2 movement = movementController.Movement;
         animator.SetFloat("movementX", movement.x);

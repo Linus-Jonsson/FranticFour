@@ -44,8 +44,10 @@ public class DeathController : MonoBehaviour
 
     private void HandlePreyKilled()
     {
+        player.SetAnimationTrigger("Death");
         if (player.PushedBy != null)
         {
+            player.PushedBy.SetAnimationTrigger("Win");
             player.PushedBy.IncreaseScore(player.ScoreValue);
         }
         else
