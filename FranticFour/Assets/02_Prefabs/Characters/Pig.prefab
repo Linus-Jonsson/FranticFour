@@ -67,6 +67,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1475260784580471870, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: m_Name
+      value: ScoreIncreaseText
+      objectReference: {fileID: 0}
     - target: {fileID: 2808390915108869048, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: m_Color.a
       value: 0.6

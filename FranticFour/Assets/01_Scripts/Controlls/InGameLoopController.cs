@@ -25,7 +25,6 @@ public class InGameLoopController : MonoBehaviour
     public float PreySpeed { get { return preySpeed; } }
 
     [Header("Other score addition configurations")]
-    [SerializeField] int preySurvivalBaseScore = 10;
     [SerializeField] int pacifistAward = 10;
 
     [Header("Respawn Configurations")]
@@ -86,6 +85,8 @@ public class InGameLoopController : MonoBehaviour
             yield return StartCoroutine(gameLoopUIController.NextRoundCountdown(players, roundOverDuration, currentRound));
             currentRound++;
         }
+        ShowPlayers(false);
+        ActivateAllPlayers(false);
         gameLoopUIController.DisplayFinalResults(players);
     }
 
@@ -138,9 +139,13 @@ public class InGameLoopController : MonoBehaviour
         players[i].HuntersKilled = 0;
         players[i].SetPrey(value, speed);
         if (value)
+        {
             currentPrey = players[i];
-/*        else
-            preyProbability.Add(i); implement once game is done getting tested*/
+            players[i].ScoreIncreaseTimer();
+        }
+
+        /*        else
+                    preyProbability.Add(i); implement once game is done getting tested*/
     }
 
     private void ChangePreyProbability(int numberOfPrey)
@@ -197,6 +202,7 @@ public class InGameLoopController : MonoBehaviour
         cameraWalls.SetActive(true);
         foreach (var player in players)
             player.FreezeInput = false;
+        StartPreyScoreIncrease(true);
     }
     
     private SpawnPoint GetSpawnPoint()
@@ -219,34 +225,35 @@ public class InGameLoopController : MonoBehaviour
 
     private IEnumerator HandleRespawnOfAllPlayers(Player killer)
     {
+        StartPreyScoreIncrease(false);
         foreach (var player in players)
         {
             if (player == killer)
                 player.FreezeInput = true;
             else
                 ActivatePlayer(false, player);
-
         }
         yield return StartCoroutine(CameraActionsAtPreyDeath(killer));
         ActivateAllPlayers(true);
         StartCoroutine(SpawnAllPlayers());
     }
 
+    private void StartPreyScoreIncrease(bool value)
+    {
+        foreach (var player in players)
+        {
+
+            if (player.Prey)
+                player.ShouldIncreaseScore = value;
+        }
+    }
+
     private void CalculateScores()
     {
         // this method will be used to calculate the score that the prey should get based on how few times they died.
         // in here all special point reward systems will be handled aswell
-        GivePreySurvivalScore();
-        GivePacifistReward();
+        GivePacifistReward(); // should we have this?
         TotalAllPlayersScore();
-    }
-    
-    private void GivePreySurvivalScore()
-    {
-        int scoreToAdd = preySurvivalBaseScore - currentPrey.NumberOfDeaths;
-        if (scoreToAdd < 0)
-            scoreToAdd = 0;
-        currentPrey.IncreaseScore(scoreToAdd);
     }
 
     private void GivePacifistReward()
@@ -339,19 +346,4 @@ public class InGameLoopController : MonoBehaviour
         gameLoopUIController.SetKillScreen(currentPrey, killer, false);
     }
 }
-    // not in use remove if no need for it.    
-  /*Player leader = null;
-    private void DisplayScores()
-    {
-        // make this method set each players score in the UI controller instead
-        foreach (var player in players)
-        {
-            if (player.Score <= 0)
-                continue;
-            if (leader == null)
-                leader = player;
-            else if (player.Score > leader.Score)
-                leader = player;
-        }
-    }*/
 
