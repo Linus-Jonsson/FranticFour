@@ -6,7 +6,11 @@ public class RotationController : MonoBehaviour
     AssignedController controller;
 
     Vector2 dir = new Vector2(0, 0);
-    public Vector2 Dir { get { return dir; } }
+
+    public Vector2 Dir
+    {
+        get { return dir; }
+    }
 
     void Start()
     {
@@ -29,19 +33,27 @@ public class RotationController : MonoBehaviour
 
     private void HandleControllerRotation()
     {
-        float inputX = Input.GetAxis(controller.RightHorizontal);
-        float inputY = Input.GetAxis(controller.RightVertical);
-        if (inputX != 0)
-            dir.x = inputX;
-        if (inputY != 0)
-            dir.y = inputY;
-        objectToRotate.transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(-dir.x, dir.y) * Mathf.Rad2Deg));
+        Vector2 inputRight = new Vector2(Input.GetAxis(controller.RightHorizontal), Input.GetAxis(controller.RightVertical));
+        Vector2 inputLeft = new Vector2(Input.GetAxis(controller.Horizontal), Input.GetAxis(controller.Vertical));
+
+        if (inputLeft.magnitude != 0)
+        {
+            Debug.Log(inputRight.magnitude);
+        }
+        
+        if (inputRight.magnitude > DeadZones.DEADZONE_RIGHT)
+            objectToRotate.transform.rotation =
+                Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(-inputRight.x, inputRight.y) * Mathf.Rad2Deg));
+        else if (inputLeft.magnitude > DeadZones.DEADZONE_LEFT)
+            objectToRotate.transform.rotation =
+                Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(-inputLeft.x, inputLeft.y) * Mathf.Rad2Deg));
     }
 
     private void HandleMouseRotation()
     {
         var position = Camera.main.WorldToScreenPoint(transform.position);
         dir = Input.mousePosition - position;
-        objectToRotate.transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(-dir.x, dir.y) * Mathf.Rad2Deg));
+        objectToRotate.transform.rotation =
+            Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(-dir.x, dir.y) * Mathf.Rad2Deg));
     }
 }
