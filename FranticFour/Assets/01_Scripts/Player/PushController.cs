@@ -27,7 +27,7 @@ public class PushController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("PlayerBody"))
+        if (other.gameObject.CompareTag("Player"))
             if (!other.GetComponentInParent<Player>().Dead)
                 targets.Add(other.GetComponentInParent<Player>());
     }
@@ -36,7 +36,7 @@ public class PushController : MonoBehaviour
     {
         // the try loop is just a extremely quick solution to an error, find a more 
         // elegant and better way to fix the null reference error (that doesnt come often)
-        if (other.gameObject.CompareTag("PlayerBody"))
+        if (other.gameObject.CompareTag("Player"))
             try
             {
                 if (!other.GetComponentInParent<Player>().Dead)
@@ -75,6 +75,7 @@ public class PushController : MonoBehaviour
 
     public bool InPushRange()
     {
+        targets.RemoveAll(target => target == null);
         return targets.Count > 0;
     }
 
@@ -98,19 +99,14 @@ public class PushController : MonoBehaviour
     private async void AddPushForce(Vector2 pushForce)
     {
         while(player.IsPushed)
-        {
-            await Task.Delay(10);
+        {            
             rb2d.AddForce(pushForce);
+            await Task.Delay(10);
         }
     }
 
     public void ResetPushList()
     {
         targets = new List<Player>();
-    }
-
-    public void RemoveFromPushList(Player player)
-    {
-        targets.Remove(player);
     }
 }

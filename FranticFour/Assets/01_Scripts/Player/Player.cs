@@ -118,8 +118,6 @@ public class Player : MonoBehaviour
 
     public void EndPush()
     {
-        if(pushedBy)
-            pushedBy.GetComponentInChildren<PushController>().RemoveFromPushList(this);
         freezeInput = false;
         pushedBy = null;
     }
@@ -140,8 +138,6 @@ public class Player : MonoBehaviour
         playerActionsController.ResetPlayerActions();
         movementController.ResetMovement();
         afterImageController.ResetAfterImage();
-        if(pushedBy != null)
-            pushedBy.GetComponentInChildren<PushController>().RemoveFromPushList(this);
         pushedBy = null;
         pushController.ResetPushList();
     }
@@ -186,19 +182,22 @@ public class Player : MonoBehaviour
         {
             await Task.Delay(100);
             if(shouldIncreaseScore)
-            {
-                scoreIncreaseTimer += 0.1f;
-                if(scoreIncreaseTimer > scoreIncreaseThreshold)
-                {           
-                    scoreIncreaseTimer -= scoreIncreaseThreshold;
-                    int scoreToAdd = 1 + survivalStreak;
-                    scoreText.text = "+" + scoreToAdd.ToString(); 
-                    scoreIncreaseAnimator.SetTrigger("DisplayIncrease");
-                    IncreaseScore(scoreToAdd);
-                    survivalStreak++;
-
-                }
-            }
+                CheckIfIncreaseScore();
         }
+    }
+    private void CheckIfIncreaseScore()
+    {
+        scoreIncreaseTimer += 0.1f;
+        if (scoreIncreaseTimer > scoreIncreaseThreshold)
+            IncreasePreyScore();
+    }
+    private void IncreasePreyScore()
+    {
+        scoreIncreaseTimer -= scoreIncreaseThreshold;
+        int scoreToAdd = 1 + survivalStreak;
+        scoreText.text = "+" + scoreToAdd.ToString();
+        scoreIncreaseAnimator.SetTrigger("DisplayIncrease");
+        IncreaseScore(scoreToAdd);
+        survivalStreak++;
     }
 }
