@@ -3,21 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UIElements;
 
 public class PlayerActionsController : MonoBehaviour
 {
     [Header("Layer configuration")]
     [Tooltip("Set this to have the layerNumber of the layer that player is")]
-    [SerializeField] int playerLayer = 8;
-    [Tooltip("Set this to have the layerNumber of the layer that Jump is")]
-    [SerializeField] int jumpLayer = 9;
+    [SerializeField]
+    int playerLayer = 8;
+
+    [Tooltip("Set this to have the layerNumber of the layer that Jump is")] [SerializeField]
+    int jumpLayer = 9;
 
     [Header("Jump configuration")]
     [Tooltip("The drag on the rigidBody while jumping (This should be low due to no force applied during the jump")]
-    [SerializeField] float jumpingDrag = 0.3f;
+    [SerializeField]
+    float jumpingDrag = 0.3f;
 
-    [Header("Prey Configuration")]
-    [SerializeField] PreyTrap preyTrap = null;
+    [Header("Prey Configuration")] [SerializeField]
+    PreyTrap preyTrap = null;
+
     [SerializeField] float rawOffset = 1f;
     [SerializeField] float trapPushForce = 2f;
     [SerializeField] float trapsCoolDown = 4f;
@@ -26,8 +31,9 @@ public class PlayerActionsController : MonoBehaviour
 
     [SerializeField] int maximumTraps = 5;
 
-    [Header("Hunter Configuration")]
-    [SerializeField] float pushForce = 10f;
+    [Header("Hunter Configuration")] [SerializeField]
+    float pushForce = 10f;
+
     [SerializeField] float pushCooldown = 2f;
 
     public float PushCooldown => pushCooldown;
@@ -47,7 +53,7 @@ public class PlayerActionsController : MonoBehaviour
 
     PushController pushController;
     RotationController rotationController;
-    Animator animator;    
+    Animator animator;
     AssignedController controller;
     Rigidbody2D rb2d;
 
@@ -72,27 +78,31 @@ public class PlayerActionsController : MonoBehaviour
     {
         if (player.FreezeInput || player.Dead || PauseMenu.IsGamePaused)
             return;
-        int m_number;
-        bool mouseUsed = Int32.TryParse(controller.Action1, out m_number);
-        if (mouseUsed)
-            HandleMouseInput(m_number);
+
+        if (controller.UsesMouse)
+            HandleMouseInput();
+        else if (Input.GetAxis(controller.Action1) > DeadZones.DEADZONE_TRIGGER)
+            HandlePushOrThrow();
+
         if (canJump && Input.GetButton(controller.Jump))
             animator.SetTrigger("Jump");
-        if (Input.GetAxis(controller.Action1) > 0 || Input.GetButtonDown(controller.Action1))
-            HandlePushOrThrow();
     }
-    private void HandleMouseInput(int m_number)
+
+    private void HandleMouseInput()
     {
-        if (!Input.GetMouseButton(m_number))
+        if (!Input.GetMouseButton(0))
             return;
+
         if (player.Prey && canThrowTraps && laidTraps.Count < maximumTraps)
             StartCoroutine(HandleTrapThrow());
         else if (!player.Prey && canPush)
             HandlePush();
     }
+
     private void HandlePushOrThrow()
     {
         laidTraps.RemoveAll(trap => trap == null);
+
         if (player.Prey && canThrowTraps && laidTraps.Count < maximumTraps)
             StartCoroutine(HandleTrapThrow());
         else if (!player.Prey && canPush)
@@ -106,6 +116,7 @@ public class PlayerActionsController : MonoBehaviour
         yield return new WaitForSeconds(trapsCoolDown);
         canThrowTraps = true;
     }
+
     private void ThrowTrap()
     {
         OnTrapThrow.Invoke();
@@ -122,6 +133,7 @@ public class PlayerActionsController : MonoBehaviour
         if (pushController.InPushRange())
             StartCoroutine(PushOtherPlayer());
     }
+
     IEnumerator PushOtherPlayer()
     {
         OnPush.Invoke();
@@ -139,6 +151,7 @@ public class PlayerActionsController : MonoBehaviour
         canPush = true;
         canThrowTraps = true;
     }
+
     private void ResetTraps()
     {
         laidTraps.RemoveAll(trap => trap == null);
@@ -152,10 +165,11 @@ public class PlayerActionsController : MonoBehaviour
         rb2d.freezeRotation = value;
         player.FreezeInput = value;
         if (value)
-            SetLayerAndDrag(jumpLayer,jumpingDrag);
-        else          
+            SetLayerAndDrag(jumpLayer, jumpingDrag);
+        else
             SetLayerAndDrag(playerLayer, originalDrag);
     }
+
     private void SetLayerAndDrag(int layer, float drag)
     {
         gameObject.layer = layer;
@@ -167,6 +181,7 @@ public class PlayerActionsController : MonoBehaviour
     {
         Jumping(true);
     }
+
     public void EndJumping()
     {
         Jumping(false);
