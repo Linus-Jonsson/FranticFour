@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -9,6 +10,16 @@ public class Player : MonoBehaviour
     // public string PlayerName { get { return playerName; } } 
 
     [SerializeField] GameObject preySignifier = null;
+
+    [Tooltip("The time (in sec) that the player has to survive as prey in order to get a point")]
+    [SerializeField] float scoreIncreaseThreshold = 5f;
+    [SerializeField] Animator scoreIncreaseAnimator = null;
+    [SerializeField] TextMeshProUGUI scoreText = null;
+
+    bool shouldIncreaseScore = false;
+    public bool ShouldIncreaseScore { set { shouldIncreaseScore = value; } }
+    [SerializeField] float scoreIncreaseTimer = 0f;
+    int survivalStreak = 0;
 
     [SerializeField] SpriteRenderer spriteRenderer = null;
 
@@ -22,7 +33,7 @@ public class Player : MonoBehaviour
     int totalScore = 0;
     public int TotalScore { get { return totalScore; } set { totalScore = value; } }
 
-    int roundScore = 0;
+    [SerializeField] int roundScore = 0;
     public int RoundScore { get { return roundScore; } set { roundScore = value; } }
 
     int playerNumber = 0;
@@ -72,9 +83,11 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        shouldIncreaseScore = false;
         dead = false;
         playerNumber = GetComponent<AssignedController>().PlayerID + 1;
         GetReferences();
+        scoreText.fontSize = 0;
     }
     private void GetReferences()
     {
@@ -118,6 +131,7 @@ public class Player : MonoBehaviour
 
     public void ResetPlayer()
     {
+        HandleResetOfScoreTextAndSurvivalStreak();
         spriteRenderer.sharedMaterial.color = originalColor;
         freezeInput = false;
         isPushed = false;
@@ -155,5 +169,36 @@ public class Player : MonoBehaviour
         StopIsPushed();
         afterImageController.ResetAfterImage();
         respawnController.StartGhosting();
+    }
+
+    public void HandleResetOfScoreTextAndSurvivalStreak()
+    {
+        shouldIncreaseScore = false;
+        scoreIncreaseAnimator.ResetTrigger("DisplayIncrease");
+        scoreText.fontSize = 0;
+        scoreIncreaseTimer = 0;
+        survivalStreak = 0;
+    }
+
+    public async void ScoreIncreaseTimer()
+    {
+        while(isPrey)
+        {
+            await Task.Delay(100);
+            if(shouldIncreaseScore)
+            {
+                scoreIncreaseTimer += 0.1f;
+                if(scoreIncreaseTimer > scoreIncreaseThreshold)
+                {           
+                    scoreIncreaseTimer -= scoreIncreaseThreshold;
+                    int scoreToAdd = 1 + survivalStreak;
+                    scoreText.text = "+" + scoreToAdd.ToString(); 
+                    scoreIncreaseAnimator.SetTrigger("DisplayIncrease");
+                    IncreaseScore(scoreToAdd);
+                    survivalStreak++;
+
+                }
+            }
+        }
     }
 }
