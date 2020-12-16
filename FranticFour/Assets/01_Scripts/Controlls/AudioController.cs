@@ -17,9 +17,14 @@ public class AudioController : MonoBehaviour
         mixer.SetFloat("music", Mathf.Log10(value) * 20);
     }
 
-    public void SetEffectsVolume(float value)
+    public void SetPlayerFXVolume(float value)
     {
-        mixer.SetFloat("effects", Mathf.Log10(value) * 20);
+        mixer.SetFloat("playerFX", Mathf.Log10(value) * 20);
+    }
+    
+    public void SetGameFXVolume(float value)
+    {
+        mixer.SetFloat("gameFX", Mathf.Log10(value) * 20);
     }
     
     public void SetEnvironmentVolume(float value)

@@ -54,8 +54,8 @@ public class PlayerActionsController : MonoBehaviour
     Animator animator;
     AssignedController controller;
     Rigidbody2D rb2d;
-
-
+    PlayerAudio playerAudio;
+    
     private void Awake()
     {
         GetReferences();
@@ -70,6 +70,7 @@ public class PlayerActionsController : MonoBehaviour
         player = GetComponent<Player>();
         animator = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
+        playerAudio = GetComponent<PlayerAudio>();
     }
 
     private void Update()
@@ -127,6 +128,7 @@ public class PlayerActionsController : MonoBehaviour
 
     private void HandlePush()
     {
+        playerAudio.PlaySound("push");
         animator.SetTrigger("Push");
         if (pushController.InPushRange())
             StartCoroutine(PushOtherPlayer());
@@ -163,7 +165,10 @@ public class PlayerActionsController : MonoBehaviour
         rb2d.freezeRotation = value;
         player.FreezeInput = value;
         if (value)
-            SetLayerAndDrag(jumpLayer, jumpingDrag);
+        {
+            playerAudio.PlaySound("jump");
+            SetLayerAndDrag(jumpLayer,jumpingDrag);
+        }
         else
             SetLayerAndDrag(playerLayer, originalDrag);
     }

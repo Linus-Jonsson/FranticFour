@@ -12,6 +12,7 @@ public class PushController : MonoBehaviour
     Player player;
     Rigidbody2D rb2d;
     Animator animator;
+    PlayerAudio playerAudio;
 
     private void Awake()
     {
@@ -23,6 +24,7 @@ public class PushController : MonoBehaviour
         player = GetComponentInParent<Player>();
         rb2d = GetComponentInParent<Rigidbody2D>();
         animator = GetComponentInParent<Animator>();
+        playerAudio = GetComponentInParent<PlayerAudio>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -87,6 +89,7 @@ public class PushController : MonoBehaviour
 
     private void HandlePush(Vector2 pushForce, Player pusher)
     {
+        playerAudio.PlaySound("pushed");
         Thread.Sleep(freezeDuration);
         player.FreezeInput = true;
         player.IsPushed = true;
