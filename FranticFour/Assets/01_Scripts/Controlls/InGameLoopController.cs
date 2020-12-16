@@ -71,7 +71,7 @@ public class InGameLoopController : MonoBehaviour
         preyProbability = new List<int> { 0, 1, 2, 3 }; // resets the preyProbability list everytime you play.
         while (currentRound <= numberOfRounds)
         {
-            audioController.PlayMusic(false);
+            audioController.PlayGameMusic(false);
             audioController.TransitionToMain();
             ShowPlayers(false);
             ActivateAllPlayers(false);
@@ -79,7 +79,7 @@ public class InGameLoopController : MonoBehaviour
             HandleRoleSetting();
             targetGroupController.UpdateTargetGroup(players);
             yield return StartCoroutine(gameLoopUIController.PreyCountdown(currentPrey, preyRevealDuration));
-            audioController.PlayMusic(true);
+            audioController.PlayGameMusic(true);
             if (currentRound == 1)
                 yield return StartCoroutine(gameLoopUIController.LevelIntro(overviewTime, zoomInTime, introCamera, introCamera2));
             HandleStartOfRound();
