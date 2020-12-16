@@ -7,6 +7,13 @@ public class GamePlayUIController : GamePlayUIDisplay
 {
     // add a way to discintively show who is leading in points?.
     // add scores for this round aswell as the total score
+    
+    GameAudio gameAudio;
+
+    void Start()
+    {
+        gameAudio = FindObjectOfType<GameAudio>();
+    }
 
     public IEnumerator LevelIntro(float overviewDuration, float zoomInDuration, GameObject camera1, GameObject camera2)
     {
@@ -122,7 +129,9 @@ public class GamePlayUIController : GamePlayUIDisplay
     public IEnumerator SpawnCountDown(float freezeTime)
     {
         countDownDisplay.SetActive(true);
-        yield return new WaitForSeconds(freezeTime + 1);
+        yield return new WaitForSeconds(freezeTime);
+        gameAudio.PlaySound("gong");
+        yield return new WaitForSeconds(freezeTime);
         countDownDisplay.SetActive(false);
     }
 
