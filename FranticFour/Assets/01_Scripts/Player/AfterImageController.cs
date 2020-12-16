@@ -6,11 +6,8 @@ public class AfterImageController : MonoBehaviour
 {
     [SerializeField] ParticleSystem afterImage;
     [SerializeField] SpriteRenderer spriteRenderer;
-
-    ParticleSystem.MainModule mainModule;
     private void Start()
     {
-        mainModule = afterImage.main;
         ResetAfterImage();
     }
 
@@ -21,7 +18,6 @@ public class AfterImageController : MonoBehaviour
 
     public void TurnOnAfterImage()
     {
-        //afterImage.Clear();
         afterImage.Play();
     }
     public void TurnOffAfterImage()

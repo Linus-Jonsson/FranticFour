@@ -60,8 +60,14 @@ public class Player : MonoBehaviour
     bool isPushed = false;
     public bool IsPushed { get { return isPushed; } set { isPushed = value; } }
 
+    bool pushing = false;
+    public bool Pushing { get { return pushing; } set { pushing = value; } }
+
     Player pushedBy = null;
     public Player PushedBy { get { return pushedBy; } set { pushedBy = value; } }
+
+    bool canPush = true;
+    public bool CanPush { get { return canPush; } set { canPush = value; } }
     
     public UnityEvent BecamePray = new UnityEvent();
 
@@ -127,12 +133,24 @@ public class Player : MonoBehaviour
         isPushed = false;
     }
 
+    public void StopPushing()
+    {
+        pushing = false;
+    }
+
+    public void ResetCanPush()
+    {
+        canPush = true;
+    }
+
     public void ResetPlayer()
     {
         HandleResetOfScoreTextAndSurvivalStreak();
         spriteRenderer.sharedMaterial.color = originalColor;
+        StopPushing();
+        StopIsPushed();
+        ResetCanPush();
         freezeInput = false;
-        isPushed = false;
         dead = false;
         respawnController.ResetRespawn();
         playerActionsController.ResetPlayerActions();
@@ -163,6 +181,7 @@ public class Player : MonoBehaviour
     public void playerDead()
     {
         StopIsPushed();
+        StopPushing();
         afterImageController.ResetAfterImage();
         respawnController.StartGhosting();
     }

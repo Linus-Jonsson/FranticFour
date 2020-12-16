@@ -11,14 +11,14 @@ public class PlayerActionsController : MonoBehaviour
     [Tooltip("Set this to have the layerNumber of the layer that player is")]
     [SerializeField] int playerLayer = 8;
 
-    [Tooltip("Set this to have the layerNumber of the layer that Jump is")] 
+    [Tooltip("Set this to have the layerNumber of the layer that Jump is")]
     [SerializeField] int jumpLayer = 9;
 
     [Header("Jump configuration")]
     [Tooltip("The drag on the rigidBody while jumping (This should be low due to no force applied during the jump")]
     [SerializeField] float jumpingDrag = 0.3f;
 
-    [Header("Prey Configuration")] 
+    [Header("Prey Configuration")]
     [SerializeField] PreyTrap preyTrap = null;
 
     [SerializeField] float rawOffset = 1f;
@@ -29,7 +29,7 @@ public class PlayerActionsController : MonoBehaviour
 
     [SerializeField] int maximumTraps = 5;
 
-    [Header("Hunter Configuration")] 
+    [Header("Hunter Configuration")]
     [SerializeField] float pushForce = 10f;
 
     [SerializeField] float pushCooldown = 2f;
@@ -40,10 +40,9 @@ public class PlayerActionsController : MonoBehaviour
 
     float originalDrag;
 
-    List<PreyTrap> laidTraps = new List<PreyTrap>();
+    [SerializeField] List<PreyTrap> laidTraps = new List<PreyTrap>();
 
     bool canThrowTraps = true;
-    bool canPush = true;
     bool canJump = true;
 
     Player player;
@@ -55,7 +54,8 @@ public class PlayerActionsController : MonoBehaviour
     AssignedController controller;
     Rigidbody2D rb2d;
     PlayerAudio playerAudio;
-    
+    MovementController movementController;
+
     private void Awake()
     {
         GetReferences();
@@ -71,6 +71,7 @@ public class PlayerActionsController : MonoBehaviour
         animator = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
         playerAudio = GetComponent<PlayerAudio>();
+        movementController = GetComponent<MovementController>();
     }
 
     private void Update()
@@ -94,7 +95,7 @@ public class PlayerActionsController : MonoBehaviour
 
         if (player.Prey && canThrowTraps && laidTraps.Count < maximumTraps)
             StartCoroutine(HandleTrapThrow());
-        else if (!player.Prey && canPush)
+        else if (!player.Prey && player.CanPush)
             HandlePush();
     }
 
@@ -104,7 +105,7 @@ public class PlayerActionsController : MonoBehaviour
 
         if (player.Prey && canThrowTraps && laidTraps.Count < maximumTraps)
             StartCoroutine(HandleTrapThrow());
-        else if (!player.Prey && canPush)
+        else if (!player.Prey && player.CanPush)
             HandlePush();
     }
 
@@ -128,19 +129,20 @@ public class PlayerActionsController : MonoBehaviour
 
     private void HandlePush()
     {
+        print("Pushing");
+        //player.Pushing = false;
         // playerAudio.PlaySound("push"); - Removed temporarily(?) - not working properly (distorted sound)
+        player.CanPush = false;
+        movementController.AddPushingForce();
         animator.SetTrigger("Push");
         if (pushController.InPushRange())
-            StartCoroutine(PushOtherPlayer());
+            PushOtherPlayer();
     }
 
-    IEnumerator PushOtherPlayer()
+    private void PushOtherPlayer()
     {
         OnPush.Invoke();
-        canPush = false;
         pushController.PushTarget(rotationController.Dir.normalized * pushForce);
-        yield return new WaitForSeconds(pushCooldown);
-        canPush = true;
     }
 
     public void ResetPlayerActions()
@@ -148,7 +150,6 @@ public class PlayerActionsController : MonoBehaviour
         ResetTraps();
         StopAllCoroutines();
         Jumping(false);
-        canPush = true;
         canThrowTraps = true;
     }
 
