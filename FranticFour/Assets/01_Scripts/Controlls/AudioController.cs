@@ -55,6 +55,9 @@ public class AudioController : MonoBehaviour
 
     public void PlayMusic(bool value)
     {
+        if (musicPlayer is null)//Null check
+            return;
+        
         if (value)
             musicPlayer.Play();
         else

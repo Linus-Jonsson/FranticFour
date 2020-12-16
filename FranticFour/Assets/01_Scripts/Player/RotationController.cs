@@ -7,10 +7,7 @@ public class RotationController : MonoBehaviour
 
     Vector2 dir = new Vector2(0, 0);
 
-    public Vector2 Dir
-    {
-        get { return dir; }
-    }
+    public Vector2 Dir => dir;
 
     void Start()
     {
@@ -37,11 +34,6 @@ public class RotationController : MonoBehaviour
         Vector2 inputRight = new Vector2(Input.GetAxis(controller.RightHorizontal), Input.GetAxis(controller.RightVertical));
         Vector2 inputLeft = new Vector2(Input.GetAxis(controller.Horizontal), Input.GetAxis(controller.Vertical));
 
-        if (inputLeft.magnitude != 0)
-        {
-            //Debug.Log(inputRight.magnitude + "|" + inputLeft.magnitude);
-        }
-        
         if (inputRight.magnitude > DeadZones.DEADZONE_RIGHT)
         {
             dir = new Vector2(inputRight.x, inputRight.y);

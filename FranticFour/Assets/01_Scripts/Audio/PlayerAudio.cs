@@ -23,12 +23,18 @@ public class PlayerAudio : MonoBehaviour
         switch (soundClip)
         {
             case "jump":
+                if (jump == null)
+                    return;
                 audioSource.PlayOneShot(jump, jumpVolume);
                 break;
             case "push":
+                if (push == null)
+                    return;
                 audioSource.PlayOneShot(push, pushVolume);
                 break;
             case "pushed":
+                if (pushed == null)
+                    return;
                 audioSource.PlayOneShot(pushed, pushedVolume);
                 break;
         }
