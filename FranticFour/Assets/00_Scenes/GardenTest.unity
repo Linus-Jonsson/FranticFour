@@ -41986,6 +41986,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6500163289584686780, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
+      propertyPath: pushForceMultiplier
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6500163289584686781, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
       propertyPath: m_RootOrder
       value: 19
@@ -43412,10 +43416,6 @@ PrefabInstance:
       value: Danger
       objectReference: {fileID: 0}
     - target: {fileID: 7717820030714175288, guid: d206aa230158fb94d8716cb25c76b015, type: 3}
-      propertyPath: m_TagString
-      value: Danger
-      objectReference: {fileID: 0}
-    - target: {fileID: 7717820030776839738, guid: d206aa230158fb94d8716cb25c76b015, type: 3}
       propertyPath: m_TagString
       value: Danger
       objectReference: {fileID: 0}

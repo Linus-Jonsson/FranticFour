@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using System.Threading;
+using System.Threading.Tasks;
 
 public class MovementController : MonoBehaviour
 {
@@ -69,19 +71,31 @@ public class MovementController : MonoBehaviour
     //AnimationEvents:
     public void AddPushForce()
     {
-        if (!player.FreezeInput)
+        //if (!player.FreezeInput)
             rb2d.AddForce(rotationController.Dir * pushForceMultiplier, ForceMode2D.Impulse);
+    }
+
+    public async void AddPushingForce()
+    {
+        Vector2 pushForce = rotationController.Dir.normalized * pushForceMultiplier;
+        player.FreezeInput = true;
+        player.Pushing = true;
+        while (player.Pushing)
+        {
+            rb2d.AddForce(pushForce);
+            await Task.Delay(10);
+        }
     }
 
     public void ReduceVelocity()
     {
-        if (!player.FreezeInput)
+        //if (!player.FreezeInput)
             rb2d.velocity = rb2d.velocity / pushVelocityDivider;
     }
     
     public void ReduceVelocityAfterJump()
     {
-        if (!player.FreezeInput)
-            rb2d.velocity = rb2d.velocity / jumpVelocityDivider;
+        //if (!player.FreezeInput)
+        rb2d.velocity = rb2d.velocity / jumpVelocityDivider;
     }
 }

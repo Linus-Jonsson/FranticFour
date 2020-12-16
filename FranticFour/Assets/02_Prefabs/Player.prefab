@@ -5360,8 +5360,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 10
   movementSpeed: 40
-  pushForceMultiplier: 25
-  pushVelocityDivider: 100
+  pushForceMultiplier: 100
+  pushVelocityDivider: 2
   jumpVelocityDivider: 100
 --- !u!114 &362613495
 MonoBehaviour:
@@ -5411,6 +5411,7 @@ MonoBehaviour:
   OnTrapThrow:
     m_PersistentCalls:
       m_Calls: []
+  laidTraps: []
 --- !u!114 &4384462609397879459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5499,10 +5500,6 @@ MonoBehaviour:
   pushVolume: 1
   pushed: {fileID: 0}
   pushedVolume: 1
-  killer: {fileID: 8300000, guid: 1b5c4946f9f0a7349993768b7574fdef, type: 3}
-  killerVolume: 1
-  accident: {fileID: 8300000, guid: 3a535e581dba9d8429abbb0b38a7e292, type: 3}
-  accidentVolume: 1
 --- !u!82 &2199777990811486062
 AudioSource:
   m_ObjectHideFlags: 0

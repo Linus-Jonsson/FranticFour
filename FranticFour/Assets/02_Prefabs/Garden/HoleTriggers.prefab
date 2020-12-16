@@ -4225,7 +4225,7 @@ GameObject:
   - component: {fileID: 7717820030776839737}
   m_Layer: 13
   m_Name: HoleTrigger
-  m_TagString: Untagged
+  m_TagString: Danger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
