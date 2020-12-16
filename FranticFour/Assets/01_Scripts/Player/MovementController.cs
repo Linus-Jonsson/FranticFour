@@ -13,10 +13,6 @@ public class MovementController : MonoBehaviour
 
     [Tooltip("The amount that the players current velocity gets multiplied by at the start")]
     [SerializeField] float pushForceMultiplier = 5.0f;
-    [Tooltip("The amount that the players current velocity gets divided by after push")]
-    [SerializeField] float pushVelocityDivider = 4.0f;
-    [Tooltip("The amount that the players current velocity gets divided by after jump")]
-    [SerializeField] float jumpVelocityDivider = 4.0f;
 
     AssignedController controller;
     RotationController rotationController;
@@ -68,33 +64,14 @@ public class MovementController : MonoBehaviour
     }
 
     //AnimationEvents:
-    public void AddPushForce()
-    {
-        //if (!player.FreezeInput)
-            rb2d.AddForce(rotationController.Dir * pushForceMultiplier, ForceMode2D.Impulse);
-    }
-
-    public async void AddPushingForce()
-    {
-        Vector2 pushForce = rotationController.Dir.normalized * pushForceMultiplier;
-        player.FreezeInput = true;
-        player.Pushing = true;
-        while (player.Pushing)
-        {
-            rb2d.AddForce(pushForce);
-            await Task.Delay(10);
-        }
-    }
-
-    public void ReduceVelocity()
-    {
-        //if (!player.FreezeInput)
-            rb2d.velocity = rb2d.velocity / pushVelocityDivider;
-    }
     
     public void ReduceVelocityAfterJump()
     {
-        //if (!player.FreezeInput)
-        rb2d.velocity = rb2d.velocity / jumpVelocityDivider;
+        rb2d.velocity = Vector2.zero;
+    }
+
+    public void AddPushForce()
+    {
+            rb2d.AddForce(rotationController.Dir * pushForceMultiplier, ForceMode2D.Impulse);
     }
 }

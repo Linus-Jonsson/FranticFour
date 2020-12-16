@@ -5360,9 +5360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 10
   movementSpeed: 40
-  pushForceMultiplier: 100
-  pushVelocityDivider: 2
-  jumpVelocityDivider: 100
+  pushForceMultiplier: 40
 --- !u!114 &362613495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5403,7 +5401,7 @@ MonoBehaviour:
   trapPushForce: 10
   trapsCoolDown: 4
   maximumTraps: 3
-  pushForce: 160
+  pushForce: 300
   pushCooldown: 2
   OnPush:
     m_PersistentCalls:
