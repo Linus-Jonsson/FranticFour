@@ -39,6 +39,7 @@ public class PreyTrap : MonoBehaviour
     {
         player.FreezeInput = true;
         player.GetComponent<Animator>().SetTrigger("Stunned");
+        GetComponent<AudioSource>().Play(0);
     }
 
     public void DestroyTrap()

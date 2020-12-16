@@ -8,6 +8,7 @@ public class DeathController : MonoBehaviour
 
     Player player;
     InGameLoopController gameLoopController;
+    GameAudio gameAudio;
 
     private void Awake()
     {
@@ -18,6 +19,7 @@ public class DeathController : MonoBehaviour
     {
         player = GetComponent<Player>();
         gameLoopController = FindObjectOfType<InGameLoopController>();
+        gameAudio = FindObjectOfType<GameAudio>().GetComponent<GameAudio>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -47,11 +49,15 @@ public class DeathController : MonoBehaviour
         player.SetAnimationTrigger("Death");
         if (player.PushedBy != null)
         {
+            gameAudio.PlaySound("fanfare");
             player.PushedBy.SetAnimationTrigger("Win");
             player.PushedBy.IncreaseScore(player.ScoreValue);
         }
         else
+        {
+            gameAudio.PlaySound("failure");
             gameLoopController.IncreaseAllScores(Mathf.RoundToInt(player.ScoreValue / 3));
+        }
         player.FreezeInput = true;
         player.NumberOfDeaths = player.NumberOfDeaths + 1;
         gameLoopController.RespawnAllPlayers(player.PushedBy);
