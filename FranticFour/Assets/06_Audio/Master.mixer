@@ -110,7 +110,9 @@ AudioMixerSnapshotController:
   m_SnapshotID: c89ff38ab7f780d4cb7a6efd9d3aed03
   m_FloatValues:
     7479fcd06bea5384d867cadd7498de97: 0.1
-    dfaec113c802d7144a38422f9cdabe48: 0.089018494
+    d736eec29a583444ebc5c407a428433c: -5.3230715
+    df2d6ef29662de3488dd3589a8020833: -9.833291
+    dfaec113c802d7144a38422f9cdabe48: -19.549248
     528a4357cccb53f40948ea67866b17c8: 1.627
     fd1936a87750e7342a6e071d4b7e9ab8: 8.54
     701ccceadf5c4cb4e9cd7ee169db2eec: 25.9
