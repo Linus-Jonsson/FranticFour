@@ -6935,7 +6935,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 50
+  m_SortingOrder: 102
   m_Sprite: {fileID: 21300000, guid: 8528e9c0ac2e03141becdf6479930986, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -76726,7 +76726,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 50
+  m_SortingOrder: 102
   m_Sprite: {fileID: 21300000, guid: 8528e9c0ac2e03141becdf6479930986, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -81899,6 +81899,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 1766799407988265866, guid: acfb9a05aaeba90459fcf1e0904d6c62, type: 3}
+      propertyPath: m_SortingOrder
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 2681531850660907230, guid: acfb9a05aaeba90459fcf1e0904d6c62, type: 3}
       propertyPath: m_Color.a
       value: 0.6
@@ -82078,6 +82082,10 @@ PrefabInstance:
     - target: {fileID: 66196735232516301, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
       propertyPath: m_SortingOrder
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 873943978342606804, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
+      propertyPath: m_SortingOrder
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 1367219792547560266, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
       propertyPath: m_SortingOrder
@@ -82371,6 +82379,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 2952951759537516547, guid: 3b331333d75cc6249b5e72bd1313c248, type: 3}
+      propertyPath: m_SortingOrder
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 3724983642963014168, guid: 3b331333d75cc6249b5e72bd1313c248, type: 3}
       propertyPath: playerID
       value: 1
@@ -82586,6 +82598,10 @@ PrefabInstance:
     - target: {fileID: 3008481817959373612, guid: e162df6b204d11a46a1d0bf7f0928639, type: 3}
       propertyPath: m_Name
       value: CameraManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3008481819678391028, guid: e162df6b204d11a46a1d0bf7f0928639, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e162df6b204d11a46a1d0bf7f0928639, type: 3}
@@ -83371,9 +83387,17 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 3008481819180457902}
+    - target: {fileID: 7473697052432825029, guid: 235d37168752fc84ea578ff9108da983, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 7473697052432825032, guid: 235d37168752fc84ea578ff9108da983, type: 3}
       propertyPath: m_Name
       value: Gameplay UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 7473697052863528635, guid: 235d37168752fc84ea578ff9108da983, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 235d37168752fc84ea578ff9108da983, type: 3}
@@ -83557,6 +83581,10 @@ PrefabInstance:
     - target: {fileID: 6749386256546943944, guid: 3858cf9da202f29459664fb17c23f70d, type: 3}
       propertyPath: m_SortingOrder
       value: 89
+      objectReference: {fileID: 0}
+    - target: {fileID: 6924560112366028956, guid: 3858cf9da202f29459664fb17c23f70d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 7841620470725758853, guid: 3858cf9da202f29459664fb17c23f70d, type: 3}
       propertyPath: m_SortingOrder
