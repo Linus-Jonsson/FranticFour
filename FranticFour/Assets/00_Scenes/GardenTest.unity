@@ -3526,6 +3526,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7993502293557517, guid: 470fb5fd254769a4bbdb972e7e86cb0f, type: 3}
+      propertyPath: m_ChunkCullingBounds.x
+      value: 0.8333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 7993502293557517, guid: 470fb5fd254769a4bbdb972e7e86cb0f, type: 3}
+      propertyPath: m_ChunkCullingBounds.y
+      value: 0.8333334
+      objectReference: {fileID: 0}
     - target: {fileID: 7993502685561904, guid: 470fb5fd254769a4bbdb972e7e86cb0f, type: 3}
       propertyPath: m_UsedByComposite
       value: 1
@@ -42972,7 +42980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d581b606b1fdf734899da7b228883592, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundDuration: 10
+  roundDuration: 60
   startCountDownDuration: 1
   preyRevealDuration: 1
   roundOverDuration: 4
