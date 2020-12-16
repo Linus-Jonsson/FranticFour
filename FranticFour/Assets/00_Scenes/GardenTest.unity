@@ -40661,7 +40661,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1795737841}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b8abdb046be72b4f8acca9891a17a6b, type: 3}
   m_Name: 
@@ -41951,6 +41951,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4332174618531682283, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
+      propertyPath: jump
+      value: 
+      objectReference: {fileID: 8300000, guid: 8d4a23a5ea3e01d4bbfd51eb471409bd, type: 3}
+    - target: {fileID: 4332174618531682283, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
       propertyPath: push
       value: 
       objectReference: {fileID: 8300000, guid: 591f6650b53109549ac58f7a9f734f2f, type: 3}
@@ -41960,7 +41964,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: bc6be23c61680d148b541c9196fd8b0a, type: 3}
     - target: {fileID: 4332174618531682283, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
       propertyPath: jumpVolume
-      value: 0.5
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4332174618531682283, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
       propertyPath: pushVolume
@@ -42114,7 +42118,7 @@ PrefabInstance:
     - target: {fileID: 1784792476073164860, guid: 3b331333d75cc6249b5e72bd1313c248, type: 3}
       propertyPath: jump
       value: 
-      objectReference: {fileID: 8300000, guid: a56a1a63e509fd848a03cb55709bfd0b, type: 3}
+      objectReference: {fileID: 8300000, guid: 8d4a23a5ea3e01d4bbfd51eb471409bd, type: 3}
     - target: {fileID: 1784792476073164860, guid: 3b331333d75cc6249b5e72bd1313c248, type: 3}
       propertyPath: push
       value: 
@@ -42297,6 +42301,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3711897115845499017, guid: 792f012b57feb4a49971b59970feb030, type: 3}
+      propertyPath: gong
+      value: 
+      objectReference: {fileID: 8300000, guid: 3a4df57e1cb39b64589c2d4f2bd86adc, type: 3}
+    - target: {fileID: 3711897115845499017, guid: 792f012b57feb4a49971b59970feb030, type: 3}
+      propertyPath: gongVolume
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3711897115845499018, guid: 792f012b57feb4a49971b59970feb030, type: 3}
       propertyPath: DopplerLevel
       value: 0
@@ -42345,6 +42357,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3711897116280284630, guid: 792f012b57feb4a49971b59970feb030, type: 3}
+      propertyPath: main
+      value: 
+      objectReference: {fileID: 24500006, guid: 8998ec453363f8b41a1f60b56de04333, type: 2}
+    - target: {fileID: 3711897116280284630, guid: 792f012b57feb4a49971b59970feb030, type: 3}
+      propertyPath: fadeOutTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3711897116280284630, guid: 792f012b57feb4a49971b59970feb030, type: 3}
+      propertyPath: musicFadeout
+      value: 
+      objectReference: {fileID: -8639956249824296547, guid: 8998ec453363f8b41a1f60b56de04333, type: 2}
     - target: {fileID: 3711897116280284631, guid: 792f012b57feb4a49971b59970feb030, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -42944,7 +42968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d581b606b1fdf734899da7b228883592, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundDuration: 60
+  roundDuration: 10
   startCountDownDuration: 1
   preyRevealDuration: 1
   roundOverDuration: 4
@@ -43668,7 +43692,7 @@ PrefabInstance:
     - target: {fileID: 5775545524288632995, guid: 3858cf9da202f29459664fb17c23f70d, type: 3}
       propertyPath: jump
       value: 
-      objectReference: {fileID: 8300000, guid: 9fba9b823c4a14e4b9a77f3e4c2a6979, type: 3}
+      objectReference: {fileID: 8300000, guid: 8d4a23a5ea3e01d4bbfd51eb471409bd, type: 3}
     - target: {fileID: 5775545524288632995, guid: 3858cf9da202f29459664fb17c23f70d, type: 3}
       propertyPath: push
       value: 

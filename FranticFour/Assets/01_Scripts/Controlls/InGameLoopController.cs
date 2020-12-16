@@ -51,6 +51,7 @@ public class InGameLoopController : MonoBehaviour
     GamePlayUIController gameLoopUIController;
     [SerializeField] private List<int> preyProbability; //Serialized temporarily to make sure it works properly
     TargetGroupController targetGroupController;
+    AudioController audioController;
     bool isBetweenRounds = true;
 
     void Start()
@@ -62,6 +63,7 @@ public class InGameLoopController : MonoBehaviour
     {
         gameLoopUIController = FindObjectOfType<GamePlayUIController>();
         targetGroupController = FindObjectOfType<TargetGroupController>();
+        audioController = FindObjectOfType<AudioController>();
     }
 
     IEnumerator HandleGameLoop()
@@ -69,16 +71,20 @@ public class InGameLoopController : MonoBehaviour
         preyProbability = new List<int> { 0, 1, 2, 3 }; // resets the preyProbability list everytime you play.
         while (currentRound <= numberOfRounds)
         {
+            audioController.PlayMusic(false);
+            audioController.TransitionToMain();
             ShowPlayers(false);
             ActivateAllPlayers(false);
             yield return StartCoroutine(gameLoopUIController.PreRoundCountdown(startCountDownDuration, players, currentRound));
             HandleRoleSetting();
             targetGroupController.UpdateTargetGroup(players);
             yield return StartCoroutine(gameLoopUIController.PreyCountdown(currentPrey, preyRevealDuration));
+            audioController.PlayMusic(true);
             if (currentRound == 1)
                 yield return StartCoroutine(gameLoopUIController.LevelIntro(overviewTime, zoomInTime, introCamera, introCamera2));
             HandleStartOfRound();
             yield return StartCoroutine(gameLoopUIController.CountRoundTime(roundDuration));
+            audioController.MusicFadeOut();
             HandleEndOfRound();
             if (currentRound == numberOfRounds)
                 break;

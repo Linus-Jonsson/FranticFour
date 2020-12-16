@@ -1,5 +1,27 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!245 &-8639956249824296547
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MusicFadeOut
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: 466be778d626ebb49a33507038b9b944
+  m_FloatValues:
+    7479fcd06bea5384d867cadd7498de97: 0.1
+    d736eec29a583444ebc5c407a428433c: 0.44032478
+    df2d6ef29662de3488dd3589a8020833: -80
+    dfaec113c802d7144a38422f9cdabe48: -20
+    528a4357cccb53f40948ea67866b17c8: 1.627
+    fd1936a87750e7342a6e071d4b7e9ab8: 8.54
+    701ccceadf5c4cb4e9cd7ee169db2eec: 25.9
+    e838101b9e0770f4ca4f0f40bebcf879: -0.0049493765
+    b3d0447b249af054cb7e93d260988c6d: -8.2
+    b3468faebaea1c7448ef9a8190d8e1c8: 0.35099998
+    49b8911f10f811e4e90e81ba76acbb43: -44.3
+  m_TransitionOverrides: {}
 --- !u!244 &-7002037115433003956
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -39,6 +61,7 @@ AudioMixerController:
   m_MasterGroup: {fileID: 24300002}
   m_Snapshots:
   - {fileID: 24500006}
+  - {fileID: -8639956249824296547}
   m_StartSnapshot: {fileID: 24500006}
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
@@ -105,14 +128,14 @@ AudioMixerSnapshotController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Snapshot
+  m_Name: Main
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: c89ff38ab7f780d4cb7a6efd9d3aed03
   m_FloatValues:
     7479fcd06bea5384d867cadd7498de97: 0.1
-    d736eec29a583444ebc5c407a428433c: -5.3230715
+    d736eec29a583444ebc5c407a428433c: 0.44032478
     df2d6ef29662de3488dd3589a8020833: -9.833291
-    dfaec113c802d7144a38422f9cdabe48: -19.549248
+    dfaec113c802d7144a38422f9cdabe48: -20
     528a4357cccb53f40948ea67866b17c8: 1.627
     fd1936a87750e7342a6e071d4b7e9ab8: 8.54
     701ccceadf5c4cb4e9cd7ee169db2eec: 25.9
