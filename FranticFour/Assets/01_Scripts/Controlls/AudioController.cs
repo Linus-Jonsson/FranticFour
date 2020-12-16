@@ -28,19 +28,9 @@ public class AudioController : MonoBehaviour
         mixer.SetFloat("music", Mathf.Log10(value) * 20);
     }
 
-    public void SetPlayerFXVolume(float value)
+    public void SetSfxVolume(float value)
     {
-        mixer.SetFloat("playerFX", Mathf.Log10(value) * 20);
-    }
-    
-    public void SetGameFXVolume(float value)
-    {
-        mixer.SetFloat("gameFX", Mathf.Log10(value) * 20);
-    }
-    
-    public void SetEnvironmentVolume(float value)
-    {
-        mixer.SetFloat("environment", Mathf.Log10(value) * 20);    
+        mixer.SetFloat("sfx", Mathf.Log10(value) * 20);
     }
 
     public void TransitionToMain()
