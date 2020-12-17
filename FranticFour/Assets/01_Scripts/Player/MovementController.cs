@@ -72,6 +72,6 @@ public class MovementController : MonoBehaviour
 
     public void AddPushForce()
     {
-            rb2d.AddForce(rotationController.Dir * pushForceMultiplier, ForceMode2D.Impulse);
+        rb2d.AddForce(rotationController.Dir * pushForceMultiplier, ForceMode2D.Impulse);
     }
 }
