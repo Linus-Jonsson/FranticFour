@@ -326,6 +326,7 @@ MonoBehaviour:
   main: {fileID: 24500006, guid: 8998ec453363f8b41a1f60b56de04333, type: 2}
   musicFadeout: {fileID: -8639956249824296547, guid: 8998ec453363f8b41a1f60b56de04333, type: 2}
   musicOnly: {fileID: 6259211944172123242, guid: 8998ec453363f8b41a1f60b56de04333, type: 2}
+  lowerMusic: {fileID: -8834542799878934581, guid: 8998ec453363f8b41a1f60b56de04333, type: 2}
   musicFadeOutTime: 3
   menuMusic: {fileID: 2756060845767513893}
   gameMusic: {fileID: 3711897116324897428}

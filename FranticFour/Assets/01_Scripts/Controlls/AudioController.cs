@@ -10,6 +10,7 @@ public class AudioController : MonoBehaviour
     [SerializeField] AudioMixerSnapshot main = null;
     [SerializeField] AudioMixerSnapshot musicFadeout = null;
     [SerializeField] AudioMixerSnapshot musicOnly = null;
+    [SerializeField] AudioMixerSnapshot lowerMusic = null;
     [SerializeField] float musicFadeOutTime = 2.0f;
     [SerializeField] AudioSource menuMusic = null;
     [SerializeField] AudioSource gameMusic = null;
@@ -59,6 +60,11 @@ public class AudioController : MonoBehaviour
     public void MusicFadeOut()
     {
         musicFadeout.TransitionTo(musicFadeOutTime);
+    }
+    
+    public void TransitionToLowerMusic()
+    {
+        lowerMusic.TransitionTo(0);
     }
 
     public void PlayMenuMusic(bool value)

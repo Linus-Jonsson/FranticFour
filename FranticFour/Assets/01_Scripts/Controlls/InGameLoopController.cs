@@ -239,6 +239,7 @@ public class InGameLoopController : MonoBehaviour
             player.FreezeInput = true;
         }
         yield return StartCoroutine(CameraActionsAtPreyDeath(killer));
+        AudioController.instance.TransitionToMain();
         StartCoroutine(SpawnAllPlayers());
     }
 

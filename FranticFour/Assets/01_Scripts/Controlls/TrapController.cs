@@ -125,4 +125,14 @@ public class TrapController : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(deactivationTimer.x, deactivationTimer.y));
         StartCoroutine(ActivateTrap());
     }
+
+    public void PlaySound()
+    {
+        GetComponent<AudioSource>().Play();
+    }
+    
+    public void StopSound()
+    {
+        GetComponent<AudioSource>().Stop();
+    }
 }
