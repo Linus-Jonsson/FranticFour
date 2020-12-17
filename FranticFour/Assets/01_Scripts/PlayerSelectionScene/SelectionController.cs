@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class SelectionController : MonoBehaviour
 {
-    [Header("Player")] [Range(0, 3)]
-    [SerializeField] private int CONTROLLER_ID = 0;
+    [Header("Player")] 
+    [Range(0, 3)] [SerializeField] private int CONTROLLER_ID = 0;
     [SerializeField] private bool hasControllerJoined;
     [SerializeField] private MyPlayer myPlayer;
 
