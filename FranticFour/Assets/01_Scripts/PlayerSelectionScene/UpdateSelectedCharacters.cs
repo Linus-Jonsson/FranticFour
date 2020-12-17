@@ -8,8 +8,8 @@ public class UpdateSelectedCharacters : MonoBehaviour
     [SerializeField] private Sprite[] charactersSelected = new Sprite[4];
     [SerializeField] private Sprite[] charactersChosed = new Sprite[4];
     [SerializeField] private Color[] characterColors = new Color[4];
-    [SerializeField] SpriteRenderer[] charactersDisplayed = new SpriteRenderer[4];
-    [Range(0, 1)] [SerializeField] float intensity = 0.5f;
+    [SerializeField] CharacterSelectionAnimator[] charactersDisplayed = new CharacterSelectionAnimator[4];
+
     [SerializeField] private UnityEvent onSpriteChange;
 
     public UnityEvent OnSpriteChange => onSpriteChange;
@@ -18,14 +18,14 @@ public class UpdateSelectedCharacters : MonoBehaviour
     public void SetSelected(int _index)
     {
         characters[(_index + 1) % 4] = charactersSelected[(_index + 1) % 4];
-        charactersDisplayed[(_index + 1) % 4].color = Color.HSVToRGB(0,0,intensity);
+        charactersDisplayed[(_index + 1) % 4].StopAnimations();
         onSpriteChange.Invoke();
     }
     
     public void SetDeselected(int _index)
     {
         characters[(_index + 1) % 4] = charactersNotSelected[(_index + 1) % 4];
-        charactersDisplayed[(_index + 1) % 4].color = Color.HSVToRGB(0, 0, 1f);
+        charactersDisplayed[(_index + 1) % 4].PlayAnimations();
         onSpriteChange.Invoke();
     }
 

@@ -65,7 +65,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfClips: 2
-  changeTime: 5
+  changeTime: {x: 3, y: 6}
+  intensity: 0.6
 --- !u!1 &6101959920556836379
 GameObject:
   m_ObjectHideFlags: 0
