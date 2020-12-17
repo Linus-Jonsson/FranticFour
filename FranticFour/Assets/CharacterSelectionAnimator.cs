@@ -19,25 +19,21 @@ public class CharacterSelectionAnimator : MonoBehaviour
     IEnumerator WaitForClip()
     {
         float waitTime = Random.Range(changeTime.x, changeTime.y + 1);
-        print("Waiting to change");
         yield return new WaitForSeconds(waitTime);
         ChangeClip();
     }
 
     private void ChangeClip()
     {
-        print("Changing clip");
         int clipRandom = Random.Range(0, numberOfClips);
         print(clipRandom);
         switch(clipRandom)
         {
             case 0:
                 animator.SetTrigger("Win");
-                print("Win");
                 break;
             case 1:
                 animator.SetTrigger("Jump");
-                print("Jump");
                 break;
             default:
                 animator.SetTrigger("Idle");
