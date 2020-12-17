@@ -46,6 +46,7 @@ public class DeathController : MonoBehaviour
 
     private void HandlePreyKilled()
     {
+        AudioController.instance.TransitionToLowerMusic();
         player.SetAnimationTrigger("Death");
         if (player.PushedBy != null)
         {
