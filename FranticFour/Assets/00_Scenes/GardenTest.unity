@@ -2665,6 +2665,7 @@ GameObject:
   - component: {fileID: 1224683931}
   - component: {fileID: 1224683935}
   - component: {fileID: 1224683934}
+  - component: {fileID: 1224683936}
   m_Layer: 10
   m_Name: Spinning trap
   m_TagString: Danger
@@ -2819,6 +2820,102 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!82 &1224683936
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224683929}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -7362380408270626639, guid: 8998ec453363f8b41a1f60b56de04333, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 2b1542da0a20ad64ea9500720afc0e97, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.5
+  m_Pitch: 0.9
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 0
+  MinDistance: 1
+  MaxDistance: 40
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &1234537322 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7702541897934757050, guid: acfb9a05aaeba90459fcf1e0904d6c62, type: 3}
@@ -42848,6 +42945,22 @@ PrefabInstance:
       propertyPath: m_Offset.x
       value: -0.22024155
       objectReference: {fileID: 0}
+    - target: {fileID: 2080423782984384146, guid: 522538c54bd304c48af3775065125cdb, type: 3}
+      propertyPath: MaxDistance
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2080423782984384146, guid: 522538c54bd304c48af3775065125cdb, type: 3}
+      propertyPath: MinDistance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2080423782984384146, guid: 522538c54bd304c48af3775065125cdb, type: 3}
+      propertyPath: rolloffMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2080423782984384146, guid: 522538c54bd304c48af3775065125cdb, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 6163870048943695357, guid: 8998ec453363f8b41a1f60b56de04333, type: 2}
     - target: {fileID: 3559150866109219548, guid: 522538c54bd304c48af3775065125cdb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.13
@@ -43063,6 +43176,10 @@ PrefabInstance:
     - target: {fileID: 7163356037626283372, guid: 522538c54bd304c48af3775065125cdb, type: 3}
       propertyPath: m_Offset.x
       value: -0.22024155
+      objectReference: {fileID: 0}
+    - target: {fileID: 7847421501083172622, guid: 522538c54bd304c48af3775065125cdb, type: 3}
+      propertyPath: MaxDistance
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 522538c54bd304c48af3775065125cdb, type: 3}
@@ -43309,7 +43426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d581b606b1fdf734899da7b228883592, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundDuration: 20
+  roundDuration: 60
   startCountDownDuration: 1
   preyRevealDuration: 1
   roundOverDuration: 4
