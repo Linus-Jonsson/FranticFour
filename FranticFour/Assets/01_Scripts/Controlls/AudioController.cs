@@ -7,9 +7,10 @@ using UnityEngine.Audio;
 public class AudioController : MonoBehaviour
 {
     [SerializeField] AudioMixer mixer = null;
-    [SerializeField] AudioMixerSnapshot main;
-    [SerializeField] AudioMixerSnapshot musicFadeout;
-    [SerializeField] float fadeOutTime = 2.0f;
+    [SerializeField] AudioMixerSnapshot main = null;
+    [SerializeField] AudioMixerSnapshot musicFadeout = null;
+    [SerializeField] AudioMixerSnapshot musicOnly = null;
+    [SerializeField] float musicFadeOutTime = 2.0f;
     [SerializeField] AudioSource menuMusic = null;
     [SerializeField] AudioSource gameMusic = null;
     
@@ -47,12 +48,17 @@ public class AudioController : MonoBehaviour
 
     public void TransitionToMain()
     {
-        main.TransitionTo(0);
+        main.TransitionTo(1);
+    }
+    
+    public void TransitionToMusicOnly()
+    {
+        musicOnly.TransitionTo(0);
     }
     
     public void MusicFadeOut()
     {
-        musicFadeout.TransitionTo(fadeOutTime);
+        musicFadeout.TransitionTo(musicFadeOutTime);
     }
 
     public void PlayMenuMusic(bool value)

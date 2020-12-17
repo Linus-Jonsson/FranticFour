@@ -12,6 +12,7 @@ public class MainMenuController : MonoBehaviour
 
     void Start()
     {
+        FindObjectOfType<AudioController>().TransitionToMain();
         FindObjectOfType<AudioController>().PlayMenuMusic(true);
     }
 

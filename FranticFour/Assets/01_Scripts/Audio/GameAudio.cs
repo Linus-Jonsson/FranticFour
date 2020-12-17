@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class GameAudio : MonoBehaviour
 {
-    [SerializeField] AudioClip gong;
-    [SerializeField] float gongVolume = 1.0f;
-    [SerializeField] AudioClip fanfare;
+    [SerializeField] AudioClip startShot = null;
+    [SerializeField] float startShotVolume = 1.0f;
+    [SerializeField] AudioClip fanfare = null;
     [SerializeField] float fanfareVolume = 1.0f;
-    [SerializeField] AudioClip failure;
+    [SerializeField] AudioClip failure = null;
     [SerializeField] float failureVolume = 1.0f;
-    [SerializeField] AudioClip point;
+    [SerializeField] AudioClip point = null;
     [SerializeField] float pointVolume = 1.0f;
 
     AudioSource audioSource;
@@ -24,8 +24,8 @@ public class GameAudio : MonoBehaviour
     {
         switch (soundClip)
         {
-            case "gong":
-                audioSource.PlayOneShot(gong, gongVolume);
+            case "startShot":
+                audioSource.PlayOneShot(startShot, startShotVolume);
                 break;
             case "fanfare":
                 audioSource.PlayOneShot(fanfare, fanfareVolume);

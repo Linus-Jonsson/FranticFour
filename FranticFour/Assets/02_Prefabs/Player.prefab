@@ -5493,11 +5493,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jump: {fileID: 8300000, guid: 8d4a23a5ea3e01d4bbfd51eb471409bd, type: 3}
-  jumpVolume: 1
+  jumpVolume: 0.35
   push: {fileID: 8300000, guid: 591f6650b53109549ac58f7a9f734f2f, type: 3}
   pushVolume: 1
-  pushed: {fileID: 0}
-  pushedVolume: 1
+  pushed: {fileID: 8300000, guid: 9400b6cff40c1294d81436b17452d766, type: 3}
+  pushedVolume: 0.4
 --- !u!82 &2199777990811486062
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5510,7 +5510,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 2612897270795028218, guid: 8998ec453363f8b41a1f60b56de04333, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
