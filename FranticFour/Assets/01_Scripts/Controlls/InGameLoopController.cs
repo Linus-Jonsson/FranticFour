@@ -233,9 +233,11 @@ public class InGameLoopController : MonoBehaviour
     private IEnumerator HandleRespawnOfAllPlayers(Player killer)
     {
         StartPreyScoreIncrease(false);
-        ActivateAllPlayers(true);
         foreach (var player in players)
+        {
+            player.ResetPlayer();
             player.FreezeInput = true;
+        }
         yield return StartCoroutine(CameraActionsAtPreyDeath(killer));
         StartCoroutine(SpawnAllPlayers());
     }
