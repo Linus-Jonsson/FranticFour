@@ -313,4 +313,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfClips: 2
-  changeTime: 2
+  changeTime: {x: 3, y: 6}
+  intensity: 0.6
