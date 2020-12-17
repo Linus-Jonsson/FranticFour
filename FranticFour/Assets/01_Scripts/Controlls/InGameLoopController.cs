@@ -46,7 +46,8 @@ public class InGameLoopController : MonoBehaviour
     [Header("Camera Walls")]
     [SerializeField] GameObject cameraWalls = null;
 
-    int currentRound = 1;
+    [Header("Current round")]
+    [SerializeField] int currentRound = 1;
     Player currentPrey = null;
     GamePlayUIController gameLoopUIController;
     [SerializeField] private List<int> preyProbability; //Serialized temporarily to make sure it works properly
