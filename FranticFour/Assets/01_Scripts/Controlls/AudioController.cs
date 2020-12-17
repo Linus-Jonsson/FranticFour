@@ -42,7 +42,7 @@ public class AudioController : MonoBehaviour
 
     public void SetSfxVolume(float value)
     {
-        mixer.SetFloat("SFX", Mathf.Log10(value) * 20);
+        mixer.SetFloat("sfx", Mathf.Log10(value) * 20);
     }
 
     public void TransitionToMain()

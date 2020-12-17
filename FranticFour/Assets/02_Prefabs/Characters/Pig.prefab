@@ -84,21 +84,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3131435159972214995, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
-      propertyPath: jump
-      value: 
-      objectReference: {fileID: 8300000, guid: f5c0ade823ed9f34ba037b046fa8ad30, type: 3}
-    - target: {fileID: 3131435159972214995, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
-      propertyPath: push
-      value: 
-      objectReference: {fileID: 8300000, guid: e426027a55cee1142a44f22da8ae90f4, type: 3}
-    - target: {fileID: 3131435159972214995, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: pushed
       value: 
       objectReference: {fileID: 8300000, guid: 9400b6cff40c1294d81436b17452d766, type: 3}
-    - target: {fileID: 3131435159972214995, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
-      propertyPath: pushVolume
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 5439504268739004778, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: onOffObject
       value: 

@@ -966,7 +966,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 50
+      scalar: 25
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -1581,7 +1581,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 0}
+    - sprite: {fileID: 21300000, guid: f7ab459b7b53e4e47b3cc541c3be7bf8, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -5360,9 +5360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 10
   movementSpeed: 40
-  pushForceMultiplier: 100
-  pushVelocityDivider: 2
-  jumpVelocityDivider: 100
+  pushForceMultiplier: 40
 --- !u!114 &362613495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5403,7 +5401,7 @@ MonoBehaviour:
   trapPushForce: 10
   trapsCoolDown: 4
   maximumTraps: 3
-  pushForce: 160
+  pushForce: 300
   pushCooldown: 2
   OnPush:
     m_PersistentCalls:
@@ -5494,9 +5492,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b383d7f6cdc776458e2d57798469dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jump: {fileID: 0}
+  jump: {fileID: 8300000, guid: 8d4a23a5ea3e01d4bbfd51eb471409bd, type: 3}
   jumpVolume: 1
-  push: {fileID: 0}
+  push: {fileID: 8300000, guid: 591f6650b53109549ac58f7a9f734f2f, type: 3}
   pushVolume: 1
   pushed: {fileID: 0}
   pushedVolume: 1
@@ -5509,7 +5507,7 @@ AudioSource:
   m_GameObject: {fileID: 5575129103255632267}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 6862149104713272196, guid: 8998ec453363f8b41a1f60b56de04333, type: 2}
+  OutputAudioMixerGroup: {fileID: 2612897270795028218, guid: 8998ec453363f8b41a1f60b56de04333, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1

@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UIElements;
 
 public class PlayerActionsController : MonoBehaviour
 {
@@ -122,27 +120,26 @@ public class PlayerActionsController : MonoBehaviour
         OnTrapThrow.Invoke();
         Vector2 direction = rotationController.Dir.normalized;
         Vector3 offset = direction * rawOffset;
-        PreyTrap newTrap = Instantiate(preyTrap, transform.position + offset, Quaternion.identity);
-        newTrap.PushTrap(direction * trapPushForce);
+        PreyTrap newTrap = Instantiate(preyTrap, transform.position + -offset, Quaternion.identity);
+        newTrap.PushTrap(-direction * trapPushForce);
         laidTraps.Add(newTrap);
     }
 
     private void HandlePush()
     {
-        print("Pushing");
-        //player.Pushing = false;
         // playerAudio.PlaySound("push"); - Removed temporarily(?) - not working properly (distorted sound)
-        player.CanPush = false;
-        movementController.AddPushingForce();
         animator.SetTrigger("Push");
         if (pushController.InPushRange())
-            PushOtherPlayer();
+            StartCoroutine(PushOtherPlayer());
     }
 
-    private void PushOtherPlayer()
+    IEnumerator PushOtherPlayer()
     {
+        player.CanPush = false;
         OnPush.Invoke();
         pushController.PushTarget(rotationController.Dir.normalized * pushForce);
+        yield return new WaitForSeconds(pushCooldown);
+        player.CanPush = true;
     }
 
     public void ResetPlayerActions()
