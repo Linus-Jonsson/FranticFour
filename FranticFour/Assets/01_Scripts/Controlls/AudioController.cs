@@ -10,14 +10,26 @@ public class AudioController : MonoBehaviour
     [SerializeField] AudioMixerSnapshot main;
     [SerializeField] AudioMixerSnapshot musicFadeout;
     [SerializeField] float fadeOutTime = 2.0f;
+    [SerializeField] AudioSource menuMusic = null;
+    [SerializeField] AudioSource gameMusic = null;
+    
+    public static AudioController instance;
 
-    AudioSource musicPlayer;
-
-    void Start()
+    void Awake()
     {
-        musicPlayer = transform.Find("MusicPlayer").GetComponent<AudioSource>();
-    }
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
 
+        DontDestroyOnLoad(gameObject);
+    }
+    
     public void SetMasterVolume(float value)
     {
         mixer.SetFloat("master", Mathf.Log10(value) * 20);
@@ -43,14 +55,25 @@ public class AudioController : MonoBehaviour
         musicFadeout.TransitionTo(fadeOutTime);
     }
 
-    public void PlayMusic(bool value)
+    public void PlayMenuMusic(bool value)
     {
-        if (musicPlayer is null)//Null check
+        if (menuMusic is null)
             return;
         
         if (value)
-            musicPlayer.Play();
+            menuMusic.Play();
         else
-            musicPlayer.Stop();
+            menuMusic.Stop();
+    }
+    
+    public void PlayGameMusic(bool value)
+    {
+        if (gameMusic is null)
+            return;
+        
+        if (value)
+            gameMusic.Play();
+        else
+            gameMusic.Stop();
     }
 }

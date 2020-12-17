@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,11 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] GameObject descriptionWindow = null;
     [SerializeField] GameObject controlsWindow = null;
     [SerializeField] GameObject creditsWindow = null;
+
+    void Start()
+    {
+        FindObjectOfType<AudioController>().PlayMenuMusic(true);
+    }
 
     public void SetOptionsWindow(bool value)
     {

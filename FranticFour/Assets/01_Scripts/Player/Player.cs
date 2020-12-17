@@ -121,6 +121,14 @@ public class Player : MonoBehaviour
     {
         totalScore += roundScore;
     }
+    
+    public void AddRoundScoreToTotalScore()
+    {
+        if (roundScore <= 0)
+            return;
+        roundScore -= 1;
+        totalScore += 1;
+    }
 
     public void EndPush()
     {

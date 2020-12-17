@@ -117,12 +117,18 @@ public class GamePlayUIController : GamePlayUIDisplay
     {
         SetPlayerRoundScores(players, roundNumber);
         scoreDisplay.SetActive(true);
-        while (duration > 0)
+        yield return new WaitForSeconds(duration / 2);
+        foreach (var player in players)
         {
-            SetCountDownDisplayNumber(duration, "Next round begins in ", nextRoundInText);
-            yield return new WaitForSeconds(timeDecreaseIncrement);
-            duration -= timeDecreaseIncrement;
+            while (player.RoundScore > 0)
+            {
+                player.AddRoundScoreToTotalScore();
+                gameAudio.PlaySound("point");
+                SetPlayerRoundScores(players, roundNumber);
+                yield return new WaitForSeconds(0.1f);
+            }
         }
+        yield return new WaitForSeconds(duration / 2);
         scoreDisplay.SetActive(false);
     }
     
@@ -168,8 +174,9 @@ public class GamePlayUIController : GamePlayUIDisplay
         nameText.text = "Player " + player.PlayerNumber.ToString();
         totalScoreText.text = player.TotalScore.ToString();
         roundScoreText.text = player.RoundScore.ToString();
-        player.RoundScore = 0;
+        // player.RoundScore = 0;
     }
+    
 
     public void DisplayFinalResults(Player[] players)
     {

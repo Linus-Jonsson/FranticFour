@@ -10,6 +10,8 @@ public class GameAudio : MonoBehaviour
     [SerializeField] float fanfareVolume = 1.0f;
     [SerializeField] AudioClip failure;
     [SerializeField] float failureVolume = 1.0f;
+    [SerializeField] AudioClip point;
+    [SerializeField] float pointVolume = 1.0f;
 
     AudioSource audioSource;
     
@@ -30,6 +32,9 @@ public class GameAudio : MonoBehaviour
                 break;
             case "failure":
                 audioSource.PlayOneShot(failure, failureVolume);
+                break;
+            case "point":
+                audioSource.PlayOneShot(point, pointVolume);
                 break;
         }
     }
