@@ -36,8 +36,8 @@ public class HighlightLerp : MonoBehaviour
     {
         //When selected
         //Todo Make transition better
-        if (originalColor.a >= 1f)
-            hasSelected = false;
+/*        if (originalColor.a >= 1f)
+            hasSelected = true;*/
 
         Color.RGBToHSV(spriteRenderer.color, out float _h, out float _s, out float _v);
         _s += Time.fixedTime * 0.01f;
@@ -60,5 +60,15 @@ public class HighlightLerp : MonoBehaviour
             originalColor.g,
             originalColor.b,
             Mathf.PingPong(Time.fixedTime * lerpSpeed, maxAlphaSelected));
+    }
+
+
+
+    public void SetColor(Color color)
+    {
+        isLerping = false;
+        originalColor = color;
+        spriteRenderer.color = color;
+        isLerping = true;
     }
 }

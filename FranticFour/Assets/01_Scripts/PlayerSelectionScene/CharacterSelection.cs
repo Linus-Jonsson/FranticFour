@@ -8,11 +8,13 @@ public class CharacterSelection : MonoBehaviour
     [SerializeField] private Sprite[] characters = null;
     [SerializeField] private int selectedCharacterIndex = 0;
     [SerializeField] private UpdateSelectedCharacters playersSpriteHandler = null;
+    [SerializeField] HighlightLerp lerpHandler = null;
     public int SelectedCharacterIndex => selectedCharacterIndex;
 
     private void Start()
     {
         playersSpriteHandler = GetComponentInParent<UpdateSelectedCharacters>();
+
         characters = new Sprite[playersSpriteHandler.Characters.Length];
         playersSpriteHandler.OnSpriteChange.AddListener(UpdateSprites);
 
@@ -41,6 +43,7 @@ public class CharacterSelection : MonoBehaviour
     {
         // 1 = the renderer in the middle
         spriteRenderers[1].sprite = playersSpriteHandler.GetSelected(selectedCharacterIndex);
+        lerpHandler.SetColor(playersSpriteHandler.GetSelectedColor(selectedCharacterIndex));
         playersSpriteHandler.OnSpriteChange.RemoveListener(UpdateSprites);
         playersSpriteHandler.SetSelected(selectedCharacterIndex);
     }
@@ -69,10 +72,14 @@ public class CharacterSelection : MonoBehaviour
 
         if (selectedCharacterIndex < 0)
             selectedCharacterIndex += characters.Length;
-            
-        
-        
+
+        lerpHandler.SetColor(playersSpriteHandler.GetSelectedColor(selectedCharacterIndex));
         selectedCharacterIndex %= characters.Length;
         UpdateRenderer();
+    }
+
+    public int GetCharacterSelectedIndex()
+    {
+        return selectedCharacterIndex;
     }
 }
