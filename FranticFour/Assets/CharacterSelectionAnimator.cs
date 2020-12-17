@@ -26,7 +26,6 @@ public class CharacterSelectionAnimator : MonoBehaviour
     private void ChangeClip()
     {
         int clipRandom = Random.Range(0, numberOfClips);
-        print(clipRandom);
         switch(clipRandom)
         {
             case 0:
