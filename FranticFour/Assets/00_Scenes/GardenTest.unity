@@ -41591,6 +41591,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2934878033044726709, guid: acfb9a05aaeba90459fcf1e0904d6c62, type: 3}
+      propertyPath: jumpVolume
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2934878033044726709, guid: acfb9a05aaeba90459fcf1e0904d6c62, type: 3}
+      propertyPath: pushedVolume
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 5661316974895686371, guid: acfb9a05aaeba90459fcf1e0904d6c62, type: 3}
       propertyPath: m_RootOrder
       value: 22
@@ -42191,6 +42199,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1784792476073164860, guid: 3b331333d75cc6249b5e72bd1313c248, type: 3}
+      propertyPath: jumpVolume
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1784792476073164860, guid: 3b331333d75cc6249b5e72bd1313c248, type: 3}
+      propertyPath: pushedVolume
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 9146558516898562404, guid: 3b331333d75cc6249b5e72bd1313c248, type: 3}
       propertyPath: m_Name
       value: Sheep
@@ -43293,7 +43309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d581b606b1fdf734899da7b228883592, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundDuration: 30
+  roundDuration: 20
   startCountDownDuration: 1
   preyRevealDuration: 1
   roundOverDuration: 4
@@ -44472,6 +44488,14 @@ PrefabInstance:
     - target: {fileID: 3894801978590738939, guid: 3858cf9da202f29459664fb17c23f70d, type: 3}
       propertyPath: m_Name
       value: Bunny
+      objectReference: {fileID: 0}
+    - target: {fileID: 5775545524288632995, guid: 3858cf9da202f29459664fb17c23f70d, type: 3}
+      propertyPath: jumpVolume
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 5775545524288632995, guid: 3858cf9da202f29459664fb17c23f70d, type: 3}
+      propertyPath: pushedVolume
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3858cf9da202f29459664fb17c23f70d, type: 3}

@@ -171,8 +171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb6eab89375be044a91201c92aa3ba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gong: {fileID: 8300000, guid: 68c0b2d4a3a9d1c459345cd6f9025ebb, type: 3}
-  gongVolume: 0.3
+  startShot: {fileID: 8300000, guid: 68c0b2d4a3a9d1c459345cd6f9025ebb, type: 3}
+  startShotVolume: 0.35
   fanfare: {fileID: 8300000, guid: 1b5c4946f9f0a7349993768b7574fdef, type: 3}
   fanfareVolume: 1
   failure: {fileID: 8300000, guid: 3a535e581dba9d8429abbb0b38a7e292, type: 3}
@@ -325,7 +325,8 @@ MonoBehaviour:
   mixer: {fileID: 24100000, guid: 8998ec453363f8b41a1f60b56de04333, type: 2}
   main: {fileID: 24500006, guid: 8998ec453363f8b41a1f60b56de04333, type: 2}
   musicFadeout: {fileID: -8639956249824296547, guid: 8998ec453363f8b41a1f60b56de04333, type: 2}
-  fadeOutTime: 3
+  musicOnly: {fileID: 6259211944172123242, guid: 8998ec453363f8b41a1f60b56de04333, type: 2}
+  musicFadeOutTime: 3
   menuMusic: {fileID: 2756060845767513893}
   gameMusic: {fileID: 3711897116324897428}
 --- !u!1 &3711897116324897430

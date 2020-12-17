@@ -136,7 +136,7 @@ public class GamePlayUIController : GamePlayUIDisplay
     {
         countDownDisplay.SetActive(true);
         yield return new WaitForSeconds(freezeTime);
-        gameAudio.PlaySound("gong");
+        gameAudio.PlaySound("startShot");
         yield return new WaitForSeconds(freezeTime);
         countDownDisplay.SetActive(false);
     }

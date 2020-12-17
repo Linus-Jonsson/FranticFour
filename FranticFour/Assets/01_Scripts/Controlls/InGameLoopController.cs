@@ -72,7 +72,7 @@ public class InGameLoopController : MonoBehaviour
         while (currentRound <= numberOfRounds)
         {
             audioController.PlayGameMusic(false);
-            audioController.TransitionToMain();
+            audioController.TransitionToMusicOnly();
             ShowPlayers(false);
             ActivateAllPlayers(false);
             yield return StartCoroutine(gameLoopUIController.PreRoundCountdown(startCountDownDuration, players, currentRound));
@@ -82,6 +82,7 @@ public class InGameLoopController : MonoBehaviour
             audioController.PlayGameMusic(true);
             if (currentRound == 1)
                 yield return StartCoroutine(gameLoopUIController.LevelIntro(overviewTime, zoomInTime, introCamera, introCamera2));
+            audioController.TransitionToMain();
             HandleStartOfRound();
             yield return StartCoroutine(gameLoopUIController.CountRoundTime(roundDuration));
             audioController.MusicFadeOut();
@@ -234,13 +235,10 @@ public class InGameLoopController : MonoBehaviour
         StartPreyScoreIncrease(false);
         foreach (var player in players)
         {
-            if (player == killer)
-                player.FreezeInput = true;
-            else
-                ActivatePlayer(false, player);
+            player.ResetPlayer();
+            player.FreezeInput = true;
         }
         yield return StartCoroutine(CameraActionsAtPreyDeath(killer));
-        ActivateAllPlayers(true);
         StartCoroutine(SpawnAllPlayers());
     }
 

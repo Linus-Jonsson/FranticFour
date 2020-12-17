@@ -79,6 +79,14 @@ PrefabInstance:
       propertyPath: pushed
       value: 
       objectReference: {fileID: 8300000, guid: 71b957c851e744646a11fb796b3b70de, type: 3}
+    - target: {fileID: 3131435159972214995, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: jumpVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131435159972214995, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
+      propertyPath: pushedVolume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3219509944048538441, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
