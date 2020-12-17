@@ -179,7 +179,7 @@ public class InGameLoopController : MonoBehaviour
         gameLoopUIController.StopSpawnCountDown();         
         gameLoopUIController.SetKillScreen(null, null, false);
         ActivateAllPlayers(false);
-        CalculateScores();
+        // CalculateScores();
     }
 
     IEnumerator SpawnAllPlayers()

@@ -41629,7 +41629,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: bc6be23c61680d148b541c9196fd8b0a, type: 3}
     - target: {fileID: 2934878033044726709, guid: acfb9a05aaeba90459fcf1e0904d6c62, type: 3}
       propertyPath: jumpVolume
-      value: 0.5
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 2934878033044726709, guid: acfb9a05aaeba90459fcf1e0904d6c62, type: 3}
       propertyPath: pushVolume
@@ -42137,7 +42137,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: bc6be23c61680d148b541c9196fd8b0a, type: 3}
     - target: {fileID: 4332174618531682283, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
       propertyPath: jumpVolume
-      value: 0.7
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 4332174618531682283, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
       propertyPath: pushVolume
@@ -42382,7 +42382,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: bc6be23c61680d148b541c9196fd8b0a, type: 3}
     - target: {fileID: 1784792476073164860, guid: 3b331333d75cc6249b5e72bd1313c248, type: 3}
       propertyPath: jumpVolume
-      value: 0.5
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 1784792476073164860, guid: 3b331333d75cc6249b5e72bd1313c248, type: 3}
       propertyPath: pushVolume
@@ -44709,7 +44709,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: bc6be23c61680d148b541c9196fd8b0a, type: 3}
     - target: {fileID: 5775545524288632995, guid: 3858cf9da202f29459664fb17c23f70d, type: 3}
       propertyPath: jumpVolume
-      value: 0.5
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 5775545524288632995, guid: 3858cf9da202f29459664fb17c23f70d, type: 3}
       propertyPath: pushVolume
