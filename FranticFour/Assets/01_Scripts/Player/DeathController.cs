@@ -30,13 +30,13 @@ public class DeathController : MonoBehaviour
 
     private void HandleDeath()
     {
+        if (gameLoopController.CurrentPrey.Dead) { return; }
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        player.playerDead();
         if (deathParticles) //Null check
             ShowDeathEffect();
         if (player.Prey)
             HandlePreyKilled();
-        else
-            player.playerDead();
     }
     private void ShowDeathEffect()
     {
