@@ -163,6 +163,7 @@ MonoBehaviour:
   - {fileID: 1706124022}
   - {fileID: 1598410549}
   sceneLoader: {fileID: 1478572926}
+  sceneToLoad: GardenTest 2.0
 --- !u!4 &7591324
 Transform:
   m_ObjectHideFlags: 0
