@@ -157,15 +157,13 @@ public class PlayerActionsController : MonoBehaviour
             trap.DestroyTrap();
     }
 
-    private void Jumping(bool value)
+    public void Jumping(bool value)
     {
         canJump = !value;
-        rb2d.freezeRotation = value;
-        player.FreezeInput = value;
         if (value)
         {
             playerAudio.PlaySound("jump");
-            SetLayerAndDrag(jumpLayer,jumpingDrag);
+            SetLayerAndDrag(jumpLayer, jumpingDrag);
         }
         else
             SetLayerAndDrag(playerLayer, originalDrag);
@@ -180,11 +178,13 @@ public class PlayerActionsController : MonoBehaviour
     //AnimationEvents:
     public void StartJumping()
     {
-        Jumping(true);
+        Jumping(true);    
     }
 
     public void EndJumping()
     {
         Jumping(false);
+        rb2d.freezeRotation = false;
+        player.FreezeInput = false;
     }
 }
