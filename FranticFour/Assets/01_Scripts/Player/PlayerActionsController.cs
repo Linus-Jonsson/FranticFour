@@ -118,8 +118,8 @@ public class PlayerActionsController : MonoBehaviour
         OnTrapThrow.Invoke();
         Vector2 direction = rotationController.Dir.normalized;
         Vector3 offset = direction * rawOffset;
-        PreyTrap newTrap = Instantiate(preyTrap, transform.position + -offset, Quaternion.identity);
-        newTrap.PushTrap(-direction * trapPushForce);
+        PreyTrap newTrap = Instantiate(preyTrap, transform.position + offset, Quaternion.identity);
+        newTrap.PushTrap(direction * trapPushForce);
         laidTraps.Add(newTrap);
     }
 
