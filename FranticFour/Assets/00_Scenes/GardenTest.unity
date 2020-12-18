@@ -43459,6 +43459,7 @@ MonoBehaviour:
   deathCamera: {fileID: 601308674}
   killerCamera: {fileID: 1651965349}
   cameraWalls: {fileID: 3008481819180457900}
+  currentRound: 1
   preyProbability: 
 --- !u!1 &5337903708013599945
 GameObject:

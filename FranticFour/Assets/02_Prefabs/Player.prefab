@@ -5395,7 +5395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerLayer: 8
   jumpLayer: 9
-  jumpingDrag: 1
+  jumpingDrag: 15
   preyTrap: {fileID: 3140399524871574758, guid: a0ff91c6e4bdf6b45ab4387956b9838f, type: 3}
   rawOffset: 1
   trapPushForce: 10
@@ -5422,6 +5422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d55e8aaab03ba4f45a2687cbd6688013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  landingEffect: {fileID: 5349872072955159957, guid: a54ee5b7c9946d4479b906eabf630f95, type: 3}
 --- !u!114 &5966693910533769791
 MonoBehaviour:
   m_ObjectHideFlags: 0
