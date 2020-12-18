@@ -52,7 +52,6 @@ public class PlayerActionsController : MonoBehaviour
     AssignedController controller;
     Rigidbody2D rb2d;
     PlayerAudio playerAudio;
-    MovementController movementController;
 
     private void Awake()
     {
@@ -69,7 +68,6 @@ public class PlayerActionsController : MonoBehaviour
         animator = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
         playerAudio = GetComponent<PlayerAudio>();
-        movementController = GetComponent<MovementController>();
     }
 
     private void Update()

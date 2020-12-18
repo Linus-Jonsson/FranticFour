@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerAnimationsController : MonoBehaviour
 {
+    [SerializeField] GameObject landingEffect = null;
+
     Animator animator;
     RotationController rotationController;
     MovementController movementController;
@@ -48,5 +50,10 @@ public class PlayerAnimationsController : MonoBehaviour
     public void ResetAnimationTrigger(string triggerName)
     {
         animator.ResetTrigger(triggerName);
+    }
+
+    public void PlayLandingEffect()
+    {
+        Instantiate(landingEffect, transform.position, Quaternion.identity);
     }
 }
