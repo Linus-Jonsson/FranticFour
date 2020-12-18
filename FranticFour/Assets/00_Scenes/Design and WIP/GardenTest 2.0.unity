@@ -64241,7 +64241,7 @@ GameObject:
   - component: {fileID: 1365444948}
   m_Layer: 18
   m_Name: Bushes etc
-  m_TagString: Untagged
+  m_TagString: Unwalkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138989,11 +138989,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6500163289584686781, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.29
+      value: -18.31
       objectReference: {fileID: 0}
     - target: {fileID: 6500163289584686781, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.65
+      value: 11.75
       objectReference: {fileID: 0}
     - target: {fileID: 6500163289584686781, guid: e1faa1ea1a5db154a8a46e87e81f4463, type: 3}
       propertyPath: m_LocalPosition.z
@@ -143946,11 +143946,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3894801978590738933, guid: 3858cf9da202f29459664fb17c23f70d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.98
+      value: -21.029999
       objectReference: {fileID: 0}
     - target: {fileID: 3894801978590738933, guid: 3858cf9da202f29459664fb17c23f70d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 11.9
       objectReference: {fileID: 0}
     - target: {fileID: 3894801978590738933, guid: 3858cf9da202f29459664fb17c23f70d, type: 3}
       propertyPath: m_LocalPosition.z

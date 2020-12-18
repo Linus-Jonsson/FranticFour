@@ -188,6 +188,7 @@ public class Player : MonoBehaviour
     // have the animation call the playerGhostController instead.
     public void playerDead()
     {
+        dead = true;
         StopIsPushed();
         StopPushing();
         afterImageController.ResetAfterImage();

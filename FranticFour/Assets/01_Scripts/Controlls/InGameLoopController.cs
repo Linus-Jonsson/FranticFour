@@ -49,6 +49,7 @@ public class InGameLoopController : MonoBehaviour
     [Header("Current round")]
     [SerializeField] int currentRound = 1;
     Player currentPrey = null;
+    public Player CurrentPrey { get { return currentPrey; } }
     GamePlayUIController gameLoopUIController;
     [SerializeField] private List<int> preyProbability; //Serialized temporarily to make sure it works properly
     TargetGroupController targetGroupController;
@@ -88,11 +89,10 @@ public class InGameLoopController : MonoBehaviour
             yield return StartCoroutine(gameLoopUIController.CountRoundTime(roundDuration));
             audioController.MusicFadeOut();
             HandleEndOfRound();
-            if (currentRound == numberOfRounds)
-                break;
             yield return StartCoroutine(gameLoopUIController.NextRoundCountdown(players, roundOverDuration, currentRound));
             currentRound++;
         }
+
         ShowPlayers(false);
         ActivateAllPlayers(false);
         gameLoopUIController.DisplayFinalResults(players);
@@ -236,10 +236,13 @@ public class InGameLoopController : MonoBehaviour
         StartPreyScoreIncrease(false);
         foreach (var player in players)
         {
-            player.ResetPlayer();
             player.FreezeInput = true;
         }
         yield return StartCoroutine(CameraActionsAtPreyDeath(killer));
+        foreach (var player in players)
+        {
+            player.ResetPlayer();
+        }
         AudioController.instance.TransitionToMain();
         StartCoroutine(SpawnAllPlayers());
     }
