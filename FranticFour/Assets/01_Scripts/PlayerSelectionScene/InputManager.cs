@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InputManager : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class InputManager : MonoBehaviour
     [SerializeField] public bool[] canSelect = new bool[4]; //Todo Dod set to private or removed
     [SerializeField] private GameObject[] players = new GameObject[4];
     [SerializeField] private GameObject sceneLoader;
+    [SerializeField] private string sceneToLoad = "GardenTest 2.0";
     private HighligtSet highligtSet = null;
 
     private void Start()
@@ -26,6 +28,7 @@ public class InputManager : MonoBehaviour
         
         //If assigned, the GAME SCENE will load from PassControllersToGame and not assign new values
         PassControllersToGame.playersAssigned = true;
+        SceneManager.LoadScene(sceneToLoad);
         sceneLoader.SetActive(true);
     }
 
