@@ -5008,6 +5008,7 @@ GameObject:
   - component: {fileID: 3965931339345625353}
   - component: {fileID: 3985178706338996173}
   - component: {fileID: 5330127977976453162}
+  - component: {fileID: 5664669158383786870}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -5141,7 +5142,7 @@ Animator:
   m_GameObject: {fileID: 1475260784580471870}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c0cfc6dc5b86c4645a242da2bc01792c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0252e48471d51974db08558bd346a6d1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -5150,6 +5151,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5664669158383786870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475260784580471870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60f9f1b19fa91064d90f0e8fb3e6140a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4129092242214428501
 GameObject:
   m_ObjectHideFlags: 0
@@ -5382,14 +5395,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preySignifier: {fileID: 7588133988845099186}
-  scoreIncreaseThreshold: 10
+  scoreIncreaseThreshold: 8
   scoreIncreaseAnimator: {fileID: 5330127977976453162}
   scoreText: {fileID: 3985178706338996173}
   scoreIncreaseTimer: 0
   spriteRenderer: {fileID: 2128330477}
   originalColor: {r: 1, g: 1, b: 1, a: 1}
   ghostColor: {r: 1, g: 1, b: 1, a: 0.5019608}
-  scoreValue: 3
+  scoreValue: 5
+  preyAccidentScoreToHunters: 2
   roundScore: 0
   BecamePray:
     m_PersistentCalls:

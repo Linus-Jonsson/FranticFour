@@ -172,13 +172,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startShot: {fileID: 8300000, guid: 68c0b2d4a3a9d1c459345cd6f9025ebb, type: 3}
-  startShotVolume: 0.35
+  startShotVolume: 0.4
   fanfare: {fileID: 8300000, guid: 1b5c4946f9f0a7349993768b7574fdef, type: 3}
   fanfareVolume: 1
   failure: {fileID: 8300000, guid: 3a535e581dba9d8429abbb0b38a7e292, type: 3}
   failureVolume: 1
   point: {fileID: 8300000, guid: 27b1112c46d40304fa0d6b69569bec44, type: 3}
-  pointVolume: 0.25
+  pointVolume: 1
 --- !u!82 &3711897115845499018
 AudioSource:
   m_ObjectHideFlags: 0
@@ -192,7 +192,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 1.25
   Loop: 0
   Mute: 0
   Spatialize: 0

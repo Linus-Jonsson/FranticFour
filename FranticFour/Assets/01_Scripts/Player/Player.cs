@@ -29,7 +29,10 @@ public class Player : MonoBehaviour
 
     [SerializeField] int scoreValue = 3;
     public int ScoreValue { get { return scoreValue; } }
-
+    
+    [SerializeField] int preyAccidentScoreToHunters = 2;
+    public int PreyAccidentScoreToHunters { get { return preyAccidentScoreToHunters; } }
+    
     int totalScore = 0;
     public int TotalScore { get { return totalScore; } set { totalScore = value; } }
 
@@ -80,13 +83,7 @@ public class Player : MonoBehaviour
     AfterImageController afterImageController;
     Animator animator;
     InGameLoopController gameloopController;
-
-    // remove this once we are done with the print message.
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.layer == 13)
-            print("Triggered a hole and is now falling to death");
-    }
+    GameAudio gameAudio;
 
     private void Awake()
     {
@@ -107,12 +104,13 @@ public class Player : MonoBehaviour
         afterImageController = GetComponent<AfterImageController>();
         animator = GetComponent<Animator>();
         gameloopController = FindObjectOfType<InGameLoopController>();
+        gameAudio = AudioController.instance.GetComponentInChildren<GameAudio>();
     }
 
     public void UnFreeze()
     {
         if(!gameloopController.CurrentPrey.dead)
-        freezeInput = false;
+            freezeInput = false;
     }
 
     public void IncreaseScore(int scoreChange)
@@ -226,9 +224,14 @@ public class Player : MonoBehaviour
     {
         scoreIncreaseTimer -= scoreIncreaseThreshold;
         int scoreToAdd = 1 + survivalStreak;
-        scoreText.text = "+" + scoreToAdd.ToString();
-        scoreIncreaseAnimator.SetTrigger("DisplayIncrease");
+        DisplayScoreIncrease(scoreToAdd);
         IncreaseScore(scoreToAdd);
         survivalStreak++;
+    }
+    
+    public void DisplayScoreIncrease(int scoreValue)
+    {
+        scoreText.text = "+" + scoreValue.ToString();
+        scoreIncreaseAnimator.SetTrigger("DisplayIncrease");
     }
 }
