@@ -51,7 +51,7 @@ public class MovementController : MonoBehaviour
     private Vector2 GetMovement()
     {
         Vector2 m_inputLeft = new Vector2(Input.GetAxis(controller.Horizontal), Input.GetAxis(controller.Vertical));
-        
+
         if(m_inputLeft.magnitude < DeadZones.DEADZONE_LEFT)
             m_inputLeft = Vector2.zero;
         
