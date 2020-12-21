@@ -53,11 +53,12 @@ public class DeathController : MonoBehaviour
             gameAudio.PlaySound("fanfare");
             player.PushedBy.SetAnimationTrigger("Win");
             player.PushedBy.IncreaseScore(player.ScoreValue);
+            player.PushedBy.DisplayScoreIncrease(player.ScoreValue);
         }
         else
         {
             gameAudio.PlaySound("failure");
-            gameLoopController.IncreaseAllScores(Mathf.RoundToInt(player.ScoreValue / 3));
+            gameLoopController.IncreaseAllScores(Mathf.RoundToInt(player.PreyAccidentScoreToHunters));
         }
         player.FreezeInput = true;
         player.NumberOfDeaths = player.NumberOfDeaths + 1;

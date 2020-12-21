@@ -125,7 +125,7 @@ public class GamePlayUIController : GamePlayUIDisplay
                 player.AddRoundScoreToTotalScore();
                 gameAudio.PlaySound("point");
                 SetPlayerRoundScores(players, roundNumber);
-                yield return new WaitForSeconds(0.1f);
+                yield return new WaitForSeconds(0.07f);
             }
         }
         yield return new WaitForSeconds(duration / 2);
@@ -255,7 +255,7 @@ public class GamePlayUIController : GamePlayUIDisplay
 
     private void HandlePreyMisstep(Player prey)
     {
-        killedByText.text = "ACCIDENTAL DEATH - All hunters score a point!";
+        killedByText.text = "ACCIDENTAL DEATH - Hunters score 2 points each!";
         int index = 0;
         foreach (var image in killerImages)
         {
