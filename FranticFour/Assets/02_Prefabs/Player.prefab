@@ -5334,7 +5334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preySignifier: {fileID: 7588133988845099186}
-  scoreIncreaseThreshold: 5
+  scoreIncreaseThreshold: 10
   scoreIncreaseAnimator: {fileID: 5330127977976453162}
   scoreText: {fileID: 3985178706338996173}
   scoreIncreaseTimer: 0
@@ -5395,7 +5395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerLayer: 8
   jumpLayer: 9
-  jumpingDrag: 15
+  jumpingDrag: 25
   preyTrap: {fileID: 3140399524871574758, guid: a0ff91c6e4bdf6b45ab4387956b9838f, type: 3}
   rawOffset: 1
   trapPushForce: 10

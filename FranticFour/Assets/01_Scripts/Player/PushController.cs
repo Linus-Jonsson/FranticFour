@@ -9,15 +9,22 @@ public class PushController : MonoBehaviour
     [SerializeField] List<Player> targets = new List<Player>();
     [Tooltip("The time (in milliseconds) that the game freezes when getting pushed")]
     [SerializeField] int freezeDuration = 150;
+
+    float pushRange = 0f;
+
     Player player;
     Rigidbody2D rb2d;
     Animator animator;
     PlayerAudio playerAudio;
     PlayerActionsController playerActionsController;
 
+
     private void Awake()
     {
         GetReferences();
+        float x = GetComponent<BoxCollider2D>().size.x *2;
+        float y = GetComponent<BoxCollider2D>().size.y *2;
+        pushRange = Mathf.Sqrt(x + y);
     }
 
     private void GetReferences()
@@ -74,6 +81,13 @@ public class PushController : MonoBehaviour
                 closestTargetDistance = Vector2.Distance(closestTarget.position, player.position);
             }
         }
+
+        if (closestTargetDistance > pushRange)
+        {
+            Debug.LogWarning(closestTarget.name + " Is to far away to be pushed");
+            return null;
+        }
+
         return closestTarget.GetComponentInChildren<PushController>();
     }
 

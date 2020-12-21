@@ -79,6 +79,7 @@ public class Player : MonoBehaviour
     RotationController rotationController;
     AfterImageController afterImageController;
     Animator animator;
+    InGameLoopController gameloopController;
 
     // remove this once we are done with the print message.
     private void OnTriggerEnter2D(Collider2D other)
@@ -105,10 +106,12 @@ public class Player : MonoBehaviour
         rotationController = GetComponent<RotationController>();
         afterImageController = GetComponent<AfterImageController>();
         animator = GetComponent<Animator>();
+        gameloopController = FindObjectOfType<InGameLoopController>();
     }
 
     public void UnFreeze()
     {
+        if(!gameloopController.CurrentPrey.dead)
         freezeInput = false;
     }
 

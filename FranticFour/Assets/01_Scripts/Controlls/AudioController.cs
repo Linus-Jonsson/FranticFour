@@ -80,6 +80,8 @@ public class AudioController : MonoBehaviour
     
     public void PlayGameMusic(bool value)
     {
+        PlayMenuMusic(!value);
+
         if (gameMusic is null)
             return;
         
