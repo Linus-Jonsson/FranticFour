@@ -30,8 +30,8 @@ TagManager:
   - Ghost
   - InGameUI
   - PlayerBody
-  - 
-  - 
+  - GhostCollider
+  - OutOfBounds
   - 
   - 
   - 
