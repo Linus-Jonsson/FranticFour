@@ -103,14 +103,6 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.14509805
       objectReference: {fileID: 0}
-    - target: {fileID: 3131435159972214995, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
-      propertyPath: push
-      value: 
-      objectReference: {fileID: 8300000, guid: d5a5e36b97279a54aa9f16e2b68c103f, type: 3}
-    - target: {fileID: 3131435159972214995, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
-      propertyPath: pushed
-      value: 
-      objectReference: {fileID: 8300000, guid: c791ee99653b5a64c8c49f24373ab814, type: 3}
     - target: {fileID: 5439504268739004778, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: onOffObject
       value: 
@@ -184,10 +176,6 @@ PrefabInstance:
       value: Bunny
       objectReference: {fileID: 0}
     - target: {fileID: 5575129103467070817, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: b7b41007fe4037647809aa882fce2963, type: 3}
-    - target: {fileID: 5575129103467070817, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
@@ -234,10 +222,6 @@ PrefabInstance:
     - target: {fileID: 7163962998717739410, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: originalColor.r
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8341767116159443679, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.585
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7163962998717739410, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
