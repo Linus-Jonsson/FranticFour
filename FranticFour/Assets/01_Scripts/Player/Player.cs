@@ -169,6 +169,11 @@ public class Player : MonoBehaviour
         pushController.ResetPushList();
     }
 
+    public void ResetPlayerColor()
+    {
+        spriteRenderer.color = Color.white;
+    }
+
     public void SetPrey(bool value, float speed)
     {
         isPrey = value;

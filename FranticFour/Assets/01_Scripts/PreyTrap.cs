@@ -38,6 +38,7 @@ public class PreyTrap : MonoBehaviour
     private void SetPlayerStunAnimation(Player player)
     {
         GetComponent<AudioSource>().Play();
+        player.GetComponent<AfterImageController>().ResetAfterImage();
         player.IsPushed = false;
         player.FreezeInput = true;
         player.GetComponent<Animator>().SetTrigger("Stunned");
