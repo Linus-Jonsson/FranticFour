@@ -5556,11 +5556,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jump: {fileID: 8300000, guid: f5c0ade823ed9f34ba037b046fa8ad30, type: 3}
-  jumpVolume: 0.25
+  jumpVolume: 0.75
   push: {fileID: 8300000, guid: d5a5e36b97279a54aa9f16e2b68c103f, type: 3}
   pushVolume: 1
   pushed: {fileID: 8300000, guid: 9400b6cff40c1294d81436b17452d766, type: 3}
-  pushedVolume: 0.8
+  pushedVolume: 0.9
 --- !u!82 &2199777990811486062
 AudioSource:
   m_ObjectHideFlags: 0
