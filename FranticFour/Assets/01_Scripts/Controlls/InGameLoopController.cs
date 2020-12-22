@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class InGameLoopController : MonoBehaviour
@@ -175,6 +176,9 @@ public class InGameLoopController : MonoBehaviour
     
     private void HandleEndOfRound()
     {
+        foreach (Player m_player in players)
+            m_player.Prey = false;
+
         ShowPlayers(false);
         isBetweenRounds = true;
         StopCoroutine(HandleRespawnOfAllPlayers(null));
@@ -182,7 +186,7 @@ public class InGameLoopController : MonoBehaviour
         gameLoopUIController.StopSpawnCountDown();         
         gameLoopUIController.SetKillScreen(null, null, false);
         ActivateAllPlayers(false);
-        // CalculateScores();
+        //CalculateScores();
     }
 
     IEnumerator SpawnAllPlayers()
@@ -235,6 +239,7 @@ public class InGameLoopController : MonoBehaviour
     private IEnumerator HandleRespawnOfAllPlayers(Player killer)
     {
         StartPreyScoreIncrease(false);
+        
         foreach (var player in players)
         {
             player.FreezeInput = true;
@@ -244,6 +249,7 @@ public class InGameLoopController : MonoBehaviour
         {
             player.ResetPlayer();
         }
+        
         AudioController.instance.TransitionToMain();
         StartCoroutine(SpawnAllPlayers());
     }
@@ -252,7 +258,6 @@ public class InGameLoopController : MonoBehaviour
     {
         foreach (var player in players)
         {
-
             if (player.Prey)
                 player.ShouldIncreaseScore = value;
         }
@@ -309,6 +314,11 @@ public class InGameLoopController : MonoBehaviour
             player.ResetPlayer();
             player.TotalScore = 0;
         }
+
+        AssignPlayers.keyboardAssigned = false;
+        SceneManager.LoadScene("GardenTest 2.0");
+        return;
+        
         currentRound = 1;
         currentPrey = null;
         gameCamera.SetActive(false);
