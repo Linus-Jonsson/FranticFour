@@ -223,13 +223,13 @@ public class GamePlayUIController : GamePlayUIDisplay
                     break;
             }
     }
-    private void SetPlayerResults(Player player, TextMeshProUGUI placement, TextMeshProUGUI name, TextMeshProUGUI score )
+    private void SetPlayerResults(Player player, GameObject placement, TextMeshProUGUI name, TextMeshProUGUI score )
     {
         score.text = player.TotalScore.ToString() + " points"; ;
         name.text = "Player " + player.PlayerNumber;
-        placement.fontSize = placementTextSizes[player.Placement];
-        placement.color = placementColors[player.Placement];
-        placement.text = placements[player.Placement];
+        // placement.fontSize = placementTextSizes[player.Placement];
+        // placement.color = placementColors[player.Placement];
+        // placement.text = placements[player.Placement];
     }
 
     public void SetKillScreen(Player prey, Player killer, bool value)
