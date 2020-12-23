@@ -31,17 +31,16 @@ public class GamePlayUIController : GamePlayUIDisplay
         preeRoundDisplay.SetActive(true);
         while (duration > 0)
         {
-            SetCountDownDisplayNumber(duration, "Prey revealed in ", preRoundTime);
+            SetCountDownDisplayNumber(duration, preRoundTime);
             yield return new WaitForSeconds(timeDecreaseIncrement);
             duration -= timeDecreaseIncrement;
         }
-        preeRoundDisplay.SetActive(false);
     }
     private void SetRoundAndPlayerDisplay(Player[] players, int roundNumber)
     {
         round.text = "Round " + roundNumber;
-        foreach (var player in players)
-            SetPlayerText(player);
+        // foreach (var player in players)
+        //     SetPlayerText(player);
     }
     private void SetPlayerText(Player player)
     {
@@ -62,24 +61,17 @@ public class GamePlayUIController : GamePlayUIDisplay
         }
     }
 
-    public IEnumerator PreyCountdown(Player prey, float duration)
+    public IEnumerator PreyReveal(Player prey, float duration)
     {
         DisplayThePrey(prey);
-        preyDisplay.SetActive(true);
-        while (duration > 0)
-        {
-            SetCountDownDisplayNumber(duration, "Round starts in ", preyCountdown);
-            yield return new WaitForSeconds(timeDecreaseIncrement);
-            duration -= timeDecreaseIncrement;
-        }
-        preyDisplay.SetActive(false);
+        yield return new WaitForSeconds(duration);
+        preeRoundDisplay.SetActive(false);
     }
 
     private void DisplayThePrey(Player prey)
     {
         foreach (var image in preyImages)
-            image.SetActive(false);
-        TurnPreyOn(prey);
+            image.GetComponent<Animator>().SetTrigger(image.name == prey.name ? "Prey" : "NotPrey");
         preyNumber.text = prey.name + " is the PREY this round!";
     }
     private void TurnPreyOn(Player prey)
@@ -106,7 +98,7 @@ public class GamePlayUIController : GamePlayUIDisplay
         roundTime.gameObject.SetActive(true);
         while (duration > 0)
         {
-            SetCountDownDisplayNumber(duration, "", roundTime);
+            SetCountDownDisplayNumber(duration, roundTime);
             yield return new WaitForSeconds(timeDecreaseIncrement);
             duration -= timeDecreaseIncrement;
         }
@@ -141,10 +133,10 @@ public class GamePlayUIController : GamePlayUIDisplay
         countDownDisplay.SetActive(false);
     }
 
-    private void SetCountDownDisplayNumber(float duration, string message,TextMeshProUGUI countDownText)
+    private void SetCountDownDisplayNumber(float duration, TextMeshProUGUI countDownText)
     {
         float numberToDisplay = (float)System.Math.Round(duration, 2);
-        countDownText.text = message + numberToDisplay.ToString();
+        countDownText.text = numberToDisplay.ToString();
     }
 
     private void SetPlayerRoundScores(Player[] players, int roundNumber)
