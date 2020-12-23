@@ -74,6 +74,9 @@ public class PushController : MonoBehaviour
 
         foreach (var target in targets)
         {
+            if (target.Prey)
+                return target.GetComponentInChildren<PushController>();
+
             float targetDistance = Vector2.Distance(target.transform.position, player.position);
             if (targetDistance < closestTargetDistance)
             {
