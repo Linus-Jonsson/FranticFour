@@ -67,6 +67,7 @@ public class MovementController : MonoBehaviour
     
     public void ReduceVelocityAfterJump()
     {
+        player.FreezeInput = true;
         rb2d.velocity = Vector2.zero;
     }
 
