@@ -84,7 +84,6 @@ public class SelectionController : MonoBehaviour
         isSelecting = true;
         hasControllerJoined = true;
         
-        myPlayer.PressToJoinTmPro.text = "";
         myPlayer.PressToJoinIcon.SetActive(false);
         myPlayer.SelectedHighlight.SetActive(true);
         myPlayer.SelectedHighlightLerp.StartLerp();
