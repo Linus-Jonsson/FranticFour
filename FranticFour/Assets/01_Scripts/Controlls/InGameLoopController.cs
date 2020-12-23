@@ -319,10 +319,10 @@ public class InGameLoopController : MonoBehaviour
         SceneManager.LoadScene("GardenTest 2.0");
         return;
         
-        currentRound = 1;
+/*        currentRound = 1;
         currentPrey = null;
         gameCamera.SetActive(false);
-        StartCoroutine(HandleGameLoop());
+        StartCoroutine(HandleGameLoop());*/
     }
 
     public void IncreaseAllScores(int scoreToAdd)
