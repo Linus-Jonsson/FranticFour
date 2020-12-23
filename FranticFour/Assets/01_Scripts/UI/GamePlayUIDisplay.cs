@@ -63,11 +63,13 @@ public class GamePlayUIDisplay : MonoBehaviour
     [SerializeField] protected TextMeshProUGUI player4TotalScore = null;
     [SerializeField] protected TextMeshProUGUI player4ResultHeader = null;
 
-    [SerializeField] protected GameObject player1Placement = null;
-    [SerializeField] protected GameObject player2Placement = null;
-    [SerializeField] protected GameObject player3Placement = null;
-    [SerializeField] protected GameObject player4Placement = null;
+    [SerializeField] protected SpriteRenderer player1Placement = null;
+    [SerializeField] protected SpriteRenderer player2Placement = null;
+    [SerializeField] protected SpriteRenderer player3Placement = null;
+    [SerializeField] protected SpriteRenderer player4Placement = null;
     
+    [SerializeField] protected Sprite[] podiums = new Sprite[3];
+
     [Header("Prey kill screen configuration")]
     [SerializeField] protected GameObject killScreenDisplay = null;
     [SerializeField] protected TextMeshProUGUI killedByText = null;

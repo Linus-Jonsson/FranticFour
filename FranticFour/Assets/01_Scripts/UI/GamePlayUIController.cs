@@ -210,23 +210,24 @@ public class GamePlayUIController : GamePlayUIDisplay
             switch (player.gameObject.name)
             {
                 case "Duck":
-                    SetPlayerResults(player, player1Placement, player1ResultHeader, player1TotalScore);
+                    SetPlayerResults(player, player1Placement, player1TotalScore);
                     break;
                 case "Pig":
-                    SetPlayerResults(player, player2Placement, player2ResultHeader, player2TotalScore);
+                    SetPlayerResults(player, player2Placement, player2TotalScore);
                     break;
                 case "Bunny":
-                    SetPlayerResults(player, player3Placement, player3ResultHeader, player3TotalScore);
+                    SetPlayerResults(player, player3Placement, player3TotalScore);
                     break;
                 case "Sheep":
-                    SetPlayerResults(player, player4Placement, player4ResultHeader, player4TotalScore);
+                    SetPlayerResults(player, player4Placement, player4TotalScore);
                     break;
             }
     }
-    private void SetPlayerResults(Player player, GameObject placement, TextMeshProUGUI name, TextMeshProUGUI score )
+    private void SetPlayerResults(Player player, SpriteRenderer placement, TextMeshProUGUI score )
     {
-        score.text = player.TotalScore.ToString() + " points"; ;
-        name.text = "Player " + player.PlayerNumber;
+        score.text = player.TotalScore.ToString() + " points";
+        placement.sprite = player.Placement == 3 ? null : podiums[player.Placement];
+        // name.text = "Player " + player.PlayerNumber;
         // placement.fontSize = placementTextSizes[player.Placement];
         // placement.color = placementColors[player.Placement];
         // placement.text = placements[player.Placement];
