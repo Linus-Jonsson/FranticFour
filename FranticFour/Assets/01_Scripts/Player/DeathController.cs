@@ -24,14 +24,44 @@ public class DeathController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!player.Dead && (other.gameObject.CompareTag("Danger") || other.gameObject.layer == 13))
+        if (!player.Dead && (other.gameObject.layer == 10 || other.gameObject.layer == 13))
+        {
+            switch (other.gameObject.tag)
+            {
+                case "Fire":
+                    print("Collided with Fire trap");
+                    player.SetAnimationTrigger("Death");
+                    break;
+                case "Saw":
+                    print("Collided with Saw trap");
+                    player.SetAnimationTrigger("Death");
+                    break;
+                case "Spike":
+                    print("Collided with Spike trap");
+                    player.SetAnimationTrigger("Death");
+                    break;
+                case "Hole":
+                    print("Hejsan jamie");
+                    break;                
+                case "Plant":
+                    print("Collided with Plant trap");
+                    player.SetAnimationTrigger("Death");
+                    break;
+                default:
+                    Debug.LogWarning("Hit trap whose tag is not in the switch!");
+                    player.SetAnimationTrigger("Death");
+                    break;
+            }
             HandleDeath();
+        }
+
     }
 
     private void HandleDeath()
     {
         if (gameLoopController.CurrentPrey.Dead) { return; }
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
         player.playerDead();
         if (deathParticles) //Null check
             ShowDeathEffect();
@@ -47,7 +77,6 @@ public class DeathController : MonoBehaviour
     private void HandlePreyKilled()
     {
         AudioController.instance.TransitionToLowerMusic();
-        player.SetAnimationTrigger("Death");
         if (player.PushedBy != null)
         {
             gameAudio.PlaySound("fanfare");

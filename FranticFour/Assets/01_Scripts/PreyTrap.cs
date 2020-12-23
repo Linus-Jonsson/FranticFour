@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PreyTrap : MonoBehaviour
 {
+    [Tooltip("After this time the trap self destructs")]
+    [SerializeField] float selfDestructTimer = 10f;
+
     Rigidbody2D rb2d;
     Animator animator;
 
@@ -11,6 +14,7 @@ public class PreyTrap : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        StartCoroutine(trapCountDown());
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -38,6 +42,8 @@ public class PreyTrap : MonoBehaviour
     private void SetPlayerStunAnimation(Player player)
     {
         GetComponent<AudioSource>().Play();
+        player.GetComponent<AfterImageController>().ResetAfterImage();
+        player.IsPushed = false;
         player.FreezeInput = true;
         player.GetComponent<Animator>().SetTrigger("Stunned");
     }
@@ -50,5 +56,15 @@ public class PreyTrap : MonoBehaviour
     public void PushTrap(Vector2 pushForce)
     {
         rb2d.AddForce(pushForce, ForceMode2D.Impulse);
+    }
+
+    IEnumerator trapCountDown()
+    {
+        while(selfDestructTimer > 0)
+        {
+            yield return new WaitForSeconds(1f);
+            selfDestructTimer -= 1f;
+        }
+        DestroyTrap();
     }
 }

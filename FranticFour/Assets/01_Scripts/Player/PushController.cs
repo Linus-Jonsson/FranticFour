@@ -99,24 +99,26 @@ public class PushController : MonoBehaviour
 
     public void GetPushed(Vector2 pushForce, Player pusher)
     {
-            HandlePush(pushForce, pusher);
+        HandlePush(pushForce, pusher);
     }
 
     private void HandlePush(Vector2 pushForce, Player pusher)
     {
+        player.ResetPlayerColor();
         playerActionsController.Jumping(false);
         playerAudio.PlaySound("pushed");
         Thread.Sleep(freezeDuration);
         player.FreezeInput = true;
-        player.IsPushed = true;
         animator.SetTrigger("Pushed");
         player.PushedBy = pusher;
         rb2d.velocity = Vector2.zero;
-        AddPushForce(pushForce);
+        if (!player.IsPushed)
+            AddPushForce(pushForce);
     }
 
     private async void AddPushForce(Vector2 pushForce)
-    {
+    {        
+        player.IsPushed = true;
         while(player.IsPushed)
         {            
             rb2d.AddForce(pushForce);
