@@ -26,26 +26,28 @@ public class DeathController : MonoBehaviour
     {
         if (!player.Dead && (other.gameObject.layer == 10 || other.gameObject.layer == 13))
         {
+            player.FreezeInput = true;
             switch (other.gameObject.tag)
             {
                 case "Fire":
                     print("Collided with Fire trap");
-                    player.SetAnimationTrigger("Death");
+                    player.SetAnimationTrigger("FireDeath");
                     break;
                 case "Saw":
                     print("Collided with Saw trap");
-                    player.SetAnimationTrigger("Death");
+                    player.SetAnimationTrigger("SawDeath");
                     break;
                 case "Spike":
                     print("Collided with Spike trap");
-                    player.SetAnimationTrigger("Death");
+                    player.SetAnimationTrigger("SpikeDeath");
                     break;
                 case "Hole":
-                    print("Hejsan jamie");
+                    print("Collided with a hole");
+                    player.SetAnimationTrigger("HoleDeath");
                     break;                
                 case "Plant":
                     print("Collided with Plant trap");
-                    player.SetAnimationTrigger("Death");
+                    player.SetAnimationTrigger("PlantDeath");
                     break;
                 default:
                     Debug.LogWarning("Hit trap whose tag is not in the switch!");

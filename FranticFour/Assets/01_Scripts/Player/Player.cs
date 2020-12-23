@@ -198,6 +198,10 @@ public class Player : MonoBehaviour
         StopIsPushed();
         StopPushing();
         afterImageController.ResetAfterImage();
+    }
+
+    public void StartGhosting()
+    {
         respawnController.StartGhosting();
     }
 
