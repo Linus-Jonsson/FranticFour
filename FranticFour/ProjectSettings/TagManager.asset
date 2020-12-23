@@ -7,6 +7,11 @@ TagManager:
   - Danger
   - Unwalkable
   - PlayerBody
+  - Fire
+  - Spike
+  - Hole
+  - Plant
+  - Saw
   layers:
   - Default
   - TransparentFX
