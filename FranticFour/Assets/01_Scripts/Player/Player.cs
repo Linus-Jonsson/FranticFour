@@ -206,6 +206,7 @@ public class Player : MonoBehaviour
         StopIsPushed();
         StopPushing();
         afterImageController.ResetAfterImage();
+        gameloopController.RemovePushFromPrey(this);
     }
 
     public void StartGhosting()
