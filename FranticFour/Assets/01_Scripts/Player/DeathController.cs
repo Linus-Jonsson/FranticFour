@@ -85,6 +85,12 @@ public class DeathController : MonoBehaviour
             player.PushedBy.SetAnimationTrigger("Win");
             player.PushedBy.IncreaseScore(player.ScoreValue);
             player.PushedBy.DisplayScoreIncrease(player.ScoreValue);
+
+            if (player.AssistPusher != null)
+            {
+                player.AssistPusher.IncreaseScore(player.AssistScore);
+                player.AssistPusher.DisplayScoreIncrease(player.AssistScore);
+            }
         }
         else
         {
