@@ -11,6 +11,15 @@ public class MovementController : MonoBehaviour
     Vector2 movement = new Vector2(0,0);
     public Vector2 Movement { get { return movement;} }
 
+    [Tooltip("The maximum amount that speed can increase base on distance to prey")]
+    [SerializeField] float maxSpeedIncrease = 50;
+    [Tooltip("The distance that the speed boost starts to take effect")]
+    [SerializeField] float minimumBoostDistance = 5f;
+
+    [SerializeField] float distance = 0;
+
+    [SerializeField] float speedBoost = 0;
+
     [Tooltip("The amount that the players current velocity gets multiplied by at the start")]
     [SerializeField] float pushForceMultiplier = 5.0f;
 
@@ -18,6 +27,7 @@ public class MovementController : MonoBehaviour
     RotationController rotationController;
     Rigidbody2D rb2d;
     Player player;
+    InGameLoopController gameLoopController;
 
     private void Awake()
     {
@@ -30,12 +40,31 @@ public class MovementController : MonoBehaviour
         rotationController = GetComponent<RotationController>();
         rb2d = GetComponent<Rigidbody2D>();
         player = GetComponent<Player>();
+        gameLoopController = FindObjectOfType<InGameLoopController>();
     }
 
     void FixedUpdate()
-    {   
-        if (!player.FreezeInput)
-            MovePlayer();
+    {
+        if (player.FreezeInput)
+            return;
+        CalculateSpeedBoost();
+        MovePlayer();
+    }
+
+    private void CalculateSpeedBoost()
+    {
+        Player prey = gameLoopController.CurrentPrey;
+        distance = Vector2.Distance(transform.position, prey.transform.position);
+        if (distance > minimumBoostDistance)
+        {
+            speedBoost = distance * 2;
+            if (speedBoost > maxSpeedIncrease)
+                speedBoost = maxSpeedIncrease;
+        }
+        else
+        {
+            speedBoost = 0;
+        }
     }
 
     private void MovePlayer()
@@ -43,7 +72,8 @@ public class MovementController : MonoBehaviour
         movement = GetMovement();
         if (movement.sqrMagnitude > 1)
             movement = movement.normalized;
-        rb2d.AddForce(movement * movementSpeed);
+
+        rb2d.AddForce(movement * (movementSpeed + speedBoost));
 
         if (rb2d.velocity.magnitude > maxSpeed)
             rb2d.velocity = Vector2.ClampMagnitude(rb2d.velocity, maxSpeed);

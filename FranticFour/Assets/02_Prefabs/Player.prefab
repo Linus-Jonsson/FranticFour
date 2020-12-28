@@ -5403,8 +5403,11 @@ MonoBehaviour:
   originalColor: {r: 1, g: 1, b: 1, a: 1}
   ghostColor: {r: 1, g: 1, b: 1, a: 0.5019608}
   scoreValue: 5
+  assistScore: 2
   preyAccidentScoreToHunters: 2
   roundScore: 0
+  pushedBy: {fileID: 0}
+  assistPusher: {fileID: 0}
   BecamePray:
     m_PersistentCalls:
       m_Calls: []
@@ -5420,9 +5423,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 801c79b966ab6ad429f21cfb47231006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 10
+  maxSpeed: 30
   movementSpeed: 40
-  pushForceMultiplier: 40
+  maxSpeedIncrease: 50
+  minimumBoostDistance: 5
+  distance: 0
+  speedBoost: 0
+  pushForceMultiplier: 100
 --- !u!114 &362613495
 MonoBehaviour:
   m_ObjectHideFlags: 0

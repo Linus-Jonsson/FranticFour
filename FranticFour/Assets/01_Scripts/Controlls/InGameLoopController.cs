@@ -236,6 +236,24 @@ public class InGameLoopController : MonoBehaviour
         StartCoroutine(HandleRespawnOfAllPlayers(killer));
     }
 
+    public void RemovePushFromPrey(Player deadPlayer)
+    {
+        foreach (var player in players)
+        {
+            if(player.Prey)
+            {
+
+                if (player.PushedBy != null)
+                    if (deadPlayer.name == player.PushedBy.name)
+                        player.PushedBy = null;
+
+                if(player.AssistPusher != null)
+                    if (deadPlayer.name == player.AssistPusher.name)
+                        player.AssistPusher = null;
+            }
+        }
+    }
+
     private IEnumerator HandleRespawnOfAllPlayers(Player killer)
     {
         StartPreyScoreIncrease(false);

@@ -29,6 +29,9 @@ public class Player : MonoBehaviour
 
     [SerializeField] int scoreValue = 3;
     public int ScoreValue { get { return scoreValue; } }
+
+    [SerializeField] int assistScore = 2;
+    public int AssistScore { get { return assistScore; } }
     
     [SerializeField] int preyAccidentScoreToHunters = 2;
     public int PreyAccidentScoreToHunters { get { return preyAccidentScoreToHunters; } }
@@ -66,8 +69,11 @@ public class Player : MonoBehaviour
     bool pushing = false;
     public bool Pushing { get { return pushing; } set { pushing = value; } }
 
-    Player pushedBy = null;
+    [SerializeField] Player pushedBy = null;
     public Player PushedBy { get { return pushedBy; } set { pushedBy = value; } }
+
+    [SerializeField] Player assistPusher = null;
+    public Player AssistPusher { get { return assistPusher; }  set { assistPusher = value; } }
 
     bool canPush = true;
     public bool CanPush { get { return canPush; } set { canPush = value; } }
@@ -134,6 +140,7 @@ public class Player : MonoBehaviour
     public void EndPush()
     {
         freezeInput = false;
+        assistPusher = PushedBy;
         pushedBy = null;
     }
 
@@ -166,6 +173,7 @@ public class Player : MonoBehaviour
         movementController.ResetMovement();
         afterImageController.ResetAfterImage();
         pushedBy = null;
+        assistPusher = null;
         pushController.ResetPushList();
     }
 
@@ -198,6 +206,7 @@ public class Player : MonoBehaviour
         StopIsPushed();
         StopPushing();
         afterImageController.ResetAfterImage();
+        gameloopController.RemovePushFromPrey(this);
     }
 
     public void StartGhosting()
