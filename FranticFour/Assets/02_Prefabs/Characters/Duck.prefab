@@ -7,10 +7,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
-      propertyPath: onOffObject
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 742136906, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
       value: 0.35

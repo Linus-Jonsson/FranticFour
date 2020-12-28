@@ -25,6 +25,8 @@ public class GamePlayUIDisplay : MonoBehaviour
     
     [Header("CountDown Configuration")]
     [SerializeField] protected GameObject countDownDisplay = null;
+    [SerializeField] protected GameObject tenSecondsLeftDisplay = null;
+    [SerializeField] protected GameObject roundCountDownDisplay = null;
 
     [Header("Score Display Configuration")]
     [SerializeField] protected GameObject scoreDisplay = null;
