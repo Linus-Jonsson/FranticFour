@@ -179,7 +179,6 @@ public class GamePlayUIController : GamePlayUIDisplay
         finalResultDisplay.SetActive(true);
         SetPlayerPlacement(players);
         SetResultTexts(players);
-        finalResultDisplay.SetActive(true);
     }
 
     private void SetPlayerPlacement(Player[] players)
