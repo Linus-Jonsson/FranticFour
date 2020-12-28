@@ -21,6 +21,10 @@ public class Player : MonoBehaviour
     [SerializeField] float scoreIncreaseTimer = 0f;
     int survivalStreak = 0;
 
+    [Tooltip("The time before assist gets set to null after someone has been set to assist")]
+    [SerializeField] float assistCountDownTimer = 5f;
+
+
     [SerializeField] SpriteRenderer spriteRenderer = null;
 
     [SerializeField] public Color originalColor = new Color(0, 0, 0, 0);
@@ -75,6 +79,8 @@ public class Player : MonoBehaviour
     [SerializeField] Player assistPusher = null;
     public Player AssistPusher { get { return assistPusher; }  set { assistPusher = value; } }
 
+    float assistCountdownTime = 0;
+
     bool canPush = true;
     public bool CanPush { get { return canPush; } set { canPush = value; } }
     
@@ -90,6 +96,8 @@ public class Player : MonoBehaviour
     Animator animator;
     InGameLoopController gameloopController;
     GameAudio gameAudio;
+
+    Coroutine assistTimer;
 
     private void Awake()
     {
@@ -251,5 +259,25 @@ public class Player : MonoBehaviour
     {
         scoreText.text = "+" + scoreValue.ToString();
         scoreIncreaseAnimator.SetTrigger("DisplayIncrease");
+    }
+
+    public void RestartAssistCounter()
+    {
+        if (assistTimer != null)
+            StopCoroutine(assistTimer);
+        assistTimer = StartCoroutine(AssistCountDown());
+    }
+
+    private IEnumerator AssistCountDown()
+    {
+        print("Started the assist countdown");
+        assistCountdownTime = assistCountDownTimer;
+        while (assistCountdownTime > 0)
+        {
+            yield return new WaitForSeconds(1f);
+            assistCountdownTime -= 1f;
+        }
+        print("Ended the asist countdown");
+        assistPusher = null;
     }
 }

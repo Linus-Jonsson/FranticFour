@@ -113,14 +113,26 @@ public class PushController : MonoBehaviour
         Thread.Sleep(freezeDuration);
         player.FreezeInput = true;
         animator.SetTrigger("Pushed");
-        if (player.PushedBy != null)
-            if (pusher.name != player.PushedBy.name)
-                player.AssistPusher = player.PushedBy;
 
-        player.PushedBy = pusher;
+        SetPusherAndAssistPusher(pusher);
+
+        player.RestartAssistCounter();
         rb2d.velocity = Vector2.zero;
         if (!player.IsPushed)
             AddPushForce(pushForce);
+    }
+
+    private void SetPusherAndAssistPusher(Player pusher)
+    {
+        if (player.AssistPusher != null)
+            if (pusher.name == player.AssistPusher.name)
+                player.AssistPusher = null;
+
+        if (player.PushedBy != null)
+            if (player.PushedBy.name != pusher.name)
+                player.AssistPusher = player.PushedBy;
+
+        player.PushedBy = pusher;
     }
 
     private async void AddPushForce(Vector2 pushForce)

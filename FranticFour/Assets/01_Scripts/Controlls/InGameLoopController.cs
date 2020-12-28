@@ -175,12 +175,12 @@ public class InGameLoopController : MonoBehaviour
     }
     
     private void HandleEndOfRound()
-    {
-        foreach (Player m_player in players)
-            m_player.Prey = false;
+    {        isBetweenRounds = true;
+        foreach (Player player in players)
+            player.Prey = false;
 
         ShowPlayers(false);
-        isBetweenRounds = true;
+
         StopCoroutine(HandleRespawnOfAllPlayers(null));
         gameCamera.SetActive(false);      
         gameLoopUIController.StopSpawnCountDown();         
@@ -195,6 +195,8 @@ public class InGameLoopController : MonoBehaviour
         int hunterSpawnCount = 1;
         foreach (var player in players)
         {
+            if (isBetweenRounds)
+                break;
             Vector2 spawnPosition;
             player.FreezeInput = true;
             if (player.Prey == true)
@@ -256,8 +258,7 @@ public class InGameLoopController : MonoBehaviour
 
     private IEnumerator HandleRespawnOfAllPlayers(Player killer)
     {
-        StartPreyScoreIncrease(false);
-        
+        StartPreyScoreIncrease(false);  
         foreach (var player in players)
         {
             player.FreezeInput = true;
