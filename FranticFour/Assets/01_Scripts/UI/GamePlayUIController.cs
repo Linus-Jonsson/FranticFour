@@ -19,16 +19,6 @@ public class GamePlayUIController : GamePlayUIDisplay
         gameAudio = FindObjectOfType<GameAudio>();
     }
 
-    public IEnumerator LevelIntro(float overviewDuration, float zoomInDuration, GameObject camera1, GameObject camera2)
-    {
-        camera1.SetActive(true);
-        yield return new WaitForSeconds(overviewDuration);
-        camera2.SetActive(true);
-        yield return new WaitForSeconds(zoomInDuration);
-        camera1.SetActive(false);
-        camera2.SetActive(false);
-    }
-    
     public IEnumerator PreRoundCountdown(float duration, Player[] players, int roundNumber)
     {
         SetRoundAndPlayerDisplay(players, roundNumber);
@@ -74,27 +64,9 @@ public class GamePlayUIController : GamePlayUIDisplay
 
     private void DisplayThePrey(Player prey)
     {
-        foreach (var image in preyImages)
-            image.GetComponent<Animator>().SetTrigger(image.name == prey.name ? "Prey" : "NotPrey");
+        foreach (var animator in preyRevealAnimators)
+            animator.SetTrigger(animator.name == prey.name ? "Prey" : "NotPrey");
         preyNumber.text = prey.name + " is the PREY this round!";
-    }
-    private void TurnPreyOn(Player prey)
-    {
-        switch (prey.name)
-        {
-            case "Duck":
-                preyImages[0].SetActive(true);
-                break;
-            case "Pig":
-                preyImages[1].SetActive(true);
-                break;
-            case "Bunny":
-                preyImages[2].SetActive(true);
-                break;
-            case "Sheep":
-                preyImages[3].SetActive(true);
-                break;
-        }
     }
 
     public IEnumerator CountRoundTime(float duration)

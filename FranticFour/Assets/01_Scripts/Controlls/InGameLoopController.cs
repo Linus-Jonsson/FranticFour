@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
@@ -55,6 +56,7 @@ public class InGameLoopController : MonoBehaviour
     [SerializeField] private List<int> preyProbability; //Serialized temporarily to make sure it works properly
     TargetGroupController targetGroupController;
     AudioController audioController;
+    SpawnPoint firstSpawnPoint;
     bool isBetweenRounds = true;
 
     void Start()
@@ -67,6 +69,7 @@ public class InGameLoopController : MonoBehaviour
         gameLoopUIController = FindObjectOfType<GamePlayUIController>();
         targetGroupController = FindObjectOfType<TargetGroupController>();
         audioController = FindObjectOfType<AudioController>();
+        firstSpawnPoint = GetSpawnPoint();
     }
 
     IEnumerator HandleGameLoop()
@@ -85,7 +88,7 @@ public class InGameLoopController : MonoBehaviour
             yield return StartCoroutine(gameLoopUIController.PreyReveal(currentPrey, preyRevealDuration));
             audioController.PlayGameMusic(true);
             if (currentRound == 1)
-                yield return StartCoroutine(gameLoopUIController.LevelIntro(overviewTime, zoomInTime, introCamera, introCamera2));
+                yield return StartCoroutine(LevelIntro());
             audioController.TransitionToMain();
             HandleStartOfRound();
             yield return StartCoroutine(gameLoopUIController.CountRoundTime(roundDuration));
@@ -100,6 +103,16 @@ public class InGameLoopController : MonoBehaviour
         gameLoopUIController.DisplayFinalResults(players);
     }
 
+    private IEnumerator LevelIntro()
+    {
+        introCamera.SetActive(true);
+        yield return new WaitForSeconds(overviewTime);
+        introCamera2.GetComponent<CinemachineVirtualCamera>().Follow = firstSpawnPoint.transform;
+        introCamera2.SetActive(true);
+        yield return new WaitForSeconds(zoomInTime);
+        introCamera.SetActive(false);
+    }
+    
     private void ShowPlayers(bool value)
     {
         foreach (var player in players)
@@ -170,17 +183,17 @@ public class InGameLoopController : MonoBehaviour
         ShowPlayers(true);
         isBetweenRounds = false;
         ActivateAllPlayers(true);
+        introCamera2.SetActive(false);
         gameCamera.SetActive(true);
         StartCoroutine(SpawnAllPlayers());
     }
     
     private void HandleEndOfRound()
-    {        isBetweenRounds = true;
+    {        
+        isBetweenRounds = true;
         foreach (Player player in players)
             player.Prey = false;
-
         ShowPlayers(false);
-
         StopCoroutine(HandleRespawnOfAllPlayers(null));
         gameCamera.SetActive(false);      
         gameLoopUIController.StopSpawnCountDown();         
@@ -191,7 +204,7 @@ public class InGameLoopController : MonoBehaviour
 
     IEnumerator SpawnAllPlayers()
     {
-        SpawnPoint spawnPoint = GetSpawnPoint();
+        SpawnPoint spawnPoint = currentRound == 1 ? firstSpawnPoint : GetSpawnPoint();
         int hunterSpawnCount = 1;
         foreach (var player in players)
         {
