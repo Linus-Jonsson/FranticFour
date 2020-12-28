@@ -50,24 +50,22 @@ public class GamePlayUIDisplay : MonoBehaviour
 
     [Header("Final result display configuration")]
     [SerializeField] protected GameObject finalResultDisplay = null;
-    [SerializeField] protected int[] placementTextSizes = new int[4];
-    [SerializeField] protected Color[] placementColors = new Color[4];
-    [SerializeField] protected string[] placements = new string[4];
 
-    [SerializeField] protected TextMeshProUGUI player1TotalScore = null;
-    [SerializeField] protected TextMeshProUGUI player1ResultHeader = null;
-    [SerializeField] protected TextMeshProUGUI player2TotalScore = null;
-    [SerializeField] protected TextMeshProUGUI player2ResultHeader = null;
-    [SerializeField] protected TextMeshProUGUI player3TotalScore = null;
-    [SerializeField] protected TextMeshProUGUI player3ResultHeader = null;
-    [SerializeField] protected TextMeshProUGUI player4TotalScore = null;
-    [SerializeField] protected TextMeshProUGUI player4ResultHeader = null;
+    [SerializeField] protected TextMeshProUGUI duckTotalScore = null;
+    [SerializeField] protected TextMeshProUGUI pigTotalScore = null;
+    [SerializeField] protected TextMeshProUGUI bunnyTotalScore = null;
+    [SerializeField] protected TextMeshProUGUI sheepTotalScore = null;
 
-    [SerializeField] protected SpriteRenderer player1Placement = null;
-    [SerializeField] protected SpriteRenderer player2Placement = null;
-    [SerializeField] protected SpriteRenderer player3Placement = null;
-    [SerializeField] protected SpriteRenderer player4Placement = null;
+    [SerializeField] protected SpriteRenderer duckPlacement = null;
+    [SerializeField] protected SpriteRenderer pigPlacement = null;
+    [SerializeField] protected SpriteRenderer bunnyPlacement = null;
+    [SerializeField] protected SpriteRenderer sheepPlacement = null;
     
+    [SerializeField] protected Animator duckAnimator = null;
+    [SerializeField] protected Animator pigAnimator = null;
+    [SerializeField] protected Animator bunnyAnimator = null;
+    [SerializeField] protected Animator sheepAnimator = null;
+
     [SerializeField] protected Sprite[] podiums = new Sprite[3];
 
     [Header("Prey kill screen configuration")]

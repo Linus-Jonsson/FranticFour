@@ -22,7 +22,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 20
+        value: 25
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -40,17 +40,11 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: 21300000, guid: a165526c146b77e45808dd0ad5a1746c, type: 3}
-    - time: 0.06666667
+    - time: 0.13333334
       value: {fileID: 21300000, guid: 7bf1498a61f70ce4e9313d5a7ad3fa6f, type: 3}
-    - time: 0.2
-      value: {fileID: 21300000, guid: b77fc4e5d4851ca4bb33225d2305c588, type: 3}
-    - time: 0.33333334
-      value: {fileID: 21300000, guid: 6d3f5dd993f2fe647b32e376845eda5e, type: 3}
-    - time: 0.46666667
-      value: {fileID: 21300000, guid: 3845af1343151074797d72f958fc6586, type: 3}
-    - time: 0.53333336
+    - time: 0.26666668
       value: {fileID: 21300000, guid: 881f3a827cfbcab4d8b0cb40ee3756bb, type: 3}
-    - time: 0.6
+    - time: 0.4
       value: {fileID: 21300000, guid: 2ce519281fc2bcf4cb02be4f8e0a1074, type: 3}
     attribute: m_Sprite
     path: Body
@@ -80,9 +74,6 @@ AnimationClip:
     pptrCurveMapping:
     - {fileID: 21300000, guid: a165526c146b77e45808dd0ad5a1746c, type: 3}
     - {fileID: 21300000, guid: 7bf1498a61f70ce4e9313d5a7ad3fa6f, type: 3}
-    - {fileID: 21300000, guid: b77fc4e5d4851ca4bb33225d2305c588, type: 3}
-    - {fileID: 21300000, guid: 6d3f5dd993f2fe647b32e376845eda5e, type: 3}
-    - {fileID: 21300000, guid: 3845af1343151074797d72f958fc6586, type: 3}
     - {fileID: 21300000, guid: 881f3a827cfbcab4d8b0cb40ee3756bb, type: 3}
     - {fileID: 21300000, guid: 2ce519281fc2bcf4cb02be4f8e0a1074, type: 3}
   m_AnimationClipSettings:
@@ -90,7 +81,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.6666667
+    m_StopTime: 0.46666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -111,7 +102,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 20
+        value: 25
         inSlope: 0
         outSlope: 0
         tangentMode: 136
