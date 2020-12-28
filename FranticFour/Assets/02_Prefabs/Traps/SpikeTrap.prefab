@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8454379172232270182}
   m_Layer: 13
   m_Name: SpikeTrap
-  m_TagString: Danger
+  m_TagString: Spike
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,7 +122,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.1333334, y: 1.6}
+    oldSize: {x: 3.2, y: 2.4}
     newSize: {x: 6.4, y: 4.8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

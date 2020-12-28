@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 3295371257700270576}
   m_Layer: 10
   m_Name: FireTrap
-  m_TagString: Danger
+  m_TagString: Fire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
