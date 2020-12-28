@@ -22,7 +22,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 60
+        value: 65
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -39,7 +39,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: b49ad8bc6d792f04aa0d3d8ad7bad0e9, type: 3}
+      value: {fileID: 21300000, guid: 68708e215e7dd894ca767573dc956fb0, type: 3}
     - time: 0.06666667
       value: {fileID: 21300000, guid: b4e38b969d8f19c4ab1f594edf142867, type: 3}
     - time: 0.2
@@ -74,7 +74,7 @@ AnimationClip:
       customType: 28
       isPPtrCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: b49ad8bc6d792f04aa0d3d8ad7bad0e9, type: 3}
+    - {fileID: 21300000, guid: 68708e215e7dd894ca767573dc956fb0, type: 3}
     - {fileID: 21300000, guid: b4e38b969d8f19c4ab1f594edf142867, type: 3}
     - {fileID: 21300000, guid: f997cbf673fe3684bb933a09917626cd, type: 3}
     - {fileID: 21300000, guid: 4c077fafbb3539e40ae94564e124de1a, type: 3}
@@ -105,7 +105,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 60
+        value: 65
         inSlope: 0
         outSlope: 0
         tangentMode: 136
