@@ -100,13 +100,25 @@ public class GamePlayUIController : GamePlayUIDisplay
     public IEnumerator CountRoundTime(float duration)
     {
         roundTime.gameObject.SetActive(true);
-        while (duration > 0)
+        while (duration > 10)
         {
             SetCountDownDisplayNumber(duration, roundTime);
             yield return new WaitForSeconds(timeDecreaseIncrement);
             duration -= timeDecreaseIncrement;
         }
         roundTime.gameObject.SetActive(false);
+        yield return StartCoroutine(RoundCountDown());
+    }
+
+    private IEnumerator RoundCountDown()
+    {
+        tenSecondsLeftDisplay.SetActive(true);
+        yield return new WaitForSeconds(1);
+        tenSecondsLeftDisplay.SetActive(false);
+        yield return new WaitForSeconds(6);
+        roundCountDownDisplay.SetActive(true);
+        yield return new WaitForSeconds(3);
+        roundCountDownDisplay.SetActive(false);
     }
 
     public IEnumerator NextRoundCountdown(Player[] players, float duration, int roundNumber)
