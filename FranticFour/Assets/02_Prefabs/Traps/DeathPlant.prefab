@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 21342223172142554}
   m_Layer: 10
   m_Name: DeathPlant
-  m_TagString: Danger
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
