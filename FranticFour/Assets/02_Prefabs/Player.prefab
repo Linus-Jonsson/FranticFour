@@ -5399,6 +5399,7 @@ MonoBehaviour:
   scoreIncreaseAnimator: {fileID: 5330127977976453162}
   scoreText: {fileID: 3985178706338996173}
   scoreIncreaseTimer: 0
+  assistCountDownTimer: 5
   spriteRenderer: {fileID: 2128330477}
   originalColor: {r: 1, g: 1, b: 1, a: 1}
   ghostColor: {r: 1, g: 1, b: 1, a: 0.5019608}
@@ -5563,11 +5564,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jump: {fileID: 8300000, guid: f5c0ade823ed9f34ba037b046fa8ad30, type: 3}
-  jumpVolume: 0.75
-  push: {fileID: 8300000, guid: d5a5e36b97279a54aa9f16e2b68c103f, type: 3}
-  pushVolume: 1
+  jumpVolume: 0.25
+  push: {fileID: 8300000, guid: 591f6650b53109549ac58f7a9f734f2f, type: 3}
+  pushVolume: 0.2
   pushed: {fileID: 8300000, guid: 9400b6cff40c1294d81436b17452d766, type: 3}
-  pushedVolume: 0.9
+  pushedVolume: 0.5
 --- !u!82 &2199777990811486062
 AudioSource:
   m_ObjectHideFlags: 0
