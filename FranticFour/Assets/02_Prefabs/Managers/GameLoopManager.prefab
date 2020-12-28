@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5264495175527307953}
-  - component: {fileID: 323410227273798097}
   m_Layer: 0
   m_Name: GameLoopManager
   m_TagString: Untagged
@@ -31,50 +30,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &323410227273798097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5264495175527307955}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d581b606b1fdf734899da7b228883592, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roundDuration: 60
-  startCountDownDuration: 3
-  preyRevealDuration: 3
-  roundOverDuration: 4
-  players:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  numberOfRounds: 4
-  spawnPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  hunterSpeed: 200
-  preySpeed: 180
-  pacifistAward: 3
-  respawnDelay: 2.5
-  freezeAfterSpawnTime: 1.5
-  spawnParticles: {fileID: 8171510603094556011, guid: 8381ec2f60ab6f544b505ff318b2f4b5, type: 3}
-  overviewTime: 2
-  zoomInTime: 4
-  introCamera: {fileID: 0}
-  introCamera2: {fileID: 0}
-  gameCamera: {fileID: 0}
-  deathCamera: {fileID: 0}
-  killerCamera: {fileID: 0}
-  cameraWalls: {fileID: 0}
-  currentRound: 1
-  preyProbability: 
