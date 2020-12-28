@@ -9,6 +9,10 @@ public class GamePlayUIController : GamePlayUIDisplay
     // add scores for this round aswell as the total score
     
     GameAudio gameAudio;
+    static readonly int First = Animator.StringToHash("First");
+    static readonly int Last = Animator.StringToHash("Last");
+    static readonly int Second = Animator.StringToHash("Second");
+    static readonly int Third = Animator.StringToHash("Third");
 
     void Start()
     {
@@ -175,7 +179,6 @@ public class GamePlayUIController : GamePlayUIDisplay
         finalResultDisplay.SetActive(true);
         SetPlayerPlacement(players);
         SetResultTexts(players);
-        finalResultDisplay.SetActive(true);
     }
 
     private void SetPlayerPlacement(Player[] players)
@@ -210,26 +213,42 @@ public class GamePlayUIController : GamePlayUIDisplay
             switch (player.gameObject.name)
             {
                 case "Duck":
-                    SetPlayerResults(player, player1Placement, player1ResultHeader, player1TotalScore);
+                    SetPlayerResults(player, duckPlacement, duckAnimator, duckTotalScore);
                     break;
                 case "Pig":
-                    SetPlayerResults(player, player2Placement, player2ResultHeader, player2TotalScore);
+                    SetPlayerResults(player, pigPlacement, pigAnimator, pigTotalScore);
                     break;
                 case "Bunny":
-                    SetPlayerResults(player, player3Placement, player3ResultHeader, player3TotalScore);
+                    SetPlayerResults(player, bunnyPlacement, bunnyAnimator, bunnyTotalScore);
                     break;
                 case "Sheep":
-                    SetPlayerResults(player, player4Placement, player4ResultHeader, player4TotalScore);
+                    SetPlayerResults(player, sheepPlacement, sheepAnimator, sheepTotalScore);
                     break;
             }
     }
-    private void SetPlayerResults(Player player, TextMeshProUGUI placement, TextMeshProUGUI name, TextMeshProUGUI score )
+    private void SetPlayerResults(Player player, SpriteRenderer placement, Animator animator, TextMeshProUGUI score )
     {
-        score.text = player.TotalScore.ToString() + " points"; ;
-        name.text = "Player " + player.PlayerNumber;
-        placement.fontSize = placementTextSizes[player.Placement];
-        placement.color = placementColors[player.Placement];
-        placement.text = placements[player.Placement];
+        switch (player.Placement)
+        {
+            case 0:
+                animator.SetTrigger(First);
+                placement.sprite = podiums[0];
+                break;
+            case 1:
+                animator.SetTrigger(Second);
+                placement.sprite = podiums[1];
+                break;
+            case 2:
+                animator.SetTrigger(Third);
+                placement.sprite = podiums[2];
+                break;
+            case 3:
+                animator.SetTrigger(Last);
+                placement.sprite = null;
+                break;
+        }
+        //IF we want total scores to be displayed on "Final Score"-screen:
+        //score.text = player.TotalScore.ToString() + " points";
     }
 
     public void SetKillScreen(Player prey, Player killer, bool value)
