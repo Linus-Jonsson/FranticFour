@@ -7,22 +7,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
-      propertyPath: ghostColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
-      propertyPath: ghostColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
-      propertyPath: originalColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -1645165569722071076, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
-      propertyPath: originalColor.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 362613495, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: playerID
       value: 1
@@ -110,34 +94,6 @@ PrefabInstance:
     - target: {fileID: 2808390915108869048, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: m_Color.r
       value: 0.54509807
-      objectReference: {fileID: 0}
-    - target: {fileID: 3131435159972214995, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
-      propertyPath: push
-      value: 
-      objectReference: {fileID: 8300000, guid: d5a5e36b97279a54aa9f16e2b68c103f, type: 3}
-    - target: {fileID: 3131435159972214995, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
-      propertyPath: pushed
-      value: 
-      objectReference: {fileID: 8300000, guid: 9400b6cff40c1294d81436b17452d766, type: 3}
-    - target: {fileID: 5439504268739004778, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
-      propertyPath: onOffObject
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5439504268739004778, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
-      propertyPath: originalColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5439504268739004778, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
-      propertyPath: originalColor.b
-      value: 0.8607242
-      objectReference: {fileID: 0}
-    - target: {fileID: 5439504268739004778, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
-      propertyPath: originalColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5439504268739004778, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
-      propertyPath: originalColor.r
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5575129103255632261, guid: 2abb1a598cbad5442a2ece6ac0751799, type: 3}
       propertyPath: m_RootOrder
