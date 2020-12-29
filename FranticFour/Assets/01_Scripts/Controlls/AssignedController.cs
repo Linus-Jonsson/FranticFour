@@ -7,6 +7,7 @@ public class AssignedController : MonoBehaviour
     [Header("Player")] [Range(0, 3)]
     [SerializeField] private int playerID;
     [SerializeField] private bool usesMouse;
+    [SerializeField] private bool usesTwinSticks;
 
     public int PlayerID
     {
@@ -22,6 +23,16 @@ public class AssignedController : MonoBehaviour
     {
         get => usesMouse;
         private set => usesMouse = value;
+    }
+    
+    public bool UsesTwinSticks
+    {
+        get => usesTwinSticks;
+        private set { usesTwinSticks = value;
+            if (usesTwinSticks)
+                jump = ButtonInputs.A_Button + playerID;
+            else
+                jump = Inputs.Jump + playerID; }
     }
 
     //Control buttons
@@ -54,7 +65,11 @@ public class AssignedController : MonoBehaviour
         rightHorizontal = Inputs.RightHorizontal + playerID;
 
         action1 = Inputs.Action1 + playerID;
-        jump = Inputs.Jump + playerID;
+
+        if (usesTwinSticks)
+            jump = ButtonInputs.A_Button + playerID;
+        else
+            jump = Inputs.Jump + playerID;
     }
 
     private void SetControllerKeysPS4() //PS4
@@ -66,7 +81,11 @@ public class AssignedController : MonoBehaviour
         rightHorizontal = Inputs.RightHorizontalPS4 + playerID;
 
         action1 = Inputs.Action1PS4 + playerID;
-        jump = Inputs.Jump + playerID;
+        
+        if (usesTwinSticks)
+            jump = ButtonInputs.X_ButtonPS4 + playerID;
+        else
+            jump = Inputs.Jump + playerID;
     }
     
     private void SetControllerKeysSwitch() //Todo Switch
