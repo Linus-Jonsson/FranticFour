@@ -25,7 +25,7 @@ AudioMixerSnapshotController:
   m_SnapshotID: dbcec16a7e2c98e44b6bfac4d4a1f75d
   m_FloatValues:
     7479fcd06bea5384d867cadd7498de97: 0.1
-    d736eec29a583444ebc5c407a428433c: -80
+    d736eec29a583444ebc5c407a428433c: -0.037667945
     df2d6ef29662de3488dd3589a8020833: -14.96685
     dfaec113c802d7144a38422f9cdabe48: -19.999998
     528a4357cccb53f40948ea67866b17c8: 1.627
@@ -284,14 +284,14 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
-  - guid: d736eec29a583444ebc5c407a428433c
-    name: effects
   - guid: 93c58e1ddc7e72a428f1fdeae28dda0d
     name: environment
   - guid: dfaec113c802d7144a38422f9cdabe48
     name: master
   - guid: df2d6ef29662de3488dd3589a8020833
     name: music
+  - guid: cc849ceaed3537d43a2f5291044cb9fb
+    name: effects
   m_AudioMixerGroupViews:
   - guids:
     - d31280bfb0b83b34db5c97afce9ae84c
