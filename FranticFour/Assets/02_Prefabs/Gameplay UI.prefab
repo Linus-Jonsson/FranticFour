@@ -4734,11 +4734,11 @@ MonoBehaviour:
   player3: {fileID: 7473697053225456776}
   player4: {fileID: 7473697053046707601}
   preyDisplay: {fileID: 7473697051817167252}
-  preyImages:
-  - {fileID: 7473697052790129966}
-  - {fileID: 7473697051611978139}
-  - {fileID: 7473697052367319791}
-  - {fileID: 7473697053245090377}
+  preyRevealAnimators:
+  - {fileID: 1557642272}
+  - {fileID: 694682243}
+  - {fileID: 1028473739}
+  - {fileID: 462661523}
   preyNumber: {fileID: 7473697053413203267}
   preyCountdown: {fileID: 7473697053710344709}
   countDownDisplay: {fileID: 2015870051}

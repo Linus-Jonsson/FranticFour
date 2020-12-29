@@ -27,8 +27,8 @@ MonoBehaviour:
   - m_From: CM IntroCam2
     m_To: CM GameCam
     m_Blend:
-      m_Style: 1
-      m_Time: 1
+      m_Style: 2
+      m_Time: 2
       m_CustomCurve:
         serializedVersion: 2
         m_Curve: []

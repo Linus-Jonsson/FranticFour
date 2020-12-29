@@ -19,7 +19,7 @@ public class GamePlayUIDisplay : MonoBehaviour
 
     [Header("Prey Display Configuration")]
     [SerializeField] protected GameObject preyDisplay = null;
-    [SerializeField] protected GameObject[] preyImages = null;
+    [SerializeField] protected Animator[] preyRevealAnimators = null;
     [SerializeField] protected TextMeshProUGUI preyNumber = null;
     [SerializeField] protected TextMeshProUGUI preyCountdown = null; // remove later?
     
