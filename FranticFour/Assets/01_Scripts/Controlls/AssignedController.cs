@@ -64,12 +64,17 @@ public class AssignedController : MonoBehaviour
         rightVertical = Inputs.RightVertical + playerID;
         rightHorizontal = Inputs.RightHorizontal + playerID;
 
-        action1 = Inputs.Action1 + playerID;
-
-        if (usesTwinSticks)
+        if (!usesTwinSticks)
+        {
+            action1 = ButtonInputs.X_Button + playerID;
             jump = ButtonInputs.A_Button + playerID;
+        }
         else
+        {
+            action1 = Inputs.Action1 + playerID;
             jump = Inputs.Jump + playerID;
+        }
+        
     }
 
     private void SetControllerKeysPS4() //PS4
@@ -80,12 +85,16 @@ public class AssignedController : MonoBehaviour
         rightVertical = Inputs.RightVerticalPS4 + playerID;
         rightHorizontal = Inputs.RightHorizontalPS4 + playerID;
 
-        action1 = Inputs.Action1PS4 + playerID;
-        
-        if (usesTwinSticks)
+        if (!usesTwinSticks)
+        {
+            action1 = ButtonInputs.Square_ButtonPS4 + playerID;
             jump = ButtonInputs.X_ButtonPS4 + playerID;
+        }
         else
+        {
+            action1 = Inputs.Action1PS4 + playerID;
             jump = Inputs.Jump + playerID;
+        }
     }
     
     private void SetControllerKeysSwitch() //Todo Switch

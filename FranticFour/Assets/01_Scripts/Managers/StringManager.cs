@@ -30,6 +30,7 @@
 
     public struct ButtonInputs
     {
+        // (Xbox/Dualshock)
         // A/X
         public const string A_Button = "ButtonA"; //XBOX
         public const string X_ButtonPS4 = "ButtonXPS4"; //PS4
@@ -39,5 +40,9 @@
         public const string B_Button = "ButtonB"; //XBOX
         public const string Circle_ButtonPS4 = "ButtonCirclePS4"; //PS4
         public const string B_ButtonKeyboard = "ButtonBKeyboard"; //Keyboard
+        
+        // X/Square
+        public const string X_Button = "ButtonX"; //XBOX
+        public const string Square_ButtonPS4 = "ButtonSquarePS4"; //PS4
     }
 }

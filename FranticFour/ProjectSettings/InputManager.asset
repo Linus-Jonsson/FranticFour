@@ -230,11 +230,43 @@ InputManager:
     axis: 2
     joyNum: 1
   - serializedVersion: 3
+    m_Name: ButtonX0
+    descriptiveName: X-button on the Xbox controller
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick 1 button 2
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 3
+    dead: 0.001
+    sensitivity: 3
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 2
+    joyNum: 1
+  - serializedVersion: 3
     m_Name: ButtonCirclePS40
     descriptiveName: Circle-button on the PS4 controller
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: joystick 1 button 2
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 3
+    dead: 0.001
+    sensitivity: 3
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 2
+    joyNum: 1
+  - serializedVersion: 3
+    m_Name: ButtonSquarePS40
+    descriptiveName: Square-button on the PS4 controller
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick 1 button 0
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
@@ -438,11 +470,43 @@ InputManager:
     axis: 2
     joyNum: 2
   - serializedVersion: 3
+    m_Name: ButtonX1
+    descriptiveName: X-button on the Xbox controller
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick 2 button 2
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 3
+    dead: 0.001
+    sensitivity: 3
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 2
+    joyNum: 2
+  - serializedVersion: 3
     m_Name: ButtonCirclePS41
     descriptiveName: Circle-button on the PS4 controller
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: joystick 2 button 2
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 3
+    dead: 0.001
+    sensitivity: 3
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 2
+    joyNum: 2
+  - serializedVersion: 3
+    m_Name: ButtonSquarePS41
+    descriptiveName: Square-button on the PS4 controller
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick 2 button 0
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
@@ -646,11 +710,43 @@ InputManager:
     axis: 2
     joyNum: 3
   - serializedVersion: 3
+    m_Name: ButtonX2
+    descriptiveName: X-button on the Xbox controller
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick 3 button 2
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 3
+    dead: 0.001
+    sensitivity: 3
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 2
+    joyNum: 3
+  - serializedVersion: 3
     m_Name: ButtonCirclePS42
     descriptiveName: Circle-button on the PS4 controller
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: joystick 3 button 2
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 3
+    dead: 0.001
+    sensitivity: 3
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 2
+    joyNum: 3
+  - serializedVersion: 3
+    m_Name: ButtonSquarePS42
+    descriptiveName: Square-button on the PS4 controller
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick 3 button 0
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
@@ -854,11 +950,43 @@ InputManager:
     axis: 2
     joyNum: 4
   - serializedVersion: 3
+    m_Name: ButtonX3
+    descriptiveName: X-button on the Xbox controller
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick 4 button 2
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 3
+    dead: 0.001
+    sensitivity: 3
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 2
+    joyNum: 4
+  - serializedVersion: 3
     m_Name: ButtonCirclePS43
     descriptiveName: Circle-button on the PS4 controller
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: joystick 4 button 2
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 3
+    dead: 0.001
+    sensitivity: 3
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 2
+    joyNum: 4
+  - serializedVersion: 3
+    m_Name: ButtonSquarePS43
+    descriptiveName: Square-button on the PS4 controller
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick 4 button 0
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
