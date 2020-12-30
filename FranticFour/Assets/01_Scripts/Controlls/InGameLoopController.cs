@@ -57,6 +57,7 @@ public class InGameLoopController : MonoBehaviour
     TargetGroupController targetGroupController;
     AudioController audioController;
     SpawnPoint firstSpawnPoint;
+    bool isIntroSpawn = true;
     bool isBetweenRounds = true;
 
     void Start()
@@ -204,7 +205,8 @@ public class InGameLoopController : MonoBehaviour
 
     IEnumerator SpawnAllPlayers()
     {
-        SpawnPoint spawnPoint = currentRound == 1 ? firstSpawnPoint : GetSpawnPoint();
+        SpawnPoint spawnPoint = isIntroSpawn ? firstSpawnPoint : GetSpawnPoint();
+        isIntroSpawn = false;
         int hunterSpawnCount = 1;
         foreach (var player in players)
         {
