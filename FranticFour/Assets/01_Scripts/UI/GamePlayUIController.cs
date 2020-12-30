@@ -162,6 +162,7 @@ public class GamePlayUIController : GamePlayUIDisplay
     {
         finalResultDisplay.SetActive(true);
         gameAudio.PlaySound("finalFanfare");
+        gameAudio.PlaySound("applause");
         SetPlayerPlacement(players);
         SetResultTexts(players);
     }

@@ -181,6 +181,8 @@ MonoBehaviour:
   pointVolume: 1
   finalFanfare: {fileID: 8300000, guid: cc01ab4094ca84c41ab069c97af0059b, type: 3}
   finalFanfareVolume: 0.5
+  applause: {fileID: 8300000, guid: fd43597e05fa7d048ae91b0102289e6e, type: 3}
+  applauseVolume: 0.5
 --- !u!82 &3711897115845499018
 AudioSource:
   m_ObjectHideFlags: 0
