@@ -12,6 +12,8 @@ public class GameAudio : MonoBehaviour
     [SerializeField] float failureVolume = 1.0f;
     [SerializeField] AudioClip point = null;
     [SerializeField] float pointVolume = 1.0f;
+    [SerializeField] AudioClip finalFanfare = null;
+    [SerializeField] float finalFanfareVolume = 1.0f;
 
     AudioSource audioSource;
     
@@ -35,6 +37,9 @@ public class GameAudio : MonoBehaviour
                 break;
             case "point":
                 audioSource.PlayOneShot(point, pointVolume);
+                break;
+            case "finalFanfare":
+                audioSource.PlayOneShot(finalFanfare, finalFanfareVolume);
                 break;
         }
     }

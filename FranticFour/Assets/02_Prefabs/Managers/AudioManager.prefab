@@ -179,6 +179,8 @@ MonoBehaviour:
   failureVolume: 0.8
   point: {fileID: 8300000, guid: 27b1112c46d40304fa0d6b69569bec44, type: 3}
   pointVolume: 1
+  finalFanfare: {fileID: 8300000, guid: cc01ab4094ca84c41ab069c97af0059b, type: 3}
+  finalFanfareVolume: 0.5
 --- !u!82 &3711897115845499018
 AudioSource:
   m_ObjectHideFlags: 0

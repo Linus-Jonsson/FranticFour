@@ -161,6 +161,7 @@ public class GamePlayUIController : GamePlayUIDisplay
     public void DisplayFinalResults(Player[] players)
     {
         finalResultDisplay.SetActive(true);
+        gameAudio.PlaySound("finalFanfare");
         SetPlayerPlacement(players);
         SetResultTexts(players);
     }
