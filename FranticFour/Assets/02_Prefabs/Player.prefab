@@ -5430,7 +5430,6 @@ MonoBehaviour:
   minimumBoostDistance: 5
   distance: 0
   speedBoost: 0
-  pushForceMultiplier: 100
 --- !u!114 &362613495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5445,6 +5444,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerID: 3
   usesMouse: 0
+  usesTwinSticks: 1
   vertical: 
   horizontal: 
   rightVertical: 
@@ -5465,7 +5465,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerLayer: 8
   jumpLayer: 9
-  jumpingDrag: 25
+  pushForceMultiplier: 40
+  jumpingDrag: 28
   preyTrap: {fileID: 3140399524871574758, guid: a0ff91c6e4bdf6b45ab4387956b9838f, type: 3}
   rawOffset: 1
   trapPushForce: 10
