@@ -98,6 +98,8 @@ public class Player : MonoBehaviour
     GameAudio gameAudio;
 
     Coroutine assistTimer;
+    
+    static readonly int DisplayIncrease = Animator.StringToHash("DisplayIncrease");
 
     private void Awake()
     {
@@ -225,7 +227,7 @@ public class Player : MonoBehaviour
     public void HandleResetOfScoreTextAndSurvivalStreak()
     {
         shouldIncreaseScore = false;
-        scoreIncreaseAnimator.ResetTrigger("DisplayIncrease");
+        scoreIncreaseAnimator.ResetTrigger(DisplayIncrease);
         scoreText.fontSize = 0;
         scoreIncreaseTimer = 0;
         survivalStreak = 0;
@@ -255,10 +257,10 @@ public class Player : MonoBehaviour
         survivalStreak++;
     }
     
-    public void DisplayScoreIncrease(int scoreValue)
+    public void DisplayScoreIncrease(int score)
     {
-        scoreText.text = "+" + scoreValue.ToString();
-        scoreIncreaseAnimator.SetTrigger("DisplayIncrease");
+        scoreText.text = "+" + score.ToString();
+        scoreIncreaseAnimator.SetTrigger(DisplayIncrease);
     }
 
     public void RestartAssistCounter()
@@ -277,7 +279,7 @@ public class Player : MonoBehaviour
             yield return new WaitForSeconds(1f);
             assistCountdownTime -= 1f;
         }
-        print("Ended the asist countdown");
+        print("Ended the assist countdown");
         assistPusher = null;
     }
 }
