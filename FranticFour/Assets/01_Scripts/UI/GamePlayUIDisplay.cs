@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class GamePlayUIDisplay : MonoBehaviour
 {
@@ -7,15 +8,11 @@ public class GamePlayUIDisplay : MonoBehaviour
     [SerializeField] protected float timeDecreaseIncrement = 0.1f;
 
     [Header("Pree Prey Reveal Display Configuration")]
-    [SerializeField] protected GameObject preeRoundDisplay = null;
-
+    [SerializeField] protected GameObject preRoundDisplay = null;
+    [SerializeField] protected GameObject preRevealTexts = null;
     [SerializeField] protected TextMeshProUGUI preRoundTime = null; // remove later?
     [SerializeField] protected TextMeshProUGUI round = null;
-
-    [SerializeField] protected TextMeshProUGUI player1 = null;
-    [SerializeField] protected TextMeshProUGUI player2 = null;
-    [SerializeField] protected TextMeshProUGUI player3 = null;
-    [SerializeField] protected TextMeshProUGUI player4 = null;
+    [SerializeField] protected Animator preyRevealColorChange = null;
 
     [Header("Prey Display Configuration")]
     [SerializeField] protected GameObject preyDisplay = null;
