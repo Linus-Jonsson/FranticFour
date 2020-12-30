@@ -5445,6 +5445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerID: 3
   usesMouse: 0
+  usesTwinSticks: 0
   vertical: 
   horizontal: 
   rightVertical: 
@@ -5466,6 +5467,7 @@ MonoBehaviour:
   playerLayer: 8
   jumpLayer: 9
   jumpingDrag: 25
+  jumpParticles: {fileID: 8171510603094556011, guid: f8639b808ba3f2046a4aa2e7bbf5355f, type: 3}
   preyTrap: {fileID: 3140399524871574758, guid: a0ff91c6e4bdf6b45ab4387956b9838f, type: 3}
   rawOffset: 1
   trapPushForce: 10

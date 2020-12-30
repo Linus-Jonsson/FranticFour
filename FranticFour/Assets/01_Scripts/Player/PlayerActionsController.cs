@@ -15,6 +15,7 @@ public class PlayerActionsController : MonoBehaviour
     [Header("Jump configuration")]
     [Tooltip("The drag on the rigidBody while jumping (This should be low due to no force applied during the jump")]
     [SerializeField] float jumpingDrag = 0.3f;
+    [SerializeField] private GameObject jumpParticles;
 
     [Header("Prey Configuration")]
     [SerializeField] PreyTrap preyTrap = null;
@@ -161,6 +162,11 @@ public class PlayerActionsController : MonoBehaviour
         if (value)
         {
             playerAudio.PlaySound("jump");
+            if (!(jumpParticles is null))
+                Instantiate(jumpParticles, transform.position, Quaternion.identity);
+            else
+                Debug.LogError("Missing jump particle effect.");
+
             SetLayerAndDrag(jumpLayer, jumpingDrag);
         }
         else
