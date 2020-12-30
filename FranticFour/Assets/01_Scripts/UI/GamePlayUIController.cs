@@ -47,7 +47,7 @@ public class GamePlayUIController : GamePlayUIDisplay
     {
         foreach (var animator in preyRevealAnimators)
             animator.SetTrigger(animator.name == prey.name ? "Prey" : "NotPrey");
-        preyNumber.text = prey.name + " is the PREY this round!";
+        preyName.text = prey.name + " is the PREY this round!";
     }
 
     public IEnumerator CountRoundTime(float duration)
@@ -117,23 +117,22 @@ public class GamePlayUIController : GamePlayUIDisplay
             switch (player.gameObject.name)
             {
                 case "Duck":
-                    SetRoundScoreTexts(player, player1ScoreHeader, player1CurrentScore,player1RoundScore);
+                    SetRoundScoreTexts(player, player1CurrentScore, player1RoundScore);
                     break;
                 case "Pig":
-                    SetRoundScoreTexts(player, player2ScoreHeader, player2CurrentScore,player2RoundScore);
+                    SetRoundScoreTexts(player, player2CurrentScore, player2RoundScore);
                     break;
                 case "Bunny":
-                    SetRoundScoreTexts(player, player3ScoreHeader, player3CurrentScore, player3RoundScore);
+                    SetRoundScoreTexts(player, player3CurrentScore, player3RoundScore);
                     break;
                 case "Sheep":
-                    SetRoundScoreTexts(player, player4ScoreHeader, player4CurrentScore, player4RoundScore);
+                    SetRoundScoreTexts(player, player4CurrentScore, player4RoundScore);
                     break;
             }
         }
     }
-    private void SetRoundScoreTexts(Player player, TextMeshProUGUI nameText, TextMeshProUGUI totalScoreText, TextMeshProUGUI roundScoreText)
+    private void SetRoundScoreTexts(Player player, TextMeshProUGUI totalScoreText, TextMeshProUGUI roundScoreText)
     {
-        nameText.text = "Player " + player.PlayerNumber.ToString();
         totalScoreText.text = player.TotalScore.ToString();
         roundScoreText.text = player.RoundScore.ToString();
         // player.RoundScore = 0;
