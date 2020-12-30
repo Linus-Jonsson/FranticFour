@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using static StringManager;
 
 public class SelectionController : MonoBehaviour
 {
@@ -136,11 +137,11 @@ public class SelectionController : MonoBehaviour
         {
                 string controllerName = controllersConnected[CONTROLLER_ID].ToLower();
 
-            if (controllerName.Contains(StringManager.Controllers.Xbox))
+            if (controllerName.Contains(Controllers.Xbox))
                 MapXbox();
-            else if (controllerName.Contains(StringManager.Controllers.PS4))
+            else if (controllerName.Contains(Controllers.PS4))
                 MapPs4();
-            else if (controllerName.Contains(StringManager.Controllers.Switch))
+            else if (controllerName.Contains(Controllers.Switch))
                 MapSwitch();
         }
         else
@@ -160,25 +161,25 @@ public class SelectionController : MonoBehaviour
     private void MapXbox()
     {
         //Buttons Xbox
-        action1 = StringManager.Inputs.Action1 + CONTROLLER_ID;
-        aButton = StringManager.ButtonInputs.A_Button + CONTROLLER_ID;
-        bButton = StringManager.ButtonInputs.B_Button + CONTROLLER_ID;
+        action1 = Inputs.Action1 + CONTROLLER_ID;
+        aButton = ButtonInputs.A_Button + CONTROLLER_ID;
+        bButton = ButtonInputs.B_Button + CONTROLLER_ID;
         
         //Axis Xbox
-        rightHorizontal = StringManager.Inputs.RightHorizontal + CONTROLLER_ID;
-        horizontal = StringManager.Inputs.Horizontal + CONTROLLER_ID;
+        rightHorizontal = Inputs.RightHorizontal + CONTROLLER_ID;
+        horizontal = Inputs.Horizontal + CONTROLLER_ID;
     }
 
     private void MapPs4()
     {
         //Buttons PS4
-        action1 = StringManager.Inputs.Action1PS4 + CONTROLLER_ID;
-        aButton = StringManager.ButtonInputs.X_ButtonPS4 + CONTROLLER_ID;
-        bButton = StringManager.ButtonInputs.Circle_ButtonPS4 + CONTROLLER_ID;
+        action1 = Inputs.Action1PS4 + CONTROLLER_ID;
+        aButton = ButtonInputs.X_ButtonPS4 + CONTROLLER_ID;
+        bButton = ButtonInputs.Circle_ButtonPS4 + CONTROLLER_ID;
         
         //Axis PS4
-        rightHorizontal = StringManager.Inputs.RightHorizontalPS4 + CONTROLLER_ID;
-        horizontal = StringManager.Inputs.Horizontal + CONTROLLER_ID;
+        rightHorizontal = Inputs.RightHorizontalPS4 + CONTROLLER_ID;
+        horizontal = Inputs.Horizontal + CONTROLLER_ID;
     }
 
     private void MapSwitch()
@@ -192,12 +193,12 @@ public class SelectionController : MonoBehaviour
         PassControllersToGame.isKeyboardUsed = true;
         PassControllersToGame.keyBoardOwnedBy = CONTROLLER_ID;
                 
-        rightHorizontal = StringManager.Inputs.HorizontalKeyboard;
-        horizontal = StringManager.Inputs.HorizontalKeyboard;
+        rightHorizontal = Inputs.HorizontalKeyboard;
+        horizontal = Inputs.HorizontalKeyboard;
         
-        action1 = StringManager.Inputs.Action1Keyboard;
-        aButton = StringManager.ButtonInputs.A_ButtonKeyboard;
-        bButton = StringManager.ButtonInputs.B_ButtonKeyboard;
+        action1 = Inputs.Action1Keyboard;
+        aButton = ButtonInputs.A_ButtonKeyboard;
+        bButton = ButtonInputs.B_ButtonKeyboard;
     }
     
     private void CheckSelection(float _inputXRight, float _inputXLeft)
