@@ -84,6 +84,7 @@ public class GamePlayUIController : GamePlayUIDisplay
 
     private IEnumerator RoundCountDown()
     {
+        gameAudio.PlaySound("tenSecGong");
         tenSecondsLeftDisplay.SetActive(true);
         yield return new WaitForSeconds(1);
         tenSecondsLeftDisplay.SetActive(false);
