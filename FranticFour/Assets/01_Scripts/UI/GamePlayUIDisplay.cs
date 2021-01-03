@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class GamePlayUIDisplay : MonoBehaviour
 {
@@ -7,22 +8,16 @@ public class GamePlayUIDisplay : MonoBehaviour
     [SerializeField] protected float timeDecreaseIncrement = 0.1f;
 
     [Header("Pree Prey Reveal Display Configuration")]
-    [SerializeField] protected GameObject preeRoundDisplay = null;
-
-    [SerializeField] protected TextMeshProUGUI preRoundTime = null; // remove later?
+    [SerializeField] protected GameObject preRoundDisplay = null;
+    [SerializeField] protected GameObject preRevealTexts = null;
+    [SerializeField] protected TextMeshProUGUI preRoundTime = null;
     [SerializeField] protected TextMeshProUGUI round = null;
 
-    [SerializeField] protected TextMeshProUGUI player1 = null;
-    [SerializeField] protected TextMeshProUGUI player2 = null;
-    [SerializeField] protected TextMeshProUGUI player3 = null;
-    [SerializeField] protected TextMeshProUGUI player4 = null;
-
     [Header("Prey Display Configuration")]
-    [SerializeField] protected GameObject preyDisplay = null;
+    [SerializeField] protected Animator preyRevealColorChange = null;
+    [SerializeField] protected TextMeshProUGUI preyName = null;
     [SerializeField] protected Animator[] preyRevealAnimators = null;
-    [SerializeField] protected TextMeshProUGUI preyNumber = null;
-    [SerializeField] protected TextMeshProUGUI preyCountdown = null; // remove later?
-    
+
     [Header("CountDown Configuration")]
     [SerializeField] protected GameObject countDownDisplay = null;
     [SerializeField] protected GameObject tenSecondsLeftDisplay = null;
@@ -30,24 +25,19 @@ public class GamePlayUIDisplay : MonoBehaviour
 
     [Header("Score Display Configuration")]
     [SerializeField] protected GameObject scoreDisplay = null;
-
-    [SerializeField] protected TextMeshProUGUI player1ScoreHeader = null;
+    
     [SerializeField] protected TextMeshProUGUI player1CurrentScore = null;
     [SerializeField] protected TextMeshProUGUI player1RoundScore = null;
-
-    [SerializeField] protected TextMeshProUGUI player2ScoreHeader= null;
+    
     [SerializeField] protected TextMeshProUGUI player2CurrentScore = null;
     [SerializeField] protected TextMeshProUGUI player2RoundScore = null;
 
-    [SerializeField] protected TextMeshProUGUI player3ScoreHeader = null;
     [SerializeField] protected TextMeshProUGUI player3CurrentScore = null;
     [SerializeField] protected TextMeshProUGUI player3RoundScore = null;
 
-    [SerializeField] protected TextMeshProUGUI player4ScoreHeader = null;
     [SerializeField] protected TextMeshProUGUI player4CurrentScore = null;
     [SerializeField] protected TextMeshProUGUI player4RoundScore = null;
-
-    [SerializeField] protected TextMeshProUGUI nextRoundInText = null; // remove later?
+    
     [SerializeField] protected TextMeshProUGUI roundScoreText = null;
 
     [Header("Final result display configuration")]
