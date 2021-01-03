@@ -7,6 +7,7 @@ public class DisplayScoreAnimation : MonoBehaviour
     Animator animator;
     GameAudio gameAudio;
     
+    static readonly int DisplayIncrease = Animator.StringToHash("DisplayIncrease");
     
     void Start()
     {
@@ -16,7 +17,7 @@ public class DisplayScoreAnimation : MonoBehaviour
 
     public void ResetScoreTrigger()
     {
-        animator.ResetTrigger("DisplayIncrease");
+        animator.ResetTrigger(DisplayIncrease);
     }
 
     public void PlayScoreSound()

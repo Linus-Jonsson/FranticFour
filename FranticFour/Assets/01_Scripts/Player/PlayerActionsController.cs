@@ -11,6 +11,10 @@ public class PlayerActionsController : MonoBehaviour
 
     [Tooltip("Set this to have the layerNumber of the layer that Jump is")]
     [SerializeField] int jumpLayer = 9;
+    
+    [Header("Push configuration")]
+    [Tooltip("The amount that the players current velocity gets multiplied by at the start")]
+    [SerializeField] float pushForceMultiplier = 5.0f;
 
     [Header("Jump configuration")]
     [Tooltip("The drag on the rigidBody while jumping (This should be low due to no force applied during the jump")]
@@ -182,6 +186,20 @@ public class PlayerActionsController : MonoBehaviour
     public void EndJumping()
     {
         Jumping(false);
+        rb2d.freezeRotation = false;
+        player.FreezeInput = false;
+    }
+    
+    public void StartPushing()
+    {
+        playerAudio.PlaySound("push");
+        rb2d.AddForce(rotationController.Dir * pushForceMultiplier, ForceMode2D.Impulse);
+        player.FreezeInput = true;
+    }
+
+    public void EndPushing()
+    {
+        rb2d.velocity = Vector2.zero;
         rb2d.freezeRotation = false;
         player.FreezeInput = false;
     }

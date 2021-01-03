@@ -20,9 +20,6 @@ public class MovementController : MonoBehaviour
 
     [SerializeField] float speedBoost = 0;
 
-    [Tooltip("The amount that the players current velocity gets multiplied by at the start")]
-    [SerializeField] float pushForceMultiplier = 5.0f;
-
     AssignedController controller;
     RotationController rotationController;
     Rigidbody2D rb2d;
@@ -99,10 +96,5 @@ public class MovementController : MonoBehaviour
     {
         player.FreezeInput = true;
         rb2d.velocity = Vector2.zero;
-    }
-
-    public void AddPushForce()
-    {
-        rb2d.AddForce(rotationController.Dir * pushForceMultiplier, ForceMode2D.Impulse);
     }
 }

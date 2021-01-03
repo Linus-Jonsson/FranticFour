@@ -8,65 +8,46 @@ public class GamePlayUIController : GamePlayUIDisplay
     // add a way to discintively show who is leading in points?.
     // add scores for this round aswell as the total score
     
-    GameAudio gameAudio;
     static readonly int First = Animator.StringToHash("First");
     static readonly int Last = Animator.StringToHash("Last");
     static readonly int Second = Animator.StringToHash("Second");
     static readonly int Third = Animator.StringToHash("Third");
+    static readonly int Reveal = Animator.StringToHash("Reveal");
+    GameAudio gameAudio;
 
     void Start()
     {
         gameAudio = FindObjectOfType<GameAudio>();
     }
-
-    public IEnumerator PreRoundCountdown(float duration, Player[] players, int roundNumber)
+    
+    public IEnumerator PreRoundCountdown(float duration, int roundNumber)
     {
-        SetRoundAndPlayerDisplay(players, roundNumber);
-        preeRoundDisplay.SetActive(true);
+        round.text = "Round " + roundNumber;
+        preRoundDisplay.SetActive(true);
+        preRevealTexts.SetActive(true);
+        round.enabled = true;
         while (duration > 0)
         {
             SetCountDownDisplayNumber(duration, preRoundTime);
             yield return new WaitForSeconds(timeDecreaseIncrement);
             duration -= timeDecreaseIncrement;
         }
-    }
-    private void SetRoundAndPlayerDisplay(Player[] players, int roundNumber)
-    {
-        round.text = "Round " + roundNumber;
-        // foreach (var player in players)
-        //     SetPlayerText(player);
-    }
-    private void SetPlayerText(Player player)
-    {
-        switch (player.name)
-        {
-            case "Duck":
-                player1.text = "Player " + player.PlayerNumber.ToString();
-                break;
-            case "Pig":
-                player2.text = "Player " + player.PlayerNumber.ToString();
-                break;
-            case "Bunny":
-                player3.text = "Player " + player.PlayerNumber.ToString();
-                break;
-            case "Sheep":
-                player4.text = "Player " + player.PlayerNumber.ToString();
-                break;
-        }
+        preRevealTexts.SetActive(false);
     }
 
     public IEnumerator PreyReveal(Player prey, float duration)
     {
         DisplayThePrey(prey);
+        preyRevealColorChange.SetTrigger(Reveal);
         yield return new WaitForSeconds(duration);
-        preeRoundDisplay.SetActive(false);
+        preRoundDisplay.SetActive(false);
     }
 
     private void DisplayThePrey(Player prey)
     {
         foreach (var animator in preyRevealAnimators)
             animator.SetTrigger(animator.name == prey.name ? "Prey" : "NotPrey");
-        preyNumber.text = prey.name + " is the PREY this round!";
+        preyName.text = prey.name + " is the PREY this round!";
     }
 
     public IEnumerator CountRoundTime(float duration)
@@ -124,6 +105,7 @@ public class GamePlayUIController : GamePlayUIDisplay
 
     private void SetCountDownDisplayNumber(float duration, TextMeshProUGUI countDownText)
     {
+        countDownText.enabled = true;
         float numberToDisplay = (float)System.Math.Round(duration, 2);
         countDownText.text = numberToDisplay.ToString();
     }
@@ -136,23 +118,22 @@ public class GamePlayUIController : GamePlayUIDisplay
             switch (player.gameObject.name)
             {
                 case "Duck":
-                    SetRoundScoreTexts(player, player1ScoreHeader, player1CurrentScore,player1RoundScore);
+                    SetRoundScoreTexts(player, player1CurrentScore, player1RoundScore);
                     break;
                 case "Pig":
-                    SetRoundScoreTexts(player, player2ScoreHeader, player2CurrentScore,player2RoundScore);
+                    SetRoundScoreTexts(player, player2CurrentScore, player2RoundScore);
                     break;
                 case "Bunny":
-                    SetRoundScoreTexts(player, player3ScoreHeader, player3CurrentScore, player3RoundScore);
+                    SetRoundScoreTexts(player, player3CurrentScore, player3RoundScore);
                     break;
                 case "Sheep":
-                    SetRoundScoreTexts(player, player4ScoreHeader, player4CurrentScore, player4RoundScore);
+                    SetRoundScoreTexts(player, player4CurrentScore, player4RoundScore);
                     break;
             }
         }
     }
-    private void SetRoundScoreTexts(Player player, TextMeshProUGUI nameText, TextMeshProUGUI totalScoreText, TextMeshProUGUI roundScoreText)
+    private void SetRoundScoreTexts(Player player, TextMeshProUGUI totalScoreText, TextMeshProUGUI roundScoreText)
     {
-        nameText.text = "Player " + player.PlayerNumber.ToString();
         totalScoreText.text = player.TotalScore.ToString();
         roundScoreText.text = player.RoundScore.ToString();
         // player.RoundScore = 0;
