@@ -12,6 +12,14 @@ public class GameAudio : MonoBehaviour
     [SerializeField] float failureVolume = 1.0f;
     [SerializeField] AudioClip point = null;
     [SerializeField] float pointVolume = 1.0f;
+    [SerializeField] AudioClip finalFanfare = null;
+    [SerializeField] float finalFanfareVolume = 1.0f;
+    [SerializeField] AudioClip applause = null;
+    [SerializeField] float applauseVolume = 1.0f;
+    [SerializeField] AudioClip tenSecGong = null;
+    [SerializeField] float tenSecGongVolume = 1.0f;
+    [SerializeField] AudioClip airHorn = null;
+    [SerializeField] float airHornVolume = 1.0f;
 
     AudioSource audioSource;
     
@@ -35,6 +43,18 @@ public class GameAudio : MonoBehaviour
                 break;
             case "point":
                 audioSource.PlayOneShot(point, pointVolume);
+                break;
+            case "finalFanfare":
+                audioSource.PlayOneShot(finalFanfare, finalFanfareVolume);
+                break;
+            case "applause":
+                audioSource.PlayOneShot(applause, applauseVolume);
+                break;
+            case "tenSecGong":
+                audioSource.PlayOneShot(tenSecGong, tenSecGongVolume);
+                break;
+            case "airHorn":
+                audioSource.PlayOneShot(airHorn, airHornVolume);
                 break;
         }
     }

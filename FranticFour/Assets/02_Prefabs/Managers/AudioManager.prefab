@@ -179,6 +179,14 @@ MonoBehaviour:
   failureVolume: 0.8
   point: {fileID: 8300000, guid: 27b1112c46d40304fa0d6b69569bec44, type: 3}
   pointVolume: 1
+  finalFanfare: {fileID: 8300000, guid: cc01ab4094ca84c41ab069c97af0059b, type: 3}
+  finalFanfareVolume: 0.5
+  applause: {fileID: 8300000, guid: fd43597e05fa7d048ae91b0102289e6e, type: 3}
+  applauseVolume: 0.6
+  tenSecGong: {fileID: 8300000, guid: 33508e735e2d18d4dbfd4f7d6b5cce89, type: 3}
+  tenSecGongVolume: 0.6
+  airHorn: {fileID: 8300000, guid: 4933664134c116c4daa1b7783e597520, type: 3}
+  airHornVolume: 0.3
 --- !u!82 &3711897115845499018
 AudioSource:
   m_ObjectHideFlags: 0

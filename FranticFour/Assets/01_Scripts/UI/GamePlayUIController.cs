@@ -65,6 +65,7 @@ public class GamePlayUIController : GamePlayUIDisplay
 
     private IEnumerator RoundCountDown()
     {
+        gameAudio.PlaySound("tenSecGong");
         tenSecondsLeftDisplay.SetActive(true);
         yield return new WaitForSeconds(1);
         tenSecondsLeftDisplay.SetActive(false);
@@ -142,6 +143,8 @@ public class GamePlayUIController : GamePlayUIDisplay
     public void DisplayFinalResults(Player[] players)
     {
         finalResultDisplay.SetActive(true);
+        gameAudio.PlaySound("finalFanfare");
+        gameAudio.PlaySound("applause");
         SetPlayerPlacement(players);
         SetResultTexts(players);
     }
