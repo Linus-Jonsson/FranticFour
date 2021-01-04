@@ -92,8 +92,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2541046482899381967}
   - component: {fileID: 2591415192431936092}
-  - component: {fileID: 426285463729774970}
   - component: {fileID: 8148329350709572611}
+  - component: {fileID: 5748155597112140697}
   m_Layer: 0
   m_Name: "Tr\xE4d"
   m_TagString: Untagged
@@ -168,32 +168,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &426285463729774970
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5519341459297489666}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.027188778, y: -0.8700428}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10.07, y: 10.8}
-    newSize: {x: 7.23, y: 10.8}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.064084, y: 1.2295017}
-  m_EdgeRadius: 0
 --- !u!50 &8148329350709572611
 Rigidbody2D:
   serializedVersion: 4
@@ -215,6 +189,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!70 &5748155597112140697
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5519341459297489666}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.1, y: -0.73}
+  m_Size: {x: 2.34, y: 1.55}
+  m_Direction: 1
 --- !u!1 &7002242178726166521
 GameObject:
   m_ObjectHideFlags: 0
