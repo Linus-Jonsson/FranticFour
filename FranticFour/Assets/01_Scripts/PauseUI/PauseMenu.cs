@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenuUI;
     [SerializeField] private static bool paused = false;
+    [SerializeField] private string mainScene = "MainMenu";
     public static bool IsGamePaused => paused;
 
     private void Start()
@@ -46,5 +48,13 @@ public class PauseMenu : MonoBehaviour
         paused = true;
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
+    }
+
+    public void ExitToMain()
+    {
+        paused = false;
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(mainScene);
     }
 }
