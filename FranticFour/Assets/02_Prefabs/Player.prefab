@@ -75,7 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: -3597744770341978105, guid: 2c7763adefad10f4f9732ca2b2653deb, type: 3}
+  m_Sprite: {fileID: -3597744770341978105, guid: 2c7763adefad10f4f9732ca2b2653deb,
+    type: 3}
   m_Color: {r: 0.9607843, g: 0.634733, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5066,7 +5067,8 @@ MonoBehaviour:
   m_text: 5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2409fdfc46393544888f4fd698519c9e, type: 2}
-  m_sharedMaterial: {fileID: 3993569847966546579, guid: 2409fdfc46393544888f4fd698519c9e, type: 2}
+  m_sharedMaterial: {fileID: 3993569847966546579, guid: 2409fdfc46393544888f4fd698519c9e,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5467,7 +5469,10 @@ MonoBehaviour:
   jumpLayer: 9
   pushForceMultiplier: 35
   jumpingDrag: 28
-  preyTrap: {fileID: 3140399524871574758, guid: a0ff91c6e4bdf6b45ab4387956b9838f, type: 3}
+  jumpParticles: {fileID: 8171510603094556011, guid: f8639b808ba3f2046a4aa2e7bbf5355f,
+    type: 3}
+  preyTrap: {fileID: 3140399524871574758, guid: a0ff91c6e4bdf6b45ab4387956b9838f,
+    type: 3}
   rawOffset: 1
   trapPushForce: 10
   trapsCoolDown: 4
@@ -5493,7 +5498,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d55e8aaab03ba4f45a2687cbd6688013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  landingEffect: {fileID: 5349872072955159957, guid: a54ee5b7c9946d4479b906eabf630f95, type: 3}
+  landingEffect: {fileID: 5349872072955159957, guid: a54ee5b7c9946d4479b906eabf630f95,
+    type: 3}
 --- !u!114 &5966693910533769791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5519,7 +5525,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa17058d60ec8cc48b4801199f783801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathParticles: {fileID: 8171510603094556011, guid: 4daac6d3fbfde42468e742d41eb8884c, type: 3}
+  deathParticles: {fileID: 8171510603094556011, guid: 4daac6d3fbfde42468e742d41eb8884c,
+    type: 3}
 --- !u!114 &3119606327936163567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5579,7 +5586,8 @@ AudioSource:
   m_GameObject: {fileID: 5575129103255632267}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 2612897270795028218, guid: 8998ec453363f8b41a1f60b56de04333, type: 2}
+  OutputAudioMixerGroup: {fileID: 2612897270795028218, guid: 8998ec453363f8b41a1f60b56de04333,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.4
