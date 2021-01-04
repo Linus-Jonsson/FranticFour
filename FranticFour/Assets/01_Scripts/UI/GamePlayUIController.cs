@@ -47,7 +47,7 @@ public class GamePlayUIController : GamePlayUIDisplay
     {
         foreach (var animator in preyRevealAnimators)
             animator.SetTrigger(animator.name == prey.name ? "Prey" : "NotPrey");
-        preyName.text = prey.name + " is the PREY this round!";
+        preyName.text = prey.name.ToUpper() + " IS PREY THIS ROUND!";
     }
 
     public IEnumerator CountRoundTime(float duration)
