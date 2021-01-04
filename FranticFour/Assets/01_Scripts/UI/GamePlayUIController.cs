@@ -272,7 +272,7 @@ public class GamePlayUIController : GamePlayUIDisplay
 
     private void SetWhoHuntedPrey(Player killer)
     {
-        killedByText.text = "PREY GOT KILLED BY " + killer.gameObject.name + "!";
+        killedByText.text = "PREY GOT KILLED BY " + killer.gameObject.name.ToUpper() + "!";
         switch (killer.gameObject.name)
         {
             case "Duck":
