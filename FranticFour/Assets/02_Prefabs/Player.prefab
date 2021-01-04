@@ -5568,7 +5568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jump: {fileID: 8300000, guid: f5c0ade823ed9f34ba037b046fa8ad30, type: 3}
-  jumpVolume: 0.25
+  jumpVolume: 0.1
   push: {fileID: 8300000, guid: 591f6650b53109549ac58f7a9f734f2f, type: 3}
   pushVolume: 0.8
   pushed: {fileID: 8300000, guid: 9400b6cff40c1294d81436b17452d766, type: 3}
