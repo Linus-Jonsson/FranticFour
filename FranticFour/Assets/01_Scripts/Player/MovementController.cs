@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 
 public class MovementController : MonoBehaviour
 {
+    [SerializeField] private GameObject pushParticle;
     [Header("Movement configuration")]
     [SerializeField] float maxSpeed = 10f;
     [SerializeField] float movementSpeed = 10f;
@@ -19,6 +20,9 @@ public class MovementController : MonoBehaviour
     [SerializeField] float distance = 0;
 
     [SerializeField] float speedBoost = 0;
+
+    [Tooltip("The amount that the players current velocity gets multiplied by at the start")]
+    [SerializeField] float pushForceMultiplier = 5.0f;
 
     AssignedController controller;
     RotationController rotationController;
@@ -96,5 +100,24 @@ public class MovementController : MonoBehaviour
     {
         player.FreezeInput = true;
         rb2d.velocity = Vector2.zero;
+    }
+
+    public void AddPushForce()
+    {
+        GameObject m_particle = null;
+
+        if (!(pushParticle is null))
+        {
+            m_particle = Instantiate(pushParticle, transform.position, Quaternion.identity);
+            m_particle.transform.SetParent(transform);
+            Vector3 m_pos = m_particle.transform.position;
+            m_pos.z = -1f;
+            m_particle.transform.position = m_pos;
+            m_particle.GetComponent<ParticleSystemRenderer>().sortingOrder = 101;
+        }
+        else
+            Debug.LogError("Missing push particle effect.");
+        
+        rb2d.AddForce(rotationController.Dir * pushForceMultiplier, ForceMode2D.Impulse);
     }
 }
