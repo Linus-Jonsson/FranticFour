@@ -22,7 +22,7 @@ public class GamePlayUIController : GamePlayUIDisplay
     
     public IEnumerator PreRoundCountdown(float duration, int roundNumber)
     {
-        round.text = "Round " + roundNumber;
+        round.text = "ROUND " + roundNumber;
         preRoundDisplay.SetActive(true);
         preRevealTexts.SetActive(true);
         round.enabled = true;
@@ -47,7 +47,7 @@ public class GamePlayUIController : GamePlayUIDisplay
     {
         foreach (var animator in preyRevealAnimators)
             animator.SetTrigger(animator.name == prey.name ? "Prey" : "NotPrey");
-        preyName.text = prey.name + " is the PREY this round!";
+        preyName.text = prey.name.ToUpper() + " IS PREY THIS ROUND!";
     }
 
     public IEnumerator CountRoundTime(float duration)
@@ -112,7 +112,7 @@ public class GamePlayUIController : GamePlayUIDisplay
 
     private void SetPlayerRoundScores(Player[] players, int roundNumber)
     {
-        roundScoreText.text = "Score Round " + roundNumber;
+        roundScoreText.text = "SCORE - ROUND " + roundNumber;
         foreach (var player in players)
         {
             switch (player.gameObject.name)
@@ -234,7 +234,7 @@ public class GamePlayUIController : GamePlayUIDisplay
 
     private void HandlePreyMisstep(Player prey)
     {
-        killedByText.text = "ACCIDENTAL DEATH - Hunters score 2 points each!";
+        killedByText.text = "ACCIDENTAL DEATH - HUNTERS SCORE 2 POINTS EACH!";
         int index = 0;
         foreach (var image in killerImages)
         {
@@ -272,7 +272,7 @@ public class GamePlayUIController : GamePlayUIDisplay
 
     private void SetWhoHuntedPrey(Player killer)
     {
-        killedByText.text = "Prey got killed by " + killer.gameObject.name + "!";
+        killedByText.text = "PREY GOT KILLED BY " + killer.gameObject.name.ToUpper() + "!";
         switch (killer.gameObject.name)
         {
             case "Duck":

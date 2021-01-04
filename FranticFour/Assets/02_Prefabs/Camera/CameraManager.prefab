@@ -415,8 +415,8 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 0
+  m_HDR: 0
+  m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
@@ -552,8 +552,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: GARDEN
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2409fdfc46393544888f4fd698519c9e, type: 2}
-  m_sharedMaterial: {fileID: 3993569847966546579, guid: 2409fdfc46393544888f4fd698519c9e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f7b3d1faa1243134486e01aa9ae294c1, type: 2}
+  m_sharedMaterial: {fileID: 3304195320122338076, guid: f7b3d1faa1243134486e01aa9ae294c1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -577,8 +577,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23
-  m_fontSizeBase: 23
+  m_fontSize: 34
+  m_fontSizeBase: 34
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
