@@ -1,11 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class PreyTrap : MonoBehaviour
 {
-    [Tooltip("After this time the trap self destructs")]
-    [SerializeField] float selfDestructTimer = 10f;
+    [Tooltip("After this time the trap self destructs")] [SerializeField]
+    float selfDestructTimer = 10f;
 
     Rigidbody2D rb2d;
     Animator animator;
@@ -26,10 +26,11 @@ public class PreyTrap : MonoBehaviour
             SetTrapTriggeredAnimation();
             SetPlayerStunAnimation(other.GetComponent<Player>());
         }
-        if(other.CompareTag("Danger"))
-        {
+
+        if (other.transform.CompareTag("Danger") || other.transform.CompareTag("Plant") ||
+            other.transform.CompareTag("Hole") || other.transform.CompareTag("Saw") ||
+            other.transform.CompareTag("Spike"))
             DestroyTrap();
-        }
     }
 
     private void SetTrapTriggeredAnimation()
@@ -60,11 +61,12 @@ public class PreyTrap : MonoBehaviour
 
     IEnumerator trapCountDown()
     {
-        while(selfDestructTimer > 0)
+        while (selfDestructTimer > 0)
         {
             yield return new WaitForSeconds(1f);
             selfDestructTimer -= 1f;
         }
+
         DestroyTrap();
     }
 }

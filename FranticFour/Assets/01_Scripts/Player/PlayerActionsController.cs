@@ -30,8 +30,6 @@ public class PlayerActionsController : MonoBehaviour
 
     public float TrapsCoolDown => trapsCoolDown;
 
-    [SerializeField] int maximumTraps = 5;
-
     [Header("Hunter Configuration")]
     [SerializeField] float pushForce = 10f;
 
@@ -94,7 +92,7 @@ public class PlayerActionsController : MonoBehaviour
         if (!Input.GetMouseButton(0))
             return;
 
-        if (player.Prey && canThrowTraps && laidTraps.Count < maximumTraps)
+        if (player.Prey && canThrowTraps)
             StartCoroutine(HandleTrapThrow());
         else if (!player.Prey && player.CanPush)
             HandlePush();
@@ -104,7 +102,7 @@ public class PlayerActionsController : MonoBehaviour
     {
         laidTraps.RemoveAll(trap => trap == null);
 
-        if (player.Prey && canThrowTraps && laidTraps.Count < maximumTraps)
+        if (player.Prey && canThrowTraps)
             StartCoroutine(HandleTrapThrow());
         else if (!player.Prey && player.CanPush)
             HandlePush();
