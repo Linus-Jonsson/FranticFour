@@ -77,6 +77,7 @@ public class GamePlayUIController : GamePlayUIDisplay
         SetPlayerRoundScores(players, roundNumber);
         scoreDisplay.SetActive(true);
         yield return new WaitForSeconds(duration / 2);
+        AudioController.instance.PlayGameMusic(false);
         foreach (var player in players)
         {
             while (player.RoundScore > 0)
