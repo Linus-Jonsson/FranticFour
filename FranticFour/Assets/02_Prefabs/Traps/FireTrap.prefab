@@ -254,6 +254,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70472ff33ed73364682a786b070c29da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSpikeTrap: 1
+  spikeCollider2D: {fileID: 0}
+  afterAnimDelay: 0.5
   patrolPoints: []
   movementSpeed: 5
   rotationSpeed: 10
