@@ -52,14 +52,14 @@ public class GamePlayUIController : GamePlayUIDisplay
 
     public IEnumerator CountRoundTime(float duration)
     {
-        roundTime.gameObject.SetActive(true);
+        // roundTime.gameObject.SetActive(true); - REMOVE LATER?
         while (duration > 10)
         {
-            SetCountDownDisplayNumber(duration, roundTime);
+            // SetCountDownDisplayNumber(duration, roundTime); - REMOVE LATER?
             yield return new WaitForSeconds(timeDecreaseIncrement);
             duration -= timeDecreaseIncrement;
         }
-        roundTime.gameObject.SetActive(false);
+        // roundTime.gameObject.SetActive(false); - REMOVE LATER?
         yield return StartCoroutine(RoundCountDown());
     }
 
