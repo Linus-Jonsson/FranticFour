@@ -3,6 +3,11 @@ using UnityEngine;
 
 public class TrapController : MonoBehaviour
 {
+    [Header("Spike trap")]
+    [SerializeField] private bool isSpikeTrap =  false;
+    [SerializeField] private PolygonCollider2D spikeCollider2D;
+    [SerializeField] private float afterAnimDelay = 0.5f;
+    
     [Header("Movement Configuration")]
     [Tooltip("The points that the trap will move inbetween")]
     [SerializeField] Transform[] patrolPoints = new Transform[0];
@@ -40,6 +45,9 @@ public class TrapController : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         StartTrap();
+
+        if (isSpikeTrap)
+            spikeCollider2D = GetComponent<PolygonCollider2D>();
     }
     private void StartTrap()
     {
@@ -115,13 +123,17 @@ public class TrapController : MonoBehaviour
     IEnumerator ActivateTrap()
     {
         animator.SetTrigger("On");
+        if (isSpikeTrap)
+            StartCoroutine(ActivateSpikeTrap());
         yield return new WaitForSeconds(Random.Range(activationTimer.x, activationTimer.y));
         StartCoroutine(DeactivateTrap());
     }
     IEnumerator DeactivateTrap()
     {
-        animator.SetTrigger("Off");      
-        yield return new WaitForSeconds(Random.Range(deactivationTimer.x, deactivationTimer.y));
+        animator.SetTrigger("Off");
+        if (isSpikeTrap)
+            StartCoroutine(DeActivateSpikeTrap());
+            yield return new WaitForSeconds(Random.Range(deactivationTimer.x, deactivationTimer.y));
         StartCoroutine(ActivateTrap());
     }
 
@@ -134,4 +146,20 @@ public class TrapController : MonoBehaviour
     {
         GetComponent<AudioSource>().Stop();
     }
+
+    private IEnumerator DeActivateSpikeTrap()
+    {
+        if (spikeCollider2D == null)
+            yield return null;
+        spikeCollider2D.enabled = false;
+    }
+    
+    private IEnumerator ActivateSpikeTrap()
+    {
+        if (spikeCollider2D == null)
+            yield return null;
+        yield return new WaitForSeconds(afterAnimDelay);
+        spikeCollider2D.enabled = true;
+    }
+    
 }

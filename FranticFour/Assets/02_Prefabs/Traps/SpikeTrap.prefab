@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2256305005253885881}
   - component: {fileID: 1463796915710528557}
   - component: {fileID: 2826172928157078116}
-  - component: {fileID: -2768483631063642237}
   - component: {fileID: 7291022454944819249}
+  - component: {fileID: -6394585831151223910}
   - component: {fileID: 8454379172232270182}
   m_Layer: 13
   m_Name: SpikeTrap
@@ -106,32 +106,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &-2768483631063642237
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1969485075884854441}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0031795502, y: 0.029076815}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.2, y: 2.4}
-    newSize: {x: 6.4, y: 4.8}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.6758008, y: 1.2685709}
-  m_EdgeRadius: 0
 --- !u!50 &7291022454944819249
 Rigidbody2D:
   serializedVersion: 4
@@ -153,6 +127,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!60 &-6394585831151223910
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969485075884854441}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.2, y: 2.4}
+    newSize: {x: 6.4, y: 4.8}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.20531608, y: 0.6000266}
+      - {x: 0.49941567, y: 0.45463896}
+      - {x: 0.8933617, y: -0.70126927}
+      - {x: -0.9473053, y: -0.6683765}
+      - {x: -0.8052094, y: -0.29471734}
+      - {x: -0.4262875, y: 0.6052225}
 --- !u!114 &8454379172232270182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,6 +170,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70472ff33ed73364682a786b070c29da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSpikeTrap: 1
+  spikeCollider2D: {fileID: 0}
+  afterAnimDelay: 0.5
   patrolPoints: []
   movementSpeed: 5
   rotationSpeed: 10
