@@ -216,6 +216,7 @@ public class InGameLoopController : MonoBehaviour
             player.FreezeInput = true;
             if (player.Prey == true)
             {
+                player.SetAnimationTrigger("Ghost"); //So that Prey transitions from DeathAnimation
                 spawnPosition = spawnPoint.spawnPosition[0].transform.position;
                 spawnPlayer(spawnPosition, player);
             }

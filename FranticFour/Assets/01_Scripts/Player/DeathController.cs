@@ -39,15 +39,15 @@ public class DeathController : MonoBehaviour
                     break;
                 case "Spike":
                     print("Collided with Spike trap");
-                    player.SetAnimationTrigger("SpikeDeath");
+                    player.SetAnimationTrigger("Death"); //Temp instead of SpikeDeath-trigger 
                     break;
                 case "Hole":
                     print("Collided with a hole");
-                    player.SetAnimationTrigger("HoleDeath");
+                    player.SetAnimationTrigger("Death"); //Temp instead of HoleDeath-trigger 
                     break;                
                 case "Plant":
                     print("Collided with Plant trap");
-                    player.SetAnimationTrigger("PlantDeath");
+                    player.SetAnimationTrigger("Death"); //Temp instead of PlantDeath-trigger 
                     break;
                 default:
                     Debug.LogWarning("Hit trap whose tag is not in the switch!");

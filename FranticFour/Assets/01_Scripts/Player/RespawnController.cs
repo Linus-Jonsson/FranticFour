@@ -51,6 +51,7 @@ public class RespawnController : MonoBehaviour
 
     IEnumerator HandleGhosting()
     {
+        player.SetAnimationTrigger("Ghost");
         player.FreezeInput = false;
         spriteRenderer.sharedMaterial.color = player.ghostColor;
         TurnGhostOn(true, ghostSpeed);

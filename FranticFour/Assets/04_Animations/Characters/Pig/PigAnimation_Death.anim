@@ -43,6 +43,8 @@ AnimationClip:
       value: {fileID: 21300000, guid: 5e7a75a61c0dd7c43a4050088beff5c2, type: 3}
     - time: 1
       value: {fileID: 21300000, guid: 5e7a75a61c0dd7c43a4050088beff5c2, type: 3}
+    - time: 4
+      value: {fileID: 21300000, guid: 5e7a75a61c0dd7c43a4050088beff5c2, type: 3}
     attribute: m_Sprite
     path: Body
     classID: 212
@@ -74,12 +76,13 @@ AnimationClip:
     - {fileID: 21300000, guid: 366f3d15424a62e478e15a17a5be277a, type: 3}
     - {fileID: 21300000, guid: 5e7a75a61c0dd7c43a4050088beff5c2, type: 3}
     - {fileID: 21300000, guid: 5e7a75a61c0dd7c43a4050088beff5c2, type: 3}
+    - {fileID: 21300000, guid: 5e7a75a61c0dd7c43a4050088beff5c2, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.0666667
+    m_StopTime: 4.0666666
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -106,7 +109,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1
+  - time: 1.1333333
     functionName: StartGhosting
     data: 
     objectReferenceParameter: {fileID: 0}
