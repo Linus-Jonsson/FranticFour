@@ -47,19 +47,16 @@ public class GamePlayUIController : GamePlayUIDisplay
     {
         foreach (var animator in preyRevealAnimators)
             animator.SetTrigger(animator.name == prey.name ? "Prey" : "NotPrey");
-        preyName.text = prey.name.ToUpper() + " IS PREY THIS ROUND!";
+        preyName.text = prey.name.ToUpper() + " IS THE PREY THIS ROUND!";
     }
 
     public IEnumerator CountRoundTime(float duration)
     {
-        // roundTime.gameObject.SetActive(true); - REMOVE LATER?
         while (duration > 10)
         {
-            // SetCountDownDisplayNumber(duration, roundTime); - REMOVE LATER?
             yield return new WaitForSeconds(timeDecreaseIncrement);
             duration -= timeDecreaseIncrement;
         }
-        // roundTime.gameObject.SetActive(false); - REMOVE LATER?
         yield return StartCoroutine(RoundCountDown());
     }
 
