@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 574438568596135536}
   - component: {fileID: 59459186310562235}
-  - component: {fileID: 704476613446070611}
   - component: {fileID: 3027241566193797330}
+  - component: {fileID: 2271612955785064773}
   - component: {fileID: 21342223172142554}
   m_Layer: 10
   m_Name: DeathPlant
@@ -86,32 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &704476613446070611
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 42031124629323116}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.37884855, y: -1.2117178}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.4, y: 4.8}
-    newSize: {x: 6.4, y: 4.8}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.119669, y: 1.6955028}
-  m_EdgeRadius: 0
 --- !u!50 &3027241566193797330
 Rigidbody2D:
   serializedVersion: 4
@@ -133,6 +107,45 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!60 &2271612955785064773
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42031124629323116}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6.4, y: 4.8}
+    newSize: {x: 6.4, y: 4.8}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -1.3296599, y: -0.7719811}
+      - {x: -1.4862021, y: -1.0792654}
+      - {x: -0.92305505, y: -1.4012561}
+      - {x: -0.8648598, y: -1.752056}
+      - {x: -0.9952983, y: -1.9318444}
+      - {x: -0.62953275, y: -2.2429905}
+      - {x: -0.09224324, y: -2.2393458}
+      - {x: 0.081061855, y: -1.8695542}
+      - {x: 0.23005506, y: -1.5319275}
+      - {x: 0.7376429, y: -1.2960455}
+      - {x: 0.8061021, y: -1.0139095}
+      - {x: 0.44570124, y: -0.57766616}
+      - {x: -0.08352958, y: -0.39385742}
+      - {x: -0.71616864, y: -0.44738275}
 --- !u!95 &21342223172142554
 Animator:
   serializedVersion: 3

@@ -175,8 +175,8 @@ GameObject:
   - component: {fileID: 8086356271132997250}
   - component: {fileID: 8086356271132997251}
   - component: {fileID: 8086356270547099848}
-  - component: {fileID: 2465013434675702302}
   - component: {fileID: 7287188729612870262}
+  - component: {fileID: 5214543388793814622}
   - component: {fileID: 3295371257700270576}
   m_Layer: 10
   m_Name: FireTrap
@@ -242,32 +242,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &2465013434675702302
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8086356271132997248}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.22024155, y: -0.064777374}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 4.8866386, y: 0.481781}
-  m_EdgeRadius: 0
 --- !u!114 &7287188729612870262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,6 +264,46 @@ MonoBehaviour:
   timed: 1
   rotating: 0
   startOn: 1
+--- !u!60 &5214543388793814622
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8086356271132997248}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.46433374, y: 0.47011325}
+      - {x: -0.1714994, y: 0.24719763}
+      - {x: -0.94387794, y: 0.02698262}
+      - {x: -2.7428386, y: -0.0078228265}
+      - {x: -2.7385569, y: -0.10816692}
+      - {x: -2.0026338, y: -0.10411062}
+      - {x: -1.4700222, y: -0.08326401}
+      - {x: -0.80945146, y: -0.4553608}
+      - {x: 0.12783536, y: -0.8254055}
+      - {x: 0.8336095, y: -0.9947505}
+      - {x: 1.7964503, y: -0.8329665}
+      - {x: 2.177217, y: -0.46842682}
+      - {x: 2.1927216, y: -0.060913265}
+      - {x: 1.8382185, y: 0.49957502}
+      - {x: 1.6448257, y: 0.6094684}
 --- !u!82 &3295371257700270576
 AudioSource:
   m_ObjectHideFlags: 0
