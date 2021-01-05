@@ -5475,7 +5475,7 @@ MonoBehaviour:
   trapPushForce: 10
   trapsCoolDown: 4
   maximumTraps: 3
-  pushForce: 300
+  pushForce: 260
   pushCooldown: 2
   OnPush:
     m_PersistentCalls:
