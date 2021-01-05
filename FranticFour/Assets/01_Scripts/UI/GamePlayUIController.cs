@@ -201,6 +201,7 @@ public class GamePlayUIController : GamePlayUIDisplay
             case 0:
                 animator.SetTrigger(First);
                 placement.sprite = podiums[0];
+                Instantiate(confetti, placement.transform.position, Quaternion.identity);
                 break;
             case 1:
                 animator.SetTrigger(Second);

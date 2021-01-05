@@ -265,7 +265,8 @@ public class Player : MonoBehaviour
     public void DisplayScoreIncrease(int score)
     {
         scoreText.text = "+" + score.ToString();
-        scoreIncreaseAnimator.SetTrigger(DisplayIncrease);
+        if (scoreIncreaseAnimator != null)
+            scoreIncreaseAnimator.SetTrigger(DisplayIncrease);
     }
 
     public void RestartAssistCounter()
