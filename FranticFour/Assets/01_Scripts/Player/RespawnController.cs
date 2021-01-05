@@ -45,6 +45,7 @@ public class RespawnController : MonoBehaviour
     public void StartGhosting()
     {
         if (player.Prey || InGameLoopController.CurrentPrey.Dead) { return; }
+        player.SetAnimationBool("StayDead", false);
         bodyCollider.radius = ghostColliderRadius;
         StartCoroutine(HandleGhosting());
     }

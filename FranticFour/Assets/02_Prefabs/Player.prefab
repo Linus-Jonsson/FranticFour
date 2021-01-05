@@ -5475,7 +5475,7 @@ MonoBehaviour:
   trapPushForce: 10
   trapsCoolDown: 4
   maximumTraps: 3
-  pushForce: 300
+  pushForce: 260
   pushCooldown: 2
   OnPush:
     m_PersistentCalls:
@@ -6204,7 +6204,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.7}
+  m_Offset: {x: 0, y: 0.8}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.35}
@@ -6215,7 +6215,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9, y: 1}
+  m_Size: {x: 0.9, y: 1.25}
   m_EdgeRadius: 0
 --- !u!114 &8863903137751226409
 MonoBehaviour:
