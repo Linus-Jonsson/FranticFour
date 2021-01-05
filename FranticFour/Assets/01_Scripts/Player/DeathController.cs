@@ -31,26 +31,32 @@ public class DeathController : MonoBehaviour
             {
                 case "Fire":
                     print("Collided with Fire trap");
+                    player.SetAnimationBool("StayDead", true);
                     player.SetAnimationTrigger("FireDeath");
                     break;
                 case "Saw":
                     print("Collided with Saw trap");
+                    player.SetAnimationBool("StayDead", true);
                     player.SetAnimationTrigger("SawDeath");
                     break;
                 case "Spike":
                     print("Collided with Spike trap");
+                    player.SetAnimationBool("StayDead", true);
                     player.SetAnimationTrigger("Death"); //Temp instead of SpikeDeath-trigger 
                     break;
                 case "Hole":
                     print("Collided with a hole");
+                    player.SetAnimationBool("StayDead", true);
                     player.SetAnimationTrigger("Death"); //Temp instead of HoleDeath-trigger 
                     break;                
                 case "Plant":
                     print("Collided with Plant trap");
+                    player.SetAnimationBool("StayDead", true);
                     player.SetAnimationTrigger("Death"); //Temp instead of PlantDeath-trigger 
                     break;
                 default:
                     Debug.LogWarning("Hit trap whose tag is not in the switch!");
+                    player.SetAnimationBool("StayDead", true);
                     player.SetAnimationTrigger("Death");
                     break;
             }

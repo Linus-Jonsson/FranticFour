@@ -203,6 +203,11 @@ public class Player : MonoBehaviour
     {
         animator.SetTrigger(trigger);
     }
+    
+    public void SetAnimationBool(string boolName, bool value)
+    {
+        animator.SetBool(boolName, value);
+    }
 
     public void SetNewPosition(Vector3 position)
     {

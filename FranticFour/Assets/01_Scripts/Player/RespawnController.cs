@@ -45,13 +45,13 @@ public class RespawnController : MonoBehaviour
     public void StartGhosting()
     {
         if (player.Prey || InGameLoopController.CurrentPrey.Dead) { return; }
+        player.SetAnimationBool("StayDead", false);
         bodyCollider.radius = ghostColliderRadius;
         StartCoroutine(HandleGhosting());
     }
 
     IEnumerator HandleGhosting()
     {
-        player.SetAnimationTrigger("Ghost");
         player.FreezeInput = false;
         spriteRenderer.sharedMaterial.color = player.ghostColor;
         TurnGhostOn(true, ghostSpeed);

@@ -277,6 +277,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: Death
     m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: StayDead
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7130357411294959336}
   m_Solo: 0
@@ -290,7 +293,7 @@ AnimatorStateTransition:
   m_HasFixedDuration: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 0
+  m_CanTransitionToSelf: 1
 --- !u!1102 &-7130357411294959336
 AnimatorState:
   serializedVersion: 5
@@ -640,8 +643,8 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: Ghost
+  - m_ConditionMode: 2
+    m_ConditionEvent: StayDead
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8560950568595088869}
@@ -654,7 +657,7 @@ AnimatorStateTransition:
   m_ExitTime: 1
   m_HasExitTime: 0
   m_HasFixedDuration: 0
-  m_InterruptionSource: 2
+  m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!1102 &-4872982879151012223
@@ -692,8 +695,8 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: Ghost
+  - m_ConditionMode: 2
+    m_ConditionEvent: StayDead
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8560950568595088869}
@@ -742,6 +745,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: SawDeath
     m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: StayDead
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5722425163218658443}
   m_Solo: 0
@@ -755,7 +761,7 @@ AnimatorStateTransition:
   m_HasFixedDuration: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 0
+  m_CanTransitionToSelf: 1
 --- !u!1101 &-3761095863183842775
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -764,8 +770,8 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: Ghost
+  - m_ConditionMode: 2
+    m_ConditionEvent: StayDead
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8560950568595088869}
@@ -1302,8 +1308,8 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: Ghost
-    m_Type: 9
+  - m_Name: StayDead
+    m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
@@ -1608,8 +1614,8 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: Ghost
+  - m_ConditionMode: 2
+    m_ConditionEvent: StayDead
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8560950568595088869}
@@ -1622,7 +1628,7 @@ AnimatorStateTransition:
   m_ExitTime: 1
   m_HasExitTime: 0
   m_HasFixedDuration: 0
-  m_InterruptionSource: 2
+  m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!1101 &2403683853165388930
@@ -1739,6 +1745,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: FireDeath
     m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: StayDead
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 319286382932021740}
   m_Solo: 0
@@ -1752,7 +1761,7 @@ AnimatorStateTransition:
   m_HasFixedDuration: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 0
+  m_CanTransitionToSelf: 1
 --- !u!1102 &4166755515421831679
 AnimatorState:
   serializedVersion: 5
