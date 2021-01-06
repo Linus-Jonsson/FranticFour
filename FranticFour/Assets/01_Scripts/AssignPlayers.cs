@@ -11,9 +11,8 @@ public class AssignPlayers : MonoBehaviour
         if (!PassControllersToGame.playersAssigned)
         {
             foreach (var player in players)
-            {
                 player.Init();
-            }
+
             Destroy(gameObject);
             return;
         }
@@ -22,9 +21,7 @@ public class AssignPlayers : MonoBehaviour
             players[i].PlayerID = PassControllersToGame.playerOwnedBy[i];
 
         foreach (var player in players)
-        {
             player.Init();
-        }
 
         Destroy(gameObject);
     }

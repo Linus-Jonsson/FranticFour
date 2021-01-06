@@ -172,6 +172,7 @@ public class Player : MonoBehaviour
 
     public void ResetPlayer()
     {
+        //What in the fuck
         HandleResetOfScoreTextAndSurvivalStreak();
         spriteRenderer.sharedMaterial.color = originalColor;
         StopPushing();

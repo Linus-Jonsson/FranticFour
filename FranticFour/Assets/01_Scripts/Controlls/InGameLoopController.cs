@@ -62,8 +62,14 @@ public class InGameLoopController : MonoBehaviour
 
     void Start()
     {
+        preySpeed = 164;
+        hunterSpeed = 200;
         GetReferences();
+        preySpeed = 164;
+        hunterSpeed = 200;
         StartCoroutine(HandleGameLoop());
+        preySpeed = 164;
+        hunterSpeed = 200;
     }
     private void GetReferences()
     {
@@ -83,19 +89,27 @@ public class InGameLoopController : MonoBehaviour
             audioController.TransitionToMusicOnly();
             ShowPlayers(false);
             ActivateAllPlayers(false);
+            
             yield return StartCoroutine(gameLoopUIController.PreRoundCountdown(startCountDownDuration, currentRound));
+            
             HandleRoleSetting();
             targetGroupController.UpdateTargetGroup(players);
+            
             yield return StartCoroutine(gameLoopUIController.PreyReveal(currentPrey, preyRevealDuration));
+            
             audioController.PlayGameMusic(true);
             if (currentRound == 1)
                 yield return StartCoroutine(LevelIntro());
             audioController.TransitionToMain();
             HandleStartOfRound();
+            
             yield return StartCoroutine(gameLoopUIController.CountRoundTime(roundDuration));
+            
             audioController.MusicFadeOut();
             HandleEndOfRound();
+            
             yield return StartCoroutine(gameLoopUIController.NextRoundCountdown(players, roundOverDuration, currentRound));
+            
             currentRound++;
         }
 

@@ -18,8 +18,8 @@ public class RespawnController : MonoBehaviour
     InGameLoopController InGameLoopController;
     Player player;
 
-    float hunterSpeed = 0f;
-    float preySpeed = 0f;
+    float hunterSpeed = 200f;
+    float preySpeed = 164f;
     float ghostSpeed = 0f;
     float originalColliderRadius = 0;
     float ghostColliderRadius = 0;
@@ -39,6 +39,9 @@ public class RespawnController : MonoBehaviour
         ghostColliderRadius = originalColliderRadius * 3;
         hunterSpeed = InGameLoopController.HunterSpeed;
         preySpeed = InGameLoopController.PreySpeed;
+        
+        hunterSpeed = 200f;
+        preySpeed = 164f;//Nicklas får fixa nån gång
         ghostSpeed = hunterSpeed / 3;
     }
 
