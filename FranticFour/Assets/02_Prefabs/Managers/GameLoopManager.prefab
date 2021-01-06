@@ -69,7 +69,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   hunterSpeed: 200
-  preySpeed: 170
+  preySpeed: 164
   pacifistAward: 3
   respawnDelay: 2.5
   freezeAfterSpawnTime: 1.5
