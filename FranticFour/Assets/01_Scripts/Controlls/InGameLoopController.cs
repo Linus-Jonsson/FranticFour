@@ -22,9 +22,9 @@ public class InGameLoopController : MonoBehaviour
     [SerializeField] int numberOfRounds = 5;
     [SerializeField] GameObject[] spawnPoints = new GameObject[4];
     [SerializeField] float hunterSpeed = 200f;
-    public float HunterSpeed { get { return hunterSpeed; } }
+    public float HunterSpeed => hunterSpeed;
     [SerializeField] float preySpeed = 164f;
-    public float PreySpeed { get { return preySpeed; } }
+    public float PreySpeed => preySpeed;
 
     [Header("Other score addition configurations")]
     [SerializeField] int pacifistAward = 10;
