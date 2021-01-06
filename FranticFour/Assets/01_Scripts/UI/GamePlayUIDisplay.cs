@@ -59,6 +59,7 @@ public class GamePlayUIDisplay : MonoBehaviour
     [SerializeField] protected Animator sheepAnimator = null;
 
     [SerializeField] protected Sprite[] podiums = new Sprite[3];
+    [SerializeField] protected GameObject confetti = null;
 
     [Header("Prey kill screen configuration")]
     [SerializeField] protected GameObject killScreenDisplay = null;

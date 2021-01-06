@@ -1067,7 +1067,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -4262,6 +4262,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5349908a8497e99458c63764465e3097, type: 3}
   - {fileID: 21300000, guid: 0d54e3bcd0f307f48a450a33d7499465, type: 3}
   - {fileID: 21300000, guid: 958a8db64f06a6649ade6b2c26788bfc, type: 3}
+  confetti: {fileID: 3286029355515145568, guid: b6709219aec2b4f40863c8318b25edd7, type: 3}
   killScreenDisplay: {fileID: 7473697051942670459}
   killedByText: {fileID: 7473697053600329836}
   killerImages:
