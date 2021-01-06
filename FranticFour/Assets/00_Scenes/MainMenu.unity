@@ -3180,7 +3180,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1876198540}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadGame
+        m_MethodName: LoadPlayerSelection
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
