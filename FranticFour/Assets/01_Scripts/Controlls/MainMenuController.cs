@@ -28,7 +28,6 @@ public class MainMenuController : MonoBehaviour
     
     public void SetControlsWindow(bool value)
     {
-        descriptionWindow.SetActive(false);
         controlsWindow.SetActive(value);
     }
 
