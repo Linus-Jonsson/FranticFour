@@ -11,9 +11,8 @@ public class AssignPlayers : MonoBehaviour
         if (!PassControllersToGame.playersAssigned)
         {
             foreach (var player in players)
-            {
                 player.Init();
-            }
+
             Destroy(gameObject);
             return;
         }

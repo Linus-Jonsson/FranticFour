@@ -1,31 +1,26 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class SceneLoader : MonoBehaviour
 {
-	public static SceneLoader instance;
 
-	void Start()
-	{
-		if (instance == null)
-		{
-			instance = this;
-			DontDestroyOnLoad(gameObject);
-		}
-		else
-		{
-			Destroy(gameObject);
-		}
-	}
+	private static string GameScene = "PlayerSelection";
+	private static string MainMenuScene = "MainMenu";
 
 	public void ChangeScene(string name)
 	{
 		SceneManager.LoadScene(name);
 	}
 
+	public void LoadPlayerSelection()
+	{
+		SceneManager.LoadScene(GameScene);
+	}
+
 	public void LoadMainMenuScene()
 	{
-		SceneManager.LoadScene("MainMenu");
+		SceneManager.LoadScene(MainMenuScene);
 	}
 
 	public void ReloadCurrentScene()

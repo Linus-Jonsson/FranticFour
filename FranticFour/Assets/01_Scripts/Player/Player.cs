@@ -108,6 +108,7 @@ public class Player : MonoBehaviour
         playerNumber = GetComponent<AssignedController>().PlayerID + 1;
         GetReferences();
         scoreText.fontSize = 0;
+        movementController.MovementSpeed = 200;
     }
     private void GetReferences()
     {
@@ -171,6 +172,7 @@ public class Player : MonoBehaviour
 
     public void ResetPlayer()
     {
+        //What in the fuck
         HandleResetOfScoreTextAndSurvivalStreak();
         spriteRenderer.sharedMaterial.color = originalColor;
         StopPushing();
