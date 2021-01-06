@@ -108,6 +108,7 @@ public class Player : MonoBehaviour
         playerNumber = GetComponent<AssignedController>().PlayerID + 1;
         GetReferences();
         scoreText.fontSize = 0;
+        movementController.MovementSpeed = 200;
     }
     private void GetReferences()
     {

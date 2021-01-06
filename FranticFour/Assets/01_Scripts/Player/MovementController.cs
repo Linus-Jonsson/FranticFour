@@ -1,12 +1,11 @@
 ﻿using UnityEngine;
-using System.Threading.Tasks;
 
 public class MovementController : MonoBehaviour
 {
     [SerializeField] private GameObject pushParticle;
     [Header("Movement configuration")]
     [SerializeField] float maxSpeed = 10f;
-    [SerializeField] float movementSpeed = 10f;
+    [SerializeField] float movementSpeed = 200f;
     public float MovementSpeed { set { movementSpeed = value; } }
 
     Vector2 movement = new Vector2(0,0);
@@ -33,6 +32,7 @@ public class MovementController : MonoBehaviour
     private void Awake()
     {
         GetReferences();
+        MovementSpeed = movementSpeed;
     }
 
     private void GetReferences()
