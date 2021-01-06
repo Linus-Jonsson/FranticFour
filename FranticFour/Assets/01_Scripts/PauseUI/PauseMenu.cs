@@ -52,6 +52,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ExitToMain()
     {
+        AudioController.instance.PlayGameMusic(false);
         paused = false;
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
