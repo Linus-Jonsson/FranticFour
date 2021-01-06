@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class SceneLoader : MonoBehaviour
 {
 	public static SceneLoader instance;
 
-	void Start()
+	private static string GameScene = "PlayerSelection";
+	private static string MainMenuScene = "MainMenu";
+	
+	void Awake()
 	{
 		if (instance == null)
 		{
@@ -15,7 +19,7 @@ public class SceneLoader : MonoBehaviour
 		else
 		{
 			Destroy(gameObject);
-		}
+		}	
 	}
 
 	public void ChangeScene(string name)
@@ -23,9 +27,14 @@ public class SceneLoader : MonoBehaviour
 		SceneManager.LoadScene(name);
 	}
 
+	public void LoadPlayerSelection()
+	{
+		SceneManager.LoadScene(GameScene);
+	}
+
 	public void LoadMainMenuScene()
 	{
-		SceneManager.LoadScene("MainMenu");
+		SceneManager.LoadScene(MainMenuScene);
 	}
 
 	public void ReloadCurrentScene()
