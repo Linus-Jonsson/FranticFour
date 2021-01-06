@@ -5426,7 +5426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pushParticle: {fileID: 8171510603094556011, guid: a2783820e246edb49bfd463c02cbeb15, type: 3}
   maxSpeed: 30
-  movementSpeed: 40
+  movementSpeed: 200
   maxSpeedIncrease: 50
   minimumBoostDistance: 5
   distance: 0
@@ -5474,7 +5474,6 @@ MonoBehaviour:
   rawOffset: 1
   trapPushForce: 10
   trapsCoolDown: 4
-  maximumTraps: 3
   pushForce: 260
   pushCooldown: 2
   OnPush:
