@@ -21,9 +21,9 @@ public class InGameLoopController : MonoBehaviour
     [SerializeField] Player[] players = new Player[4];
     [SerializeField] int numberOfRounds = 5;
     [SerializeField] GameObject[] spawnPoints = new GameObject[4];
-    [SerializeField] float hunterSpeed = 50f;
+    [SerializeField] float hunterSpeed = 200f;
     public float HunterSpeed { get { return hunterSpeed; } }
-    [SerializeField] float preySpeed = 45f;
+    [SerializeField] float preySpeed = 164f;
     public float PreySpeed { get { return preySpeed; } }
 
     [Header("Other score addition configurations")]
@@ -167,9 +167,6 @@ public class InGameLoopController : MonoBehaviour
             currentPrey = players[i];
             players[i].ScoreIncreaseTimer();
         }
-
-        /*        else
-                    preyProbability.Add(i); implement once game is done getting tested*/
     }
 
     private void ChangePreyProbability(int numberOfPrey)
