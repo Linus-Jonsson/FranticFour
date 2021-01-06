@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerOwnedBy: 00000000000000000000000000000000
-  playersSelected: 00010101
+  playersSelected: 00000000
   canSelect: 00000000
   players:
   - {fileID: 1903818702}
